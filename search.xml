@@ -210,6 +210,12 @@
       </tags>
   </entry>
   <entry>
+    <title>Git常用命令(上)</title>
+    <url>/2022/07/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/</url>
+    <content><![CDATA[<h3 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h3><hr>
+<h4 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h4>]]></content>
+  </entry>
+  <entry>
     <title>Heap</title>
     <url>/2021/10/24/Heap/</url>
     <content><![CDATA[<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><h4 id="优先队列-Pripority-Queue"><a href="#优先队列-Pripority-Queue" class="headerlink" title="优先队列(Pripority Queue)"></a>优先队列(<code>Pripority Queue</code>)</h4><ul>
@@ -1184,30 +1190,6 @@
       </tags>
   </entry>
   <entry>
-    <title>微信多开</title>
-    <url>/2022/02/28/%E5%BE%AE%E4%BF%A1%E5%A4%9A%E5%BC%80/</url>
-    <content><![CDATA[<h2 id="微信多开的小技巧-Windows"><a href="#微信多开的小技巧-Windows" class="headerlink" title="微信多开的小技巧 - Windows"></a>微信多开的小技巧 - Windows</h2><ul>
-<li><p>首先，需要你知道你机器上安装微信 - 请记录它的安装位置</p>
-</li>
-<li><p>一般情况下，如果你不做任何修改的话，它会在<code>C:\Program Files (x86)\Tencent\WeChat</code>这个目录下：<br>&ensp;&ensp; <img src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/wechat_install_path.png" title="微信安装位置"></p>
-</li>
-<li><p>然后，打开你机器上任意的一个文本编辑器，输入如下内容：</p>
-</li>
-<li><p>需要多开多少个微信，你便将如下命令输入重复写多少次。</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">start D:\&quot;Program Files (x86)<span class="string">&quot;\Tencent\WeChat\WeChat.exe</span></span><br><span class="line"><span class="string">start D:\&quot;Program Files (x86)&quot;</span>\Tencent\WeChat\WeChat.exe</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请将上面的路径换成你机器上安装微信的路径</span></span><br><span class="line"><span class="comment"># 上面表示的是同时开两个微信程序</span></span><br><span class="line"><span class="comment"># 前面的路径部分中含有空格，为了让系统能识别，我们需要用双引号将其括起来，这样才能正确的识别</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li><p>然后将文件保存，文件后缀为<code>.bat</code>,这是<code>cmd</code>识别的命令行，这个时候你打开你刚保存的文件，便会弹出你想要多开的数量。</p>
-<p><img src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/multi_open_wechat.png" title="微信多开效果图"></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Tips</category>
-      </categories>
-      <tags>
-        <tag>windows</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>归并排序</title>
     <url>/2021/10/26/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><ul>
@@ -1229,6 +1211,30 @@
       <tags>
         <tag>cpp</tag>
         <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信多开</title>
+    <url>/2022/02/28/%E5%BE%AE%E4%BF%A1%E5%A4%9A%E5%BC%80/</url>
+    <content><![CDATA[<h2 id="微信多开的小技巧-Windows"><a href="#微信多开的小技巧-Windows" class="headerlink" title="微信多开的小技巧 - Windows"></a>微信多开的小技巧 - Windows</h2><ul>
+<li><p>首先，需要你知道你机器上安装微信 - 请记录它的安装位置</p>
+</li>
+<li><p>一般情况下，如果你不做任何修改的话，它会在<code>C:\Program Files (x86)\Tencent\WeChat</code>这个目录下：<br>&ensp;&ensp; <img src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/wechat_install_path.png" title="微信安装位置"></p>
+</li>
+<li><p>然后，打开你机器上任意的一个文本编辑器，输入如下内容：</p>
+</li>
+<li><p>需要多开多少个微信，你便将如下命令输入重复写多少次。</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">start D:\&quot;Program Files (x86)<span class="string">&quot;\Tencent\WeChat\WeChat.exe</span></span><br><span class="line"><span class="string">start D:\&quot;Program Files (x86)&quot;</span>\Tencent\WeChat\WeChat.exe</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请将上面的路径换成你机器上安装微信的路径</span></span><br><span class="line"><span class="comment"># 上面表示的是同时开两个微信程序</span></span><br><span class="line"><span class="comment"># 前面的路径部分中含有空格，为了让系统能识别，我们需要用双引号将其括起来，这样才能正确的识别</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>然后将文件保存，文件后缀为<code>.bat</code>,这是<code>cmd</code>识别的命令行，这个时候你打开你刚保存的文件，便会弹出你想要多开的数量。</p>
+<p><img src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/multi_open_wechat.png" title="微信多开效果图"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tips</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
       </tags>
   </entry>
   <entry>
