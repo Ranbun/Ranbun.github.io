@@ -3,11 +3,11 @@
   <title>Bao&#39;s blog</title>
   
   <subtitle>Tomorrow will be better</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://blog.ranbun.com/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://blog.ranbun.com/"/>
   <updated>2022-07-26T00:48:36.851Z</updated>
-  <id>http://example.com/</id>
+  <id>https://blog.ranbun.com/</id>
   
   <author>
     <name>Baozi</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Git常用命令(上)</title>
-    <link href="http://example.com/2022/07/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/"/>
-    <id>http://example.com/2022/07/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/</id>
+    <link href="https://blog.ranbun.com/2022/07/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/"/>
+    <id>https://blog.ranbun.com/2022/07/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/</id>
     <published>2022-07-24T10:25:51.000Z</published>
     <updated>2022-07-26T00:48:36.851Z</updated>
     
@@ -34,19 +34,19 @@
     
     
     
-    <category term="works" scheme="http://example.com/categories/works/"/>
+    <category term="works" scheme="https://blog.ranbun.com/categories/works/"/>
     
-    <category term="SCU" scheme="http://example.com/categories/works/SCU/"/>
+    <category term="SCU" scheme="https://blog.ranbun.com/categories/works/SCU/"/>
     
     
-    <category term="Git" scheme="http://example.com/tags/Git/"/>
+    <category term="Git" scheme="https://blog.ranbun.com/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>微信多开</title>
-    <link href="http://example.com/2022/02/28/%E5%BE%AE%E4%BF%A1%E5%A4%9A%E5%BC%80/"/>
-    <id>http://example.com/2022/02/28/%E5%BE%AE%E4%BF%A1%E5%A4%9A%E5%BC%80/</id>
+    <link href="https://blog.ranbun.com/2022/02/28/%E5%BE%AE%E4%BF%A1%E5%A4%9A%E5%BC%80/"/>
+    <id>https://blog.ranbun.com/2022/02/28/%E5%BE%AE%E4%BF%A1%E5%A4%9A%E5%BC%80/</id>
     <published>2022-02-28T14:11:02.000Z</published>
     <updated>2022-07-26T00:48:36.869Z</updated>
     
@@ -61,17 +61,17 @@
     
     
     
-    <category term="Tips" scheme="http://example.com/categories/Tips/"/>
+    <category term="Tips" scheme="https://blog.ranbun.com/categories/Tips/"/>
     
     
-    <category term="windows" scheme="http://example.com/tags/windows/"/>
+    <category term="windows" scheme="https://blog.ranbun.com/tags/windows/"/>
     
   </entry>
   
   <entry>
     <title>记一次面试</title>
-    <link href="http://example.com/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95-1/"/>
-    <id>http://example.com/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95-1/</id>
+    <link href="https://blog.ranbun.com/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95-1/"/>
+    <id>https://blog.ranbun.com/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95-1/</id>
     <published>2022-01-15T16:51:02.000Z</published>
     <updated>2022-07-26T00:56:37.048Z</updated>
     
@@ -85,23 +85,23 @@
     
     
     
-    <category term="works" scheme="http://example.com/categories/works/"/>
+    <category term="works" scheme="https://blog.ranbun.com/categories/works/"/>
     
-    <category term="interview" scheme="http://example.com/categories/works/interview/"/>
+    <category term="interview" scheme="https://blog.ranbun.com/categories/works/interview/"/>
     
     
-    <category term="cpp" scheme="http://example.com/tags/cpp/"/>
+    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
     
-    <category term="openGL" scheme="http://example.com/tags/openGL/"/>
+    <category term="openGL" scheme="https://blog.ranbun.com/tags/openGL/"/>
     
-    <category term="computer graphics" scheme="http://example.com/tags/computer-graphics/"/>
+    <category term="computer graphics" scheme="https://blog.ranbun.com/tags/computer-graphics/"/>
     
   </entry>
   
   <entry>
     <title>2021年终总结</title>
-    <link href="http://example.com/2022/01/16/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
-    <id>http://example.com/2022/01/16/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</id>
+    <link href="https://blog.ranbun.com/2022/01/16/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
+    <id>https://blog.ranbun.com/2022/01/16/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</id>
     <published>2022-01-15T16:43:19.000Z</published>
     <updated>2022-07-26T00:48:36.845Z</updated>
     
@@ -119,19 +119,19 @@
     
     
     
-    <category term="bun" scheme="http://example.com/categories/bun/"/>
+    <category term="bun" scheme="https://blog.ranbun.com/categories/bun/"/>
     
-    <category term="life" scheme="http://example.com/categories/bun/life/"/>
+    <category term="life" scheme="https://blog.ranbun.com/categories/bun/life/"/>
     
     
-    <category term="mylife" scheme="http://example.com/tags/mylife/"/>
+    <category term="mylife" scheme="https://blog.ranbun.com/tags/mylife/"/>
     
   </entry>
   
   <entry>
     <title>Games202-ShadowMap</title>
-    <link href="http://example.com/2021/12/13/Games202-ShadowMap/"/>
-    <id>http://example.com/2021/12/13/Games202-ShadowMap/</id>
+    <link href="https://blog.ranbun.com/2021/12/13/Games202-ShadowMap/"/>
+    <id>https://blog.ranbun.com/2021/12/13/Games202-ShadowMap/</id>
     <published>2021-12-13T14:25:25.000Z</published>
     <updated>2022-07-26T00:48:36.849Z</updated>
     
@@ -146,19 +146,19 @@
     
     
     
-    <category term="Computer Graph" scheme="http://example.com/categories/Computer-Graph/"/>
+    <category term="Computer Graph" scheme="https://blog.ranbun.com/categories/Computer-Graph/"/>
     
     
-    <category term="Games202" scheme="http://example.com/tags/Games202/"/>
+    <category term="Games202" scheme="https://blog.ranbun.com/tags/Games202/"/>
     
-    <category term="Shadow" scheme="http://example.com/tags/Shadow/"/>
+    <category term="Shadow" scheme="https://blog.ranbun.com/tags/Shadow/"/>
     
   </entry>
   
   <entry>
     <title>Multi KeyWord Sort</title>
-    <link href="http://example.com/2021/11/07/Multi-KeyWord-Sort/"/>
-    <id>http://example.com/2021/11/07/Multi-KeyWord-Sort/</id>
+    <link href="https://blog.ranbun.com/2021/11/07/Multi-KeyWord-Sort/"/>
+    <id>https://blog.ranbun.com/2021/11/07/Multi-KeyWord-Sort/</id>
     <published>2021-11-07T14:18:51.000Z</published>
     <updated>2022-07-26T00:48:36.853Z</updated>
     
@@ -176,19 +176,19 @@
     
     
     
-    <category term="Algorithm" scheme="http://example.com/categories/Algorithm/"/>
+    <category term="Algorithm" scheme="https://blog.ranbun.com/categories/Algorithm/"/>
     
     
-    <category term="cpp" scheme="http://example.com/tags/cpp/"/>
+    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
     
-    <category term="sort" scheme="http://example.com/tags/sort/"/>
+    <category term="sort" scheme="https://blog.ranbun.com/tags/sort/"/>
     
   </entry>
   
   <entry>
     <title>Bucket Sort and Cardinality sort</title>
-    <link href="http://example.com/2021/11/07/Bucket-Sort/"/>
-    <id>http://example.com/2021/11/07/Bucket-Sort/</id>
+    <link href="https://blog.ranbun.com/2021/11/07/Bucket-Sort/"/>
+    <id>https://blog.ranbun.com/2021/11/07/Bucket-Sort/</id>
     <published>2021-11-07T13:34:19.000Z</published>
     <updated>2022-07-26T00:48:36.846Z</updated>
     
@@ -205,19 +205,19 @@
     
     
     
-    <category term="Algorithm" scheme="http://example.com/categories/Algorithm/"/>
+    <category term="Algorithm" scheme="https://blog.ranbun.com/categories/Algorithm/"/>
     
     
-    <category term="cpp" scheme="http://example.com/tags/cpp/"/>
+    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
     
-    <category term="sort" scheme="http://example.com/tags/sort/"/>
+    <category term="sort" scheme="https://blog.ranbun.com/tags/sort/"/>
     
   </entry>
   
   <entry>
     <title>Physical Sort</title>
-    <link href="http://example.com/2021/11/07/Physical-Sort/"/>
-    <id>http://example.com/2021/11/07/Physical-Sort/</id>
+    <link href="https://blog.ranbun.com/2021/11/07/Physical-Sort/"/>
+    <id>https://blog.ranbun.com/2021/11/07/Physical-Sort/</id>
     <published>2021-11-07T10:05:13.000Z</published>
     <updated>2022-07-26T00:48:36.859Z</updated>
     
@@ -232,19 +232,19 @@
     
     
     
-    <category term="Algorithm" scheme="http://example.com/categories/Algorithm/"/>
+    <category term="Algorithm" scheme="https://blog.ranbun.com/categories/Algorithm/"/>
     
     
-    <category term="cpp" scheme="http://example.com/tags/cpp/"/>
+    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
     
-    <category term="sort" scheme="http://example.com/tags/sort/"/>
+    <category term="sort" scheme="https://blog.ranbun.com/tags/sort/"/>
     
   </entry>
   
   <entry>
     <title>Dynamic drawing of osg vertex buffer objects</title>
-    <link href="http://example.com/2021/11/07/Dynamic-drawing-of-osg-vertex-buffer-objects/"/>
-    <id>http://example.com/2021/11/07/Dynamic-drawing-of-osg-vertex-buffer-objects/</id>
+    <link href="https://blog.ranbun.com/2021/11/07/Dynamic-drawing-of-osg-vertex-buffer-objects/"/>
+    <id>https://blog.ranbun.com/2021/11/07/Dynamic-drawing-of-osg-vertex-buffer-objects/</id>
     <published>2021-11-06T16:36:24.000Z</published>
     <updated>2022-07-26T00:48:36.848Z</updated>
     
@@ -258,23 +258,23 @@
     
     
     
-    <category term="works" scheme="http://example.com/categories/works/"/>
+    <category term="works" scheme="https://blog.ranbun.com/categories/works/"/>
     
-    <category term="HJ" scheme="http://example.com/categories/works/HJ/"/>
+    <category term="HJ" scheme="https://blog.ranbun.com/categories/works/HJ/"/>
     
-    <category term="OSG" scheme="http://example.com/categories/works/HJ/OSG/"/>
+    <category term="OSG" scheme="https://blog.ranbun.com/categories/works/HJ/OSG/"/>
     
     
-    <category term="cpp" scheme="http://example.com/tags/cpp/"/>
+    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
     
-    <category term="osg" scheme="http://example.com/tags/osg/"/>
+    <category term="osg" scheme="https://blog.ranbun.com/tags/osg/"/>
     
   </entry>
   
   <entry>
     <title>Table-Sort</title>
-    <link href="http://example.com/2021/11/07/Table-Sort/"/>
-    <id>http://example.com/2021/11/07/Table-Sort/</id>
+    <link href="https://blog.ranbun.com/2021/11/07/Table-Sort/"/>
+    <id>https://blog.ranbun.com/2021/11/07/Table-Sort/</id>
     <published>2021-11-06T16:30:03.000Z</published>
     <updated>2022-07-26T00:48:36.864Z</updated>
     
@@ -290,19 +290,19 @@
     
     
     
-    <category term="Algorithm" scheme="http://example.com/categories/Algorithm/"/>
+    <category term="Algorithm" scheme="https://blog.ranbun.com/categories/Algorithm/"/>
     
     
-    <category term="cpp" scheme="http://example.com/tags/cpp/"/>
+    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
     
-    <category term="sort" scheme="http://example.com/tags/sort/"/>
+    <category term="sort" scheme="https://blog.ranbun.com/tags/sort/"/>
     
   </entry>
   
   <entry>
     <title>QuickSort</title>
-    <link href="http://example.com/2021/10/28/QuickSort/"/>
-    <id>http://example.com/2021/10/28/QuickSort/</id>
+    <link href="https://blog.ranbun.com/2021/10/28/QuickSort/"/>
+    <id>https://blog.ranbun.com/2021/10/28/QuickSort/</id>
     <published>2021-10-28T14:28:59.000Z</published>
     <updated>2022-07-26T00:48:36.860Z</updated>
     
@@ -316,19 +316,19 @@
     
     
     
-    <category term="Algorithm" scheme="http://example.com/categories/Algorithm/"/>
+    <category term="Algorithm" scheme="https://blog.ranbun.com/categories/Algorithm/"/>
     
     
-    <category term="cpp" scheme="http://example.com/tags/cpp/"/>
+    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
     
-    <category term="sort" scheme="http://example.com/tags/sort/"/>
+    <category term="sort" scheme="https://blog.ranbun.com/tags/sort/"/>
     
   </entry>
   
   <entry>
     <title>归并排序</title>
-    <link href="http://example.com/2021/10/26/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
-    <id>http://example.com/2021/10/26/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</id>
+    <link href="https://blog.ranbun.com/2021/10/26/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
+    <id>https://blog.ranbun.com/2021/10/26/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</id>
     <published>2021-10-26T15:53:24.000Z</published>
     <updated>2022-07-26T00:48:36.867Z</updated>
     
@@ -343,19 +343,19 @@
     
     
     
-    <category term="Algorithm" scheme="http://example.com/categories/Algorithm/"/>
+    <category term="Algorithm" scheme="https://blog.ranbun.com/categories/Algorithm/"/>
     
     
-    <category term="cpp" scheme="http://example.com/tags/cpp/"/>
+    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
     
-    <category term="sort" scheme="http://example.com/tags/sort/"/>
+    <category term="sort" scheme="https://blog.ranbun.com/tags/sort/"/>
     
   </entry>
   
   <entry>
     <title>Shell-Sort</title>
-    <link href="http://example.com/2021/10/26/Shell-Sort/"/>
-    <id>http://example.com/2021/10/26/Shell-Sort/</id>
+    <link href="https://blog.ranbun.com/2021/10/26/Shell-Sort/"/>
+    <id>https://blog.ranbun.com/2021/10/26/Shell-Sort/</id>
     <published>2021-10-26T12:25:46.000Z</published>
     <updated>2022-07-26T00:48:36.862Z</updated>
     
@@ -371,19 +371,19 @@
     
     
     
-    <category term="Algorithm" scheme="http://example.com/categories/Algorithm/"/>
+    <category term="Algorithm" scheme="https://blog.ranbun.com/categories/Algorithm/"/>
     
     
-    <category term="cpp" scheme="http://example.com/tags/cpp/"/>
+    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
     
-    <category term="sort" scheme="http://example.com/tags/sort/"/>
+    <category term="sort" scheme="https://blog.ranbun.com/tags/sort/"/>
     
   </entry>
   
   <entry>
     <title>Selection_sort</title>
-    <link href="http://example.com/2021/10/25/Selection-sort/"/>
-    <id>http://example.com/2021/10/25/Selection-sort/</id>
+    <link href="https://blog.ranbun.com/2021/10/25/Selection-sort/"/>
+    <id>https://blog.ranbun.com/2021/10/25/Selection-sort/</id>
     <published>2021-10-25T14:25:09.000Z</published>
     <updated>2022-07-26T00:48:36.861Z</updated>
     
@@ -398,19 +398,19 @@
     
     
     
-    <category term="Algorithm" scheme="http://example.com/categories/Algorithm/"/>
+    <category term="Algorithm" scheme="https://blog.ranbun.com/categories/Algorithm/"/>
     
     
-    <category term="cpp" scheme="http://example.com/tags/cpp/"/>
+    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
     
-    <category term="sort" scheme="http://example.com/tags/sort/"/>
+    <category term="sort" scheme="https://blog.ranbun.com/tags/sort/"/>
     
   </entry>
   
   <entry>
     <title>Heap</title>
-    <link href="http://example.com/2021/10/24/Heap/"/>
-    <id>http://example.com/2021/10/24/Heap/</id>
+    <link href="https://blog.ranbun.com/2021/10/24/Heap/"/>
+    <id>https://blog.ranbun.com/2021/10/24/Heap/</id>
     <published>2021-10-24T07:55:06.000Z</published>
     <updated>2022-07-26T00:48:36.852Z</updated>
     
@@ -424,19 +424,19 @@
     
     
     
-    <category term="Algorithm" scheme="http://example.com/categories/Algorithm/"/>
+    <category term="Algorithm" scheme="https://blog.ranbun.com/categories/Algorithm/"/>
     
     
-    <category term="cpp" scheme="http://example.com/tags/cpp/"/>
+    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
     
-    <category term="sort" scheme="http://example.com/tags/sort/"/>
+    <category term="sort" scheme="https://blog.ranbun.com/tags/sort/"/>
     
   </entry>
   
   <entry>
     <title>简单排序-冒泡&amp;插入</title>
-    <link href="http://example.com/2021/10/19/sort-bubble-insertion/"/>
-    <id>http://example.com/2021/10/19/sort-bubble-insertion/</id>
+    <link href="https://blog.ranbun.com/2021/10/19/sort-bubble-insertion/"/>
+    <id>https://blog.ranbun.com/2021/10/19/sort-bubble-insertion/</id>
     <published>2021-10-19T15:41:14.000Z</published>
     <updated>2022-07-26T00:48:36.866Z</updated>
     
@@ -454,19 +454,19 @@
     
     
     
-    <category term="Algorithm" scheme="http://example.com/categories/Algorithm/"/>
+    <category term="Algorithm" scheme="https://blog.ranbun.com/categories/Algorithm/"/>
     
     
-    <category term="cpp" scheme="http://example.com/tags/cpp/"/>
+    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
     
-    <category term="sort" scheme="http://example.com/tags/sort/"/>
+    <category term="sort" scheme="https://blog.ranbun.com/tags/sort/"/>
     
   </entry>
   
   <entry>
     <title>记一次总结</title>
-    <link href="http://example.com/2021/10/17/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%80%BB%E7%BB%93/"/>
-    <id>http://example.com/2021/10/17/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%80%BB%E7%BB%93/</id>
+    <link href="https://blog.ranbun.com/2021/10/17/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%80%BB%E7%BB%93/"/>
+    <id>https://blog.ranbun.com/2021/10/17/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%80%BB%E7%BB%93/</id>
     <published>2021-10-17T07:25:40.000Z</published>
     <updated>2022-07-26T00:48:36.870Z</updated>
     
@@ -481,19 +481,19 @@
     
     
     
-    <category term="works" scheme="http://example.com/categories/works/"/>
+    <category term="works" scheme="https://blog.ranbun.com/categories/works/"/>
     
-    <category term="HJ" scheme="http://example.com/categories/works/HJ/"/>
+    <category term="HJ" scheme="https://blog.ranbun.com/categories/works/HJ/"/>
     
     
-    <category term="conclusion" scheme="http://example.com/tags/conclusion/"/>
+    <category term="conclusion" scheme="https://blog.ranbun.com/tags/conclusion/"/>
     
   </entry>
   
   <entry>
     <title>记一次面试</title>
-    <link href="http://example.com/2021/07/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95/"/>
-    <id>http://example.com/2021/07/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95/</id>
+    <link href="https://blog.ranbun.com/2021/07/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95/"/>
+    <id>https://blog.ranbun.com/2021/07/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95/</id>
     <published>2021-07-27T12:31:46.000Z</published>
     <updated>2022-07-26T00:48:36.873Z</updated>
     
@@ -512,8 +512,8 @@
   
   <entry>
     <title>OSG-HUD</title>
-    <link href="http://example.com/2021/07/26/OSG-HUD/"/>
-    <id>http://example.com/2021/07/26/OSG-HUD/</id>
+    <link href="https://blog.ranbun.com/2021/07/26/OSG-HUD/"/>
+    <id>https://blog.ranbun.com/2021/07/26/OSG-HUD/</id>
     <published>2021-07-26T14:40:11.000Z</published>
     <updated>2022-07-26T00:48:36.855Z</updated>
     
@@ -528,21 +528,21 @@
     
     
     
-    <category term="works" scheme="http://example.com/categories/works/"/>
+    <category term="works" scheme="https://blog.ranbun.com/categories/works/"/>
     
-    <category term="GF" scheme="http://example.com/categories/works/GF/"/>
+    <category term="GF" scheme="https://blog.ranbun.com/categories/works/GF/"/>
     
     
-    <category term="cpp" scheme="http://example.com/tags/cpp/"/>
+    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
     
-    <category term="osg" scheme="http://example.com/tags/osg/"/>
+    <category term="osg" scheme="https://blog.ranbun.com/tags/osg/"/>
     
   </entry>
   
   <entry>
     <title>OSG踩坑记-默认光源</title>
-    <link href="http://example.com/2021/04/04/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90/"/>
-    <id>http://example.com/2021/04/04/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90/</id>
+    <link href="https://blog.ranbun.com/2021/04/04/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90/"/>
+    <id>https://blog.ranbun.com/2021/04/04/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90/</id>
     <published>2021-04-03T16:10:50.000Z</published>
     <updated>2022-07-26T00:48:36.857Z</updated>
     
@@ -556,16 +556,16 @@
     
     
     
-    <category term="works" scheme="http://example.com/categories/works/"/>
+    <category term="works" scheme="https://blog.ranbun.com/categories/works/"/>
     
-    <category term="GF" scheme="http://example.com/categories/works/GF/"/>
+    <category term="GF" scheme="https://blog.ranbun.com/categories/works/GF/"/>
     
-    <category term="OSG" scheme="http://example.com/categories/works/GF/OSG/"/>
+    <category term="OSG" scheme="https://blog.ranbun.com/categories/works/GF/OSG/"/>
     
     
-    <category term="cpp" scheme="http://example.com/tags/cpp/"/>
+    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
     
-    <category term="osg" scheme="http://example.com/tags/osg/"/>
+    <category term="osg" scheme="https://blog.ranbun.com/tags/osg/"/>
     
   </entry>
   
