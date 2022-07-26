@@ -49,7 +49,8 @@
             {% if config.archive_dir != '/' and site.posts.length > 0 %}
               <div class="site-state-item site-state-posts">
               {% if theme.menu.archives %}
-                <a href="{{ url_for(theme.menu.archives).split('||')[0] | trim }}">
+                # <a href="{{ url_for(theme.menu.archives).split('||')[0] | trim }}">
+                <a href="{{ url_for(config.archive_dir) | trim }}">
               {% else %}
                 <a href="{{ url_for(config.archive_dir) }}">
               {% endif %}
@@ -172,7 +173,7 @@
 
     </div>
     <div>
-    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86
     src="//music.163.com/outchain/player?type=2&id=1300029572&auto=1&height=66"></iframe>
     </div>
   </aside>
