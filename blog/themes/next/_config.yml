@@ -103,11 +103,22 @@ menu:
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
+  home: /|| home
+  categories: /categories/|| th
+  #schedule: /schedule || calendar
+  #sitemap: /sitemap.xml || sitemap
+  sitemap:
+    path: sitemap.xml
+  archives: /archives|| archive
+  tags: /tags|| tags
+  about: /about|| user
+  # commonweal: /404
+
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
   icons: true
-  badges: false
+  badges: true
 
 
 # ---------------------------------------------------------------
@@ -154,6 +165,10 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
+  GitHub: https://github.com/Ranbun|| github
+  E-Mail: mailto::ranbao@gmail.com|| envelope
+  FaceBook: https://www.facebook.com/477740261.baozi/|| facebook
+  Zhihu: https://www.zhihu.com/people/bao-zi-17-17/|| zhihu
   #GitHub: https://github.com/yourname || fab fa-github
   #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
@@ -169,6 +184,11 @@ social_icons:
   enable: true
   icons_only: false
   transition: false
+  GitHub: github
+  E-Mail: envelope
+  #Twitter: twitter
+  Zhihu: zhihu
+  FaceBook: facebook
 
 # Blog rolls
 links_settings:
@@ -866,9 +886,9 @@ pace:
 # Canvas ribbon
 # For more information: https://github.com/hustcc/ribbon.js
 canvas_ribbon:
-  enable: false
-  size: 300 # The width of the ribbon
-  alpha: 0.6 # The transparency of the ribbon
+  enable: true
+  size: 250 # The width of the ribbon
+  alpha: 0.4 # The transparency of the ribbon
   zIndex: -1 # The display level of the ribbon
 
 

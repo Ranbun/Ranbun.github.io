@@ -421,13 +421,6 @@
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/categories/Math/</loc>
-    <lastmod>2022-07-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.ranbun.com/categories/works/SCU/</loc>
     <lastmod>2022-07-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -435,28 +428,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/categories/Tips/</loc>
-    <lastmod>2022-07-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.ranbun.com/categories/works/GF/data-type/</loc>
-    <lastmod>2022-07-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ranbun.com/categories/works/interview/</loc>
-    <lastmod>2022-07-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ranbun.com/categories/bun/university/</loc>
     <lastmod>2022-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -477,6 +449,27 @@
   </url>
   
   <url>
+    <loc>https://blog.ranbun.com/categories/works/GF/data-type/bugs/</loc>
+    <lastmod>2022-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ranbun.com/categories/Math/</loc>
+    <lastmod>2022-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ranbun.com/categories/Tips/</loc>
+    <lastmod>2022-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.ranbun.com/categories/Math/linear-algebra/</loc>
     <lastmod>2022-07-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -484,7 +477,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/categories/works/GF/data-type/bugs/</loc>
+    <loc>https://blog.ranbun.com/categories/works/interview/</loc>
+    <lastmod>2022-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ranbun.com/categories/bun/university/</loc>
     <lastmod>2022-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

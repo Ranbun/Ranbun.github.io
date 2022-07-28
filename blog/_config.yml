@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Bao's blog
-subtitle: 'Tomorrow will be better'
-description: 鲁迅先生说:"这句话我没是说过！"
+title: RanBun's Blog
+subtitle: '如你所见,如我所见'
+description: 人大概要先见自己,然后才能见众生
 avatar: /images/icon/icon.png
-keywords:
-author: Baozi
+keywords: IT
+author: RanBun
 language: zh-CN
 timezone: Asia/Shanghai
 

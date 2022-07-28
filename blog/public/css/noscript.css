@@ -1,5 +1,7 @@
 body {
   margin-top: 2rem;
+  background: url("/images/background.jpg");
+  background-attachment: fixed;
 }
 .use-motion .menu-item,
 .use-motion .sidebar,

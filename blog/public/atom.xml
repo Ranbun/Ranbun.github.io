@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Bao&#39;s blog</title>
+  <title>RanBun&#39;s Blog</title>
   
-  <subtitle>Tomorrow will be better</subtitle>
+  <subtitle>如你所见,如我所见</subtitle>
   <link href="https://blog.ranbun.com/atom.xml" rel="self"/>
   
   <link href="https://blog.ranbun.com/"/>
@@ -10,7 +10,7 @@
   <id>https://blog.ranbun.com/</id>
   
   <author>
-    <name>Baozi</name>
+    <name>RanBun</name>
     
   </author>
   
