@@ -5,7 +5,7 @@
 	logallrefupdates = true
 	ignorecase = true
 [remote "origin"]
-	url = https://github.com/next-theme/hexo-theme-next
+	url = https://github.com/iissnan/hexo-theme-next
 	fetch = +refs/heads/*:refs/remotes/origin/*
 [branch "master"]
 	remote = origin
