@@ -27,13 +27,11 @@
 <meta property="og:site_name" content="Bao&#39;s blog">
 <meta property="og:description" content="向量的内积与外积 点与点的减法  描述的是起点到终点的运动  点\({p}\)与向量\(\vec{a}\)的加法  从\(P\)出发经过这个向量\(\vec{a}\)代表的运动，到达一个新的点\(P_0\)  在此处定义两个向量  \(\vec{a}\) \[        \vec{a} &#x3D; \begin{bmatrix}         a_1 \\">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Ranbun/images/main/weChat/vector/计算两个向量的夹角.png">
 <meta property="article:published_time" content="2022-07-27T16:55:14.000Z">
 <meta property="article:modified_time" content="2022-07-28T11:38:35.131Z">
 <meta property="article:author" content="Baozi">
 <meta property="article:tag" content="vector">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Ranbun/images/main/weChat/vector/计算两个向量的夹角.png">
 
 
 <link rel="canonical" href="https://blog.ranbun.com/2022/07/28/vector-dot-product/">
@@ -237,20 +235,26 @@
 <ul>
 <li>描述的是起点到终点的运动</li>
 </ul>
-<h3 id="点p与向量veca的加法">点<span class="math inline">\({p}\)</span>与向量<span class="math inline">\(\vec{a}\)</span>的加法</h3>
+<h3 id="点p与向量veca的加法">点<span
+class="math inline">\({p}\)</span>与向量<span
+class="math inline">\(\vec{a}\)</span>的加法</h3>
 <ul>
-<li>从<span class="math inline">\(P\)</span>出发经过这个向量<span class="math inline">\(\vec{a}\)</span>代表的运动，到达一个新的点<span class="math inline">\(P_0\)</span></li>
+<li>从<span class="math inline">\(P\)</span>出发经过这个向量<span
+class="math inline">\(\vec{a}\)</span>代表的运动，到达一个新的点<span
+class="math inline">\(P_0\)</span></li>
 </ul>
 <h3 id="在此处定义两个向量">在此处定义两个向量</h3>
 <ul>
-<li><span class="math inline">\(\vec{a}\)</span> <span class="math display">\[  
+<li><span class="math inline">\(\vec{a}\)</span> <span
+class="math display">\[  
      \vec{a} = \begin{bmatrix}
         a_1 \\
         a_2 \\
         a_3 \\
       \end{bmatrix}
 \]</span></li>
-<li><span class="math inline">\(\vec{b}\)</span> <span class="math display">\[  
+<li><span class="math inline">\(\vec{b}\)</span> <span
+class="math display">\[  
     \vec{b} = \begin{bmatrix}
       b_1 \\
       b_2 \\
@@ -261,7 +265,8 @@
 <h3 id="向量点击">向量点击</h3>
 <ul>
 <li>点击(内积)的公式 <span class="math display">\[\vec{a}\cdot\vec{b} =
-|\vec{a}|\times|\vec{b}|\times \cos \theta \]</span> <span class="math display">\[ \vec{a}\cdot\vec{b} = \sum_{i=1}^{n} \left\{ a_i
+|\vec{a}|\times|\vec{b}|\times \cos \theta \]</span> <span
+class="math display">\[ \vec{a}\cdot\vec{b} = \sum_{i=1}^{n} \left\{ a_i
 * b_i \right\}\]</span></li>
 <li>点击的几何意义
 <ul>
@@ -279,14 +284,20 @@
 <ul>
 <li>计算向量的模长的平方 <span class="math display">\[|\vec{a}|^2 =
 \vec{a} \cdot \vec{a} \]</span></li>
-<li>计算两个向量之间的夹角的<span class="math inline">\(\cos\theta\)</span> -<img src="https://raw.githubusercontent.com/Ranbun/images/main/weChat/vector/计算两个向量的夹角.png" title="计算两个向量之间的夹角" alt="计算两个向量之间的夹角">
+<li>计算两个向量之间的夹角的<span
+class="math inline">\(\cos\theta\)</span> -<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/weChat/vector/计算两个向量的夹角.png"
+title="计算两个向量之间的夹角" alt="计算两个向量之间的夹角" />
 <ul>
-<li>两个单位向量的点击等于他们的夹角的<span class="math inline">\(\cos\theta\)</span>的值</li>
+<li>两个单位向量的点击等于他们的夹角的<span
+class="math inline">\(\cos\theta\)</span>的值</li>
 </ul></li>
-<li>两个互相垂直的向量的点击总是为<code>0</code> <span class="math inline">\(\theta = 90^0\)</span> <span class="math display">\[\vec{a} \cdot \vec{b} = |\vec{a}| \ast |\vec{b}|
+<li>两个互相垂直的向量的点击总是为<code>0</code> <span
+class="math inline">\(\theta = 90^0\)</span> <span
+class="math display">\[\vec{a} \cdot \vec{b} = |\vec{a}| \ast |\vec{b}|
 \ast \cos\theta = 0 \]</span></li>
 <li>一条射线描述的向量[起点 +
-方向]点击一个平面的法向可以得到起点到平面的距离<br>
+方向]点击一个平面的法向可以得到起点到平面的距离<br />
 ### 向量叉积</li>
 </ul></li>
 <li>外积公式 <span class="math display">\[
@@ -303,9 +314,13 @@
   \vec{a} \times \vec{b} = |\vec{a}| * |\vec{b}| * sin(\theta) * \vec{n}
 \]</span>
 <ul>
-<li><span class="math inline">\(\vec{n}\)</span> 表示<span class="math inline">\(\vec{a}\)</span>, <span class="math inline">\(\vec{b}\)</span>所构成平面的法向量方向的单位向量</li>
+<li><span class="math inline">\(\vec{n}\)</span> 表示<span
+class="math inline">\(\vec{a}\)</span>, <span
+class="math inline">\(\vec{b}\)</span>所构成平面的法向量方向的单位向量</li>
 </ul></li>
-<li>在二维空间中：叉积得到的向量的模长<span class="math inline">\(|\vec{a}\times\vec{b}|\)</span>等于这两个向量<span class="math inline">\(\vec{a},\vec{b}\)</span>组成的平行四边形的面积</li>
+<li>在二维空间中：叉积得到的向量的模长<span
+class="math inline">\(|\vec{a}\times\vec{b}|\)</span>等于这两个向量<span
+class="math inline">\(\vec{a},\vec{b}\)</span>组成的平行四边形的面积</li>
 </ul></li>
 <li>外积的使用
 <ul>
@@ -316,7 +331,12 @@
 <ul>
 <li>扩展 - 1
 <ul>
-<li>平面上的四个点<span class="math inline">\(P_1\)</span>,<span class="math inline">\(P_2\)</span>,<span class="math inline">\(P_3\)</span>,<span class="math inline">\(P_4\)</span>,分别构成向量 <span class="math inline">\(\vec{P_1P_2}\)</span>与<span class="math inline">\(\vec{P_3P_4}\)</span>。如何通过点击计算他们交点的坐标?</li>
+<li>平面上的四个点<span class="math inline">\(P_1\)</span>,<span
+class="math inline">\(P_2\)</span>,<span
+class="math inline">\(P_3\)</span>,<span
+class="math inline">\(P_4\)</span>,分别构成向量 <span
+class="math inline">\(\vec{P_1P_2}\)</span>与<span
+class="math inline">\(\vec{P_3P_4}\)</span>。如何通过点击计算他们交点的坐标?</li>
 <li>下次吧！</li>
 </ul></li>
 </ul>
