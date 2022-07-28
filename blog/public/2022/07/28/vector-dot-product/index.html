@@ -20,16 +20,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.ranbun.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="向量的内积与外积 点与点的减法  描述的是起点到终点的运动 ### 点\({p}\)与向量\(\vec{a}\)的加法 从\(P\)出发经过这个向量\(\vec{a}\)代表的运动，到达一个新的点\(P_0\) ### 在此处定义两个向量 \(\vec{a}\) \[        \vec{a} &#x3D; \begin{bmatrix}         a_1 \\         a">
+    <meta name="description" content="向量的内积与外积 点与点的减法  描述的是起点到终点的运动  点\({p}\)与向量\(\vec{a}\)的加法  从\(P\)出发经过这个向量\(\vec{a}\)代表的运动，到达一个新的点\(P_0\)  在此处定义两个向量  \(\vec{a}\) \[        \vec{a} &#x3D; \begin{bmatrix}         a_1 \\">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vector dot product">
 <meta property="og:url" content="https://blog.ranbun.com/2022/07/28/vector-dot-product/index.html">
 <meta property="og:site_name" content="Bao&#39;s blog">
-<meta property="og:description" content="向量的内积与外积 点与点的减法  描述的是起点到终点的运动 ### 点\({p}\)与向量\(\vec{a}\)的加法 从\(P\)出发经过这个向量\(\vec{a}\)代表的运动，到达一个新的点\(P_0\) ### 在此处定义两个向量 \(\vec{a}\) \[        \vec{a} &#x3D; \begin{bmatrix}         a_1 \\         a">
+<meta property="og:description" content="向量的内积与外积 点与点的减法  描述的是起点到终点的运动  点\({p}\)与向量\(\vec{a}\)的加法  从\(P\)出发经过这个向量\(\vec{a}\)代表的运动，到达一个新的点\(P_0\)  在此处定义两个向量  \(\vec{a}\) \[        \vec{a} &#x3D; \begin{bmatrix}         a_1 \\">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/Ranbun/images/main/weChat/vector/计算两个向量的夹角.png">
 <meta property="article:published_time" content="2022-07-27T16:55:14.000Z">
-<meta property="article:modified_time" content="2022-07-28T00:47:55.193Z">
+<meta property="article:modified_time" content="2022-07-28T11:38:35.131Z">
 <meta property="article:author" content="Baozi">
 <meta property="article:tag" content="vector">
 <meta name="twitter:card" content="summary">
@@ -113,7 +113,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%9A%84%E5%86%85%E7%A7%AF%E4%B8%8E%E5%A4%96%E7%A7%AF"><span class="nav-number">1.</span> <span class="nav-text">向量的内积与外积</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%82%B9%E4%B8%8E%E7%82%B9%E7%9A%84%E5%87%8F%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">点与点的减法</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%9A%84%E5%86%85%E7%A7%AF%E4%B8%8E%E5%A4%96%E7%A7%AF"><span class="nav-number">1.</span> <span class="nav-text">向量的内积与外积</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%82%B9%E4%B8%8E%E7%82%B9%E7%9A%84%E5%87%8F%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">点与点的减法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%82%B9p%E4%B8%8E%E5%90%91%E9%87%8Fveca%E7%9A%84%E5%8A%A0%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">点\({p}\)与向量\(\vec{a}\)的加法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E6%AD%A4%E5%A4%84%E5%AE%9A%E4%B9%89%E4%B8%A4%E4%B8%AA%E5%90%91%E9%87%8F"><span class="nav-number">1.3.</span> <span class="nav-text">在此处定义两个向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%82%B9%E5%87%BB"><span class="nav-number">1.4.</span> <span class="nav-text">向量点击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E7%9F%A5%E8%AF%86"><span class="nav-number">1.5.</span> <span class="nav-text">扩展知识</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -206,7 +206,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-07-28 00:55:14 / 修改时间：08:47:55" itemprop="dateCreated datePublished" datetime="2022-07-28T00:55:14+08:00">2022-07-28</time>
+      <time title="创建时间：2022-07-28 00:55:14 / 修改时间：19:38:35" itemprop="dateCreated datePublished" datetime="2022-07-28T00:55:14+08:00">2022-07-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -235,8 +235,14 @@
         <h2 id="向量的内积与外积">向量的内积与外积</h2>
 <h3 id="点与点的减法">点与点的减法</h3>
 <ul>
-<li>描述的是起点到终点的运动 ### 点<span class="math inline">\({p}\)</span>与向量<span class="math inline">\(\vec{a}\)</span>的加法</li>
-<li>从<span class="math inline">\(P\)</span>出发经过这个向量<span class="math inline">\(\vec{a}\)</span>代表的运动，到达一个新的点<span class="math inline">\(P_0\)</span> ### 在此处定义两个向量</li>
+<li>描述的是起点到终点的运动</li>
+</ul>
+<h3 id="点p与向量veca的加法">点<span class="math inline">\({p}\)</span>与向量<span class="math inline">\(\vec{a}\)</span>的加法</h3>
+<ul>
+<li>从<span class="math inline">\(P\)</span>出发经过这个向量<span class="math inline">\(\vec{a}\)</span>代表的运动，到达一个新的点<span class="math inline">\(P_0\)</span></li>
+</ul>
+<h3 id="在此处定义两个向量">在此处定义两个向量</h3>
+<ul>
 <li><span class="math inline">\(\vec{a}\)</span> <span class="math display">\[  
      \vec{a} = \begin{bmatrix}
         a_1 \\
@@ -250,7 +256,10 @@
       b_2 \\
       b_3 \\
     \end{bmatrix}
-\]</span> ### 向量点击</li>
+\]</span></li>
+</ul>
+<h3 id="向量点击">向量点击</h3>
+<ul>
 <li>点击(内积)的公式 <span class="math display">\[\vec{a}\cdot\vec{b} =
 |\vec{a}|\times|\vec{b}|\times \cos \theta \]</span> <span class="math display">\[ \vec{a}\cdot\vec{b} = \sum_{i=1}^{n} \left\{ a_i
 * b_i \right\}\]</span></li>
@@ -300,8 +309,11 @@
 </ul></li>
 <li>外积的使用
 <ul>
-<li>外积的模长则为夹角的正弦（始终为正） ### 扩展知识</li>
+<li>外积的模长则为夹角的正弦（始终为正）</li>
 </ul></li>
+</ul>
+<h3 id="扩展知识">扩展知识</h3>
+<ul>
 <li>扩展 - 1
 <ul>
 <li>平面上的四个点<span class="math inline">\(P_1\)</span>,<span class="math inline">\(P_2\)</span>,<span class="math inline">\(P_3\)</span>,<span class="math inline">\(P_4\)</span>,分别构成向量 <span class="math inline">\(\vec{P_1P_2}\)</span>与<span class="math inline">\(\vec{P_3P_4}\)</span>。如何通过点击计算他们交点的坐标?</li>
