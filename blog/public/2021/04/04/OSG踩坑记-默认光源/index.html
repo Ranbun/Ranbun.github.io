@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.ranbun.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="OSG-Viewer默认光源 12osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    &#x2F;&#x2F; 法线随着模型大小变化而变化。osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::Sta">
+    <meta name="description" content="OSG-Viewer默认光源12osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    &#x2F;&#x2F; 法线随着模型大小变化而变化。osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::State">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OSG踩坑记-默认光源">
 <meta property="og:url" content="https://blog.ranbun.com/2021/04/04/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90/index.html">
 <meta property="og:site_name" content="RanBun&#39;s Blog">
-<meta property="og:description" content="OSG-Viewer默认光源 12osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    &#x2F;&#x2F; 法线随着模型大小变化而变化。osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::Sta">
+<meta property="og:description" content="OSG-Viewer默认光源12osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    &#x2F;&#x2F; 法线随着模型大小变化而变化。osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::State">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-03T16:10:50.000Z">
 <meta property="article:modified_time" content="2022-07-26T00:48:36.857Z">
@@ -63,6 +63,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -84,6 +87,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">17</span></a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">27</span></a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
 
 
 
@@ -112,9 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#osg-viewer%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90"><span class="nav-number">1.</span> <span class="nav-text">OSG-Viewer默认光源</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8D%E6%8C%87%E5%AE%9A%E6%B3%95%E5%90%91----%E4%BB%8D%E7%84%B6%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0-%E5%85%89%E7%85%A7%E6%95%88%E6%9E%9C-%E4%BD%86%E6%98%AF%E6%97%A0%E6%B3%95%E7%9C%8B%E5%88%B0%E6%98%8E%E6%9A%97%E5%8F%98%E5%8C%96"><span class="nav-number">1.0.1.</span> <span class="nav-text">不指定法向
--- 仍然可以看到 光照效果 但是无法看到明暗变化
-</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#viewer-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">Viewer 默认光源的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%85%89%E7%85%A7%E7%9A%84%E7%9B%B8%E5%85%B3%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="nav-number">2.1.</span> <span class="nav-text">1、设置光照的相关的信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E8%8A%82%E7%82%B9%E8%AE%BE%E7%BD%AE%E5%A5%BD%E6%9D%90%E6%96%99%E5%B1%9E%E6%80%A7"><span class="nav-number">2.2.</span> <span class="nav-text">2、对节点设置好材料属性</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#OSG-Viewer%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90"><span class="nav-number">1.</span> <span class="nav-text">OSG-Viewer默认光源</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8D%E6%8C%87%E5%AE%9A%E6%B3%95%E5%90%91-%E2%80%94-%E4%BB%8D%E7%84%B6%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0-%E5%85%89%E7%85%A7%E6%95%88%E6%9E%9C-%E4%BD%86%E6%98%AF%E6%97%A0%E6%B3%95%E7%9C%8B%E5%88%B0%E6%98%8E%E6%9A%97%E5%8F%98%E5%8C%96"><span class="nav-number">1.0.1.</span> <span class="nav-text">不指定法向 — 仍然可以看到 光照效果 但是无法看到明暗变化 </span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Viewer-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">Viewer 默认光源的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E8%AE%BE%E7%BD%AE%E5%85%89%E7%85%A7%E7%9A%84%E7%9B%B8%E5%85%B3%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="nav-number">2.1.</span> <span class="nav-text">1、设置光照的相关的信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81%E5%AF%B9%E8%8A%82%E7%82%B9%E8%AE%BE%E7%BD%AE%E5%A5%BD%E6%9D%90%E6%96%99%E5%B1%9E%E6%80%A7"><span class="nav-number">2.2.</span> <span class="nav-text">2、对节点设置好材料属性</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -126,8 +131,8 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">25</span>
+        <a href="/archives">
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -137,7 +142,7 @@
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-          <a href="/tags/">
+          <a href="/tags">
         <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
@@ -261,30 +266,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="osg-viewer默认光源">OSG-Viewer默认光源</h3>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    <span class="comment">// 法线随着模型大小变化而变化。</span></span><br><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::StateAttribute::OFF | osg::StateAttribute::OVERRIDE); <span class="comment">// 关闭节点光源 并遵从父节点的光照设置</span></span><br></pre></td></tr></table></figure>
-<hr />
-<h5
-id="不指定法向----仍然可以看到-光照效果-但是无法看到明暗变化"><code>不指定法向</code>
--- <font color=red>仍然可以看到 光照效果 但是无法看到明暗变化
-</font></h5>
-<h3 id="viewer-默认光源的使用">Viewer 默认光源的使用</h3>
-<h4 id="设置光照的相关的信息">1、设置光照的相关的信息</h4>
-<ul>
-<li><p><code>osg::Viewer默认存在缺省光源,但是需要进行部分设置,不然可能与你当前的场景不匹配</code></p></li>
-<li><p>你需要设置的信息包括:
-ambient、diffuse、specular、光照方向（可以不设置，使用缺省的）、光照位置、光的衰减参数。</p></li>
+        <h3 id="OSG-Viewer默认光源"><a href="#OSG-Viewer默认光源" class="headerlink" title="OSG-Viewer默认光源"></a>OSG-Viewer默认光源</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    <span class="comment">// 法线随着模型大小变化而变化。</span></span><br><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::StateAttribute::OFF | osg::StateAttribute::OVERRIDE); <span class="comment">// 关闭节点光源 并遵从父节点的光照设置</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="不指定法向-—-仍然可以看到-光照效果-但是无法看到明暗变化"><a href="#不指定法向-—-仍然可以看到-光照效果-但是无法看到明暗变化" class="headerlink" title="不指定法向 — 仍然可以看到 光照效果 但是无法看到明暗变化 "></a><code>不指定法向</code> — <font color=red>仍然可以看到 光照效果 但是无法看到明暗变化 </font></h5><h3 id="Viewer-默认光源的使用"><a href="#Viewer-默认光源的使用" class="headerlink" title="Viewer 默认光源的使用"></a>Viewer 默认光源的使用</h3><h4 id="1、设置光照的相关的信息"><a href="#1、设置光照的相关的信息" class="headerlink" title="1、设置光照的相关的信息"></a>1、设置光照的相关的信息</h4><ul>
+<li><p><code>osg::Viewer默认存在缺省光源,但是需要进行部分设置,不然可能与你当前的场景不匹配</code></p>
+</li>
+<li><p>你需要设置的信息包括: ambient、diffuse、specular、光照方向（可以不设置，使用缺省的）、光照位置、光的衰减参数。</p>
+</li>
 </ul>
 <blockquote>
-<p>设置光照 -- <font color=Green>衰减公式</font> <span
-class="math display">\[
-F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
-\]</span></p>
-</blockquote>
+<p>设置光照  — <font color=Green>衰减公式</font></p>
+<script type="math/tex; mode=display">
+F = \frac{1}{(k_c + k_l*d + k_q*d^2)}</script></blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 获取缺省的光照</span></span><br><span class="line">osg::Light *light = viewer-&gt;getLight(); <span class="comment">// 从当前的查看器 获取光照设置 </span></span><br><span class="line">light-&gt;setAmbient(osg::Vec4(<span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">1.0</span>));   <span class="comment">// 环境光   OPENGL的默认值是 osg::Vec3(0.2,0.2,0.2);</span></span><br><span class="line">light-&gt;setDiffuse(osg::Vec4(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1.0</span>));   <span class="comment">// 漫反射   直接来源于光源</span></span><br><span class="line">light-&gt;setSpecular(osg::Vec4(<span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">1.0</span>));  <span class="comment">// specular   高光 此处给的很低  </span></span><br><span class="line"><span class="comment">// 由于此处我们使用的是平行光</span></span><br><span class="line"><span class="function">osg::Vec4 <span class="title">lightpos</span><span class="params">(x, y, z, <span class="number">0.0f</span>)</span></span>;   <span class="comment">// 记住: 平行光的位置的最后一个分量必须是 0 </span></span><br><span class="line">light-&gt;setPosition(lightpos);        <span class="comment">// 设置光照位置 </span></span><br><span class="line"><span class="comment">// 光照方向设置</span></span><br><span class="line"><span class="comment">// 需要用到高度角和方位角 -- 计算一个你需要方向 </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置光的衰减 -- 只设置 常量衰减的话 --   无距离衰减</span></span><br><span class="line">light-&gt;setConstantAttenuation(<span class="number">1.0f</span>);</span><br><span class="line">light-&gt;setLinearAttenuation(<span class="number">0.0f</span>);</span><br><span class="line">light-&gt;setQuadraticAttenuation(<span class="number">0.f</span>);</span><br></pre></td></tr></table></figure>
-<p><font color=red> 产生平行光，位置分量的第四分量必须是0 </font></p>
-<h4 id="对节点设置好材料属性">2、对节点设置好材料属性</h4>
-<ul>
+<font color=red> 产生平行光，位置分量的第四分量必须是0 </font>
+
+<h4 id="2、对节点设置好材料属性"><a href="#2、对节点设置好材料属性" class="headerlink" title="2、对节点设置好材料属性"></a>2、对节点设置好材料属性</h4><ul>
 <li>材料的设置是针对你要显示的节点设置的、你可以创建一个材料并设置相关的颜色，这样就可以拥有一个更好的显示效果。</li>
 </ul>
 
@@ -345,6 +342,7 @@ F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
   </footer>
 
   
+  <script size="250" alpha="0.4" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 

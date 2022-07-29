@@ -60,6 +60,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -81,6 +84,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">17</span></a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">27</span></a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
 
 
 
@@ -120,8 +127,8 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">25</span>
+        <a href="/archives">
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -131,7 +138,7 @@
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-          <a href="/tags/">
+          <a href="/tags">
         <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
@@ -179,6 +186,241 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2021/07/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="RanBun">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RanBun's Blog">
+      <meta itemprop="description" content="人大概要先见自己,然后才能见众生">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | RanBun's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95/" class="post-title-link" itemprop="url">记一次面试</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-27 20:31:46" itemprop="dateCreated datePublished" datetime="2021-07-27T20:31:46+08:00">2021-07-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-26 08:48:36" itemprop="dateModified" datetime="2022-07-26T08:48:36+08:00">2022-07-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><em>和老大提出辞职之后，商量了关于我的工作后续的事情，便开始寻找新工作……</em><br>    目的地是在重庆的一家公司，具体什么名字，暂时不透露了，面的<code>C++ &amp; Qt</code>，按照面试官的说法，这是一个纯<code>Qt</code>的岗位，所以接下来的问题大概全部是和<code>Qt</code>相关的，当然也会有部分C++的问题在其中。</p>
+<font style="color:pink">废话不多说，我们进入正题：</font>
+
+<h2 id="C-部分的问题："><a href="#C-部分的问题：" class="headerlink" title="C++部分的问题："></a>C++部分的问题：</h2><ul>
+<li><p>第一部分是关于C++这门语言的，面向对象是什么？</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// OOP</span></span><br><span class="line"><span class="comment">// 封装,继承,多态</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对于多态的理解?</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 首先是如何实现多态？</span></span><br><span class="line"><span class="number">1.</span> 多态发生在继承关系中。</span><br><span class="line"><span class="number">2.</span> 需要重写虚函数。</span><br><span class="line"><span class="number">3.</span> 父类的指针指向子类的对象。</span><br><span class="line"><span class="number">4.</span> 通过父类指针对重写的虚函数发起调用，最终调用你要想调用的函数。</span><br></pre></td></tr></table></figure>
+<p>example：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">  &#123;</span></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">      <span class="keyword">int</span> menber;</span><br><span class="line">  </span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      B():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">D</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      D():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      A * a = <span class="keyword">new</span> A;</span><br><span class="line">      B * b = <span class="keyword">new</span> B;</span><br><span class="line">      D * d = <span class="keyword">new</span> D;</span><br><span class="line">  </span><br><span class="line">      A * ptr = b;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = a;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = d;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  	</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+<p>  <font style="color:red">结果如下：</font><br>  <img src="https://raw.githubusercontent.com/CuntBoy/images/main/polymorphism.png" alt="polymorphism" title="polymorphism"></p>
+</li>
+</ul>
+<ul>
+<li><p>多态的实现 — <font style="color:red">虚函数表</font></p>
+<ul>
+<li><p>验证虚函数表：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一个简单的C 不带有虚函数 </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    C()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;C&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> member;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><font style="color:red">输出结果:</font> <img src="https://raw.githubusercontent.com/CuntBoy/images/main/virtual_table_1.png" alt="virtual_table" title="virtual table 1"></p>
+<p>  <img src="https://raw.githubusercontent.com/CuntBoy/images/main/virtual_table_2.png" alt="virtual table 2" title="virtual table 2"></p>
+<ul>
+<li>上面的结果可以看出存在一个成员(存在虚函数的情况)，大小为8个字节(64位软件)。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="Qt部分"><a href="#Qt部分" class="headerlink" title="Qt部分"></a>Qt部分</h2><ul>
+<li>元对象系统</li>
+<li>窗口刷新机制</li>
+<li>内存托管(删除机制)</li>
+<li>Qquick</li>
+<li>Qt的布局</li>
+</ul>
+<h2 id="OPENGL部分"><a href="#OPENGL部分" class="headerlink" title="OPENGL部分"></a>OPENGL部分</h2><ul>
+<li><p>缓冲(双缓冲)</p>
+</li>
+<li><p>着色器程序(语言)</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2021/07/26/OSG-HUD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="RanBun">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RanBun's Blog">
+      <meta itemprop="description" content="人大概要先见自己,然后才能见众生">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | RanBun's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/26/OSG-HUD/" class="post-title-link" itemprop="url">OSG-HUD</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-26 22:40:11" itemprop="dateCreated datePublished" datetime="2021-07-26T22:40:11+08:00">2021-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-26 08:48:36" itemprop="dateModified" datetime="2022-07-26T08:48:36+08:00">2022-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/works/" itemprop="url" rel="index"><span itemprop="name">works</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/works/GF/" itemprop="url" rel="index"><span itemprop="name">GF</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="OSG-HUD"><a href="#OSG-HUD" class="headerlink" title="OSG-HUD"></a>OSG-HUD</h1><ul>
+<li><p>"HUD"在渲染的场景中算是比较常见的存在: 游戏中的小地图(上帝视角)、实时状态、显示鼠标的实时位置、三维视角...</p>
+
+</li>
+</ul>
+<p><b style="color:red">如何创建HUD ？</b> </p>
+<p>本质上说，HUD就是一个相机( 在`OSG`中可以作为节点)，只是不响应鼠标的操作。只需要设置好相关的参数，添加到场景的根节点就行</p>
+
+<p><b style="color:red">实现要点，如下：</b></p>
+<ul>
+<li>关闭节点的光照，保证整个视口显示的场景的亮度是一样的。</li>
+<li>关闭深度测试</li>
+<li>调整渲染的顺序为最后渲染，让<code>HUD</code>显示在整个场景的最前方</li>
+<li>设置参考帧为绝对参考帧</li>
+<li>设置变换矩阵,不受父节点的影响</li>
+<li>设置投影矩阵(平行投影或者透视),设置视口的大小。</li>
+</ul>
+<h2 id="Create-HUD"><a href="#Create-HUD" class="headerlink" title="Create HUD"></a>Create HUD</h2><h3 id="1、创建相机节点"><a href="#1、创建相机节点" class="headerlink" title="1、创建相机节点"></a>1、创建相机节点</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::Camera&gt; hud_camera = <span class="keyword">new</span> osg::Camera;   <span class="comment">// 创建相机的节点</span></span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; geom = <span class="keyword">new</span> osg::Geometry;      <span class="comment">// 创建绘制的节点(也可以是文字)</span></span><br></pre></td></tr></table></figure>
+<h3 id="2、设置投影矩阵"><a href="#2、设置投影矩阵" class="headerlink" title="2、设置投影矩阵"></a>2、设置投影矩阵</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hud_camera-&gt;setProjectionMatrixAsOrtho2D(<span class="number">-3</span>, <span class="number">4</span>, <span class="number">-3</span>, <span class="number">4</span>, <span class="number">-1.0</span>, <span class="number">100</span>);  <span class="comment">// 2D 也可以 此处设置表示你裁剪的三维空间的实际的能表示的数值的大小</span></span><br></pre></td></tr></table></figure>
+<h3 id="3、设置视口大小-ViewPort"><a href="#3、设置视口大小-ViewPort" class="headerlink" title="3、设置视口大小(ViewPort)"></a>3、设置视口大小(ViewPort)</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// void setViewport(osg::Viewport* viewport);</span></span><br><span class="line"><span class="comment">// void setViewport(int x,int y,int width,int height);</span></span><br><span class="line">hud_camera-&gt;setviewport();  <span class="comment">// 两种方式都是可以的 </span></span><br></pre></td></tr></table></figure>
+<h3 id="4、设置渲染的顺序"><a href="#4、设置渲染的顺序" class="headerlink" title="4、设置渲染的顺序"></a>4、设置渲染的顺序</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hud_camera-&gt;setRenderOrder(osg::Camera::POST_RENDER);</span><br></pre></td></tr></table></figure>
+<h3 id="5、设置参考帧"><a href="#5、设置参考帧" class="headerlink" title="5、设置参考帧"></a>5、设置参考帧</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hud_camera-&gt;setReferenceFrame(osg::Transform::ABSOLUTE_RF);</span><br></pre></td></tr></table></figure>
+<h3 id="6、设置不受父节点的影响"><a href="#6、设置不受父节点的影响" class="headerlink" title="6、设置不受父节点的影响"></a>6、设置不受父节点的影响</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hud_camera-&gt;setViewMatrix(osg::Matrix::identity());</span><br></pre></td></tr></table></figure>
+<h3 id="7、设置不获取焦点"><a href="#7、设置不获取焦点" class="headerlink" title="7、设置不获取焦点"></a>7、设置不获取焦点</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hud_camera-&gt;setAllowEventFocus(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="8、设置节点的更新回调"><a href="#8、设置节点的更新回调" class="headerlink" title="8、设置节点的更新回调"></a>8、设置节点的更新回调</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// void setUpdateCallback(Callback* nc);</span></span><br><span class="line"><span class="comment">// 需要重写一个节点的更新回调 修改节点的视图矩阵 </span></span><br><span class="line"><span class="comment">// 设置相机的三个参数  </span></span><br><span class="line"><span class="comment">// 视点 相机的位置 相机的向上方向</span></span><br><span class="line">hud_camera-&gt;setUpdateCallback();</span><br></pre></td></tr></table></figure>
+<h2 id="挂载节点"><a href="#挂载节点" class="headerlink" title="挂载节点"></a>挂载节点</h2><h3 id="1、将前面创建的几何节点挂载到-相机上"><a href="#1、将前面创建的几何节点挂载到-相机上" class="headerlink" title="1、将前面创建的几何节点挂载到 相机上"></a>1、将前面创建的几何节点挂载到 相机上</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::Geode&gt; node = <span class="keyword">new</span> osg::Geode;</span><br><span class="line">node-&gt;addChild(geom.get());</span><br><span class="line">hud_camera-&gt;addChild(node.get());</span><br></pre></td></tr></table></figure>
+<h3 id="2、设置节点的属性"><a href="#2、设置节点的属性" class="headerlink" title="2、设置节点的属性"></a>2、设置节点的属性</h3><ul>
+<li>关闭光照 深度测试 &amp; 打开混溶</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> states = node-&gt;getOrCreateStateSet();</span><br><span class="line">states-&gt;setMode(GL_LIGHTING, osg::StateAttribute::ON);   <span class="comment">//关闭灯光</span></span><br><span class="line">states-&gt;setMode(GL_DEPTH_TEST, osg::StateAttribute::OFF);<span class="comment">//关闭深度测试</span></span><br><span class="line">states-&gt;setMode(GL_BLEND, osg::StateAttribute::ON);  </span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -254,30 +496,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="osg-viewer默认光源">OSG-Viewer默认光源</h3>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    <span class="comment">// 法线随着模型大小变化而变化。</span></span><br><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::StateAttribute::OFF | osg::StateAttribute::OVERRIDE); <span class="comment">// 关闭节点光源 并遵从父节点的光照设置</span></span><br></pre></td></tr></table></figure>
-<hr />
-<h5
-id="不指定法向----仍然可以看到-光照效果-但是无法看到明暗变化"><code>不指定法向</code>
--- <font color=red>仍然可以看到 光照效果 但是无法看到明暗变化
-</font></h5>
-<h3 id="viewer-默认光源的使用">Viewer 默认光源的使用</h3>
-<h4 id="设置光照的相关的信息">1、设置光照的相关的信息</h4>
-<ul>
-<li><p><code>osg::Viewer默认存在缺省光源,但是需要进行部分设置,不然可能与你当前的场景不匹配</code></p></li>
-<li><p>你需要设置的信息包括:
-ambient、diffuse、specular、光照方向（可以不设置，使用缺省的）、光照位置、光的衰减参数。</p></li>
+          <h3 id="OSG-Viewer默认光源"><a href="#OSG-Viewer默认光源" class="headerlink" title="OSG-Viewer默认光源"></a>OSG-Viewer默认光源</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    <span class="comment">// 法线随着模型大小变化而变化。</span></span><br><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::StateAttribute::OFF | osg::StateAttribute::OVERRIDE); <span class="comment">// 关闭节点光源 并遵从父节点的光照设置</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="不指定法向-—-仍然可以看到-光照效果-但是无法看到明暗变化"><a href="#不指定法向-—-仍然可以看到-光照效果-但是无法看到明暗变化" class="headerlink" title="不指定法向 — 仍然可以看到 光照效果 但是无法看到明暗变化 "></a><code>不指定法向</code> — <font color=red>仍然可以看到 光照效果 但是无法看到明暗变化 </font></h5><h3 id="Viewer-默认光源的使用"><a href="#Viewer-默认光源的使用" class="headerlink" title="Viewer 默认光源的使用"></a>Viewer 默认光源的使用</h3><h4 id="1、设置光照的相关的信息"><a href="#1、设置光照的相关的信息" class="headerlink" title="1、设置光照的相关的信息"></a>1、设置光照的相关的信息</h4><ul>
+<li><p><code>osg::Viewer默认存在缺省光源,但是需要进行部分设置,不然可能与你当前的场景不匹配</code></p>
+</li>
+<li><p>你需要设置的信息包括: ambient、diffuse、specular、光照方向（可以不设置，使用缺省的）、光照位置、光的衰减参数。</p>
+</li>
 </ul>
 <blockquote>
-<p>设置光照 -- <font color=Green>衰减公式</font> <span
-class="math display">\[
-F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
-\]</span></p>
-</blockquote>
+<p>设置光照  — <font color=Green>衰减公式</font></p>
+<script type="math/tex; mode=display">
+F = \frac{1}{(k_c + k_l*d + k_q*d^2)}</script></blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 获取缺省的光照</span></span><br><span class="line">osg::Light *light = viewer-&gt;getLight(); <span class="comment">// 从当前的查看器 获取光照设置 </span></span><br><span class="line">light-&gt;setAmbient(osg::Vec4(<span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">1.0</span>));   <span class="comment">// 环境光   OPENGL的默认值是 osg::Vec3(0.2,0.2,0.2);</span></span><br><span class="line">light-&gt;setDiffuse(osg::Vec4(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1.0</span>));   <span class="comment">// 漫反射   直接来源于光源</span></span><br><span class="line">light-&gt;setSpecular(osg::Vec4(<span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">1.0</span>));  <span class="comment">// specular   高光 此处给的很低  </span></span><br><span class="line"><span class="comment">// 由于此处我们使用的是平行光</span></span><br><span class="line"><span class="function">osg::Vec4 <span class="title">lightpos</span><span class="params">(x, y, z, <span class="number">0.0f</span>)</span></span>;   <span class="comment">// 记住: 平行光的位置的最后一个分量必须是 0 </span></span><br><span class="line">light-&gt;setPosition(lightpos);        <span class="comment">// 设置光照位置 </span></span><br><span class="line"><span class="comment">// 光照方向设置</span></span><br><span class="line"><span class="comment">// 需要用到高度角和方位角 -- 计算一个你需要方向 </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置光的衰减 -- 只设置 常量衰减的话 --   无距离衰减</span></span><br><span class="line">light-&gt;setConstantAttenuation(<span class="number">1.0f</span>);</span><br><span class="line">light-&gt;setLinearAttenuation(<span class="number">0.0f</span>);</span><br><span class="line">light-&gt;setQuadraticAttenuation(<span class="number">0.f</span>);</span><br></pre></td></tr></table></figure>
-<p><font color=red> 产生平行光，位置分量的第四分量必须是0 </font></p>
-<h4 id="对节点设置好材料属性">2、对节点设置好材料属性</h4>
-<ul>
+<font color=red> 产生平行光，位置分量的第四分量必须是0 </font>
+
+<h4 id="2、对节点设置好材料属性"><a href="#2、对节点设置好材料属性" class="headerlink" title="2、对节点设置好材料属性"></a>2、对节点设置好材料属性</h4><ul>
 <li>材料的设置是针对你要显示的节点设置的、你可以创建一个材料并设置相关的颜色，这样就可以拥有一个更好的显示效果。</li>
 </ul>
 
@@ -372,21 +606,12 @@ F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="简单概述">简单概述</h3>
-<p>在很多场景中，我们需要将同一个模型绘制到不同的区域并且还需要对模型进行一系列的旋转缩放等操作，同时需要使用不同的颜色，这个时候我们只需要使用一些简单的设置便可以实现这个功能功能。</p>
-<h3 id="伪代码">伪代码：</h3>
-<h4 id="读入模型">1、读入模型</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无论你是从外部读入模型 还是你自己构建的一个模型都是可以的。</span></span><br><span class="line"><span class="comment">// 使用osg自带读取模型的函数读取模型</span></span><br><span class="line"><span class="comment">// 推荐使用 osg 的智能指针</span></span><br><span class="line"><span class="comment">// 此处使用一个 内嵌的几何体 代替模型 </span></span><br><span class="line"></span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; geom = <span class="keyword">new</span> osg::Geometry; </span><br><span class="line"><span class="comment">// osg 的智能指针采用引用计数的方式决定当前对象是否释放</span></span><br></pre></td></tr></table></figure>
-<h4
-id="计算对模型的旋转缩放平移的操作矩阵">2、计算对模型的旋转、缩放、平移的操作矩阵</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// osg 有专门用户模型操作的类  osg::MatrixTransform </span></span><br><span class="line"><span class="comment">// 创建一个对象 模型操作类中抽象了矩阵的接口 可以当做矩阵操作 本质上是一个节点 </span></span><br><span class="line">osg::ref_ptr&lt;osg::MatrixTransform&gt; trans = <span class="keyword">new</span> osg::MatrixTransform;</span><br><span class="line"><span class="comment">// 对于模型的操作，有PVM矩阵的意思 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建旋转矩阵 </span></span><br><span class="line">osg::Matrix matrix_rotate;</span><br><span class="line"><span class="comment">// 构建旋转，从osg坐标系的沿着Z轴方向转到X轴（都是正方向）  </span></span><br><span class="line">matrix_rotate.makeRotate(osg::vec3(<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>),osg::vec3(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>));  <span class="comment">// 参数分别是两个方向向量 第一个参数是当前模型的方向 第二个参数是你需要旋转的方向</span></span><br><span class="line"><span class="comment">// 你也可以直接选择使用</span></span><br><span class="line">osg::Matrix::rotate(osg::Vec3(),osg::Vec3()); <span class="comment">// 输入的参数也可以是四元数  返回值是一个表示旋转的矩阵</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ==============================================================================================</span></span><br><span class="line"><span class="comment">// 也可以直接 设置最终的变换矩阵 </span></span><br><span class="line">trans-&gt;setMatrix(matrix_rotate * osg::Martix::scale(<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>) * osg::translate(osg::Vec3()));</span><br><span class="line"><span class="comment">// trans 已经存储了 我们对于模型的操作 </span></span><br></pre></td></tr></table></figure>
-<h4 id="对trans节点设置材料等属性">3、对trans节点设置材料等属性</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建材质对象</span></span><br><span class="line">osg::Material* mat = <span class="keyword">new</span> osg::Material();</span><br><span class="line">mat-&gt;setColorMode(osg::Material::ColorMode::DIFFUSE);   <span class="comment">// 设置绘制颜色的模式 </span></span><br><span class="line">mat-&gt;setDiffuse(osg::Material::FRONT, osg::Vec4());      <span class="comment">// 设置此种模式下的颜色 </span></span><br><span class="line"></span><br><span class="line">trans-&gt;getOrCreateStateSet()-&gt;setAttribute(mat);        <span class="comment">// 将材质设置给 节点 </span></span><br></pre></td></tr></table></figure>
-<h4 id="将对象作为节点添加">4、将对象作为节点添加</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trans.addchild(geom.get());</span><br></pre></td></tr></table></figure>
-<h4
-id="将操作节点添加到绘制的根节点或者是其他的叶节点">5、将操作节点添加到绘制的根节点或者是其他的叶节点</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ......</span></span><br></pre></td></tr></table></figure>
+          <h3 id="简单概述"><a href="#简单概述" class="headerlink" title="简单概述"></a>简单概述</h3><p>在很多场景中，我们需要将同一个模型绘制到不同的区域并且还需要对模型进行一系列的旋转缩放等操作，同时需要使用不同的颜色，这个时候我们只需要使用一些简单的设置便可以实现这个功能功能。</p>
+<h3 id="伪代码："><a href="#伪代码：" class="headerlink" title="伪代码："></a>伪代码：</h3><h4 id="1、读入模型"><a href="#1、读入模型" class="headerlink" title="1、读入模型"></a>1、读入模型</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无论你是从外部读入模型 还是你自己构建的一个模型都是可以的。</span></span><br><span class="line"><span class="comment">// 使用osg自带读取模型的函数读取模型</span></span><br><span class="line"><span class="comment">// 推荐使用 osg 的智能指针</span></span><br><span class="line"><span class="comment">// 此处使用一个 内嵌的几何体 代替模型 </span></span><br><span class="line"></span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; geom = <span class="keyword">new</span> osg::Geometry; </span><br><span class="line"><span class="comment">// osg 的智能指针采用引用计数的方式决定当前对象是否释放</span></span><br></pre></td></tr></table></figure>
+<h4 id="2、计算对模型的旋转、缩放、平移的操作矩阵"><a href="#2、计算对模型的旋转、缩放、平移的操作矩阵" class="headerlink" title="2、计算对模型的旋转、缩放、平移的操作矩阵"></a>2、计算对模型的旋转、缩放、平移的操作矩阵</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// osg 有专门用户模型操作的类  osg::MatrixTransform </span></span><br><span class="line"><span class="comment">// 创建一个对象 模型操作类中抽象了矩阵的接口 可以当做矩阵操作 本质上是一个节点 </span></span><br><span class="line">osg::ref_ptr&lt;osg::MatrixTransform&gt; trans = <span class="keyword">new</span> osg::MatrixTransform;</span><br><span class="line"><span class="comment">// 对于模型的操作，有PVM矩阵的意思 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建旋转矩阵 </span></span><br><span class="line">osg::Matrix matrix_rotate;</span><br><span class="line"><span class="comment">// 构建旋转，从osg坐标系的沿着Z轴方向转到X轴（都是正方向）  </span></span><br><span class="line">matrix_rotate.makeRotate(osg::vec3(<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>),osg::vec3(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>));  <span class="comment">// 参数分别是两个方向向量 第一个参数是当前模型的方向 第二个参数是你需要旋转的方向</span></span><br><span class="line"><span class="comment">// 你也可以直接选择使用</span></span><br><span class="line">osg::Matrix::rotate(osg::Vec3(),osg::Vec3()); <span class="comment">// 输入的参数也可以是四元数  返回值是一个表示旋转的矩阵</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ==============================================================================================</span></span><br><span class="line"><span class="comment">// 也可以直接 设置最终的变换矩阵 </span></span><br><span class="line">trans-&gt;setMatrix(matrix_rotate * osg::Martix::scale(<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>) * osg::translate(osg::Vec3()));</span><br><span class="line"><span class="comment">// trans 已经存储了 我们对于模型的操作 </span></span><br></pre></td></tr></table></figure>
+<h4 id="3、对trans节点设置材料等属性"><a href="#3、对trans节点设置材料等属性" class="headerlink" title="3、对trans节点设置材料等属性"></a>3、对trans节点设置材料等属性</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建材质对象</span></span><br><span class="line">osg::Material* mat = <span class="keyword">new</span> osg::Material();</span><br><span class="line">mat-&gt;setColorMode(osg::Material::ColorMode::DIFFUSE);   <span class="comment">// 设置绘制颜色的模式 </span></span><br><span class="line">mat-&gt;setDiffuse(osg::Material::FRONT, osg::Vec4());      <span class="comment">// 设置此种模式下的颜色 </span></span><br><span class="line"></span><br><span class="line">trans-&gt;getOrCreateStateSet()-&gt;setAttribute(mat);        <span class="comment">// 将材质设置给 节点 </span></span><br></pre></td></tr></table></figure>
+<h4 id="4、将对象作为节点添加"><a href="#4、将对象作为节点添加" class="headerlink" title="4、将对象作为节点添加"></a>4、将对象作为节点添加</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trans.addchild(geom.get());</span><br></pre></td></tr></table></figure>
+<h4 id="5、将操作节点添加到绘制的根节点或者是其他的叶节点"><a href="#5、将操作节点添加到绘制的根节点或者是其他的叶节点" class="headerlink" title="5、将操作节点添加到绘制的根节点或者是其他的叶节点"></a>5、将操作节点添加到绘制的根节点或者是其他的叶节点</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ......</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -483,36 +708,20 @@ id="将操作节点添加到绘制的根节点或者是其他的叶节点">5、�
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="uint16_t">uint16_t</h3>
-<ul>
+          <h3 id="uint16-t"><a href="#uint16-t" class="headerlink" title="uint16_t"></a>uint16_t</h3><ul>
 <li>标准定义中：</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">short</span>  <span class="keyword">uint16_t</span>; <span class="comment">// max == _UI16_MAX 0xffffu </span></span><br></pre></td></tr></table></figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/uint16_t.png"
-title="uint16" alt="uint16_t" />
-<figcaption aria-hidden="true">uint16_t</figcaption>
-</figure>
-<h4 id="问题">问题：</h4>
-<ul>
-<li><font color=red>这是一个粗心的问题</font></li>
+<p><img src="https://raw.githubusercontent.com/CuntBoy/images/main/uint16_t.png" alt="uint16_t" title="uint16"></p>
+<h4 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h4><ul>
+<li><font color=red>这是一个粗心的问题</font>
+
+</li>
 </ul>
 <p>在我正在实现的功能中有一个数据遍历的部分，我使用了<code>uint16_t</code>类型作为索引的类型，但是<code>uint16_t</code>数据的最大值比较小，所以当基础数据量过大的时候，我们产生的索引会越过索引的最大范围，导致最终得到的索引不是实际需要的索引值，导致我最终绘制的图形不是正确的结果！</p>
-<hr />
-<h3 id="正确的结果展示">正确的结果展示：</h3>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_2.png"
-title="result" alt="lum_2" />
-<figcaption aria-hidden="true">lum_2</figcaption>
-</figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_1.png"
-title="Result" alt="right result" />
-<figcaption aria-hidden="true">right result</figcaption>
-</figure>
+<hr>
+<h3 id="正确的结果展示："><a href="#正确的结果展示：" class="headerlink" title="正确的结果展示："></a>正确的结果展示：</h3><p><img src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_2.png" alt="lum_2" title="result"></p>
+<p><img src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_1.png" alt="right result" title="Result"></p>
 
       
     </div>
@@ -601,17 +810,14 @@ title="Result" alt="right result" />
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><font color=red>2020年</font>在三个月前结束了，这一年大家都收获了满满的经历。当然，我也是。我毕业了，从一个三流学校的渣子变成了社会末流的青年。开始了独属于我的关于这个时代的苟且！</p>
-<p>​ 离开前，大家都像是急于归乡的游子，对身后的这个城市不存半点留恋。</p>
-<p>对于大学，我仿佛有千言万语，却是欲语还休
-。不谈这个这个有些无聊的学校，关于大学，关于这四年，关于我自己，我希望它是美好的，会让我主动怀恋的！</p>
+          <p> <font color=red>2020年</font>在三个月前结束了，这一年大家都收获了满满的经历。当然，我也是。我毕业了，从一个三流学校的渣子变成了社会末流的青年。开始了独属于我的关于这个时代的苟且！</p>
+<p>​    离开前，大家都像是急于归乡的游子，对身后的这个城市不存半点留恋。</p>
+<p>对于大学，我仿佛有千言万语，却是欲语还休 。不谈这个这个有些无聊的学校，关于大学，关于这四年，关于我自己，我希望它是美好的，会让我主动怀恋的！</p>
 <p>待续。。。</p>
-<hr />
+<hr>
 <p><code>2021-7-26</code></p>
-<p>​
-下个月就要离开这个城市了，目前心情很是平淡，谈不上悲，亦没有欢喜，我仿佛早有预料一般。却如其实，我的确早有离开的想法，我大学的四年在这个城市度过，对于这里的大部分事物，我也算是熟悉，离开这里对我来说麻烦的地方便是新的城市，新的交际。。。
-当然一切都会是新的，我也是。</p>
-<p>​ 祝愿我将迎接新的美好，朋友我来了！</p>
+<p>​    下个月就要离开这个城市了，目前心情很是平淡，谈不上悲，亦没有欢喜，我仿佛早有预料一般。却如其实，我的确早有离开的想法，我大学的四年在这个城市度过，对于这里的大部分事物，我也算是熟悉，离开这里对我来说麻烦的地方便是新的城市，新的交际。。。<br>当然一切都会是新的，我也是。</p>
+<p>​    祝愿我将迎接新的美好，朋友我来了！</p>
 
       
     </div>
@@ -700,8 +906,7 @@ title="Result" alt="right result" />
     
     
     <div class="post-body" itemprop="articleBody">
-          <h4 id="about-this-blog">About this Blog</h4>
-<ul>
+          <h4 id="About-this-Blog"><a href="#About-this-Blog" class="headerlink" title="About this Blog"></a>About this Blog</h4><ul>
 <li>个人博客，分享我的日常与一些工作内容</li>
 </ul>
 
@@ -748,6 +953,7 @@ title="Result" alt="right result" />
   </footer>
 
   
+  <script size="250" alpha="0.4" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 

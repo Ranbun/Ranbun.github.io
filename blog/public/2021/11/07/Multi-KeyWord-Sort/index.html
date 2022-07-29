@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.ranbun.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="多关键字排序  扑克牌的例子 一副扑克牌是按照两种顺序排的：  K0,花色：梅花 &lt; 方块 &lt; 红桃 &lt; 黑桃 k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10 &lt; J &lt; Q &lt; K &lt; A  主位优先：（Most Significant Digit）">
+    <meta name="description" content="多关键字排序 扑克牌的例子  一副扑克牌是按照两种顺序排的：  K0,花色：梅花 &lt; 方块 &lt; 红桃 &lt; 黑桃 k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10 &lt; J &lt; Q &lt; K &lt; A   主位优先：（Most Significant Digit） 先用四个花色建桶，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Multi KeyWord Sort">
 <meta property="og:url" content="https://blog.ranbun.com/2021/11/07/Multi-KeyWord-Sort/index.html">
 <meta property="og:site_name" content="RanBun&#39;s Blog">
-<meta property="og:description" content="多关键字排序  扑克牌的例子 一副扑克牌是按照两种顺序排的：  K0,花色：梅花 &lt; 方块 &lt; 红桃 &lt; 黑桃 k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10 &lt; J &lt; Q &lt; K &lt; A  主位优先：（Most Significant Digit）">
+<meta property="og:description" content="多关键字排序 扑克牌的例子  一副扑克牌是按照两种顺序排的：  K0,花色：梅花 &lt; 方块 &lt; 红桃 &lt; 黑桃 k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10 &lt; J &lt; Q &lt; K &lt; A   主位优先：（Most Significant Digit） 先用四个花色建桶，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-07T14:18:51.000Z">
 <meta property="article:modified_time" content="2022-07-26T00:48:36.853Z">
@@ -63,6 +63,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -84,6 +87,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">17</span></a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">27</span></a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
 
 
 
@@ -112,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%85%B3%E9%94%AE%E5%AD%97%E6%8E%92%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">多关键字排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A5%BD%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">一个更好的方法：</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%85%B3%E9%94%AE%E5%AD%97%E6%8E%92%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">多关键字排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A5%BD%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">一个更好的方法：</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -124,8 +131,8 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">25</span>
+        <a href="/archives">
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -135,7 +142,7 @@
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-          <a href="/tags/">
+          <a href="/tags">
         <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
@@ -251,28 +258,31 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="多关键字排序">多关键字排序</h3>
-<ul>
-<li><p>扑克牌的例子</p></li>
+        <h3 id="多关键字排序"><a href="#多关键字排序" class="headerlink" title="多关键字排序"></a>多关键字排序</h3><ul>
+<li><p>扑克牌的例子</p>
+</li>
 <li><p>一副扑克牌是按照两种顺序排的：</p>
 <ul>
 <li>K0,花色：梅花 &lt; 方块 &lt; 红桃 &lt; 黑桃</li>
-<li>k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10
-&lt; J &lt; Q &lt; K &lt; A</li>
-</ul></li>
-<li><p>主位优先：（Most Significant Digit）</p>
-<ul>
-<li>先用四个花色建桶，然后使用面值建桶</li>
-</ul></li>
+<li>k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10 &lt; J &lt; Q &lt; K &lt; A</li>
 </ul>
-<h4 id="一个更好的方法">一个更好的方法：</h4>
-<ul>
+</li>
+<li>主位优先：（Most Significant Digit）<ul>
+<li>先用四个花色建桶，然后使用面值建桶</li>
+</ul>
+</li>
+</ul>
+<h4 id="一个更好的方法："><a href="#一个更好的方法：" class="headerlink" title="一个更好的方法："></a>一个更好的方法：</h4><ul>
 <li><p>依旧使用次位优先：</p>
 <ul>
-<li><p>先使用面值建桶</p></li>
-<li><p>然后按照大小将结果合并，使用花色建桶。</p></li>
-<li><p>最终的输出结果便是有序的</p></li>
-</ul></li>
+<li><p>先使用面值建桶</p>
+</li>
+<li><p>然后按照大小将结果合并，使用花色建桶。</p>
+</li>
+<li><p>最终的输出结果便是有序的</p>
+</li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -332,6 +342,7 @@
   </footer>
 
   
+  <script size="250" alpha="0.4" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
