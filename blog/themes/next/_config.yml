@@ -66,8 +66,8 @@ creative_commons:
   license: by-nc-sa
   # Available values: big | small
   size: small
-  sidebar: false
-  post: false
+  sidebar: true
+  post: true
   # You can set a language value if you prefer a translated version of CC license, e.g. deed.zh
   # CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https://creativecommons.org
   language:
@@ -151,11 +151,12 @@ sidebar:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: #/images/avatar.gif
+  url: /images/avatar.png
   # If true, the avatar will be displayed in circle.
   rounded: false
+  opacity: 1
   # If true, the avatar will be rotated with the cursor.
-  rotated: false
+  rotated: true
 
 # Posts / Categories / Tags in sidebar.
 site_state: true
@@ -165,10 +166,10 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  GitHub: https://github.com/Ranbun|| github
-  E-Mail: mailto::ranbao@gmail.com|| envelope
-  FaceBook: https://www.facebook.com/477740261.baozi/|| facebook
-  Zhihu: https://www.zhihu.com/people/bao-zi-17-17/|| zhihu
+  GitHub: https://github.com/Ranbun || github
+  E-Mail: mailto::ranbao@gmail.com || envelope
+  FaceBook: https://www.facebook.com/477740261.baozi/ || facebook
+  Zhihu: https://www.zhihu.com/people/bao-zi-17-17/ || zhihu
   #GitHub: https://github.com/yourname || fab fa-github
   #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
@@ -183,12 +184,12 @@ social:
 social_icons:
   enable: true
   icons_only: false
-  transition: false
-  GitHub: github
-  E-Mail: envelope
+  transition: true
+  # GitHub: github
+  # E-Mail: envelope
   #Twitter: twitter
-  Zhihu: zhihu
-  FaceBook: facebook
+  # Zhihu: zhihu
+  # FaceBook: facebook
 
 # Blog rolls
 links_settings:
@@ -278,7 +279,10 @@ post_meta:
 # Dependencies: https://github.com/next-theme/hexo-word-counter
 symbols_count_time:
   separated_meta: true
-  item_text_total: false
+  item_text_post: true #是否统计站点总字数
+  item_text_total: true
+  awl: 2 #平均每个字符的长度
+  wpm: 300 #words per minute
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
 tag_icon: false
@@ -303,7 +307,7 @@ follow_me:
   #Twitter: https://twitter.com/username || fab fa-twitter
   #Telegram: https://t.me/channel_name || fab fa-telegram
   #WeChat: /images/wechat_channel.jpg || fab fa-weixin
-  #RSS: /atom.xml || fa fa-rss
+  RSS: /atom.xml # || fa fa-rss
 
 # Related popular posts
 # Dependencies: https://github.com/sergeyzwezdin/hexo-related-posts
@@ -401,7 +405,7 @@ back2top:
   # Back to top in sidebar.
   sidebar: false
   # Scroll percent label in b2t button.
-  scrollpercent: false
+  scrollpercent: true
 
 # Reading progress bar
 reading_progress:
@@ -425,8 +429,8 @@ bookmark:
 
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
-  enable: false
-  permalink: https://github.com/yourname
+  enable: true
+  permalink: https://github.com/Ranbun
   title: Follow me on GitHub
 
 
@@ -762,7 +766,7 @@ algolia_search:
 # Local Search
 # Dependencies: https://github.com/next-theme/hexo-generator-searchdb
 local_search:
-  enable: false
+  enable: true
   # If auto, trigger search by changing input.
   # If manual, trigger search by pressing enter key or search button.
   trigger: auto

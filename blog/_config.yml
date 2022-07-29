@@ -98,15 +98,20 @@ ignore:
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
+# search:
+#  path: search.xml
+#  field: post
+#  format: html
+#  limit: 10000
 
 # RSS订阅
 plugin: hexo-generator-feed
 #Feed Atom
-feed:
-  enable: true
-  type: atom
-  path: atom.xml
-  limit: 20
+# feed:
+#  enable: true
+#  type: atom
+#  path: atom.xml
+#  limit: 20
 
 hub:
   content:
@@ -140,3 +145,9 @@ math:
     normal_width: 0.6 # relative normal (monospace) width
     append_css: true # add CSS to pages rendered by MathJax
     every_page: false # if true, every page will be rendered by MathJax regardless the `mathjax` setting in Front-matter
+
+# symbols_count_time:
+#   symbols: true #是否统计字数
+#   time: false #是否统计阅读时长
+#   total_symbols: true #是否统计总字数
+#   total_time: false #是否统计总阅读时长
