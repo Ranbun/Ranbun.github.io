@@ -20,22 +20,19 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.ranbun.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Shadow Map 记录一下关于Games202的学习  shadow map 实现：通过比较当前的point,在光源空间的的深度与深度图中记录的深度的大小，决定当前的point是否在阴影中  如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：    上图来自Games202的课件：  阴影图shadow map记录了相机在光照位置下">
+    <meta name="description" content="Shadow Map  记录一下关于Games202的学习  shadow map  实现：通过比较当前的point,在光源空间的的深度与深度图中记录的深度的大小，决定当前的point是否在阴影中 如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：   上图来自Games202的课件：  阴影图shadow ma">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Games202-ShadowMap">
 <meta property="og:url" content="https://blog.ranbun.com/2021/12/13/Games202-ShadowMap/index.html">
 <meta property="og:site_name" content="RanBun&#39;s Blog">
-<meta property="og:description" content="Shadow Map 记录一下关于Games202的学习  shadow map 实现：通过比较当前的point,在光源空间的的深度与深度图中记录的深度的大小，决定当前的point是否在阴影中  如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：    上图来自Games202的课件：  阴影图shadow map记录了相机在光照位置下">
+<meta property="og:description" content="Shadow Map  记录一下关于Games202的学习  shadow map  实现：通过比较当前的point,在光源空间的的深度与深度图中记录的深度的大小，决定当前的point是否在阴影中 如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：   上图来自Games202的课件：  阴影图shadow ma">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png">
 <meta property="article:published_time" content="2021-12-13T14:25:25.000Z">
 <meta property="article:modified_time" content="2022-07-26T00:48:36.849Z">
 <meta property="article:author" content="RanBun">
 <meta property="article:tag" content="Games202">
 <meta property="article:tag" content="Shadow">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png">
 
 
 <link rel="canonical" href="https://blog.ranbun.com/2021/12/13/Games202-ShadowMap/">
@@ -122,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shadow-Map"><span class="nav-number">1.</span> <span class="nav-text">Shadow Map</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#shadow-map"><span class="nav-number">1.0.1.</span> <span class="nav-text">shadow map</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#shadow-map"><span class="nav-number">1.</span> <span class="nav-text">Shadow Map</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#shadow-map-1"><span class="nav-number">1.0.1.</span> <span class="nav-text">shadow map</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -261,34 +258,32 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="Shadow-Map"><a href="#Shadow-Map" class="headerlink" title="Shadow Map"></a>Shadow Map</h2><ul>
+        <h2 id="shadow-map">Shadow Map</h2>
+<ul>
 <li>记录一下关于<code>Games202</code>的学习</li>
 </ul>
-<h4 id="shadow-map"><a href="#shadow-map" class="headerlink" title="shadow map"></a>shadow map</h4><ul>
-<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p>
-</li>
+<h4 id="shadow-map-1">shadow map</h4>
+<ul>
+<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p></li>
 <li><p>如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：</p>
-<p><img src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" alt=""></p>
-</li>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" /></p></li>
 </ul>
 <p>上图来自<code>Games202</code>的课件：</p>
 <ul>
-<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p>
-</li>
-<li><p>关于计算当前vertex point 是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p>
-</li>
+<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p></li>
+<li><p>关于计算当前vertex point
+是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p></li>
 <li><p>在<code>Games202</code>的作业1中，我们需要使用提供的matrix的接口处理矩阵。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mat.translate() <span class="comment">// 设置矩阵的移动 </span></span><br><span class="line">mat4.scale      <span class="comment">// 设置矩阵的缩放</span></span><br><span class="line"></span><br><span class="line">mat4.lookAt(); <span class="comment">// 生成的视图矩阵</span></span><br><span class="line">mat4.ortho();  <span class="comment">// 平行投影</span></span><br><span class="line"></span><br><span class="line">mat4.multiply(); <span class="comment">// 矩阵的乘法</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p>
-</li>
+<p><a
+target="_blank" rel="noopener" href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p></li>
 <li><p>深度比较：</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure></li>
+<li><p>最终效果</p></li>
 </ul>
-<ul>
-<li>最终效果</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" alt=""></p>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" /></p>
 
     </div>
 

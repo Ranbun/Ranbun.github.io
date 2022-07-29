@@ -238,6 +238,7 @@
     
     <div class="post-body" itemprop="articleBody">
           
+
       
     </div>
 
@@ -306,6 +307,7 @@
     
     <div class="post-body" itemprop="articleBody">
           
+
       
     </div>
 
@@ -387,74 +389,115 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="向量的内积与外积"><a href="#向量的内积与外积" class="headerlink" title="向量的内积与外积"></a>向量的内积与外积</h2><h3 id="点与点的减法"><a href="#点与点的减法" class="headerlink" title="点与点的减法"></a>点与点的减法</h3><ul>
+          <h2 id="向量的内积与外积">向量的内积与外积</h2>
+<h3 id="点与点的减法">点与点的减法</h3>
+<ul>
 <li>描述的是起点到终点的运动</li>
 </ul>
-<h3 id="点-p-与向量-vec-a-的加法"><a href="#点-p-与向量-vec-a-的加法" class="headerlink" title="点${p}$与向量$\vec{a}$的加法"></a>点${p}$与向量$\vec{a}$的加法</h3><ul>
-<li>从$P$出发经过这个向量$\vec{a}$代表的运动，到达一个新的点$P_0$</li>
+<h3 id="点p与向量veca的加法">点<span
+class="math inline">\({p}\)</span>与向量<span
+class="math inline">\(\vec{a}\)</span>的加法</h3>
+<ul>
+<li>从<span class="math inline">\(P\)</span>出发经过这个向量<span
+class="math inline">\(\vec{a}\)</span>代表的运动，到达一个新的点<span
+class="math inline">\(P_0\)</span></li>
 </ul>
-<h3 id="在此处定义两个向量"><a href="#在此处定义两个向量" class="headerlink" title="在此处定义两个向量"></a>在此处定义两个向量</h3><ul>
-<li>$\vec{a}$<script type="math/tex; mode=display">
-     \vec{a} = \begin{bmatrix} 
+<h3 id="在此处定义两个向量">在此处定义两个向量</h3>
+<ul>
+<li><span class="math inline">\(\vec{a}\)</span> <span
+class="math display">\[  
+     \vec{a} = \begin{bmatrix}
         a_1 \\
         a_2 \\
         a_3 \\
-      \end{bmatrix}</script></li>
-<li>$\vec{b}$<script type="math/tex; mode=display">
-    \vec{b} = \begin{bmatrix} 
+      \end{bmatrix}
+\]</span></li>
+<li><span class="math inline">\(\vec{b}\)</span> <span
+class="math display">\[  
+    \vec{b} = \begin{bmatrix}
       b_1 \\
       b_2 \\
       b_3 \\
-    \end{bmatrix}</script></li>
+    \end{bmatrix}
+\]</span></li>
 </ul>
-<h3 id="向量点击"><a href="#向量点击" class="headerlink" title="向量点击"></a>向量点击</h3><ul>
-<li>点击(内积)的公式<script type="math/tex; mode=display">\vec{a}\cdot\vec{b} = |\vec{a}|\times|\vec{b}|\times \cos \theta</script><script type="math/tex; mode=display">\vec{a}\cdot\vec{b} = \sum_{i=1}^{n} \left\{ a_i * b_i \right\}</script></li>
-<li>点击的几何意义<ul>
-<li><p> 其中一个向量在另一个向量上的投影且与点击的顺序无关 </p></li>
-<li>$\vec{a}\cdot\vec{b} &gt; 0$    方向基本相同，夹角在0°到90°之间</li>
-<li>$\vec{a}\cdot\vec{b} = 0$    正交，相互垂直 </li>
-<li>$\vec{a}\cdot\vec{b} &lt; 0$    方向基本相反，夹角在90°到180°之间</li>
-</ul>
-</li>
-<li><p>点击的巧用</p>
+<h3 id="向量点击">向量点击</h3>
 <ul>
-<li>计算向量的模长的平方<script type="math/tex; mode=display">|\vec{a}|^2 = \vec{a} \cdot \vec{a}</script></li>
-<li>计算两个向量之间的夹角的$\cos\theta$<br>-<img src="https://raw.githubusercontent.com/Ranbun/images/main/weChat/vector/计算两个向量的夹角.png" alt="计算两个向量之间的夹角" title="计算两个向量之间的夹角"><ul>
-<li>两个单位向量的点击等于他们的夹角的$\cos\theta$的值</li>
-</ul>
-</li>
-<li>两个互相垂直的向量的点击总是为<code>0</code> $\theta = 90^0$<script type="math/tex; mode=display">\vec{a} \cdot \vec{b} = |\vec{a}| \ast |\vec{b}| \ast \cos\theta = 0</script></li>
-<li>一条射线描述的向量[起点 + 方向]点击一个平面的法向可以得到起点到平面的距离   <h3 id="向量叉积"><a href="#向量叉积" class="headerlink" title="向量叉积"></a>向量叉积</h3></li>
-</ul>
-</li>
-<li><p>外积公式</p>
-<script type="math/tex; mode=display">
+<li>点击(内积)的公式 <span class="math display">\[\vec{a}\cdot\vec{b} =
+|\vec{a}|\times|\vec{b}|\times \cos \theta \]</span> <span
+class="math display">\[ \vec{a}\cdot\vec{b} = \sum_{i=1}^{n} \left\{ a_i
+* b_i \right\}\]</span></li>
+<li>点击的几何意义
+<ul>
+<li><p>
+其中一个向量在另一个向量上的投影且与点击的顺序无关
+</p></li>
+<li><span class="math inline">\(\vec{a}\cdot\vec{b} &gt; 0\)</span>
+方向基本相同，夹角在0°到90°之间</li>
+<li><span class="math inline">\(\vec{a}\cdot\vec{b} = 0\)</span>
+正交，相互垂直</li>
+<li><span class="math inline">\(\vec{a}\cdot\vec{b} &lt; 0\)</span>
+方向基本相反，夹角在90°到180°之间</li>
+</ul></li>
+<li>点击的巧用
+<ul>
+<li>计算向量的模长的平方 <span class="math display">\[|\vec{a}|^2 =
+\vec{a} \cdot \vec{a} \]</span></li>
+<li>计算两个向量之间的夹角的<span
+class="math inline">\(\cos\theta\)</span> -<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/weChat/vector/计算两个向量的夹角.png"
+title="计算两个向量之间的夹角" alt="计算两个向量之间的夹角" />
+<ul>
+<li>两个单位向量的点击等于他们的夹角的<span
+class="math inline">\(\cos\theta\)</span>的值</li>
+</ul></li>
+<li>两个互相垂直的向量的点击总是为<code>0</code> <span
+class="math inline">\(\theta = 90^0\)</span> <span
+class="math display">\[\vec{a} \cdot \vec{b} = |\vec{a}| \ast |\vec{b}|
+\ast \cos\theta = 0 \]</span></li>
+<li>一条射线描述的向量[起点 +
+方向]点击一个平面的法向可以得到起点到平面的距离<br />
+### 向量叉积</li>
+</ul></li>
+<li>外积公式 <span class="math display">\[
     \vec{a} \times \vec{b} =  
-    \begin{bmatrix} 
+    \begin{bmatrix}
       a_2 * b_3 - b_2 * a_3 \\
       a_3 * b_1 - b_3 * a_1 \\
       a_1 * b_2 - b_1 * a_2 \\
-    \end{bmatrix}</script></li>
-<li>叉积的几何意义<ul>
-<li>几何表达公式<script type="math/tex; mode=display">
-  \vec{a} \times \vec{b} = |\vec{a}| * |\vec{b}| * sin(\theta) * \vec{n}</script><ul>
-<li>$\vec{n}$ 表示$\vec{a}$, $\vec{b}$所构成平面的法向量方向的单位向量</li>
-</ul>
-</li>
-<li>在二维空间中：叉积得到的向量的模长$|\vec{a}\times\vec{b}|$等于这两个向量$\vec{a},\vec{b}$组成的平行四边形的面积</li>
-<li>外积的使用<ul>
+    \end{bmatrix}
+\]</span></li>
+<li>叉积的几何意义
+<ul>
+<li>几何表达公式 <span class="math display">\[
+  \vec{a} \times \vec{b} = |\vec{a}| * |\vec{b}| * sin(\theta) * \vec{n}
+\]</span>
+<ul>
+<li><span class="math inline">\(\vec{n}\)</span> 表示<span
+class="math inline">\(\vec{a}\)</span>, <span
+class="math inline">\(\vec{b}\)</span>所构成平面的法向量方向的单位向量</li>
+</ul></li>
+<li>在二维空间中：叉积得到的向量的模长<span
+class="math inline">\(|\vec{a}\times\vec{b}|\)</span>等于这两个向量<span
+class="math inline">\(\vec{a},\vec{b}\)</span>组成的平行四边形的面积</li>
+</ul></li>
+<li>外积的使用
+<ul>
 <li>外积的模长则为夹角的正弦（始终为正）</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="扩展知识"><a href="#扩展知识" class="headerlink" title="扩展知识"></a>扩展知识</h3><ul>
-<li>扩展 - 1<ul>
-<li>平面上的四个点$P_1$,$P_2$,$P_3$,$P_4$,分别构成向量 $\vec{P_1P_2}$与$\vec{P_3P_4}$。如何通过点击计算他们交点的坐标?</li>
+<h3 id="扩展知识">扩展知识</h3>
+<ul>
+<li>扩展 - 1
+<ul>
+<li>平面上的四个点<span class="math inline">\(P_1\)</span>,<span
+class="math inline">\(P_2\)</span>,<span
+class="math inline">\(P_3\)</span>,<span
+class="math inline">\(P_4\)</span>,分别构成向量 <span
+class="math inline">\(\vec{P_1P_2}\)</span>与<span
+class="math inline">\(\vec{P_3P_4}\)</span>。如何通过点击计算他们交点的坐标?</li>
 <li>下次吧！</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 
       
@@ -544,9 +587,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h1><hr>
-<h3 id="install-Git"><a href="#install-Git" class="headerlink" title="install Git"></a><code>install Git</code></h3><ul>
-<li>Git — <a target="_blank" rel="noopener" href="https://git-scm.com/">官方网站</a></li>
+          <h2 id="git常用命令"># Git常用命令</h2>
+<h3 id="install-git"><code>install Git</code></h3>
+<ul>
+<li>Git -- <a target="_blank" rel="noopener" href="https://git-scm.com/">官方网站</a></li>
 </ul>
 
       
@@ -632,19 +676,20 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="微信多开的小技巧-Windows"><a href="#微信多开的小技巧-Windows" class="headerlink" title="微信多开的小技巧 - Windows"></a>微信多开的小技巧 - Windows</h2><ul>
-<li><p>首先，需要你知道你机器上安装微信 - 请记录它的安装位置</p>
-</li>
-<li><p>一般情况下，如果你不做任何修改的话，它会在<code>C:\Program Files (x86)\Tencent\WeChat</code>这个目录下：<br>&ensp;&ensp; <img src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/wechat_install_path.png" alt="" title="微信安装位置"></p>
-</li>
-<li><p>然后，打开你机器上任意的一个文本编辑器，输入如下内容：</p>
-</li>
+          <h2 id="微信多开的小技巧---windows">微信多开的小技巧 - Windows</h2>
+<ul>
+<li><p>首先，需要你知道你机器上安装微信 - 请记录它的安装位置</p></li>
+<li><p>一般情况下，如果你不做任何修改的话，它会在<code>C:\Program Files (x86)\Tencent\WeChat</code>这个目录下：
+   <img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/wechat_install_path.png"
+title="微信安装位置" /></p></li>
+<li><p>然后，打开你机器上任意的一个文本编辑器，输入如下内容：</p></li>
 <li><p>需要多开多少个微信，你便将如下命令输入重复写多少次。</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">start D:\&quot;Program Files (x86)<span class="string">&quot;\Tencent\WeChat\WeChat.exe</span></span><br><span class="line"><span class="string">start D:\&quot;Program Files (x86)&quot;</span>\Tencent\WeChat\WeChat.exe</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请将上面的路径换成你机器上安装微信的路径</span></span><br><span class="line"><span class="comment"># 上面表示的是同时开两个微信程序</span></span><br><span class="line"><span class="comment"># 前面的路径部分中含有空格，为了让系统能识别，我们需要用双引号将其括起来，这样才能正确的识别</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">start D:\&quot;Program Files (x86)<span class="string">&quot;\Tencent\WeChat\WeChat.exe</span></span><br><span class="line"><span class="string">start D:\&quot;Program Files (x86)&quot;</span>\Tencent\WeChat\WeChat.exe</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请将上面的路径换成你机器上安装微信的路径</span></span><br><span class="line"><span class="comment"># 上面表示的是同时开两个微信程序</span></span><br><span class="line"><span class="comment"># 前面的路径部分中含有空格，为了让系统能识别，我们需要用双引号将其括起来，这样才能正确的识别</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li>
 <li><p>然后将文件保存，文件后缀为<code>.bat</code>,这是<code>cmd</code>识别的命令行，这个时候你打开你刚保存的文件，便会弹出你想要多开的数量。</p>
-<p><img src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/multi_open_wechat.png" alt="" title="微信多开效果图"></p>
-</li>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/multi_open_wechat.png"
+title="微信多开效果图" /></p></li>
 </ul>
 
       
@@ -734,82 +779,83 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="记一次面试"><a href="#记一次面试" class="headerlink" title="记一次面试:"></a>记一次面试:</h2><p>&ensp;&ensp;距离上一次面试，不到半年，频繁的换工作，总是一件不好的事情，关于换工作这件事并不是那么的难以启齿，所以具体原因就先省略了…….<br>&ensp;&ensp;这次的目标是国内的一所高校，具体的工作，根据面试的情况看来，是<code>CAD</code>方向，大概都是渲染相关的，所以还是符合我的预期。</p>
-<h2 id="Start-Interview"><a href="#Start-Interview" class="headerlink" title="Start Interview:"></a>Start Interview:</h2><ul>
-<li>首先这是一个<code>Cpp</code>&amp;<code>图形</code>的混合岗位，所以能想到的是，关于对这个岗位的基本要求就是<code>CPP</code>和<code>图形学</code>开发经验, 可以预见大概的问题就是<code>Cpp</code>和图形相关的知识。</li>
+          <h2 id="记一次面试">记一次面试:</h2>
+<p>  距离上一次面试，不到半年，频繁的换工作，总是一件不好的事情，关于换工作这件事并不是那么的难以启齿，所以具体原因就先省略了.......
+  这次的目标是国内的一所高校，具体的工作，根据面试的情况看来，是<code>CAD</code>方向，大概都是渲染相关的，所以还是符合我的预期。</p>
+<h2 id="start-interview">Start Interview:</h2>
+<ul>
+<li>首先这是一个<code>Cpp</code>&amp;<code>图形</code>的混合岗位，所以能想到的是，关于对这个岗位的基本要求就是<code>CPP</code>和<code>图形学</code>开发经验,
+可以预见大概的问题就是<code>Cpp</code>和图形相关的知识。</li>
 </ul>
-<hr>
-<h3 id="第一次面试"><a href="#第一次面试" class="headerlink" title="第一次面试"></a>第一次面试</h3><h4 id="关于简历中提到的之前的项目"><a href="#关于简历中提到的之前的项目" class="headerlink" title="关于简历中提到的之前的项目"></a>关于简历中提到的之前的项目</h4><ul>
+<hr />
+<h3 id="第一次面试">第一次面试</h3>
+<h4 id="关于简历中提到的之前的项目">关于简历中提到的之前的项目</h4>
+<ul>
 <li>部分和之前项目相关的问题</li>
 <li>一些技术上的解决方案</li>
-<li>……</li>
+<li>......</li>
 </ul>
-<h4 id="CPP的新的语言特性"><a href="#CPP的新的语言特性" class="headerlink" title="CPP的新的语言特性"></a>CPP的新的语言特性</h4><ul>
-<li><p><code>C++11</code>的新语言特性 - 比较常用的</p>
+<h4 id="cpp的新的语言特性">CPP的新的语言特性</h4>
+<ul>
+<li><code>C++11</code>的新语言特性 - 比较常用的
 <ul>
 <li>智能指针</li>
 <li><code>auto</code>自动类型推导</li>
 <li>标准库的多线程</li>
 <li><code>lambda</code>表达式</li>
-</ul>
-</li>
-<li><p>一些指针和引用相关的问题</p>
+</ul></li>
+<li>一些指针和引用相关的问题
 <ul>
 <li>指针是什么？</li>
 <li>引用是什么？</li>
 <li>两者的区别？</li>
-<li>内存分区的相关问题，如：<ul>
+<li>内存分区的相关问题，如：
+<ul>
 <li>常量在程序中的的存储位置</li>
 <li>静态变量在什么位置</li>
-<li>……</li>
+<li>......</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="图形相关的问题"><a href="#图形相关的问题" class="headerlink" title="图形相关的问题"></a>图形相关的问题</h4><ul>
-<li><p>图形管线的问题</p>
+<h4 id="图形相关的问题">图形相关的问题</h4>
 <ul>
-<li>坐标变换相关的问题<ul>
+<li>图形管线的问题
+<ul>
+<li>坐标变换相关的问题
+<ul>
 <li>投影</li>
 <li>视图</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>一些渲染上面的解决方案</p>
+</ul></li>
+</ul></li>
+<li>一些渲染上面的解决方案
 <ul>
 <li>大数据量的绘制</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="第二次面试"><a href="#第二次面试" class="headerlink" title="第二次面试"></a>第二次面试</h3><p>&ensp;&ensp;第二次面试倒是没有什么技术相关的问题，两个老师，一个人士，加上我，一共四个人，具体内容就是一个10分钟的自我介绍，这个介绍包括：</p>
+<h3 id="第二次面试">第二次面试</h3>
+<p>  第二次面试倒是没有什么技术相关的问题，两个老师，一个人士，加上我，一共四个人，具体内容就是一个10分钟的自我介绍，这个介绍包括：</p>
 <ul>
-<li><p>个人介绍    </p>
+<li>个人介绍
 <ul>
 <li>基本信息</li>
 <li>求学经历</li>
-<li>……</li>
-</ul>
-</li>
-<li><p>工作经历</p>
+<li>......</li>
+</ul></li>
+<li>工作经历
 <ul>
 <li>项目经历</li>
-</ul>
-</li>
-<li><p>未来的规划</p>
+</ul></li>
+<li>未来的规划
 <ul>
 <li>职业规划</li>
 <li>个人规划</li>
+</ul></li>
+<li>个人爱好</li>
 </ul>
-</li>
-<li><p>个人爱好</p>
-</li>
-</ul>
-<p>&ensp;…….</p>
-<p>&ensp;&ensp;后面部分就是关于这个介绍的提问了，无关痛痒。</p>
-<p>&ensp;&ensp;一周以后……，在我以为黄了的时候，竟然通过了。</p>
-<p>&ensp;&ensp;感谢！</p>
+<p> .......</p>
+<p>  后面部分就是关于这个介绍的提问了，无关痛痒。</p>
+<p>  一周以后......，在我以为黄了的时候，竟然通过了。</p>
+<p>  感谢！</p>
 
       
     </div>
@@ -898,18 +944,43 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="我起伏的2021年"><a href="#我起伏的2021年" class="headerlink" title="我起伏的2021年:"></a>我起伏的2021年:</h3><ul>
+          <h3 id="我起伏的2021年">我起伏的2021年:</h3>
+<ul>
 <li>2021年鸡毛蒜皮</li>
 </ul>
-<p>….</p>
-<h3 id="我的关于2021年的大事件："><a href="#我的关于2021年的大事件：" class="headerlink" title="我的关于2021年的大事件："></a>我的关于2021年的大事件：</h3><h4 id="1、换了工作"><a href="#1、换了工作" class="headerlink" title="1、换了工作"></a>1、换了工作</h4><h4 id="2、离开了那个度过了五年的城市"><a href="#2、离开了那个度过了五年的城市" class="headerlink" title="2、离开了那个度过了五年的城市"></a>2、离开了那个度过了五年的城市</h4><h4 id="3、-换了工作的城市"><a href="#3、-换了工作的城市" class="headerlink" title="3、 换了工作的城市"></a>3、 换了工作的城市</h4><h4 id="4、告别了好友"><a href="#4、告别了好友" class="headerlink" title="4、告别了好友"></a>4、告别了好友</h4><h4 id="5、见了阔怕已久的朋友"><a href="#5、见了阔怕已久的朋友" class="headerlink" title="5、见了阔怕已久的朋友"></a>5、见了阔怕已久的朋友</h4><h4 id="6、又一次决定换工作"><a href="#6、又一次决定换工作" class="headerlink" title="6、又一次决定换工作"></a>6、又一次决定换工作</h4><ul>
+<p>....</p>
+<h3 id="我的关于2021年的大事件">我的关于2021年的大事件：</h3>
+<h4 id="换了工作">1、换了工作</h4>
+<h4 id="离开了那个度过了五年的城市">2、离开了那个度过了五年的城市</h4>
+<h4 id="换了工作的城市">3、 换了工作的城市</h4>
+<h4 id="告别了好友">4、告别了好友</h4>
+<h4 id="见了阔怕已久的朋友">5、见了阔怕已久的朋友</h4>
+<h4 id="又一次决定换工作">6、又一次决定换工作</h4>
+<ul>
 <li>面试了一个环境可能更好的工作</li>
 </ul>
-<h3 id="一、我换工作这件事"><a href="#一、我换工作这件事" class="headerlink" title="一、我换工作这件事"></a>一、我换工作这件事</h3><p><p>先我说我自己吧,一个cpp开发人员,大学毕业之后在济南的一家做仿真的公司,做一些图形相关的工作,这就是我的第一份工作。</p><br>&ensp;&ensp;离开我的上一个岗位的原因颇多,当然究其原因，我觉得<code>马老板</code>说的话能够很好的概括我当时的处境， 比较这年头找一份工作很容易，但是找到一份好工作还是比较困难的。<br>&ensp;&ensp;新工作也是做仿真的,只是方向有所不同,但是对于一个开发人员,又有什么太大的区别呢,毕竟，核心的算法部分会有专门的人负责，而我知识负责一些图形相关的工作，展示一下仿真的结果。</p>
-<h3 id="二、离开济南"><a href="#二、离开济南" class="headerlink" title="二、离开济南"></a>二、离开济南</h3><p>&ensp;&ensp;我在这个城市上大学，大学毕业在这里找的工作，也是在这里，度过了我和我对象为期6年的异地恋。<br>&ensp;&ensp;若是在学校还好，但是在济南生活，我大概是不适合这个城市了，离开济南不一定是因为我要换掉我之前的工作，也可能是由于我想离开这个城市，寻求更好的发展，或者是我本人有更高的追求，我在这个城市呆了很长时间，熟悉这里的大部分东西，这里的风土人情以及这里的那浓郁的不合于我的生活气息……<br>&ensp;&ensp;我算是个重庆人，也许更适合我的地方是川蜀之地，况且我还比较佛系，所以<code>成都</code>应该是个不错的选择，我开始面试，将目标公司地域选到了成都…..<br>&ensp;&ensp;然后我选择了一家成都的公司，在一个我去打完疫苗的间隙，足够我用这个时间做很多事情。<br>&ensp;&ensp;然后我来了<code>北京</code>…..,只能说，造化弄人。</p>
-<h3 id="三、告别好友"><a href="#三、告别好友" class="headerlink" title="三、告别好友"></a>三、告别好友</h3><p>&ensp;&ensp;我也算是个热爱生活的人，离别前夕，怎么也会告别这个城市最后的朋友，我们宿舍的<code>二哥</code>还有<code>杨哥</code>,还有隔壁宿舍后面相熟的朋友，大家约在烧烤摊一起畅想了我们的未来的几年。<br>&ensp;&ensp;从济南公司离职后，去德州见了好久不见的另一个舍友，在那里度过了一个周末，互相倾诉，对于我们彼此的不容易，都是略有耳闻。</p>
-<h3 id="四、见了好久不见的朋友"><a href="#四、见了好久不见的朋友" class="headerlink" title="四、见了好久不见的朋友"></a>四、见了好久不见的朋友</h3><p>&ensp;&ensp;2021年8月20日,在北京,我开启了我长达6个月的出差，我刚毕业的时候，我曾经有过想要在北京工作的想法，但是一些原因，我放弃了，同时，也觉得自己以后可能都不会在北京停留，第一次来北京是在16年的时候，我在北京度过了国庆，下了6天雨，这几天北京给我的印象只有雾霾。<br>&ensp;&ensp;有人说离别是为了更好的相遇，所以，有时候缘分很重要，大学同学毕业前在北京实习，毕业的时候北京疫情，最后的毕业照都是P上去的，28个人唯独缺了他，挺好的，大家又一次重逢。<br>&ensp;&ensp;同样是在这里，遇到了另一位朋友，亦师亦友，感谢相遇。</p>
-<h3 id="五、又一次决定换工作"><a href="#五、又一次决定换工作" class="headerlink" title="五、又一次决定换工作"></a>五、又一次决定换工作</h3><p>&ensp;&ensp;决定让自己的未来有更多的选择,于是决定做一些尝试，希望能有个好结果。<br>&ensp;&ensp;又一次选择了面试，结果还挺不错，虽然没能拿到想要的待遇，但是是我喜欢的地点，拥有我喜欢的条件，甚好！！！</p>
+<h3 id="一我换工作这件事">一、我换工作这件事</h3>
+<p>
+先我说我自己吧,一个cpp开发人员,大学毕业之后在济南的一家做仿真的公司,做一些图形相关的工作,这就是我的第一份工作。
+</p>
+<p>  离开我的上一个岗位的原因颇多,当然究其原因，我觉得<code>马老板</code>说的话能够很好的概括我当时的处境， 比较这年头找一份工作很容易，但是找到一份好工作还是比较困难的。
+  新工作也是做仿真的,只是方向有所不同,但是对于一个开发人员,又有什么太大的区别呢,毕竟，核心的算法部分会有专门的人负责，而我知识负责一些图形相关的工作，展示一下仿真的结果。</p>
+<h3 id="二离开济南">二、离开济南</h3>
+<p>  我在这个城市上大学，大学毕业在这里找的工作，也是在这里，度过了我和我对象为期6年的异地恋。
+  若是在学校还好，但是在济南生活，我大概是不适合这个城市了，离开济南不一定是因为我要换掉我之前的工作，也可能是由于我想离开这个城市，寻求更好的发展，或者是我本人有更高的追求，我在这个城市呆了很长时间，熟悉这里的大部分东西，这里的风土人情以及这里的那浓郁的不合于我的生活气息......
+  我算是个重庆人，也许更适合我的地方是川蜀之地，况且我还比较佛系，所以<code>成都</code>应该是个不错的选择，我开始面试，将目标公司地域选到了成都.....
+  然后我选择了一家成都的公司，在一个我去打完疫苗的间隙，足够我用这个时间做很多事情。
+  然后我来了<code>北京</code>.....,只能说，造化弄人。</p>
+<h3 id="三告别好友">三、告别好友</h3>
+<p>  我也算是个热爱生活的人，离别前夕，怎么也会告别这个城市最后的朋友，我们宿舍的<code>二哥</code>还有<code>杨哥</code>,还有隔壁宿舍后面相熟的朋友，大家约在烧烤摊一起畅想了我们的未来的几年。
+  从济南公司离职后，去德州见了好久不见的另一个舍友，在那里度过了一个周末，互相倾诉，对于我们彼此的不容易，都是略有耳闻。</p>
+<h3 id="四见了好久不见的朋友">四、见了好久不见的朋友</h3>
+<p>  2021年8月20日,在北京,我开启了我长达6个月的出差，我刚毕业的时候，我曾经有过想要在北京工作的想法，但是一些原因，我放弃了，同时，也觉得自己以后可能都不会在北京停留，第一次来北京是在16年的时候，我在北京度过了国庆，下了6天雨，这几天北京给我的印象只有雾霾。
+  有人说离别是为了更好的相遇，所以，有时候缘分很重要，大学同学毕业前在北京实习，毕业的时候北京疫情，最后的毕业照都是P上去的，28个人唯独缺了他，挺好的，大家又一次重逢。
+  同样是在这里，遇到了另一位朋友，亦师亦友，感谢相遇。</p>
+<h3 id="五又一次决定换工作">五、又一次决定换工作</h3>
+<p>  决定让自己的未来有更多的选择,于是决定做一些尝试，希望能有个好结果。
+  又一次选择了面试，结果还挺不错，虽然没能拿到想要的待遇，但是是我喜欢的地点，拥有我喜欢的条件，甚好！！！</p>
 
       
     </div>
@@ -994,34 +1065,32 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="Shadow-Map"><a href="#Shadow-Map" class="headerlink" title="Shadow Map"></a>Shadow Map</h2><ul>
+          <h2 id="shadow-map">Shadow Map</h2>
+<ul>
 <li>记录一下关于<code>Games202</code>的学习</li>
 </ul>
-<h4 id="shadow-map"><a href="#shadow-map" class="headerlink" title="shadow map"></a>shadow map</h4><ul>
-<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p>
-</li>
+<h4 id="shadow-map-1">shadow map</h4>
+<ul>
+<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p></li>
 <li><p>如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：</p>
-<p><img src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" alt=""></p>
-</li>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" /></p></li>
 </ul>
 <p>上图来自<code>Games202</code>的课件：</p>
 <ul>
-<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p>
-</li>
-<li><p>关于计算当前vertex point 是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p>
-</li>
+<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p></li>
+<li><p>关于计算当前vertex point
+是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p></li>
 <li><p>在<code>Games202</code>的作业1中，我们需要使用提供的matrix的接口处理矩阵。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mat.translate() <span class="comment">// 设置矩阵的移动 </span></span><br><span class="line">mat4.scale      <span class="comment">// 设置矩阵的缩放</span></span><br><span class="line"></span><br><span class="line">mat4.lookAt(); <span class="comment">// 生成的视图矩阵</span></span><br><span class="line">mat4.ortho();  <span class="comment">// 平行投影</span></span><br><span class="line"></span><br><span class="line">mat4.multiply(); <span class="comment">// 矩阵的乘法</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p>
-</li>
+<p><a
+target="_blank" rel="noopener" href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p></li>
 <li><p>深度比较：</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure></li>
+<li><p>最终效果</p></li>
 </ul>
-<ul>
-<li>最终效果</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" alt=""></p>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" /></p>
 
       
     </div>
@@ -1106,31 +1175,28 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="多关键字排序"><a href="#多关键字排序" class="headerlink" title="多关键字排序"></a>多关键字排序</h3><ul>
-<li><p>扑克牌的例子</p>
-</li>
+          <h3 id="多关键字排序">多关键字排序</h3>
+<ul>
+<li><p>扑克牌的例子</p></li>
 <li><p>一副扑克牌是按照两种顺序排的：</p>
 <ul>
 <li>K0,花色：梅花 &lt; 方块 &lt; 红桃 &lt; 黑桃</li>
-<li>k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10 &lt; J &lt; Q &lt; K &lt; A</li>
-</ul>
-</li>
-<li>主位优先：（Most Significant Digit）<ul>
+<li>k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10
+&lt; J &lt; Q &lt; K &lt; A</li>
+</ul></li>
+<li><p>主位优先：（Most Significant Digit）</p>
+<ul>
 <li>先用四个花色建桶，然后使用面值建桶</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="一个更好的方法："><a href="#一个更好的方法：" class="headerlink" title="一个更好的方法："></a>一个更好的方法：</h4><ul>
+<h4 id="一个更好的方法">一个更好的方法：</h4>
+<ul>
 <li><p>依旧使用次位优先：</p>
 <ul>
-<li><p>先使用面值建桶</p>
-</li>
-<li><p>然后按照大小将结果合并，使用花色建桶。</p>
-</li>
-<li><p>最终的输出结果便是有序的</p>
-</li>
-</ul>
-</li>
+<li><p>先使用面值建桶</p></li>
+<li><p>然后按照大小将结果合并，使用花色建桶。</p></li>
+<li><p>最终的输出结果便是有序的</p></li>
+</ul></li>
 </ul>
 
       
@@ -1216,89 +1282,105 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h3><ul>
-<li><p><code>T(N,M) = O(M+N)</code>,M 个桶的情况</p>
+          <h3 id="桶排序">桶排序</h3>
+<ul>
+<li><code>T(N,M) = O(M+N)</code>,M 个桶的情况
 <ul>
 <li>N &gt;&gt; M的时候是相对教优秀的算法</li>
 <li>M &gt;&gt; N ???</li>
+</ul></li>
+<li>假设我们有N = 10个整数，N ∈ [0,999],(此时 M =
+1000)；我们便不能在线性时间下完成排序。</li>
 </ul>
-</li>
-<li><p>假设我们有N = 10个整数，N ∈ [0,999],(此时 M = 1000)；我们便不能在线性时间下完成排序。</p>
-</li>
-</ul>
-<h3 id="基数排序：按照数字的进制排序（10）"><a href="#基数排序：按照数字的进制排序（10）" class="headerlink" title="基数排序：按照数字的进制排序（10）"></a>基数排序：按照数字的进制排序（10）</h3><ul>
-<li>example: </li>
-<li>input: 64 8 216 512 27 729 0 1 343 125 <ul>
+<h3
+id="基数排序按照数字的进制排序10">基数排序：按照数字的进制排序（10）</h3>
+<ul>
+<li>example:</li>
+<li>input: 64 8 216 512 27 729 0 1 343 125
+<ul>
 <li>使用次位优先(Least Significant Digit)</li>
 <li>先按照个位数将元素放到对应的桶Pass1</li>
 <li>按照十位放到对应的桶中</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<div class="table-container">
 <table>
+<colgroup>
+<col style="width: 2%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 10%" />
+<col style="width: 9%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 10%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:center">Bucket</th>
-<th style="text-align:center">0</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-<th style="text-align:center">5</th>
+<tr class="header">
+<th style="text-align: center;">Bucket</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
 <th>6</th>
-<th style="text-align:center">7</th>
-<th style="text-align:center">8</th>
-<th style="text-align:center">9</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">9</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">Pass 1(个位)</td>
-<td style="text-align:center"><font color=red>0</font></td>
-<td style="text-align:center"><font color=red>1</font></td>
-<td style="text-align:center">51<font color=red>2</font></td>
-<td style="text-align:center">34<font color=red>3</font></td>
-<td style="text-align:center">6<font color=red>4</font></td>
-<td style="text-align:center">12<font color=red>5</font></td>
+<tr class="odd">
+<td style="text-align: center;">Pass 1(个位)</td>
+<td style="text-align: center;"><font color=red>0</font></td>
+<td style="text-align: center;"><font color=red>1</font></td>
+<td style="text-align: center;">51<font color=red>2</font></td>
+<td style="text-align: center;">34<font color=red>3</font></td>
+<td style="text-align: center;">6<font color=red>4</font></td>
+<td style="text-align: center;">12<font color=red>5</font></td>
 <td>21<font color=red>6</font></td>
-<td style="text-align:center">2<font color=red>7</font></td>
-<td style="text-align:center"><font color=red>8</font></td>
-<td style="text-align:center">72<font color=red>9</font></td>
+<td style="text-align: center;">2<font color=red>7</font></td>
+<td style="text-align: center;"><font color=red>8</font></td>
+<td style="text-align: center;">72<font color=red>9</font></td>
 </tr>
-<tr>
-<td style="text-align:center">Pass 2(十位)</td>
-<td style="text-align:center">0<br>1<br>8</td>
-<td style="text-align:center">512<br>216</td>
-<td style="text-align:center">125<br>27<br>729</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">343</td>
-<td style="text-align:center"></td>
+<tr class="even">
+<td style="text-align: center;">Pass 2(十位)</td>
+<td style="text-align: center;">0<br>1<br>8</td>
+<td style="text-align: center;">512<br>216</td>
+<td style="text-align: center;">125<br>27<br>729</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">343</td>
+<td style="text-align: center;"></td>
 <td>64<br></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center">Pass 3 (百位)</td>
-<td style="text-align:center">0<br/>1<br/>8<br/>27<br/>64</td>
-<td style="text-align:center">125</td>
-<td style="text-align:center">216</td>
-<td style="text-align:center">343</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">512</td>
+<tr class="odd">
+<td style="text-align: center;">Pass 3 (百位)</td>
+<td style="text-align: center;">0<br/>1<br/>8<br/>27<br/>64</td>
+<td style="text-align: center;">125</td>
+<td style="text-align: center;">216</td>
+<td style="text-align: center;">343</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">512</td>
 <td></td>
-<td style="text-align:center">729</td>
-<td style="text-align:center"></td>
+<td style="text-align: center;">729</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 </tbody>
 </table>
-</div>
 <ul>
 <li>最终的顺序，分别从每个桶中顺序读取即可。</li>
 </ul>
-<h4 id="时间复杂度：-T-O-P-N-B"><a href="#时间复杂度：-T-O-P-N-B" class="headerlink" title="时间复杂度： T= O(P(N+B))"></a>时间复杂度： <code>T= O(P(N+B))</code></h4><ul>
-<li>较好情况：取决于基数-多少个桶 (B &lt;&lt; N时差不多是一个线性复杂度的算法)</li>
+<h4 id="时间复杂度-t-opnb">时间复杂度： <code>T= O(P(N+B))</code></h4>
+<ul>
+<li>较好情况：取决于基数-多少个桶 (B &lt;&lt;
+N时差不多是一个线性复杂度的算法)</li>
 </ul>
 
       

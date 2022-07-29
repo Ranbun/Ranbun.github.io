@@ -20,22 +20,19 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.ranbun.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="简单排序: 冒泡排序 插入排序  上述两种排序是相对基础的简单排序,通过交换逆序对逐渐使序列有序。 在常规的排序算法中：我们默认的顺序是从小到大 1、冒泡排序&amp;ensp;&amp;ensp;原理： 冒泡排序是一个两重的for循环，外面一层每循环一次就代表有一个元素被放好，第二重循环做的事情是从没有排好序的元素中取出一个，然后依次和后面的元素作比较，将这些元素中最大的一个放到这些无序元素的最后一个元素的位置">
+    <meta name="description" content="简单排序:  冒泡排序 插入排序  上述两种排序是相对基础的简单排序,通过交换逆序对逐渐使序列有序。 在常规的排序算法中：我们默认的顺序是从小到大 1、冒泡排序   原理： 冒泡排序是一个两重的for循环，外面一层每循环一次就代表有一个元素被放好，第二重循环做的事情是从没有排好序的元素中取出一个，然后依次和后面的元素作比较，将这些元素中最大的一个放到这些无序元素的最后一个元素的位">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简单排序-冒泡&amp;插入">
 <meta property="og:url" content="https://blog.ranbun.com/2021/10/19/sort-bubble-insertion/index.html">
 <meta property="og:site_name" content="RanBun&#39;s Blog">
-<meta property="og:description" content="简单排序: 冒泡排序 插入排序  上述两种排序是相对基础的简单排序,通过交换逆序对逐渐使序列有序。 在常规的排序算法中：我们默认的顺序是从小到大 1、冒泡排序&amp;ensp;&amp;ensp;原理： 冒泡排序是一个两重的for循环，外面一层每循环一次就代表有一个元素被放好，第二重循环做的事情是从没有排好序的元素中取出一个，然后依次和后面的元素作比较，将这些元素中最大的一个放到这些无序元素的最后一个元素的位置">
+<meta property="og:description" content="简单排序:  冒泡排序 插入排序  上述两种排序是相对基础的简单排序,通过交换逆序对逐渐使序列有序。 在常规的排序算法中：我们默认的顺序是从小到大 1、冒泡排序   原理： 冒泡排序是一个两重的for循环，外面一层每循环一次就代表有一个元素被放好，第二重循环做的事情是从没有排好序的元素中取出一个，然后依次和后面的元素作比较，将这些元素中最大的一个放到这些无序元素的最后一个元素的位">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/CuntBoy/images/main/blog/sort/bubble_sort.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/CuntBoy/images/main/blog/sort/insertion_sort.png">
 <meta property="article:published_time" content="2021-10-19T15:41:14.000Z">
 <meta property="article:modified_time" content="2022-07-26T00:48:36.866Z">
 <meta property="article:author" content="RanBun">
 <meta property="article:tag" content="cpp">
 <meta property="article:tag" content="sort">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/CuntBoy/images/main/blog/sort/bubble_sort.png">
 
 
 <link rel="canonical" href="https://blog.ranbun.com/2021/10/19/sort-bubble-insertion/">
@@ -122,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E6%8E%92%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">简单排序:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、冒泡排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、插入排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="nav-number">1.0.3.</span> <span class="nav-text">补充说明：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E9%9D%A2%E5%B0%86%E4%BC%9A%E4%BB%8B%E7%BB%8D%EF%BC%8C%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F%EF%BC%81"><span class="nav-number">1.1.</span> <span class="nav-text">下面将会介绍，希尔排序！</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E6%8E%92%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">简单排序:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、冒泡排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、插入排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E"><span class="nav-number">1.0.3.</span> <span class="nav-text">补充说明：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E9%9D%A2%E5%B0%86%E4%BC%9A%E4%BB%8B%E7%BB%8D%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F"><span class="nav-number">1.1.</span> <span class="nav-text">下面将会介绍，希尔排序！</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -261,15 +258,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="简单排序"><a href="#简单排序" class="headerlink" title="简单排序:"></a>简单排序:</h2><ul>
+        <h2 id="简单排序">简单排序:</h2>
+<ul>
 <li>冒泡排序</li>
 <li>插入排序</li>
 </ul>
 <p>上述两种排序是相对基础的简单排序,通过交换逆序对逐渐使序列有序。</p>
 <p>在常规的排序算法中：我们默认的顺序是从小到大</p>
-<h4 id="1、冒泡排序"><a href="#1、冒泡排序" class="headerlink" title="1、冒泡排序"></a>1、冒泡排序</h4><p>&ensp;&ensp;原理： 冒泡排序是一个两重的<code>for</code>循环，外面一层每循环一次就代表有一个元素被放好，第二重循环做的事情是从没有排好序的元素中取出一个，然后依次和后面的元素作比较，将这些元素中最大的一个放到这些无序元素的最后一个元素的位置，标志着这个元素完成排序——变得有序。</p>
+<h4 id="冒泡排序">1、冒泡排序</h4>
+<p>  原理：
+冒泡排序是一个两重的<code>for</code>循环，外面一层每循环一次就代表有一个元素被放好，第二重循环做的事情是从没有排好序的元素中取出一个，然后依次和后面的元素作比较，将这些元素中最大的一个放到这些无序元素的最后一个元素的位置，标志着这个元素完成排序——变得有序。</p>
 <ul>
-<li>C++实现 — 初始版本</li>
+<li>C++实现 -- 初始版本</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">void swap(int * a,int * b)；</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubble_Sort</span><span class="params">(ElementTYpe A[],<span class="keyword">int</span> N)</span>  <span class="comment">// A是待排序的数据 N代表的是数据的个数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p = <span class="number">0</span>,i = <span class="number">0</span>;</span><br><span class="line">  	<span class="keyword">for</span>(p = N - <span class="number">1</span>;p&gt;=<span class="number">0</span>;p--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; p;i++) <span class="comment">// 从无序的数据中抛出最大的</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(A[i] &gt; A[i+<span class="number">1</span>])  <span class="comment">// 比较元素</span></span><br><span class="line">            &#123;</span><br><span class="line">                swap(A+i,(A+(i+<span class="number">1</span>))); <span class="comment">// 交换元素 </span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> * a,<span class="keyword">int</span> * b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    *a ^= *b;</span><br><span class="line">    *b ^= *a;</span><br><span class="line">    *a ^= *b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -278,60 +278,66 @@
 <p>如是在某一次循环中，提前让数组有序，但是在上述的代码中，即使数据有序了，循环依旧会继续执行，我们需要一个标志，来知道数据已经有序：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubble_Sort</span><span class="params">(ElementTYpe A[],<span class="keyword">int</span> N)</span>  <span class="comment">// A是待排序的数据 N代表的是数据的个数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p = <span class="number">0</span>,i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">false</span>;       <span class="comment">// 标识数组是否有序</span></span><br><span class="line">  	<span class="keyword">for</span>(p = N - <span class="number">1</span>;p&gt;=<span class="number">0</span>;p--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; p;i++) <span class="comment">// 从无序的数据中抛出最大的</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(A[i] &gt; A[i+<span class="number">1</span>])  <span class="comment">// 比较元素</span></span><br><span class="line">            &#123;</span><br><span class="line">                swap(A+i,(A+(i+<span class="number">1</span>))); <span class="comment">// 交换元素</span></span><br><span class="line">                flag = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!flag)  <span class="comment">// 满足退出条件 结束循环</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">break</span>; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>结果展示<ul>
+<li>结果展示
+<ul>
 <li>输入与数据：<code>int a[7] = &#123;3,1,2,98,30,8,90&#125;;</code></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/sort/bubble_sort.png" alt=""></p>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/sort/bubble_sort.png" /></p>
 <ul>
 <li>复杂度分析 - 优化版本</li>
 </ul>
 <p>最好的情况：默认传输进来的元素是有序的，我们只需要，经历一次数据的遍历<code>flag</code>变量会触发循环结束，复杂度：</p>
-<center>T = O(N)</center>
-
+<center>
+T = O(N)
+</center>
 <p>最坏情况：元素逆序，需要遍历比较所有的元素</p>
-<center>T = O(N^2)</center>
-
-<h4 id="2、插入排序"><a href="#2、插入排序" class="headerlink" title="2、插入排序"></a>2、插入排序</h4><p>插入排序：不发生元素的交换，但是会发生元素的移动，每次获取一个元素(P)，将这个P插入到一个有序的序列中，插入的过程是一个比较+覆盖的过程。</p>
+<center>
+T = O(N^2)
+</center>
+<h4 id="插入排序">2、插入排序</h4>
+<p>插入排序：不发生元素的交换，但是会发生元素的移动，每次获取一个元素(P)，将这个P插入到一个有序的序列中，插入的过程是一个比较+覆盖的过程。</p>
 <ul>
-<li><p>C++实现 </p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Insertion_Sort</span><span class="params">(ElementType A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p,i，tmp;</span><br><span class="line">    <span class="keyword">for</span>(p = <span class="number">1</span>;p &lt; N;p++)</span><br><span class="line">    &#123;</span><br><span class="line">        tmp = A[p];  <span class="comment">// 获取插入的元素 </span></span><br><span class="line">        <span class="keyword">for</span>(i = p;i &gt; <span class="number">0</span> &amp;&amp; A[i - <span class="number">1</span>] &gt; tmp;i--) <span class="comment">// A[i-1]表示的是有序序列中的最大元素</span></span><br><span class="line">        &#123;</span><br><span class="line">            A[i] = A[i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 比较结束后，当前 i - 1指向位置的元素是小于 tmp的，所以：</span></span><br><span class="line">        A[i] = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>C++实现</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Insertion_Sort</span><span class="params">(ElementType A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p,i，tmp;</span><br><span class="line">    <span class="keyword">for</span>(p = <span class="number">1</span>;p &lt; N;p++)</span><br><span class="line">    &#123;</span><br><span class="line">        tmp = A[p];  <span class="comment">// 获取插入的元素 </span></span><br><span class="line">        <span class="keyword">for</span>(i = p;i &gt; <span class="number">0</span> &amp;&amp; A[i - <span class="number">1</span>] &gt; tmp;i--) <span class="comment">// A[i-1]表示的是有序序列中的最大元素</span></span><br><span class="line">        &#123;</span><br><span class="line">            A[i] = A[i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 比较结束后，当前 i - 1指向位置的元素是小于 tmp的，所以：</span></span><br><span class="line">        A[i] = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>结果展示</p>
 <ul>
 <li>输入与数据：<code>int a[7] = &#123;3,1,1,98,30,8,90&#125;;</code></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/sort/insertion_sort.png" alt=""></p>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/sort/insertion_sort.png" /></p>
 <ul>
 <li><p>复杂度分析：</p>
 <p>最好情况，每次进来的元素不需要，比较。直接插入到相应的位置，此时时间复杂度：</p>
-<center>T = O(N)</center>
-
+<center>
+<p>T = O(N)</p>
+</center>
 <p>最坏情况，数据逆序，每一次的元素都需要遍历所有的有序元素，此时时间复杂度：</p>
-<center>T = O(N^2)</center>
-
-</li>
+<center>
+<p>T = O(N^2)</p>
+</center></li>
 </ul>
-<h4 id="补充说明："><a href="#补充说明：" class="headerlink" title="补充说明："></a>补充说明：</h4><ul>
+<h4 id="补充说明">补充说明：</h4>
+<ul>
 <li>时间复杂度下界</li>
 </ul>
-<p>&ensp;&ensp;&ensp;&ensp;概念：对于下边<code>i&lt;j</code>如果A[i] &gt; A[j]，则称<code>(i,j)</code>是一对逆序对<font color=red>逆序对(inversion)</font></p>
+<p>    概念：对于下边<code>i&lt;j</code>如果A[i] &gt;
+A[j]，则称<code>(i,j)</code>是一对逆序对<font color=red>逆序对(inversion)</font></p>
 <ul>
 <li>在上述的排序中，相邻元素的交换其实是消掉逆序对的操作！<font color=red>如果序列基本有序，那么插入排序简单且高效</font></li>
 </ul>
-<center>插入排序：T(N,I) = O(N+I)</center>
-
+<center>
+插入排序：T(N,I) = O(N+I)
+</center>
 <ul>
-<li><p>对于N个不同元素组成的序列，平均具有<code>N(N-1)/4</code>个逆序对。</p>
-</li>
-<li><p>对于仅以交换相邻元素来排序的算法，其平均时间复杂度为婐<code>Ω(N^2)</code></p>
-</li>
+<li><p>对于N个不同元素组成的序列，平均具有<code>N(N-1)/4</code>个逆序对。</p></li>
+<li><p>对于仅以交换相邻元素来排序的算法，其平均时间复杂度为婐<code>Ω(N^2)</code></p></li>
 </ul>
 <p>基于上面的描述，我们要提高此类算法的效率，必须每次消去的逆序对数大于1。</p>
-<h3 id="下面将会介绍，希尔排序！"><a href="#下面将会介绍，希尔排序！" class="headerlink" title="下面将会介绍，希尔排序！"></a>下面将会介绍，希尔排序！</h3>
+<h3 id="下面将会介绍希尔排序">下面将会介绍，希尔排序！</h3>
+
     </div>
 
     
