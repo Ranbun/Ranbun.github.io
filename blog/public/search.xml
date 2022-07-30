@@ -50,6 +50,20 @@
       </tags>
   </entry>
   <entry>
+    <title>Bit manipulation</title>
+    <url>/2022/07/29/Bit-manipulation/</url>
+    <content><![CDATA[<h3
+id="将二进制数某一位置零置1取反">将二进制数某一位置零，置1，取反</h3>
+<h4 id="将不同进制数转为二进制">将不同进制数转为二进制</h4>
+]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Bucket Sort and Cardinality sort</title>
     <url>/2021/11/07/Bucket-Sort/</url>
     <content><![CDATA[<h3 id="桶排序">桶排序</h3>
@@ -162,12 +176,6 @@ N时差不多是一个线性复杂度的算法)</li>
       </tags>
   </entry>
   <entry>
-    <title>Bit manipulation</title>
-    <url>/2022/07/29/Bit-manipulation/</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
     <title>Bug奇遇记-uint16_t</title>
     <url>/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/</url>
     <content><![CDATA[<h3 id="uint16_t">uint16_t</h3>
@@ -234,23 +242,6 @@ id="dynamic-drawing-of-osg-vertex-buffer-objects"><code>Dynamic drawing of osg v
       </tags>
   </entry>
   <entry>
-    <title>Git常用命令(上)</title>
-    <url>/2022/07/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/</url>
-    <content><![CDATA[<h2 id="git常用命令"># Git常用命令</h2>
-<h3 id="install-git"><code>install Git</code></h3>
-<ul>
-<li>Git -- <a href="https://git-scm.com/">官方网站</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>SCU</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Games202-ShadowMap</title>
     <url>/2021/12/13/Games202-ShadowMap/</url>
     <content><![CDATA[<h2 id="shadow-map">Shadow Map</h2>
@@ -289,38 +280,20 @@ src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/g
       </tags>
   </entry>
   <entry>
-    <title>Multi KeyWord Sort</title>
-    <url>/2021/11/07/Multi-KeyWord-Sort/</url>
-    <content><![CDATA[<h3 id="多关键字排序">多关键字排序</h3>
+    <title>Git常用命令(上)</title>
+    <url>/2022/07/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/</url>
+    <content><![CDATA[<h2 id="git常用命令"># Git常用命令</h2>
+<h3 id="install-git"><code>install Git</code></h3>
 <ul>
-<li><p>扑克牌的例子</p></li>
-<li><p>一副扑克牌是按照两种顺序排的：</p>
-<ul>
-<li>K0,花色：梅花 &lt; 方块 &lt; 红桃 &lt; 黑桃</li>
-<li>k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10
-&lt; J &lt; Q &lt; K &lt; A</li>
-</ul></li>
-<li><p>主位优先：（Most Significant Digit）</p>
-<ul>
-<li>先用四个花色建桶，然后使用面值建桶</li>
-</ul></li>
-</ul>
-<h4 id="一个更好的方法">一个更好的方法：</h4>
-<ul>
-<li><p>依旧使用次位优先：</p>
-<ul>
-<li><p>先使用面值建桶</p></li>
-<li><p>然后按照大小将结果合并，使用花色建桶。</p></li>
-<li><p>最终的输出结果便是有序的</p></li>
-</ul></li>
+<li>Git -- <a href="https://git-scm.com/">官方网站</a></li>
 </ul>
 ]]></content>
       <categories>
-        <category>Algorithm</category>
+        <category>works</category>
+        <category>SCU</category>
       </categories>
       <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -378,6 +351,41 @@ C++ 实现  </a></p>
 <h4 id="最小堆--完全二叉树小顶堆">最小堆- 完全二叉树（小顶堆）</h4>
 <ul>
 <li>可以参照最大堆写</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Multi KeyWord Sort</title>
+    <url>/2021/11/07/Multi-KeyWord-Sort/</url>
+    <content><![CDATA[<h3 id="多关键字排序">多关键字排序</h3>
+<ul>
+<li><p>扑克牌的例子</p></li>
+<li><p>一副扑克牌是按照两种顺序排的：</p>
+<ul>
+<li>K0,花色：梅花 &lt; 方块 &lt; 红桃 &lt; 黑桃</li>
+<li>k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10
+&lt; J &lt; Q &lt; K &lt; A</li>
+</ul></li>
+<li><p>主位优先：（Most Significant Digit）</p>
+<ul>
+<li>先用四个花色建桶，然后使用面值建桶</li>
+</ul></li>
+</ul>
+<h4 id="一个更好的方法">一个更好的方法：</h4>
+<ul>
+<li><p>依旧使用次位优先：</p>
+<ul>
+<li><p>先使用面值建桶</p></li>
+<li><p>然后按照大小将结果合并，使用花色建桶。</p></li>
+<li><p>最终的输出结果便是有序的</p></li>
+</ul></li>
 </ul>
 ]]></content>
       <categories>
@@ -466,6 +474,46 @@ id="计算对模型的旋转缩放平移的操作矩阵">2、计算对模型的�
 <h4
 id="将操作节点添加到绘制的根节点或者是其他的叶节点">5、将操作节点添加到绘制的根节点或者是其他的叶节点</h4>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ......</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>GF</category>
+        <category>OSG</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>osg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OSG踩坑记-默认光源</title>
+    <url>/2021/04/04/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90/</url>
+    <content><![CDATA[<h3 id="osg-viewer默认光源">OSG-Viewer默认光源</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    <span class="comment">// 法线随着模型大小变化而变化。</span></span><br><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::StateAttribute::OFF | osg::StateAttribute::OVERRIDE); <span class="comment">// 关闭节点光源 并遵从父节点的光照设置</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h5
+id="不指定法向----仍然可以看到-光照效果-但是无法看到明暗变化"><code>不指定法向</code>
+-- <font color=red>仍然可以看到 光照效果 但是无法看到明暗变化
+</font></h5>
+<h3 id="viewer-默认光源的使用">Viewer 默认光源的使用</h3>
+<h4 id="设置光照的相关的信息">1、设置光照的相关的信息</h4>
+<ul>
+<li><p><code>osg::Viewer默认存在缺省光源,但是需要进行部分设置,不然可能与你当前的场景不匹配</code></p></li>
+<li><p>你需要设置的信息包括:
+ambient、diffuse、specular、光照方向（可以不设置，使用缺省的）、光照位置、光的衰减参数。</p></li>
+</ul>
+<blockquote>
+<p>设置光照 -- <font color=Green>衰减公式</font> <span
+class="math display">\[
+F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
+\]</span></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 获取缺省的光照</span></span><br><span class="line">osg::Light *light = viewer-&gt;getLight(); <span class="comment">// 从当前的查看器 获取光照设置 </span></span><br><span class="line">light-&gt;setAmbient(osg::Vec4(<span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">1.0</span>));   <span class="comment">// 环境光   OPENGL的默认值是 osg::Vec3(0.2,0.2,0.2);</span></span><br><span class="line">light-&gt;setDiffuse(osg::Vec4(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1.0</span>));   <span class="comment">// 漫反射   直接来源于光源</span></span><br><span class="line">light-&gt;setSpecular(osg::Vec4(<span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">1.0</span>));  <span class="comment">// specular   高光 此处给的很低  </span></span><br><span class="line"><span class="comment">// 由于此处我们使用的是平行光</span></span><br><span class="line"><span class="function">osg::Vec4 <span class="title">lightpos</span><span class="params">(x, y, z, <span class="number">0.0f</span>)</span></span>;   <span class="comment">// 记住: 平行光的位置的最后一个分量必须是 0 </span></span><br><span class="line">light-&gt;setPosition(lightpos);        <span class="comment">// 设置光照位置 </span></span><br><span class="line"><span class="comment">// 光照方向设置</span></span><br><span class="line"><span class="comment">// 需要用到高度角和方位角 -- 计算一个你需要方向 </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置光的衰减 -- 只设置 常量衰减的话 --   无距离衰减</span></span><br><span class="line">light-&gt;setConstantAttenuation(<span class="number">1.0f</span>);</span><br><span class="line">light-&gt;setLinearAttenuation(<span class="number">0.0f</span>);</span><br><span class="line">light-&gt;setQuadraticAttenuation(<span class="number">0.f</span>);</span><br></pre></td></tr></table></figure>
+<p><font color=red> 产生平行光，位置分量的第四分量必须是0 </font></p>
+<h4 id="对节点设置好材料属性">2、对节点设置好材料属性</h4>
+<ul>
+<li>材料的设置是针对你要显示的节点设置的、你可以创建一个材料并设置相关的颜色，这样就可以拥有一个更好的显示效果。</li>
+</ul>
 ]]></content>
       <categories>
         <category>works</category>
@@ -824,52 +872,6 @@ id="将操作节点添加到绘制的根节点或者是其他的叶节点">5、�
       </tags>
   </entry>
   <entry>
-    <title>OSG踩坑记-默认光源</title>
-    <url>/2021/04/04/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90/</url>
-    <content><![CDATA[<h3 id="osg-viewer默认光源">OSG-Viewer默认光源</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    <span class="comment">// 法线随着模型大小变化而变化。</span></span><br><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::StateAttribute::OFF | osg::StateAttribute::OVERRIDE); <span class="comment">// 关闭节点光源 并遵从父节点的光照设置</span></span><br></pre></td></tr></table></figure>
-<hr />
-<h5
-id="不指定法向----仍然可以看到-光照效果-但是无法看到明暗变化"><code>不指定法向</code>
--- <font color=red>仍然可以看到 光照效果 但是无法看到明暗变化
-</font></h5>
-<h3 id="viewer-默认光源的使用">Viewer 默认光源的使用</h3>
-<h4 id="设置光照的相关的信息">1、设置光照的相关的信息</h4>
-<ul>
-<li><p><code>osg::Viewer默认存在缺省光源,但是需要进行部分设置,不然可能与你当前的场景不匹配</code></p></li>
-<li><p>你需要设置的信息包括:
-ambient、diffuse、specular、光照方向（可以不设置，使用缺省的）、光照位置、光的衰减参数。</p></li>
-</ul>
-<blockquote>
-<p>设置光照 -- <font color=Green>衰减公式</font> <span
-class="math display">\[
-F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
-\]</span></p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 获取缺省的光照</span></span><br><span class="line">osg::Light *light = viewer-&gt;getLight(); <span class="comment">// 从当前的查看器 获取光照设置 </span></span><br><span class="line">light-&gt;setAmbient(osg::Vec4(<span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">1.0</span>));   <span class="comment">// 环境光   OPENGL的默认值是 osg::Vec3(0.2,0.2,0.2);</span></span><br><span class="line">light-&gt;setDiffuse(osg::Vec4(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1.0</span>));   <span class="comment">// 漫反射   直接来源于光源</span></span><br><span class="line">light-&gt;setSpecular(osg::Vec4(<span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">1.0</span>));  <span class="comment">// specular   高光 此处给的很低  </span></span><br><span class="line"><span class="comment">// 由于此处我们使用的是平行光</span></span><br><span class="line"><span class="function">osg::Vec4 <span class="title">lightpos</span><span class="params">(x, y, z, <span class="number">0.0f</span>)</span></span>;   <span class="comment">// 记住: 平行光的位置的最后一个分量必须是 0 </span></span><br><span class="line">light-&gt;setPosition(lightpos);        <span class="comment">// 设置光照位置 </span></span><br><span class="line"><span class="comment">// 光照方向设置</span></span><br><span class="line"><span class="comment">// 需要用到高度角和方位角 -- 计算一个你需要方向 </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置光的衰减 -- 只设置 常量衰减的话 --   无距离衰减</span></span><br><span class="line">light-&gt;setConstantAttenuation(<span class="number">1.0f</span>);</span><br><span class="line">light-&gt;setLinearAttenuation(<span class="number">0.0f</span>);</span><br><span class="line">light-&gt;setQuadraticAttenuation(<span class="number">0.f</span>);</span><br></pre></td></tr></table></figure>
-<p><font color=red> 产生平行光，位置分量的第四分量必须是0 </font></p>
-<h4 id="对节点设置好材料属性">2、对节点设置好材料属性</h4>
-<ul>
-<li>材料的设置是针对你要显示的节点设置的、你可以创建一个材料并设置相关的颜色，这样就可以拥有一个更好的显示效果。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>GF</category>
-        <category>OSG</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>osg</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Qt connect function the fifth param</title>
-    <url>/2022/07/29/Qt-connect-function-the-fifth-param/</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
     <title>QuickSort</title>
     <url>/2021/10/28/QuickSort/</url>
     <content><![CDATA[<h2 id="quick-sort">Quick Sort</h2>
@@ -956,6 +958,12 @@ F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
         <tag>cpp</tag>
         <tag>sort</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Qt connect function the fifth param</title>
+    <url>/2022/07/29/Qt-connect-function-the-fifth-param/</url>
+    <content><![CDATA[
+]]></content>
   </entry>
   <entry>
     <title>Table-Sort</title>
@@ -1533,44 +1541,6 @@ title="微信多开效果图" /></p></li>
       </tags>
   </entry>
   <entry>
-    <title>记一次总结</title>
-    <url>/2021/10/17/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h3 id="section"></h3>
-<p><code>前记：</code></p>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/GF_Workspace.JPG" /></p>
-<p>    从辞职到新公司，过去了快两个月时间，经过这大段的时间，度过了试用期，开始接手往后日子里要进行的工作。</p>
-<p> 
-   新工作是关于<code>C++　&amp;　OSG</code>的，做一个仿真软件，主要负责一些关于<code>osg</code>的渲染工作，和其中部分界面的编写，项目用到的还算是熟悉的东西：</p>
-<ul>
-<li><code>Qt</code>编写整个软件的界面</li>
-<li><code>osg</code>负责整个3D图形的展示</li>
-</ul>
-<p>  关于这个项目遇到的一些问题：</p>
-<ul>
-<li><code>osg</code>编译劝退</li>
-</ul>
-<p>    讲真，<code>osg</code>的库的编译相当劝退，各种库的依赖关系，以及<code>VS</code>的工具链的选择，以及部分库的调试模式的选择。</p>
-<p>这里推荐<a ref=https://freesouth.blog.csdn.net/>杨石兴的博客</a>详细介绍了OSG的编译的一些问题，同时它提供了编译使用的所有的依赖包，各种工具集的版本。</p>
-<ul>
-<li><code>osg</code>与<code>Qt</code>的集成</li>
-</ul>
-<p>    要求你先编译<code>osg</code>然后才能编译，<code>osgQt</code>在<code>osg3.4</code>之后的版本中便被从原来的库中剔除，需要自己单独编译，</p>
-<p>同时<code>Qt4.0</code>的版本与<code>5.0</code>的版本编译使用的<code>Qt</code>的类也存在一些区别。</p>
-<p>当前阶段，上面提到的这些问题，我们已经解决了，新一番的问题产生了：</p>
-<ul>
-<li>在于不同的团队合作的时候，如何扯皮！</li>
-</ul>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>HJ</category>
-      </categories>
-      <tags>
-        <tag>conclusion</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>记一次面试</title>
     <url>/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95-1/</url>
     <content><![CDATA[<h2 id="记一次面试">记一次面试:</h2>
@@ -1659,6 +1629,44 @@ src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/GF_Workspace.JPG
         <tag>cpp</tag>
         <tag>openGL</tag>
         <tag>computer graphics</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记一次总结</title>
+    <url>/2021/10/17/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h3 id="section"></h3>
+<p><code>前记：</code></p>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/GF_Workspace.JPG" /></p>
+<p>    从辞职到新公司，过去了快两个月时间，经过这大段的时间，度过了试用期，开始接手往后日子里要进行的工作。</p>
+<p> 
+   新工作是关于<code>C++　&amp;　OSG</code>的，做一个仿真软件，主要负责一些关于<code>osg</code>的渲染工作，和其中部分界面的编写，项目用到的还算是熟悉的东西：</p>
+<ul>
+<li><code>Qt</code>编写整个软件的界面</li>
+<li><code>osg</code>负责整个3D图形的展示</li>
+</ul>
+<p>  关于这个项目遇到的一些问题：</p>
+<ul>
+<li><code>osg</code>编译劝退</li>
+</ul>
+<p>    讲真，<code>osg</code>的库的编译相当劝退，各种库的依赖关系，以及<code>VS</code>的工具链的选择，以及部分库的调试模式的选择。</p>
+<p>这里推荐<a ref=https://freesouth.blog.csdn.net/>杨石兴的博客</a>详细介绍了OSG的编译的一些问题，同时它提供了编译使用的所有的依赖包，各种工具集的版本。</p>
+<ul>
+<li><code>osg</code>与<code>Qt</code>的集成</li>
+</ul>
+<p>    要求你先编译<code>osg</code>然后才能编译，<code>osgQt</code>在<code>osg3.4</code>之后的版本中便被从原来的库中剔除，需要自己单独编译，</p>
+<p>同时<code>Qt4.0</code>的版本与<code>5.0</code>的版本编译使用的<code>Qt</code>的类也存在一些区别。</p>
+<p>当前阶段，上面提到的这些问题，我们已经解决了，新一番的问题产生了：</p>
+<ul>
+<li>在于不同的团队合作的时候，如何扯皮！</li>
+</ul>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>HJ</category>
+      </categories>
+      <tags>
+        <tag>conclusion</tag>
       </tags>
   </entry>
   <entry>

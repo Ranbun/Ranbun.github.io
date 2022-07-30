@@ -42,19 +42,25 @@
     <link href="https://blog.ranbun.com/2022/07/29/Bit-manipulation/"/>
     <id>https://blog.ranbun.com/2022/07/29/Bit-manipulation/</id>
     <published>2022-07-29T09:24:35.000Z</published>
-    <updated>2022-07-29T18:39:02.506Z</updated>
+    <updated>2022-07-30T04:43:27.612Z</updated>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h3id="将二进制数某一位置零置1取反">将二进制数某一位置零，置1，取反</h3><h4 id="将不同进制数转为二进制">将不同进制数转为二进制</h4>]]></content>
     
     
       
       
-    <summary type="html">
+    <summary type="html">&lt;h3
+id=&quot;将二进制数某一位置零置1取反&quot;&gt;将二进制数某一位置零，置1，取反&lt;/h3&gt;
+&lt;h4 id=&quot;将不同进制数转为二进制&quot;&gt;将不同进制数转为二进制&lt;/h4&gt;
 </summary>
       
     
     
     
+    <category term="Coding" scheme="https://blog.ranbun.com/categories/Coding/"/>
+    
+    
+    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
     
   </entry>
   
