@@ -312,6 +312,23 @@ src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/g
       </tags>
   </entry>
   <entry>
+    <title>Git常用命令(上)</title>
+    <url>/2022/07/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/</url>
+    <content><![CDATA[<h2 id="git常用命令"># Git常用命令</h2>
+<h3 id="install-git"><code>install Git</code></h3>
+<ul>
+<li>Git -- <a href="https://git-scm.com/">官方网站</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>SCU</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Heap</title>
     <url>/2021/10/24/Heap/</url>
     <content><![CDATA[<h2 id="堆">堆</h2>
@@ -412,23 +429,6 @@ C++ 实现  </a></p>
       </tags>
   </entry>
   <entry>
-    <title>Git常用命令(上)</title>
-    <url>/2022/07/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/</url>
-    <content><![CDATA[<h2 id="git常用命令"># Git常用命令</h2>
-<h3 id="install-git"><code>install Git</code></h3>
-<ul>
-<li>Git -- <a href="https://git-scm.com/">官方网站</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>SCU</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>OSG-HUD</title>
     <url>/2021/07/26/OSG-HUD/</url>
     <content><![CDATA[<h1 id="osg-hud">OSG-HUD</h1>
@@ -506,6 +506,46 @@ id="计算对模型的旋转缩放平移的操作矩阵">2、计算对模型的�
 <h4
 id="将操作节点添加到绘制的根节点或者是其他的叶节点">5、将操作节点添加到绘制的根节点或者是其他的叶节点</h4>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ......</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>GF</category>
+        <category>OSG</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>osg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OSG踩坑记-默认光源</title>
+    <url>/2021/04/04/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90/</url>
+    <content><![CDATA[<h3 id="osg-viewer默认光源">OSG-Viewer默认光源</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    <span class="comment">// 法线随着模型大小变化而变化。</span></span><br><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::StateAttribute::OFF | osg::StateAttribute::OVERRIDE); <span class="comment">// 关闭节点光源 并遵从父节点的光照设置</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h5
+id="不指定法向----仍然可以看到-光照效果-但是无法看到明暗变化"><code>不指定法向</code>
+-- <font color=red>仍然可以看到 光照效果 但是无法看到明暗变化
+</font></h5>
+<h3 id="viewer-默认光源的使用">Viewer 默认光源的使用</h3>
+<h4 id="设置光照的相关的信息">1、设置光照的相关的信息</h4>
+<ul>
+<li><p><code>osg::Viewer默认存在缺省光源,但是需要进行部分设置,不然可能与你当前的场景不匹配</code></p></li>
+<li><p>你需要设置的信息包括:
+ambient、diffuse、specular、光照方向（可以不设置，使用缺省的）、光照位置、光的衰减参数。</p></li>
+</ul>
+<blockquote>
+<p>设置光照 -- <font color=Green>衰减公式</font> <span
+class="math display">\[
+F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
+\]</span></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 获取缺省的光照</span></span><br><span class="line">osg::Light *light = viewer-&gt;getLight(); <span class="comment">// 从当前的查看器 获取光照设置 </span></span><br><span class="line">light-&gt;setAmbient(osg::Vec4(<span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">1.0</span>));   <span class="comment">// 环境光   OPENGL的默认值是 osg::Vec3(0.2,0.2,0.2);</span></span><br><span class="line">light-&gt;setDiffuse(osg::Vec4(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1.0</span>));   <span class="comment">// 漫反射   直接来源于光源</span></span><br><span class="line">light-&gt;setSpecular(osg::Vec4(<span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">1.0</span>));  <span class="comment">// specular   高光 此处给的很低  </span></span><br><span class="line"><span class="comment">// 由于此处我们使用的是平行光</span></span><br><span class="line"><span class="function">osg::Vec4 <span class="title">lightpos</span><span class="params">(x, y, z, <span class="number">0.0f</span>)</span></span>;   <span class="comment">// 记住: 平行光的位置的最后一个分量必须是 0 </span></span><br><span class="line">light-&gt;setPosition(lightpos);        <span class="comment">// 设置光照位置 </span></span><br><span class="line"><span class="comment">// 光照方向设置</span></span><br><span class="line"><span class="comment">// 需要用到高度角和方位角 -- 计算一个你需要方向 </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置光的衰减 -- 只设置 常量衰减的话 --   无距离衰减</span></span><br><span class="line">light-&gt;setConstantAttenuation(<span class="number">1.0f</span>);</span><br><span class="line">light-&gt;setLinearAttenuation(<span class="number">0.0f</span>);</span><br><span class="line">light-&gt;setQuadraticAttenuation(<span class="number">0.f</span>);</span><br></pre></td></tr></table></figure>
+<p><font color=red> 产生平行光，位置分量的第四分量必须是0 </font></p>
+<h4 id="对节点设置好材料属性">2、对节点设置好材料属性</h4>
+<ul>
+<li>材料的设置是针对你要显示的节点设置的、你可以创建一个材料并设置相关的颜色，这样就可以拥有一个更好的显示效果。</li>
+</ul>
 ]]></content>
       <categories>
         <category>works</category>
@@ -864,50 +904,237 @@ id="将操作节点添加到绘制的根节点或者是其他的叶节点">5、�
       </tags>
   </entry>
   <entry>
-    <title>OSG踩坑记-默认光源</title>
-    <url>/2021/04/04/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90/</url>
-    <content><![CDATA[<h3 id="osg-viewer默认光源">OSG-Viewer默认光源</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    <span class="comment">// 法线随着模型大小变化而变化。</span></span><br><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::StateAttribute::OFF | osg::StateAttribute::OVERRIDE); <span class="comment">// 关闭节点光源 并遵从父节点的光照设置</span></span><br></pre></td></tr></table></figure>
-<hr />
-<h5
-id="不指定法向----仍然可以看到-光照效果-但是无法看到明暗变化"><code>不指定法向</code>
--- <font color=red>仍然可以看到 光照效果 但是无法看到明暗变化
-</font></h5>
-<h3 id="viewer-默认光源的使用">Viewer 默认光源的使用</h3>
-<h4 id="设置光照的相关的信息">1、设置光照的相关的信息</h4>
+    <title>Qt Connect</title>
+    <url>/2022/07/29/Qt-connect-function-the-fifth-param/</url>
+    <content><![CDATA[<h1 id="qt"><code>Qt</code></h1>
 <ul>
-<li><p><code>osg::Viewer默认存在缺省光源,但是需要进行部分设置,不然可能与你当前的场景不匹配</code></p></li>
-<li><p>你需要设置的信息包括:
-ambient、diffuse、specular、光照方向（可以不设置，使用缺省的）、光照位置、光的衰减参数。</p></li>
+<li>是非常好的用于开发软件界面的库, 当然我这样说有些狭隘,
+<code>Qt</code>能做的事情远不止如此</li>
+<li>但本文我只是说一下<code>Qt</code>的信号槽机制</li>
 </ul>
-<blockquote>
-<p>设置光照 -- <font color=Green>衰减公式</font> <span
-class="math display">\[
-F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
-\]</span></p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 获取缺省的光照</span></span><br><span class="line">osg::Light *light = viewer-&gt;getLight(); <span class="comment">// 从当前的查看器 获取光照设置 </span></span><br><span class="line">light-&gt;setAmbient(osg::Vec4(<span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">1.0</span>));   <span class="comment">// 环境光   OPENGL的默认值是 osg::Vec3(0.2,0.2,0.2);</span></span><br><span class="line">light-&gt;setDiffuse(osg::Vec4(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1.0</span>));   <span class="comment">// 漫反射   直接来源于光源</span></span><br><span class="line">light-&gt;setSpecular(osg::Vec4(<span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">1.0</span>));  <span class="comment">// specular   高光 此处给的很低  </span></span><br><span class="line"><span class="comment">// 由于此处我们使用的是平行光</span></span><br><span class="line"><span class="function">osg::Vec4 <span class="title">lightpos</span><span class="params">(x, y, z, <span class="number">0.0f</span>)</span></span>;   <span class="comment">// 记住: 平行光的位置的最后一个分量必须是 0 </span></span><br><span class="line">light-&gt;setPosition(lightpos);        <span class="comment">// 设置光照位置 </span></span><br><span class="line"><span class="comment">// 光照方向设置</span></span><br><span class="line"><span class="comment">// 需要用到高度角和方位角 -- 计算一个你需要方向 </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置光的衰减 -- 只设置 常量衰减的话 --   无距离衰减</span></span><br><span class="line">light-&gt;setConstantAttenuation(<span class="number">1.0f</span>);</span><br><span class="line">light-&gt;setLinearAttenuation(<span class="number">0.0f</span>);</span><br><span class="line">light-&gt;setQuadraticAttenuation(<span class="number">0.f</span>);</span><br></pre></td></tr></table></figure>
-<p><font color=red> 产生平行光，位置分量的第四分量必须是0 </font></p>
-<h4 id="对节点设置好材料属性">2、对节点设置好材料属性</h4>
+<h2 id="qt超级经典的信号与槽机制--signal-slot">1.
+<code>Qt</code>超级经典的信号与槽机制- <code>signal</code> &amp;
+<code>slot</code></h2>
 <ul>
-<li>材料的设置是针对你要显示的节点设置的、你可以创建一个材料并设置相关的颜色，这样就可以拥有一个更好的显示效果。</li>
+<li><p>示例 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Use_SignalAndSlot</span>:</span><span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="comment">// ......</span></span><br><span class="line">signals:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">useSignalsAndSlots</span><span class="params">()</span></span>;</span><br><span class="line">slots: <span class="comment">// (槽函数可以不是slots下的函数)，可以是public or private or protected 下的函数</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnuseSignalsAndSlots</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">// ......</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>class</code> 必须是继承自 <code>QObject</code></p></li>
+<li><p>要使用<code>Qt</code>的这个机制需要在<code>Class</code>的定义处添加<code>Q_OBJECT</code>的宏定义x</p></li>
+<li><p>定义信号是必须加上- <code>signals:</code> 前缀,
+且信号不需要实现只需要定义，<code>Qt</code>有自己的解析机制</p></li>
+</ul>
+<h3 id="信号槽的不同写法---官方介绍">1. 信号槽的不同写法 - 官方介绍</h3>
+<h4 id="qt4"><code>Qt4</code></h4>
+来自官方的文档 - 使用宏包裹 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function">QMetaObject::Connection <span class="title">QObject::connect</span><span class="params">(<span class="keyword">const</span> QObject *sender, <span class="keyword">const</span> <span class="keyword">char</span> *signal, <span class="keyword">const</span> QObject *receiver, <span class="keyword">const</span> <span class="keyword">char</span> *method, Qt::ConnectionType type = Qt::AutoConnection)</span></span></span><br></pre></td></tr></table></figure>
+<p>
+  Creates a connection of the given type from the signal in the sender
+object to the method in the receiver object. Returns a handle to the
+connection that can be used to disconnect it later.<br>   You must use
+the <code> SIGNAL() </code> and <code>SLOT()</code> macros when
+specifying the signal and the method, for example:
+</p>
+<ul>
+<li><p>上面函数创建一个链接，并将这个链接作为返回值,这个返回值可以用于调用
+<code>disconnect</code> 断开链接</p></li>
+<li><p>example: <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">QLabel *label = <span class="keyword">new</span> QLabel;</span><br><span class="line">QScrollBar *scrollBar = <span class="keyword">new</span> QScrollBar;</span><br><span class="line">QObject::connect(scrollBar, SIGNAL(valueChanged(<span class="keyword">int</span>)),label,  SLOT(setNum(<span class="keyword">int</span>)));</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li>
+<li><p><font color=red id="danger">友情提示：请记住这种写法，必须使用<code>SIGNAL</code>&amp;<code>SLOT</code>将对应的信号和槽函数包裹起来，并且这种方法无法检测对应的信号和槽函数是否存在</font></p></li>
+<li><p>在创建链接的时候，对应的信号中我们只需要给出参数的类型，不需要写出具体的参数名称:</p>
+<p>
+<p>  This example ensures that the label always displays the current
+scroll bar value. Note that the signal and slots parameters must not
+contain any variable names, only the type. E.g. the following would not
+work and return false:</p>
+</p>
+<p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// WRONG</span></span><br><span class="line">QObject::connect(scrollBar, SIGNAL(valueChanged(<span class="keyword">int</span> value)),label, SLOT(setNum(<span class="keyword">int</span> value)));</span><br></pre></td></tr></table></figure></p></li>
+<li><p>overloads - 1</p>
+<p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function">QMetaObject::Connection <span class="title">QObject::connect</span><span class="params">(<span class="keyword">const</span> QObject *sender, <span class="keyword">const</span> QMetaMethod &amp;signal, <span class="keyword">const</span> QObject *receiver, <span class="keyword">const</span> QMetaMethod &amp;method, Qt::ConnectionType type = Qt::AutoConnection)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>
+<p>  Creates a connection of the given type from the signal in the
+sender object to the method in the receiver object. Returns a handle to
+the connection that can be used to disconnect it later.<br>   The
+Connection handle will be invalid if it cannot create the connection,
+for example, the parameters were invalid. You can check if the
+<code>QMetaObject::Connection</code> is valid by casting it to a
+bool.<br>   This function works in the same way as <code>connect(const
+QObject <em>sender, const char </em>signal, const QObject <em>receiver,
+const char </em>method, Qt::ConnectionType type)</code> but it uses
+<code>QMetaMethod</code> to specify signal and method.<br> This function
+was introduced in Qt 4.8.</p>
+</p></li>
+<li><p>overloads - 2</p>
+<p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function">QMetaObject::Connection <span class="title">QObject::connect</span><span class="params">(<span class="keyword">const</span> QObject *sender, <span class="keyword">const</span> <span class="keyword">char</span> *signal, <span class="keyword">const</span> <span class="keyword">char</span> *method, Qt::ConnectionType type = Qt::AutoConnection)</span> <span class="keyword">const</span></span></span><br></pre></td></tr></table></figure></p>
+<p>
+<p>  This function overloads <code>connect()</code>.<br>   Connects
+signal from the sender object to this object's method.<br>   Equivalent
+to <code>connect(sender, signal, <font color=red>this</font>, method,
+type)</code>.<br>   Every connection you make emits a signal, so
+duplicate connections emit two signals. You can break a connection using
+<code>disconnect()</code>.<br>   Note: This function is
+<font color=#00ff00>thread-safe</font>. <br>
+<font color=red>  友情提示： 默认指定this作为接收者</font></p>
+</p></li>
+</ul>
+<h4 id="qt5之后"><code>Qt5</code>之后</h4>
+<ul>
+<li><p>新的写法 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> PointerToMemberFunction&gt; <span class="function">QMetaObject::Connection <span class="title">QObject::connect</span><span class="params">(<span class="keyword">const</span> QObject *sender, PointerToMemberFunction signal, <span class="keyword">const</span> QObject *receiver, PointerToMemberFunction method, Qt::ConnectionType type =  Qt::AutoConnection)</span></span></span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>example</code> <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">QLabel *label = <span class="keyword">new</span> QLabel;</span><br><span class="line">QLineEdit *lineEdit = <span class="keyword">new</span> QLineEdit;</span><br><span class="line">QObject::connect(lineEdit, &amp;QLineEdit::textChanged,label,  &amp;QLabel::setText);</span><br></pre></td></tr></table></figure></p></li>
+<li><p>请注意信号和槽函数的参数必须是匹配的</p></li>
+<li><p>overloads - 1</p>
+<p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> PointerToMemberFunction, <span class="keyword">typename</span> Functor&gt; </span><br><span class="line"><span class="function">QMetaObject::Connection <span class="title">QObject::connect</span><span class="params">(<span class="keyword">const</span> QObject *sender,PointerToMemberFunction signal, Functor functor)</span></span></span><br><span class="line"><span class="function"><span class="comment">// 这是个重载的函数</span></span></span><br><span class="line"><span class="function"></span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>Example</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">void someFunction();</span><br><span class="line">QPushButton *button &#x3D; new QPushButton;</span><br><span class="line">QObject::connect(button, &amp;QPushButton::clicked, someFunction);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>Lambda expressions can also be used:</li>
+</ul>
+<p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">QByteArray page = ...;</span><br><span class="line">QTcpSocket *socket = <span class="keyword">new</span> QTcpSocket;</span><br><span class="line">socket-&gt;connectToHost(<span class="string">&quot;qt-project.org&quot;</span>, <span class="number">80</span>);</span><br><span class="line">QObject::connect(socket, &amp;QTcpSocket::connected, [=] () &#123;</span><br><span class="line">        socket-&gt;write(<span class="string">&quot;GET &quot;</span> + page + <span class="string">&quot;\r\n&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>
+<p>  The connection will automatically disconnect if the sender is
+destroyed. However, you should take care that any objects used within
+the functor are still alive when the signal is emitted.<br>   Overloaded
+functions can be resolved with help of qOverload.<br>  &amp;enspNote:
+This function is thread-safe.<br></p>
+</p></li>
+<li><p>overloads - 2</p>
+<p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> PointerToMemberFunction, <span class="keyword">typename</span> Functor&gt; QMetaObject::Connection </span><br><span class="line">QObject::connect(<span class="keyword">const</span> QObject *sender, PointerToMemberFunction signal, <span class="keyword">const</span> QObject *context, </span><br><span class="line">                Functor functor, Qt::ConnectionType type = Qt::AutoConnection)</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>
+<p>  This function overloads connect().<br>   Creates a connection of a
+given type from signal in sender object to functor to be placed in a
+specific event loop of context, and returns a handle to the
+connection.<br>   Note: <code>Qt::UniqueConnections</code> do not work
+for lambdas, non-member functions and functors; they only apply to
+connecting to member functions.<br>   The signal must be a function
+declared as a signal in the header. The slot function can be any
+function or functor that can be connected to the signal. A function can
+be connected to a given signal if the signal has at least as many
+argument as the slot. A functor can be connected to a signal if they
+have exactly the same number of arguments. There must exist implicit
+conversion between the types of the corresponding arguments in the
+signal and the slot.</p>
+</p>
+<ul>
+<li>Example:</li>
+</ul>
+<p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">someFunction</span><span class="params">()</span></span>;</span><br><span class="line">QPushButton *button = <span class="keyword">new</span> QPushButton;</span><br><span class="line">QObject::connect(button, &amp;QPushButton::clicked, <span class="keyword">this</span>, someFunction, Qt::QueuedConnection);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>Lambda expressions can also be used:</li>
+</ul>
+<p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">QByteArray page = ...;</span><br><span class="line">QTcpSocket *socket = <span class="keyword">new</span> QTcpSocket;</span><br><span class="line">socket-&gt;connectToHost(<span class="string">&quot;qt-project.org&quot;</span>, <span class="number">80</span>);</span><br><span class="line">QObject::connect(socket, &amp;QTcpSocket::connected, <span class="keyword">this</span>, [=] () &#123;</span><br><span class="line">        socket-&gt;write(<span class="string">&quot;GET &quot;</span> + page + <span class="string">&quot;\r\n&quot;</span>);</span><br><span class="line">    &#125;, Qt::AutoConnection);</span><br></pre></td></tr></table></figure></p>
+<p>
+<p>  The connection will automatically disconnect if the sender or the
+context is destroyed. However, you should take care that any objects
+used within the functor are still alive when the signal is emitted.<br>
+  Overloaded functions can be resolved with help of qOverload.<br>
+  Note: This function is thread-safe.<br>   This function was introduced
+in Qt 5.2.</p>
+</p></li>
+</ul>
+<h3 id="信号槽的不同写法---几种一般写法">2. 信号槽的不同写法 -
+几种一般写法</h3>
+<h5
+id="connect的最后一个参数我们暂时使用他的默认认为"><code>connect</code>的最后一个参数，我们暂时使用他的默认认为</h5>
+<h4 id="qt4的写法"><code>Qt4的写法</code></h4>
+<ul>
+<li>宏包裹 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">QPushButton *btn = <span class="keyword">new</span> QPushButton;</span><br><span class="line">connect(btn, SIGNAL(clicked()), <span class="keyword">this</span>, SLOT(close()));</span><br></pre></td></tr></table></figure></li>
+<li><a href="#danger">注意事项</a></li>
+</ul>
+<h4 id="qt5后的写法"><code>Qt5</code>后的写法</h4>
+<ul>
+<li><p>模板匹配</p>
+<p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">QPushButton *btn = <span class="keyword">new</span> QPushButton; </span><br><span class="line">connect(btn, &amp;QPushButton::clicked, <span class="keyword">this</span>, &amp;MainWindow::close);</span><br></pre></td></tr></table></figure></p>
+<p>
+<p>Qt5后的官方推荐写法，编译的时候信号或槽不存在是无法编译通过的，槽的可以直接写在<code>public
+or protected or private</code>下</p>
+</p></li>
+<li><p>lambda</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">connect</span><span class="op">(</span>btn<span class="op">,</span> <span class="op">&amp;</span><span class="ex">QPushButton::</span>clicked<span class="op">,</span> <span class="op">[&amp;]()</span> <span class="op">&#123;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">-&gt;</span>close<span class="op">();</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;);</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">connect</span><span class="op">(</span>btn<span class="op">,</span> <span class="op">&amp;</span><span class="ex">QPushButton::</span>clicked<span class="op">,</span> <span class="kw">this</span><span class="op">,</span> <span class="op">[&amp;]()</span> <span class="op">&#123;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">-&gt;</span>close<span class="op">();</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;);</span></span></code></pre></div>
+<ul>
+<li>两种写法本质上是一样的，只是说第一种默认指定接收者为<code>this</code></li>
+<li>请保证<code>lambda</code>函数中使用成员都是活跃的，不然将是很糟糕的行为</li>
+</ul></li>
+</ul>
+<h3 id="connect-最后一个参数">3. connect 最后一个参数</h3>
+<ul>
+<li><p><code>Qt::AutoConnection</code></p>
+<ul>
+<li>默认使用的参数
+<div>
+<p>
+(Default) If the receiver lives in the thread that emits the signal,
+Qt::DirectConnection is used. Otherwise, Qt::QueuedConnection is used.
+The connection type is determined when the signal is emitted.
+</p>
+<p>
+如果接收器位于发出信号的线程中，则使用 Qt::DirectConnection。 否则，使用
+Qt::QueuedConnection。 连接类型在信号发出时确定
+</p>
+</div></li>
+</ul></li>
+<li><p><code>Qt::DirectConnection</code></p>
+<div>
+<p>
+The slot is invoked immediately when the signal is emitted. The slot is
+executed in the signalling thread.
+</p>
+<p>
+发出信号时立即调用插槽。 该槽函数在发送者线程中执行。
+</p>
+</div></li>
+<li><p><code>Qt::QueuedConnection</code></p>
+<div>
+<p>
+The slot is invoked when control returns to the event loop of the
+receiver's thread. The slot is executed in the receiver's thread.
+</p>
+<p>
+当控制返回到接收者线程的事件循环时调用该槽,会等待当前函数执行结束，重新回到事件循环。
+槽函数在接收者的线程中执行.
+</p>
+</div></li>
+<li><p><code>Qt::BlockingQueuedConnection</code></p>
+<div>
+<p>
+Same as Qt::QueuedConnection, except that the signalling thread blocks
+until the slot returns. This connection must not be used if the receiver
+lives in the signalling thread, or else the application will deadlock.
+</p>
+<p>
+与 Qt::QueuedConnection 相同，只是信号线程阻塞直到槽返回。
+如果接收者与发送者在一个线程中，则不得使用此连接，否则应用程序将死锁
+</p>
+</div></li>
+<li><p><code>Qt::UniqueConnection</code></p>
+<div>
+<p>
+This is a flag that can be combined with any one of the above connection
+types, using a bitwise OR. When Qt::UniqueConnection is set,
+QObject::connect() will fail if the connection already exists (i.e. if
+the same signal is already connected to the same slot for the same pair
+of objects). This flag was introduced in Qt 4.6.
+</p>
+<p>
+这是一个可以与上述任何一种连接类型结合使用的标志，使用按位或。 当设置了
+Qt::UniqueConnection
+时，如果连接已经存在（即，如果相同的信号已经连接到同一对对象的同一槽函数），则
+QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
+</p>
+</div></li>
 </ul>
 ]]></content>
       <categories>
-        <category>works</category>
-        <category>GF</category>
-        <category>OSG</category>
+        <category>develop</category>
       </categories>
       <tags>
         <tag>cpp</tag>
-        <tag>osg</tag>
+        <tag>Qt</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Qt connect function the fifth param</title>
-    <url>/2022/07/29/Qt-connect-function-the-fifth-param/</url>
-    <content><![CDATA[
-]]></content>
   </entry>
   <entry>
     <title>QuickSort</title>
@@ -1547,6 +1774,32 @@ class="math inline">\(\vec{P_3P_4}\)</span>。如何通过点击计算他们交�
       </tags>
   </entry>
   <entry>
+    <title>微信多开</title>
+    <url>/2022/02/28/%E5%BE%AE%E4%BF%A1%E5%A4%9A%E5%BC%80/</url>
+    <content><![CDATA[<h2 id="微信多开的小技巧---windows">微信多开的小技巧 - Windows</h2>
+<ul>
+<li><p>首先，需要你知道你机器上安装微信 - 请记录它的安装位置</p></li>
+<li><p>一般情况下，如果你不做任何修改的话，它会在<code>C:\Program Files (x86)\Tencent\WeChat</code>这个目录下：
+   <img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/wechat_install_path.png"
+title="微信安装位置" /></p></li>
+<li><p>然后，打开你机器上任意的一个文本编辑器，输入如下内容：</p></li>
+<li><p>需要多开多少个微信，你便将如下命令输入重复写多少次。</p>
+<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">start D:\&quot;Program Files (x86)<span class="string">&quot;\Tencent\WeChat\WeChat.exe</span></span><br><span class="line"><span class="string">start D:\&quot;Program Files (x86)&quot;</span>\Tencent\WeChat\WeChat.exe</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请将上面的路径换成你机器上安装微信的路径</span></span><br><span class="line"><span class="comment"># 上面表示的是同时开两个微信程序</span></span><br><span class="line"><span class="comment"># 前面的路径部分中含有空格，为了让系统能识别，我们需要用双引号将其括起来，这样才能正确的识别</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li>
+<li><p>然后将文件保存，文件后缀为<code>.bat</code>,这是<code>cmd</code>识别的命令行，这个时候你打开你刚保存的文件，便会弹出你想要多开的数量。</p>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/multi_open_wechat.png"
+title="微信多开效果图" /></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tips</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>记一次总结</title>
     <url>/2021/10/17/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h3 id="section"></h3>
@@ -1582,32 +1835,6 @@ src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/GF_Workspace.JPG
       </categories>
       <tags>
         <tag>conclusion</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微信多开</title>
-    <url>/2022/02/28/%E5%BE%AE%E4%BF%A1%E5%A4%9A%E5%BC%80/</url>
-    <content><![CDATA[<h2 id="微信多开的小技巧---windows">微信多开的小技巧 - Windows</h2>
-<ul>
-<li><p>首先，需要你知道你机器上安装微信 - 请记录它的安装位置</p></li>
-<li><p>一般情况下，如果你不做任何修改的话，它会在<code>C:\Program Files (x86)\Tencent\WeChat</code>这个目录下：
-   <img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/wechat_install_path.png"
-title="微信安装位置" /></p></li>
-<li><p>然后，打开你机器上任意的一个文本编辑器，输入如下内容：</p></li>
-<li><p>需要多开多少个微信，你便将如下命令输入重复写多少次。</p>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">start D:\&quot;Program Files (x86)<span class="string">&quot;\Tencent\WeChat\WeChat.exe</span></span><br><span class="line"><span class="string">start D:\&quot;Program Files (x86)&quot;</span>\Tencent\WeChat\WeChat.exe</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请将上面的路径换成你机器上安装微信的路径</span></span><br><span class="line"><span class="comment"># 上面表示的是同时开两个微信程序</span></span><br><span class="line"><span class="comment"># 前面的路径部分中含有空格，为了让系统能识别，我们需要用双引号将其括起来，这样才能正确的识别</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li>
-<li><p>然后将文件保存，文件后缀为<code>.bat</code>,这是<code>cmd</code>识别的命令行，这个时候你打开你刚保存的文件，便会弹出你想要多开的数量。</p>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/multi_open_wechat.png"
-title="微信多开效果图" /></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Tips</category>
-      </categories>
-      <tags>
-        <tag>windows</tag>
       </tags>
   </entry>
   <entry>

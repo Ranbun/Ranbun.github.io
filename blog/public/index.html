@@ -86,7 +86,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">27</span></a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="user fa-fw"></i>关于</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">19</span></a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">27</span></a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">15</span></a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="user fa-fw"></i>关于</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -163,12 +163,12 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -247,7 +247,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/29/Qt-connect-function-the-fifth-param/" class="post-title-link" itemprop="url">Qt connect function the fifth param</a>
+          <a href="/2022/07/29/Qt-connect-function-the-fifth-param/" class="post-title-link" itemprop="url">Qt Connect</a>
         </h2>
 
         <div class="post-meta-container">
@@ -260,6 +260,22 @@
 
       <time title="创建时间：2022-07-29 17:26:28" itemprop="dateCreated datePublished" datetime="2022-07-29T17:26:28+08:00">2022-07-29</time>
     </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-31 20:34:27" itemprop="dateModified" datetime="2022-07-31T20:34:27+08:00">2022-07-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/develop/" itemprop="url" rel="index"><span itemprop="name">develop</span></a>
+        </span>
+    </span>
 
   
 </div>
@@ -271,7 +287,227 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          
+          <h1 id="qt"><code>Qt</code></h1>
+<ul>
+<li>是非常好的用于开发软件界面的库, 当然我这样说有些狭隘,
+<code>Qt</code>能做的事情远不止如此</li>
+<li>但本文我只是说一下<code>Qt</code>的信号槽机制</li>
+</ul>
+<h2 id="qt超级经典的信号与槽机制--signal-slot">1.
+<code>Qt</code>超级经典的信号与槽机制- <code>signal</code> &amp;
+<code>slot</code></h2>
+<ul>
+<li><p>示例 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Use_SignalAndSlot</span>:</span><span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="comment">// ......</span></span><br><span class="line">signals:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">useSignalsAndSlots</span><span class="params">()</span></span>;</span><br><span class="line">slots: <span class="comment">// (槽函数可以不是slots下的函数)，可以是public or private or protected 下的函数</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnuseSignalsAndSlots</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">// ......</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>class</code> 必须是继承自 <code>QObject</code></p></li>
+<li><p>要使用<code>Qt</code>的这个机制需要在<code>Class</code>的定义处添加<code>Q_OBJECT</code>的宏定义x</p></li>
+<li><p>定义信号是必须加上- <code>signals:</code> 前缀,
+且信号不需要实现只需要定义，<code>Qt</code>有自己的解析机制</p></li>
+</ul>
+<h3 id="信号槽的不同写法---官方介绍">1. 信号槽的不同写法 - 官方介绍</h3>
+<h4 id="qt4"><code>Qt4</code></h4>
+来自官方的文档 - 使用宏包裹 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">QMetaObject::Connection <span class="title">QObject::connect</span><span class="params">(<span class="keyword">const</span> QObject *sender, <span class="keyword">const</span> <span class="keyword">char</span> *signal, <span class="keyword">const</span> QObject *receiver, <span class="keyword">const</span> <span class="keyword">char</span> *method, Qt::ConnectionType type = Qt::AutoConnection)</span></span></span><br></pre></td></tr></table></figure>
+<p>
+  Creates a connection of the given type from the signal in the sender
+object to the method in the receiver object. Returns a handle to the
+connection that can be used to disconnect it later.<br>   You must use
+the <code> SIGNAL() </code> and <code>SLOT()</code> macros when
+specifying the signal and the method, for example:
+</p>
+<ul>
+<li><p>上面函数创建一个链接，并将这个链接作为返回值,这个返回值可以用于调用
+<code>disconnect</code> 断开链接</p></li>
+<li><p>example: <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">QLabel *label = <span class="keyword">new</span> QLabel;</span><br><span class="line">QScrollBar *scrollBar = <span class="keyword">new</span> QScrollBar;</span><br><span class="line">QObject::connect(scrollBar, SIGNAL(valueChanged(<span class="keyword">int</span>)),label,  SLOT(setNum(<span class="keyword">int</span>)));</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li>
+<li><p><font color=red id="danger">友情提示：请记住这种写法，必须使用<code>SIGNAL</code>&amp;<code>SLOT</code>将对应的信号和槽函数包裹起来，并且这种方法无法检测对应的信号和槽函数是否存在</font></p></li>
+<li><p>在创建链接的时候，对应的信号中我们只需要给出参数的类型，不需要写出具体的参数名称:</p>
+<p>
+<p>  This example ensures that the label always displays the current
+scroll bar value. Note that the signal and slots parameters must not
+contain any variable names, only the type. E.g. the following would not
+work and return false:</p>
+</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// WRONG</span></span><br><span class="line">QObject::connect(scrollBar, SIGNAL(valueChanged(<span class="keyword">int</span> value)),label, SLOT(setNum(<span class="keyword">int</span> value)));</span><br></pre></td></tr></table></figure></p></li>
+<li><p>overloads - 1</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">QMetaObject::Connection <span class="title">QObject::connect</span><span class="params">(<span class="keyword">const</span> QObject *sender, <span class="keyword">const</span> QMetaMethod &amp;signal, <span class="keyword">const</span> QObject *receiver, <span class="keyword">const</span> QMetaMethod &amp;method, Qt::ConnectionType type = Qt::AutoConnection)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>
+<p>  Creates a connection of the given type from the signal in the
+sender object to the method in the receiver object. Returns a handle to
+the connection that can be used to disconnect it later.<br>   The
+Connection handle will be invalid if it cannot create the connection,
+for example, the parameters were invalid. You can check if the
+<code>QMetaObject::Connection</code> is valid by casting it to a
+bool.<br>   This function works in the same way as <code>connect(const
+QObject <em>sender, const char </em>signal, const QObject <em>receiver,
+const char </em>method, Qt::ConnectionType type)</code> but it uses
+<code>QMetaMethod</code> to specify signal and method.<br> This function
+was introduced in Qt 4.8.</p>
+</p></li>
+<li><p>overloads - 2</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">QMetaObject::Connection <span class="title">QObject::connect</span><span class="params">(<span class="keyword">const</span> QObject *sender, <span class="keyword">const</span> <span class="keyword">char</span> *signal, <span class="keyword">const</span> <span class="keyword">char</span> *method, Qt::ConnectionType type = Qt::AutoConnection)</span> <span class="keyword">const</span></span></span><br></pre></td></tr></table></figure></p>
+<p>
+<p>  This function overloads <code>connect()</code>.<br>   Connects
+signal from the sender object to this object's method.<br>   Equivalent
+to <code>connect(sender, signal, <font color=red>this</font>, method,
+type)</code>.<br>   Every connection you make emits a signal, so
+duplicate connections emit two signals. You can break a connection using
+<code>disconnect()</code>.<br>   Note: This function is
+<font color=#00ff00>thread-safe</font>. <br>
+<font color=red>  友情提示： 默认指定this作为接收者</font></p>
+</p></li>
+</ul>
+<h4 id="qt5之后"><code>Qt5</code>之后</h4>
+<ul>
+<li><p>新的写法 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> PointerToMemberFunction&gt; <span class="function">QMetaObject::Connection <span class="title">QObject::connect</span><span class="params">(<span class="keyword">const</span> QObject *sender, PointerToMemberFunction signal, <span class="keyword">const</span> QObject *receiver, PointerToMemberFunction method, Qt::ConnectionType type =  Qt::AutoConnection)</span></span></span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>example</code> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QLabel *label = <span class="keyword">new</span> QLabel;</span><br><span class="line">QLineEdit *lineEdit = <span class="keyword">new</span> QLineEdit;</span><br><span class="line">QObject::connect(lineEdit, &amp;QLineEdit::textChanged,label,  &amp;QLabel::setText);</span><br></pre></td></tr></table></figure></p></li>
+<li><p>请注意信号和槽函数的参数必须是匹配的</p></li>
+<li><p>overloads - 1</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> PointerToMemberFunction, <span class="keyword">typename</span> Functor&gt; </span><br><span class="line"><span class="function">QMetaObject::Connection <span class="title">QObject::connect</span><span class="params">(<span class="keyword">const</span> QObject *sender,PointerToMemberFunction signal, Functor functor)</span></span></span><br><span class="line"><span class="function"><span class="comment">// 这是个重载的函数</span></span></span><br><span class="line"><span class="function"></span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>Example</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void someFunction();</span><br><span class="line">QPushButton *button &#x3D; new QPushButton;</span><br><span class="line">QObject::connect(button, &amp;QPushButton::clicked, someFunction);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>Lambda expressions can also be used:</li>
+</ul>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">QByteArray page = ...;</span><br><span class="line">QTcpSocket *socket = <span class="keyword">new</span> QTcpSocket;</span><br><span class="line">socket-&gt;connectToHost(<span class="string">&quot;qt-project.org&quot;</span>, <span class="number">80</span>);</span><br><span class="line">QObject::connect(socket, &amp;QTcpSocket::connected, [=] () &#123;</span><br><span class="line">        socket-&gt;write(<span class="string">&quot;GET &quot;</span> + page + <span class="string">&quot;\r\n&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>
+<p>  The connection will automatically disconnect if the sender is
+destroyed. However, you should take care that any objects used within
+the functor are still alive when the signal is emitted.<br>   Overloaded
+functions can be resolved with help of qOverload.<br>  &amp;enspNote:
+This function is thread-safe.<br></p>
+</p></li>
+<li><p>overloads - 2</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> PointerToMemberFunction, <span class="keyword">typename</span> Functor&gt; QMetaObject::Connection </span><br><span class="line">QObject::connect(<span class="keyword">const</span> QObject *sender, PointerToMemberFunction signal, <span class="keyword">const</span> QObject *context, </span><br><span class="line">                Functor functor, Qt::ConnectionType type = Qt::AutoConnection)</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>
+<p>  This function overloads connect().<br>   Creates a connection of a
+given type from signal in sender object to functor to be placed in a
+specific event loop of context, and returns a handle to the
+connection.<br>   Note: <code>Qt::UniqueConnections</code> do not work
+for lambdas, non-member functions and functors; they only apply to
+connecting to member functions.<br>   The signal must be a function
+declared as a signal in the header. The slot function can be any
+function or functor that can be connected to the signal. A function can
+be connected to a given signal if the signal has at least as many
+argument as the slot. A functor can be connected to a signal if they
+have exactly the same number of arguments. There must exist implicit
+conversion between the types of the corresponding arguments in the
+signal and the slot.</p>
+</p>
+<ul>
+<li>Example:</li>
+</ul>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">someFunction</span><span class="params">()</span></span>;</span><br><span class="line">QPushButton *button = <span class="keyword">new</span> QPushButton;</span><br><span class="line">QObject::connect(button, &amp;QPushButton::clicked, <span class="keyword">this</span>, someFunction, Qt::QueuedConnection);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>Lambda expressions can also be used:</li>
+</ul>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">QByteArray page = ...;</span><br><span class="line">QTcpSocket *socket = <span class="keyword">new</span> QTcpSocket;</span><br><span class="line">socket-&gt;connectToHost(<span class="string">&quot;qt-project.org&quot;</span>, <span class="number">80</span>);</span><br><span class="line">QObject::connect(socket, &amp;QTcpSocket::connected, <span class="keyword">this</span>, [=] () &#123;</span><br><span class="line">        socket-&gt;write(<span class="string">&quot;GET &quot;</span> + page + <span class="string">&quot;\r\n&quot;</span>);</span><br><span class="line">    &#125;, Qt::AutoConnection);</span><br></pre></td></tr></table></figure></p>
+<p>
+<p>  The connection will automatically disconnect if the sender or the
+context is destroyed. However, you should take care that any objects
+used within the functor are still alive when the signal is emitted.<br>
+  Overloaded functions can be resolved with help of qOverload.<br>
+  Note: This function is thread-safe.<br>   This function was introduced
+in Qt 5.2.</p>
+</p></li>
+</ul>
+<h3 id="信号槽的不同写法---几种一般写法">2. 信号槽的不同写法 -
+几种一般写法</h3>
+<h5
+id="connect的最后一个参数我们暂时使用他的默认认为"><code>connect</code>的最后一个参数，我们暂时使用他的默认认为</h5>
+<h4 id="qt4的写法"><code>Qt4的写法</code></h4>
+<ul>
+<li>宏包裹 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QPushButton *btn = <span class="keyword">new</span> QPushButton;</span><br><span class="line">connect(btn, SIGNAL(clicked()), <span class="keyword">this</span>, SLOT(close()));</span><br></pre></td></tr></table></figure></li>
+<li><a href="#danger">注意事项</a></li>
+</ul>
+<h4 id="qt5后的写法"><code>Qt5</code>后的写法</h4>
+<ul>
+<li><p>模板匹配</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QPushButton *btn = <span class="keyword">new</span> QPushButton; </span><br><span class="line">connect(btn, &amp;QPushButton::clicked, <span class="keyword">this</span>, &amp;MainWindow::close);</span><br></pre></td></tr></table></figure></p>
+<p>
+<p>Qt5后的官方推荐写法，编译的时候信号或槽不存在是无法编译通过的，槽的可以直接写在<code>public
+or protected or private</code>下</p>
+</p></li>
+<li><p>lambda</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">connect</span><span class="op">(</span>btn<span class="op">,</span> <span class="op">&amp;</span><span class="ex">QPushButton::</span>clicked<span class="op">,</span> <span class="op">[&amp;]()</span> <span class="op">&#123;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">-&gt;</span>close<span class="op">();</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;);</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">connect</span><span class="op">(</span>btn<span class="op">,</span> <span class="op">&amp;</span><span class="ex">QPushButton::</span>clicked<span class="op">,</span> <span class="kw">this</span><span class="op">,</span> <span class="op">[&amp;]()</span> <span class="op">&#123;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">-&gt;</span>close<span class="op">();</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;);</span></span></code></pre></div>
+<ul>
+<li>两种写法本质上是一样的，只是说第一种默认指定接收者为<code>this</code></li>
+<li>请保证<code>lambda</code>函数中使用成员都是活跃的，不然将是很糟糕的行为</li>
+</ul></li>
+</ul>
+<h3 id="connect-最后一个参数">3. connect 最后一个参数</h3>
+<ul>
+<li><p><code>Qt::AutoConnection</code></p>
+<ul>
+<li>默认使用的参数
+<div>
+<p>
+(Default) If the receiver lives in the thread that emits the signal,
+Qt::DirectConnection is used. Otherwise, Qt::QueuedConnection is used.
+The connection type is determined when the signal is emitted.
+</p>
+<p>
+如果接收器位于发出信号的线程中，则使用 Qt::DirectConnection。 否则，使用
+Qt::QueuedConnection。 连接类型在信号发出时确定
+</p>
+</div></li>
+</ul></li>
+<li><p><code>Qt::DirectConnection</code></p>
+<div>
+<p>
+The slot is invoked immediately when the signal is emitted. The slot is
+executed in the signalling thread.
+</p>
+<p>
+发出信号时立即调用插槽。 该槽函数在发送者线程中执行。
+</p>
+</div></li>
+<li><p><code>Qt::QueuedConnection</code></p>
+<div>
+<p>
+The slot is invoked when control returns to the event loop of the
+receiver's thread. The slot is executed in the receiver's thread.
+</p>
+<p>
+当控制返回到接收者线程的事件循环时调用该槽,会等待当前函数执行结束，重新回到事件循环。
+槽函数在接收者的线程中执行.
+</p>
+</div></li>
+<li><p><code>Qt::BlockingQueuedConnection</code></p>
+<div>
+<p>
+Same as Qt::QueuedConnection, except that the signalling thread blocks
+until the slot returns. This connection must not be used if the receiver
+lives in the signalling thread, or else the application will deadlock.
+</p>
+<p>
+与 Qt::QueuedConnection 相同，只是信号线程阻塞直到槽返回。
+如果接收者与发送者在一个线程中，则不得使用此连接，否则应用程序将死锁
+</p>
+</div></li>
+<li><p><code>Qt::UniqueConnection</code></p>
+<div>
+<p>
+This is a flag that can be combined with any one of the above connection
+types, using a bitwise OR. When Qt::UniqueConnection is set,
+QObject::connect() will fail if the connection already exists (i.e. if
+the same signal is already connected to the same slot for the same pair
+of objects). This flag was introduced in Qt 4.6.
+</p>
+<p>
+这是一个可以与上述任何一种连接类型结合使用的标志，使用按位或。 当设置了
+Qt::UniqueConnection
+时，如果连接已经存在（即，如果相同的信号已经连接到同一对对象的同一槽函数），则
+QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
+</p>
+</div></li>
+</ul>
 
       
     </div>

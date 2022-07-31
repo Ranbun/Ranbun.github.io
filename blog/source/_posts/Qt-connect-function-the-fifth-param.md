@@ -111,17 +111,18 @@ tags:
     template <typename PointerToMemberFunction, typename Functor> 
     QMetaObject::Connection QObject::connect(const QObject *sender,PointerToMemberFunction signal, Functor functor)
     // 这是个重载的函数
+
     ```
-    
-- Example:
+
+    - Example
 
     ``` 
     void someFunction();
     QPushButton *button = new QPushButton;
     QObject::connect(button, &QPushButton::clicked, someFunction);
-    ```                        
+    ```
 
-- Lambda expressions can also be used:<br>
+    - Lambda expressions can also be used:
 
     ```cpp
     QByteArray page = ...;
@@ -130,12 +131,12 @@ tags:
     QObject::connect(socket, &QTcpSocket::connected, [=] () {
             socket->write("GET " + page + "\r\n");
     });
-    ```   
+    ``` 
 
     <p>
-    The connection will automatically disconnect if the sender is destroyed. However, you should take care that any objects used within the functor are still alive when the signal is emitted.
-    Overloaded functions can be resolved with help of qOverload.
-    Note: This function is thread-safe.
+    &ensp;&ensp;The connection will automatically disconnect if the sender is destroyed. However, you should take care that any objects used within the functor are still alive when the signal is emitted.<br>
+    &ensp;&ensp;Overloaded functions can be resolved with help of qOverload.<br>
+    &ensp;&enspNote: This function is thread-safe.<br>
     </p>
 
 - overloads - 2
