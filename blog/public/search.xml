@@ -50,52 +50,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Bit manipulation</title>
-    <url>/2022/07/29/Bit-manipulation/</url>
-    <content><![CDATA[<h3 id="将二进制数某一位置0置1取反">将二进制数某一位置0，置1，取反</h3>
-<ul>
-<li><h2
-id="用位运算可以解决我们的问题所以下面部分的代码就是一些位运算的简单应用">用位运算可以解决我们的问题,所以下面部分的代码就是一些位运算的简单应用</h2></li>
-<li>函数实现</li>
-</ul>
-<h4 id="将不同进制数转为二进制非必须---我们只是为了显示结果">1.
-将不同进制数转为二进制(非必须) - 我们只是为了显示结果</h4>
-<ul>
-<li>模拟人的计算过程 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showBinary</span><span class="params">(<span class="keyword">int</span> d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">array</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储具体对应的位的值 0 / 1</span></span><br><span class="line">    <span class="built_in">array</span>&lt;<span class="keyword">int</span>, 32&gt; num;</span><br><span class="line">    num.fill(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>; <span class="comment">// 当前转换的Bit位</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">31</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (d &amp; flag)</span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        flag = flag &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查找第一个不是零的数 </span></span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">if</span> 1 </span></span><br><span class="line">    <span class="comment">// 此过程可以省略 做了个显示上的优化</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i = <span class="number">0</span>; i &lt; num.size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (num[i] != <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">                i == <span class="number">0</span> ? index = i : index = i - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span> </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出转换结果</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i = index; i &lt; num.size(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; num[i];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="某一位置为-0">某一位置为 0</h4>
-<ul>
-<li><code>&amp;</code>运算的应用 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 0</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Zero</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 取反是一个只和取反位数以及之后所有位数相关的操作</span></span><br><span class="line">    <span class="comment">// 二进制的位数从0开始计算 所以需要 bits - 1 </span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; (bits(3) - 1) = 4 = 0100 </span></span><br><span class="line">    <span class="comment">// ~4 = 1011</span></span><br><span class="line">    <span class="comment">// &amp; 同为 1 则为 1 =&gt; 1011 &amp; (任意数字) 第三位等于 0</span></span><br><span class="line">    d = d &amp; (~(<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>)));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="某一位置为-1">某一位置为 1</h4>
-<ul>
-<li><code>|</code> 运算的应用, 只要有一个是1 结果都是1
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 1</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2One</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// d(16) = 10000 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 4 = 0100</span></span><br><span class="line">    <span class="comment">// d | 0100 = 10000 | 0100  = 10100 </span></span><br><span class="line">    d = d | (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="某一位置取反">某一位置取反</h4>
-<ul>
-<li><code>^</code> 异或运算的运用
-<ul>
-<li><code>^</code> 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1 其余的情况都是
-0</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位取反</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Negate</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 转换过程</span></span><br><span class="line">    <span class="comment">// ^ 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1  其余的情况都是 0 </span></span><br><span class="line">    <span class="comment">// d(15) == 1111 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 0100</span></span><br><span class="line">    <span class="comment">// 1111</span></span><br><span class="line">    <span class="comment">// 0100 ^</span></span><br><span class="line">    <span class="comment">// 1011 </span></span><br><span class="line">    d = d ^ (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="参考">参考</h2>
-<ul>
-<li>[1] <a
-href="https://gthub.com/Ranbun/blogProjects/tree/main/BitManipulation"
-title="Github">Github</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Coding</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Bucket Sort and Cardinality sort</title>
     <url>/2021/11/07/Bucket-Sort/</url>
     <content><![CDATA[<h3 id="桶排序">桶排序</h3>
@@ -208,20 +162,49 @@ N时差不多是一个线性复杂度的算法)</li>
       </tags>
   </entry>
   <entry>
-    <title>Git常用命令(上)</title>
-    <url>/2022/07/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/</url>
-    <content><![CDATA[<h2 id="git常用命令"># Git常用命令</h2>
-<h3 id="install-git"><code>install Git</code></h3>
+    <title>Bit manipulation</title>
+    <url>/2022/07/29/Bit-manipulation/</url>
+    <content><![CDATA[<h3 id="将二进制数某一位置0置1取反">将二进制数某一位置0，置1，取反</h3>
 <ul>
-<li>Git -- <a href="https://git-scm.com/">官方网站</a></li>
+<li><h2
+id="用位运算可以解决我们的问题所以下面部分的代码就是一些位运算的简单应用">用位运算可以解决我们的问题,所以下面部分的代码就是一些位运算的简单应用</h2></li>
+<li>函数实现</li>
+</ul>
+<h4 id="将不同进制数转为二进制非必须---我们只是为了显示结果">1.
+将不同进制数转为二进制(非必须) - 我们只是为了显示结果</h4>
+<ul>
+<li>模拟人的计算过程 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showBinary</span><span class="params">(<span class="keyword">int</span> d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">array</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储具体对应的位的值 0 / 1</span></span><br><span class="line">    <span class="built_in">array</span>&lt;<span class="keyword">int</span>, 32&gt; num;</span><br><span class="line">    num.fill(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>; <span class="comment">// 当前转换的Bit位</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">31</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (d &amp; flag)</span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        flag = flag &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查找第一个不是零的数 </span></span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">if</span> 1 </span></span><br><span class="line">    <span class="comment">// 此过程可以省略 做了个显示上的优化</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i = <span class="number">0</span>; i &lt; num.size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (num[i] != <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">                i == <span class="number">0</span> ? index = i : index = i - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span> </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出转换结果</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i = index; i &lt; num.size(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; num[i];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="某一位置为-0">某一位置为 0</h4>
+<ul>
+<li><code>&amp;</code>运算的应用 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 0</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Zero</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 取反是一个只和取反位数以及之后所有位数相关的操作</span></span><br><span class="line">    <span class="comment">// 二进制的位数从0开始计算 所以需要 bits - 1 </span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; (bits(3) - 1) = 4 = 0100 </span></span><br><span class="line">    <span class="comment">// ~4 = 1011</span></span><br><span class="line">    <span class="comment">// &amp; 同为 1 则为 1 =&gt; 1011 &amp; (任意数字) 第三位等于 0</span></span><br><span class="line">    d = d &amp; (~(<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>)));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="某一位置为-1">某一位置为 1</h4>
+<ul>
+<li><code>|</code> 运算的应用, 只要有一个是1 结果都是1
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 1</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2One</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// d(16) = 10000 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 4 = 0100</span></span><br><span class="line">    <span class="comment">// d | 0100 = 10000 | 0100  = 10100 </span></span><br><span class="line">    d = d | (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="某一位置取反">某一位置取反</h4>
+<ul>
+<li><code>^</code> 异或运算的运用
+<ul>
+<li><code>^</code> 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1 其余的情况都是
+0</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位取反</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Negate</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 转换过程</span></span><br><span class="line">    <span class="comment">// ^ 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1  其余的情况都是 0 </span></span><br><span class="line">    <span class="comment">// d(15) == 1111 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 0100</span></span><br><span class="line">    <span class="comment">// 1111</span></span><br><span class="line">    <span class="comment">// 0100 ^</span></span><br><span class="line">    <span class="comment">// 1011 </span></span><br><span class="line">    d = d ^ (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="参考">参考</h2>
+<ul>
+<li>[1] <a
+href="https://gthub.com/Ranbun/blogProjects/tree/main/BitManipulation"
+title="Github">Github</a></li>
 </ul>
 ]]></content>
       <categories>
-        <category>works</category>
-        <category>SCU</category>
+        <category>Coding</category>
       </categories>
       <tags>
-        <tag>Git</tag>
+        <tag>cpp</tag>
       </tags>
   </entry>
   <entry>
@@ -243,44 +226,6 @@ id="dynamic-drawing-of-osg-vertex-buffer-objects"><code>Dynamic drawing of osg v
       <tags>
         <tag>cpp</tag>
         <tag>osg</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Games202-ShadowMap</title>
-    <url>/2021/12/13/Games202-ShadowMap/</url>
-    <content><![CDATA[<h2 id="shadow-map">Shadow Map</h2>
-<ul>
-<li>记录一下关于<code>Games202</code>的学习</li>
-</ul>
-<h4 id="shadow-map-1">shadow map</h4>
-<ul>
-<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p></li>
-<li><p>如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：</p>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" /></p></li>
-</ul>
-<p>上图来自<code>Games202</code>的课件：</p>
-<ul>
-<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p></li>
-<li><p>关于计算当前vertex point
-是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p></li>
-<li><p>在<code>Games202</code>的作业1中，我们需要使用提供的matrix的接口处理矩阵。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mat.translate() <span class="comment">// 设置矩阵的移动 </span></span><br><span class="line">mat4.scale      <span class="comment">// 设置矩阵的缩放</span></span><br><span class="line"></span><br><span class="line">mat4.lookAt(); <span class="comment">// 生成的视图矩阵</span></span><br><span class="line">mat4.ortho();  <span class="comment">// 平行投影</span></span><br><span class="line"></span><br><span class="line">mat4.multiply(); <span class="comment">// 矩阵的乘法</span></span><br></pre></td></tr></table></figure>
-<p><a
-href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p></li>
-<li><p>深度比较：</p>
-<figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure></li>
-<li><p>最终效果</p></li>
-</ul>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" /></p>
-]]></content>
-      <categories>
-        <category>Computer Graph</category>
-      </categories>
-      <tags>
-        <tag>Games202</tag>
-        <tag>Shadow</tag>
       </tags>
   </entry>
   <entry>
@@ -326,6 +271,61 @@ title="Result" alt="right result" />
       <tags>
         <tag>cpp</tag>
         <tag>osg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Games202-ShadowMap</title>
+    <url>/2021/12/13/Games202-ShadowMap/</url>
+    <content><![CDATA[<h2 id="shadow-map">Shadow Map</h2>
+<ul>
+<li>记录一下关于<code>Games202</code>的学习</li>
+</ul>
+<h4 id="shadow-map-1">shadow map</h4>
+<ul>
+<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p></li>
+<li><p>如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：</p>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" /></p></li>
+</ul>
+<p>上图来自<code>Games202</code>的课件：</p>
+<ul>
+<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p></li>
+<li><p>关于计算当前vertex point
+是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p></li>
+<li><p>在<code>Games202</code>的作业1中，我们需要使用提供的matrix的接口处理矩阵。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mat.translate() <span class="comment">// 设置矩阵的移动 </span></span><br><span class="line">mat4.scale      <span class="comment">// 设置矩阵的缩放</span></span><br><span class="line"></span><br><span class="line">mat4.lookAt(); <span class="comment">// 生成的视图矩阵</span></span><br><span class="line">mat4.ortho();  <span class="comment">// 平行投影</span></span><br><span class="line"></span><br><span class="line">mat4.multiply(); <span class="comment">// 矩阵的乘法</span></span><br></pre></td></tr></table></figure>
+<p><a
+href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p></li>
+<li><p>深度比较：</p>
+<figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure></li>
+<li><p>最终效果</p></li>
+</ul>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" /></p>
+]]></content>
+      <categories>
+        <category>Computer Graph</category>
+      </categories>
+      <tags>
+        <tag>Games202</tag>
+        <tag>Shadow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git常用命令(上)</title>
+    <url>/2022/07/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/</url>
+    <content><![CDATA[<h2 id="git常用命令"># Git常用命令</h2>
+<h3 id="install-git"><code>install Git</code></h3>
+<ul>
+<li>Git -- <a href="https://git-scm.com/">官方网站</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>SCU</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -516,12 +516,6 @@ id="将操作节点添加到绘制的根节点或者是其他的叶节点">5、�
         <tag>cpp</tag>
         <tag>osg</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Qt connect function the fifth param</title>
-    <url>/2022/07/29/Qt-connect-function-the-fifth-param/</url>
-    <content><![CDATA[
-]]></content>
   </entry>
   <entry>
     <title>OSG踩坑记-默认光源</title>
@@ -910,6 +904,12 @@ F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
       </tags>
   </entry>
   <entry>
+    <title>Qt connect function the fifth param</title>
+    <url>/2022/07/29/Qt-connect-function-the-fifth-param/</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
     <title>QuickSort</title>
     <url>/2021/10/28/QuickSort/</url>
     <content><![CDATA[<h2 id="quick-sort">Quick Sort</h2>
@@ -967,336 +967,6 @@ F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
       <tags>
         <tag>cpp</tag>
         <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vector dot product</title>
-    <url>/2022/07/28/vector-dot-product/</url>
-    <content><![CDATA[<h2 id="向量的内积与外积">向量的内积与外积</h2>
-<h3 id="点与点的减法">点与点的减法</h3>
-<ul>
-<li>描述的是起点到终点的运动</li>
-</ul>
-<h3 id="点p与向量veca的加法">点<span
-class="math inline">\({p}\)</span>与向量<span
-class="math inline">\(\vec{a}\)</span>的加法</h3>
-<ul>
-<li>从<span class="math inline">\(P\)</span>出发经过这个向量<span
-class="math inline">\(\vec{a}\)</span>代表的运动，到达一个新的点<span
-class="math inline">\(P_0\)</span></li>
-</ul>
-<h3 id="在此处定义两个向量">在此处定义两个向量</h3>
-<ul>
-<li><span class="math inline">\(\vec{a}\)</span> <span
-class="math display">\[  
-     \vec{a} = \begin{bmatrix}
-        a_1 \\
-        a_2 \\
-        a_3 \\
-      \end{bmatrix}
-\]</span></li>
-<li><span class="math inline">\(\vec{b}\)</span> <span
-class="math display">\[  
-    \vec{b} = \begin{bmatrix}
-      b_1 \\
-      b_2 \\
-      b_3 \\
-    \end{bmatrix}
-\]</span></li>
-</ul>
-<h3 id="向量点击">向量点击</h3>
-<ul>
-<li>点击(内积)的公式 <span class="math display">\[\vec{a}\cdot\vec{b} =
-|\vec{a}|\times|\vec{b}|\times \cos \theta \]</span> <span
-class="math display">\[ \vec{a}\cdot\vec{b} = \sum_{i=1}^{n} \left\{ a_i
-* b_i \right\}\]</span></li>
-<li>点击的几何意义
-<ul>
-<li><p>
-其中一个向量在另一个向量上的投影且与点击的顺序无关
-</p></li>
-<li><span class="math inline">\(\vec{a}\cdot\vec{b} &gt; 0\)</span>
-方向基本相同，夹角在0°到90°之间</li>
-<li><span class="math inline">\(\vec{a}\cdot\vec{b} = 0\)</span>
-正交，相互垂直</li>
-<li><span class="math inline">\(\vec{a}\cdot\vec{b} &lt; 0\)</span>
-方向基本相反，夹角在90°到180°之间</li>
-</ul></li>
-<li>点击的巧用
-<ul>
-<li>计算向量的模长的平方 <span class="math display">\[|\vec{a}|^2 =
-\vec{a} \cdot \vec{a} \]</span></li>
-<li>计算两个向量之间的夹角的<span
-class="math inline">\(\cos\theta\)</span> -<img
-src="https://raw.githubusercontent.com/Ranbun/images/main/weChat/vector/计算两个向量的夹角.png"
-title="计算两个向量之间的夹角" alt="计算两个向量之间的夹角" />
-<ul>
-<li>两个单位向量的点击等于他们的夹角的<span
-class="math inline">\(\cos\theta\)</span>的值</li>
-</ul></li>
-<li>两个互相垂直的向量的点击总是为<code>0</code> <span
-class="math inline">\(\theta = 90^0\)</span> <span
-class="math display">\[\vec{a} \cdot \vec{b} = |\vec{a}| \ast |\vec{b}|
-\ast \cos\theta = 0 \]</span></li>
-<li>一条射线描述的向量[起点 +
-方向]点击一个平面的法向可以得到起点到平面的距离<br />
-### 向量叉积</li>
-</ul></li>
-<li>外积公式 <span class="math display">\[
-    \vec{a} \times \vec{b} =  
-    \begin{bmatrix}
-      a_2 * b_3 - b_2 * a_3 \\
-      a_3 * b_1 - b_3 * a_1 \\
-      a_1 * b_2 - b_1 * a_2 \\
-    \end{bmatrix}
-\]</span></li>
-<li>叉积的几何意义
-<ul>
-<li>几何表达公式 <span class="math display">\[
-  \vec{a} \times \vec{b} = |\vec{a}| * |\vec{b}| * sin(\theta) * \vec{n}
-\]</span>
-<ul>
-<li><span class="math inline">\(\vec{n}\)</span> 表示<span
-class="math inline">\(\vec{a}\)</span>, <span
-class="math inline">\(\vec{b}\)</span>所构成平面的法向量方向的单位向量</li>
-</ul></li>
-<li>在二维空间中：叉积得到的向量的模长<span
-class="math inline">\(|\vec{a}\times\vec{b}|\)</span>等于这两个向量<span
-class="math inline">\(\vec{a},\vec{b}\)</span>组成的平行四边形的面积</li>
-</ul></li>
-<li>外积的使用
-<ul>
-<li>外积的模长则为夹角的正弦（始终为正）</li>
-</ul></li>
-</ul>
-<h3 id="扩展知识">扩展知识</h3>
-<ul>
-<li>扩展 - 1
-<ul>
-<li>平面上的四个点<span class="math inline">\(P_1\)</span>,<span
-class="math inline">\(P_2\)</span>,<span
-class="math inline">\(P_3\)</span>,<span
-class="math inline">\(P_4\)</span>,分别构成向量 <span
-class="math inline">\(\vec{P_1P_2}\)</span>与<span
-class="math inline">\(\vec{P_3P_4}\)</span>。如何通过点击计算他们交点的坐标?</li>
-<li>下次吧！</li>
-</ul></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Math</category>
-        <category>linear algebra</category>
-      </categories>
-      <tags>
-        <tag>vector</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Shell-Sort</title>
-    <url>/2021/10/26/Shell-Sort/</url>
-    <content><![CDATA[<h3 id="希尔排序">希尔排序</h3>
-<ul>
-<li>希尔排序：预先定义一系列间隔(增量序列)DK，按照间隔，进行间隔排序
-<ul>
-<li><code>DK[i-1]</code>有序后，执行<code>DK[i]</code>的排序后，<code>DK[i-1]</code>依旧是有序的</li>
-</ul></li>
-</ul>
-<h4 id="原始的希尔排序">1、原始的希尔排序</h4>
-<ul>
-<li><code>DK[i-1] = 取整(N/2),DK[i] = 取整(DK[i-1]/2)</code></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Shell_sort</span><span class="params">(ElementTypes A[], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> D;  <span class="comment">// 当前次序的间隔</span></span><br><span class="line">    <span class="keyword">int</span> P,i;</span><br><span class="line">    ElementType temp;</span><br><span class="line">    <span class="keyword">for</span>(P=N/<span class="number">2</span>;D&gt;<span class="number">0</span>;D/=<span class="number">2</span>) <span class="comment">// 间隔的变换</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 插入排序 </span></span><br><span class="line">        <span class="keyword">for</span>(P = D; P&lt;N; P++)</span><br><span class="line">        &#123;</span><br><span class="line">        	temp = A[P];  <span class="comment">// 当前要插入的元素 </span></span><br><span class="line">            <span class="keyword">for</span>(i = P; i &gt;= D &amp;&amp; A[i-D] &gt; temp;i -= D)  <span class="comment">// 和已经有序的元素进行比较</span></span><br><span class="line">            <span class="comment">// 前一个元素A[i-D]如果大于temp，temp放置的位置在i-D之前，i-D位置的元素向后移动</span></span><br><span class="line">            &#123;</span><br><span class="line">                A[i] = A[i-D];</span><br><span class="line">            &#125;</span><br><span class="line">            A[i] = temp;  <span class="comment">// temp 放到正确位置</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>复杂度分析：
-当所有大于的增量的序列的数据都是有序的时候，所有的交换操作都会在增量为1的时候执行，这回导致一个不怎么好的结果，时间复杂度会达到<code>O(N^2)</code>。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>归并排序</title>
-    <url>/2021/10/26/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h2 id="归并排序">归并排序</h2>
-<ul>
-<li>归并算法，核心机制是分而治之，每次对数据进行拆分，然后合并，每次拆分直到每次排序的元素个数为1，的时候，单个元素必然是有序的，然后合并便可。</li>
-</ul>
-<h4 id="有序子列的归并---伪代码">1、有序子列的归并 - 伪代码</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// L 左边的起始位置 R 右边的起始位置 RightEnd 右边的终点位置</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    leftEnd = R - <span class="number">1</span>  <span class="comment">// 左边部分有序元素的结束位置</span></span><br><span class="line">    temp_index = L;  <span class="comment">// 存放结果数组的初始位置</span></span><br><span class="line">    NumElements = RightEnd - L + <span class="number">1</span>;   <span class="comment">// 计算元素的总个数 - 左右两部份紧挨着 </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd &amp;&amp; R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(A[L] &lt; A[R])</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[L++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>  <span class="comment">// A[L] &gt; A[R]</span></span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[R++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[L++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[R++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将有序的元素写回到A中</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i &lt; NumElements;i++,RightEnd--)</span><br><span class="line">    &#123;</span><br><span class="line">        A[RightEnd] = tempA[RightEnd];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="归并的实现---递归">2、归并的实现 - 递归</h4>
-<ul>
-<li>归并算法的实现有不同的方式，相比之下递归的实现方式相对直观，此处是递归实现的伪代码：</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Msort</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> center;  <span class="comment">// 每次将元素对半砍开 </span></span><br><span class="line">    <span class="keyword">if</span>(L &lt; RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        center = (L + RightEnd) / <span class="number">2</span>;          <span class="comment">// 中间位置的元素</span></span><br><span class="line">        MSort(A,tempA,L,center);              <span class="comment">//左半部分 </span></span><br><span class="line">        MSort(A,tempA,center+<span class="number">1</span>，RightEnd);    <span class="comment">//右半部分 </span></span><br><span class="line">    	Merge(A,tempA,L,center+<span class="number">1</span>,RightEnd);   <span class="comment">// 合并两部分 </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="归并的实现---非递归">2、归并的实现 - 非递归</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_Sort</span><span class="params">(ElementType A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> length = <span class="number">1</span>;   <span class="comment">// 最开始 有序子列的长度</span></span><br><span class="line">    ElementType * tempA;   <span class="comment">// 一个辅助交换的和A等大小的空间</span></span><br><span class="line">    tempA = <span class="keyword">new</span> ElementType[N];</span><br><span class="line">    <span class="keyword">if</span>(tempA != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(length &lt; N)  <span class="comment">// 随着有序子列的扩大，最终一定大于等于N</span></span><br><span class="line">        &#123;</span><br><span class="line">            Merge_pass(A,tempA,N,length);</span><br><span class="line">            length *= <span class="number">2</span>;</span><br><span class="line">            Merge_pass(tempA,A,N,length);</span><br><span class="line">            length *= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">delete</span> [] tempA;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;error&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 源元素位置 目标元素位置 元素个数 有序子列的大小</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_pass</span><span class="params">(ElementType A,ElementType tempA,<span class="keyword">int</span> N,<span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt;= N - <span class="number">2</span>*length;i += <span class="number">2</span>*length)   <span class="comment">// 2*length 每次合并的元素的个数 </span></span><br><span class="line">    &#123;</span><br><span class="line">        Merge_(A,tempA,i,i+length,i+<span class="number">2</span>*length - <span class="number">1</span>);  <span class="comment">// 合并</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i+legnth &lt; N)  <span class="comment">// 剩下的元素个数 &gt; length, 表示还可以进行一次合并： 一组的个数</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 此时最后被合并的数据 个数 &lt; 2*length </span></span><br><span class="line">		Merge_(A,tempA,i,i+length,N - <span class="number">1</span>);  <span class="comment">// 合并</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 合并最后部分的元素</span></span><br><span class="line">        <span class="keyword">for</span>(j = i; j &lt; N;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[j] = A[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    leftEnd = R - <span class="number">1</span>  <span class="comment">// 左边部分有序元素的结束位置</span></span><br><span class="line">    temp_index = L;  <span class="comment">// 存放结果数组的初始位置</span></span><br><span class="line">    NumElements = RightEnd - L + <span class="number">1</span>;   <span class="comment">// 计算元素的总个数 - 左右两部份紧挨着 </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd &amp;&amp; R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(A[L] &lt; A[R])</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[L++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>  <span class="comment">// A[L] &gt; A[R]</span></span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[R++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[L++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[R++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微信多开</title>
-    <url>/2022/02/28/%E5%BE%AE%E4%BF%A1%E5%A4%9A%E5%BC%80/</url>
-    <content><![CDATA[<h2 id="微信多开的小技巧---windows">微信多开的小技巧 - Windows</h2>
-<ul>
-<li><p>首先，需要你知道你机器上安装微信 - 请记录它的安装位置</p></li>
-<li><p>一般情况下，如果你不做任何修改的话，它会在<code>C:\Program Files (x86)\Tencent\WeChat</code>这个目录下：
-   <img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/wechat_install_path.png"
-title="微信安装位置" /></p></li>
-<li><p>然后，打开你机器上任意的一个文本编辑器，输入如下内容：</p></li>
-<li><p>需要多开多少个微信，你便将如下命令输入重复写多少次。</p>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">start D:\&quot;Program Files (x86)<span class="string">&quot;\Tencent\WeChat\WeChat.exe</span></span><br><span class="line"><span class="string">start D:\&quot;Program Files (x86)&quot;</span>\Tencent\WeChat\WeChat.exe</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请将上面的路径换成你机器上安装微信的路径</span></span><br><span class="line"><span class="comment"># 上面表示的是同时开两个微信程序</span></span><br><span class="line"><span class="comment"># 前面的路径部分中含有空格，为了让系统能识别，我们需要用双引号将其括起来，这样才能正确的识别</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li>
-<li><p>然后将文件保存，文件后缀为<code>.bat</code>,这是<code>cmd</code>识别的命令行，这个时候你打开你刚保存的文件，便会弹出你想要多开的数量。</p>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/multi_open_wechat.png"
-title="微信多开效果图" /></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Tips</category>
-      </categories>
-      <tags>
-        <tag>windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记一次总结</title>
-    <url>/2021/10/17/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h3 id="section"></h3>
-<p><code>前记：</code></p>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/GF_Workspace.JPG" /></p>
-<p>    从辞职到新公司，过去了快两个月时间，经过这大段的时间，度过了试用期，开始接手往后日子里要进行的工作。</p>
-<p> 
-   新工作是关于<code>C++　&amp;　OSG</code>的，做一个仿真软件，主要负责一些关于<code>osg</code>的渲染工作，和其中部分界面的编写，项目用到的还算是熟悉的东西：</p>
-<ul>
-<li><code>Qt</code>编写整个软件的界面</li>
-<li><code>osg</code>负责整个3D图形的展示</li>
-</ul>
-<p>  关于这个项目遇到的一些问题：</p>
-<ul>
-<li><code>osg</code>编译劝退</li>
-</ul>
-<p>    讲真，<code>osg</code>的库的编译相当劝退，各种库的依赖关系，以及<code>VS</code>的工具链的选择，以及部分库的调试模式的选择。</p>
-<p>这里推荐<a ref=https://freesouth.blog.csdn.net/>杨石兴的博客</a>详细介绍了OSG的编译的一些问题，同时它提供了编译使用的所有的依赖包，各种工具集的版本。</p>
-<ul>
-<li><code>osg</code>与<code>Qt</code>的集成</li>
-</ul>
-<p>    要求你先编译<code>osg</code>然后才能编译，<code>osgQt</code>在<code>osg3.4</code>之后的版本中便被从原来的库中剔除，需要自己单独编译，</p>
-<p>同时<code>Qt4.0</code>的版本与<code>5.0</code>的版本编译使用的<code>Qt</code>的类也存在一些区别。</p>
-<p>当前阶段，上面提到的这些问题，我们已经解决了，新一番的问题产生了：</p>
-<ul>
-<li>在于不同的团队合作的时候，如何扯皮！</li>
-</ul>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>HJ</category>
-      </categories>
-      <tags>
-        <tag>conclusion</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记一次面试</title>
-    <url>/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95-1/</url>
-    <content><![CDATA[<h2 id="记一次面试">记一次面试:</h2>
-<p>  距离上一次面试，不到半年，频繁的换工作，总是一件不好的事情，关于换工作这件事并不是那么的难以启齿，所以具体原因就先省略了.......
-  这次的目标是国内的一所高校，具体的工作，根据面试的情况看来，是<code>CAD</code>方向，大概都是渲染相关的，所以还是符合我的预期。</p>
-<h2 id="start-interview">Start Interview:</h2>
-<ul>
-<li>首先这是一个<code>Cpp</code>&amp;<code>图形</code>的混合岗位，所以能想到的是，关于对这个岗位的基本要求就是<code>CPP</code>和<code>图形学</code>开发经验,
-可以预见大概的问题就是<code>Cpp</code>和图形相关的知识。</li>
-</ul>
-<hr />
-<h3 id="第一次面试">第一次面试</h3>
-<h4 id="关于简历中提到的之前的项目">关于简历中提到的之前的项目</h4>
-<ul>
-<li>部分和之前项目相关的问题</li>
-<li>一些技术上的解决方案</li>
-<li>......</li>
-</ul>
-<h4 id="cpp的新的语言特性">CPP的新的语言特性</h4>
-<ul>
-<li><code>C++11</code>的新语言特性 - 比较常用的
-<ul>
-<li>智能指针</li>
-<li><code>auto</code>自动类型推导</li>
-<li>标准库的多线程</li>
-<li><code>lambda</code>表达式</li>
-</ul></li>
-<li>一些指针和引用相关的问题
-<ul>
-<li>指针是什么？</li>
-<li>引用是什么？</li>
-<li>两者的区别？</li>
-<li>内存分区的相关问题，如：
-<ul>
-<li>常量在程序中的的存储位置</li>
-<li>静态变量在什么位置</li>
-<li>......</li>
-</ul></li>
-</ul></li>
-</ul>
-<h4 id="图形相关的问题">图形相关的问题</h4>
-<ul>
-<li>图形管线的问题
-<ul>
-<li>坐标变换相关的问题
-<ul>
-<li>投影</li>
-<li>视图</li>
-</ul></li>
-</ul></li>
-<li>一些渲染上面的解决方案
-<ul>
-<li>大数据量的绘制</li>
-</ul></li>
-</ul>
-<h3 id="第二次面试">第二次面试</h3>
-<p>  第二次面试倒是没有什么技术相关的问题，两个老师，一个人士，加上我，一共四个人，具体内容就是一个10分钟的自我介绍，这个介绍包括：</p>
-<ul>
-<li>个人介绍
-<ul>
-<li>基本信息</li>
-<li>求学经历</li>
-<li>......</li>
-</ul></li>
-<li>工作经历
-<ul>
-<li>项目经历</li>
-</ul></li>
-<li>未来的规划
-<ul>
-<li>职业规划</li>
-<li>个人规划</li>
-</ul></li>
-<li>个人爱好</li>
-</ul>
-<p> .......</p>
-<p>  后面部分就是关于这个介绍的提问了，无关痛痒。</p>
-<p>  一周以后......，在我以为黄了的时候，竟然通过了。</p>
-<p>  感谢！</p>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>interview</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>openGL</tag>
-        <tag>computer graphics</tag>
       </tags>
   </entry>
   <entry>
@@ -1595,77 +1265,47 @@ src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/GF_Workspace.JPG
       </tags>
   </entry>
   <entry>
-    <title>记一次面试</title>
-    <url>/2021/07/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95/</url>
-    <content><![CDATA[<p><em>和老大提出辞职之后，商量了关于我的工作后续的事情，便开始寻找新工作......</em>
-目的地是在重庆的一家公司，具体什么名字，暂时不透露了，面的<code>C++ &amp; Qt</code>，按照面试官的说法，这是一个纯<code>Qt</code>的岗位，所以接下来的问题大概全部是和<code>Qt</code>相关的，当然也会有部分C++的问题在其中。</p>
-<p><font style="color:pink">废话不多说，我们进入正题：</font></p>
-<h2 id="c部分的问题">C++部分的问题：</h2>
+    <title>Shell-Sort</title>
+    <url>/2021/10/26/Shell-Sort/</url>
+    <content><![CDATA[<h3 id="希尔排序">希尔排序</h3>
 <ul>
-<li><p>第一部分是关于C++这门语言的，面向对象是什么？</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// OOP</span></span><br><span class="line"><span class="comment">// 封装,继承,多态</span></span><br></pre></td></tr></table></figure></li>
-<li><p>对于多态的理解?</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 首先是如何实现多态？</span></span><br><span class="line"><span class="number">1.</span> 多态发生在继承关系中。</span><br><span class="line"><span class="number">2.</span> 需要重写虚函数。</span><br><span class="line"><span class="number">3.</span> 父类的指针指向子类的对象。</span><br><span class="line"><span class="number">4.</span> 通过父类指针对重写的虚函数发起调用，最终调用你要想调用的函数。</span><br></pre></td></tr></table></figure>
-<p>example： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">  &#123;</span></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">      <span class="keyword">int</span> menber;</span><br><span class="line">  </span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      B():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">D</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      D():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      A * a = <span class="keyword">new</span> A;</span><br><span class="line">      B * b = <span class="keyword">new</span> B;</span><br><span class="line">      D * d = <span class="keyword">new</span> D;</span><br><span class="line">  </span><br><span class="line">      A * ptr = b;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = a;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = d;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  	</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure> <font style="color:red">结果如下：</font>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/polymorphism.png"
-title="polymorphism" alt="polymorphism" /></p></li>
-<li><p>多态的实现 -- <font style="color:red">虚函数表</font></p>
+<li>希尔排序：预先定义一系列间隔(增量序列)DK，按照间隔，进行间隔排序
 <ul>
-<li><p>验证虚函数表：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一个简单的C 不带有虚函数 </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    C()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;C&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> member;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><font style="color:red">输出结果:</font> <img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/virtual_table_1.png"
-title="virtual table 1" alt="virtual_table" /></p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/virtual_table_2.png"
-title="virtual table 2" alt="virtual table 2" />
-<figcaption aria-hidden="true">virtual table 2</figcaption>
-</figure>
-<ul>
-<li>上面的结果可以看出存在一个成员(存在虚函数的情况)，大小为8个字节(64位软件)。</li>
-</ul></li>
+<li><code>DK[i-1]</code>有序后，执行<code>DK[i]</code>的排序后，<code>DK[i-1]</code>依旧是有序的</li>
 </ul></li>
 </ul>
-<hr />
-<h2 id="qt部分">Qt部分</h2>
+<h4 id="原始的希尔排序">1、原始的希尔排序</h4>
 <ul>
-<li>元对象系统</li>
-<li>窗口刷新机制</li>
-<li>内存托管(删除机制)</li>
-<li>Qquick</li>
-<li>Qt的布局</li>
+<li><code>DK[i-1] = 取整(N/2),DK[i] = 取整(DK[i-1]/2)</code></li>
 </ul>
-<h2 id="opengl部分">OPENGL部分</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Shell_sort</span><span class="params">(ElementTypes A[], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> D;  <span class="comment">// 当前次序的间隔</span></span><br><span class="line">    <span class="keyword">int</span> P,i;</span><br><span class="line">    ElementType temp;</span><br><span class="line">    <span class="keyword">for</span>(P=N/<span class="number">2</span>;D&gt;<span class="number">0</span>;D/=<span class="number">2</span>) <span class="comment">// 间隔的变换</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 插入排序 </span></span><br><span class="line">        <span class="keyword">for</span>(P = D; P&lt;N; P++)</span><br><span class="line">        &#123;</span><br><span class="line">        	temp = A[P];  <span class="comment">// 当前要插入的元素 </span></span><br><span class="line">            <span class="keyword">for</span>(i = P; i &gt;= D &amp;&amp; A[i-D] &gt; temp;i -= D)  <span class="comment">// 和已经有序的元素进行比较</span></span><br><span class="line">            <span class="comment">// 前一个元素A[i-D]如果大于temp，temp放置的位置在i-D之前，i-D位置的元素向后移动</span></span><br><span class="line">            &#123;</span><br><span class="line">                A[i] = A[i-D];</span><br><span class="line">            &#125;</span><br><span class="line">            A[i] = temp;  <span class="comment">// temp 放到正确位置</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>缓冲(双缓冲)</p></li>
-<li><p>着色器程序(语言)</p></li>
+<li>复杂度分析：
+当所有大于的增量的序列的数据都是有序的时候，所有的交换操作都会在增量为1的时候执行，这回导致一个不怎么好的结果，时间复杂度会达到<code>O(N^2)</code>。</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
+      </tags>
   </entry>
   <entry>
-    <title>迟到的毕业总结</title>
-    <url>/2021/03/18/%E8%BF%9F%E5%88%B0%E7%9A%84%E6%AF%95%E4%B8%9A%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p><font color=red>2020年</font>在三个月前结束了，这一年大家都收获了满满的经历。当然，我也是。我毕业了，从一个三流学校的渣子变成了社会末流的青年。开始了独属于我的关于这个时代的苟且！</p>
-<p>​ 离开前，大家都像是急于归乡的游子，对身后的这个城市不存半点留恋。</p>
-<p>对于大学，我仿佛有千言万语，却是欲语还休
-。不谈这个这个有些无聊的学校，关于大学，关于这四年，关于我自己，我希望它是美好的，会让我主动怀恋的！</p>
-<p>待续。。。</p>
-<hr />
-<p><code>2021-7-26</code></p>
-<p>​
-下个月就要离开这个城市了，目前心情很是平淡，谈不上悲，亦没有欢喜，我仿佛早有预料一般。却如其实，我的确早有离开的想法，我大学的四年在这个城市度过，对于这里的大部分事物，我也算是熟悉，离开这里对我来说麻烦的地方便是新的城市，新的交际。。。
-当然一切都会是新的，我也是。</p>
-<p>​ 祝愿我将迎接新的美好，朋友我来了！</p>
+    <title>Boy</title>
+    <url>/2021/03/16/baozi/</url>
+    <content><![CDATA[<h4 id="about-this-blog">About this Blog</h4>
+<ul>
+<li>个人博客，分享我的日常与一些工作内容</li>
+</ul>
 ]]></content>
       <categories>
         <category>bun</category>
-        <category>university</category>
+        <category>life</category>
       </categories>
       <tags>
-        <tag>conclusion</tag>
-        <tag>university</tag>
+        <tag>intraduce</tag>
       </tags>
   </entry>
   <entry>
@@ -1760,19 +1400,379 @@ A[j]，则称<code>(i,j)</code>是一对逆序对<font color=red>逆序对(inver
       </tags>
   </entry>
   <entry>
-    <title>Boy</title>
-    <url>/2021/03/16/baozi/</url>
-    <content><![CDATA[<h4 id="about-this-blog">About this Blog</h4>
+    <title>vector dot product</title>
+    <url>/2022/07/28/vector-dot-product/</url>
+    <content><![CDATA[<h2 id="向量的内积与外积">向量的内积与外积</h2>
+<h3 id="点与点的减法">点与点的减法</h3>
 <ul>
-<li>个人博客，分享我的日常与一些工作内容</li>
+<li>描述的是起点到终点的运动</li>
+</ul>
+<h3 id="点p与向量veca的加法">点<span
+class="math inline">\({p}\)</span>与向量<span
+class="math inline">\(\vec{a}\)</span>的加法</h3>
+<ul>
+<li>从<span class="math inline">\(P\)</span>出发经过这个向量<span
+class="math inline">\(\vec{a}\)</span>代表的运动，到达一个新的点<span
+class="math inline">\(P_0\)</span></li>
+</ul>
+<h3 id="在此处定义两个向量">在此处定义两个向量</h3>
+<ul>
+<li><span class="math inline">\(\vec{a}\)</span> <span
+class="math display">\[  
+     \vec{a} = \begin{bmatrix}
+        a_1 \\
+        a_2 \\
+        a_3 \\
+      \end{bmatrix}
+\]</span></li>
+<li><span class="math inline">\(\vec{b}\)</span> <span
+class="math display">\[  
+    \vec{b} = \begin{bmatrix}
+      b_1 \\
+      b_2 \\
+      b_3 \\
+    \end{bmatrix}
+\]</span></li>
+</ul>
+<h3 id="向量点击">向量点击</h3>
+<ul>
+<li>点击(内积)的公式 <span class="math display">\[\vec{a}\cdot\vec{b} =
+|\vec{a}|\times|\vec{b}|\times \cos \theta \]</span> <span
+class="math display">\[ \vec{a}\cdot\vec{b} = \sum_{i=1}^{n} \left\{ a_i
+* b_i \right\}\]</span></li>
+<li>点击的几何意义
+<ul>
+<li><p>
+其中一个向量在另一个向量上的投影且与点击的顺序无关
+</p></li>
+<li><span class="math inline">\(\vec{a}\cdot\vec{b} &gt; 0\)</span>
+方向基本相同，夹角在0°到90°之间</li>
+<li><span class="math inline">\(\vec{a}\cdot\vec{b} = 0\)</span>
+正交，相互垂直</li>
+<li><span class="math inline">\(\vec{a}\cdot\vec{b} &lt; 0\)</span>
+方向基本相反，夹角在90°到180°之间</li>
+</ul></li>
+<li>点击的巧用
+<ul>
+<li>计算向量的模长的平方 <span class="math display">\[|\vec{a}|^2 =
+\vec{a} \cdot \vec{a} \]</span></li>
+<li>计算两个向量之间的夹角的<span
+class="math inline">\(\cos\theta\)</span> -<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/weChat/vector/计算两个向量的夹角.png"
+title="计算两个向量之间的夹角" alt="计算两个向量之间的夹角" />
+<ul>
+<li>两个单位向量的点击等于他们的夹角的<span
+class="math inline">\(\cos\theta\)</span>的值</li>
+</ul></li>
+<li>两个互相垂直的向量的点击总是为<code>0</code> <span
+class="math inline">\(\theta = 90^0\)</span> <span
+class="math display">\[\vec{a} \cdot \vec{b} = |\vec{a}| \ast |\vec{b}|
+\ast \cos\theta = 0 \]</span></li>
+<li>一条射线描述的向量[起点 +
+方向]点击一个平面的法向可以得到起点到平面的距离<br />
+### 向量叉积</li>
+</ul></li>
+<li>外积公式 <span class="math display">\[
+    \vec{a} \times \vec{b} =  
+    \begin{bmatrix}
+      a_2 * b_3 - b_2 * a_3 \\
+      a_3 * b_1 - b_3 * a_1 \\
+      a_1 * b_2 - b_1 * a_2 \\
+    \end{bmatrix}
+\]</span></li>
+<li>叉积的几何意义
+<ul>
+<li>几何表达公式 <span class="math display">\[
+  \vec{a} \times \vec{b} = |\vec{a}| * |\vec{b}| * sin(\theta) * \vec{n}
+\]</span>
+<ul>
+<li><span class="math inline">\(\vec{n}\)</span> 表示<span
+class="math inline">\(\vec{a}\)</span>, <span
+class="math inline">\(\vec{b}\)</span>所构成平面的法向量方向的单位向量</li>
+</ul></li>
+<li>在二维空间中：叉积得到的向量的模长<span
+class="math inline">\(|\vec{a}\times\vec{b}|\)</span>等于这两个向量<span
+class="math inline">\(\vec{a},\vec{b}\)</span>组成的平行四边形的面积</li>
+</ul></li>
+<li>外积的使用
+<ul>
+<li>外积的模长则为夹角的正弦（始终为正）</li>
+</ul></li>
+</ul>
+<h3 id="扩展知识">扩展知识</h3>
+<ul>
+<li>扩展 - 1
+<ul>
+<li>平面上的四个点<span class="math inline">\(P_1\)</span>,<span
+class="math inline">\(P_2\)</span>,<span
+class="math inline">\(P_3\)</span>,<span
+class="math inline">\(P_4\)</span>,分别构成向量 <span
+class="math inline">\(\vec{P_1P_2}\)</span>与<span
+class="math inline">\(\vec{P_3P_4}\)</span>。如何通过点击计算他们交点的坐标?</li>
+<li>下次吧！</li>
+</ul></li>
 </ul>
 ]]></content>
       <categories>
-        <category>bun</category>
-        <category>life</category>
+        <category>Math</category>
+        <category>linear algebra</category>
       </categories>
       <tags>
-        <tag>intraduce</tag>
+        <tag>vector</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>归并排序</title>
+    <url>/2021/10/26/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h2 id="归并排序">归并排序</h2>
+<ul>
+<li>归并算法，核心机制是分而治之，每次对数据进行拆分，然后合并，每次拆分直到每次排序的元素个数为1，的时候，单个元素必然是有序的，然后合并便可。</li>
+</ul>
+<h4 id="有序子列的归并---伪代码">1、有序子列的归并 - 伪代码</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// L 左边的起始位置 R 右边的起始位置 RightEnd 右边的终点位置</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    leftEnd = R - <span class="number">1</span>  <span class="comment">// 左边部分有序元素的结束位置</span></span><br><span class="line">    temp_index = L;  <span class="comment">// 存放结果数组的初始位置</span></span><br><span class="line">    NumElements = RightEnd - L + <span class="number">1</span>;   <span class="comment">// 计算元素的总个数 - 左右两部份紧挨着 </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd &amp;&amp; R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(A[L] &lt; A[R])</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[L++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>  <span class="comment">// A[L] &gt; A[R]</span></span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[R++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[L++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[R++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将有序的元素写回到A中</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i &lt; NumElements;i++,RightEnd--)</span><br><span class="line">    &#123;</span><br><span class="line">        A[RightEnd] = tempA[RightEnd];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="归并的实现---递归">2、归并的实现 - 递归</h4>
+<ul>
+<li>归并算法的实现有不同的方式，相比之下递归的实现方式相对直观，此处是递归实现的伪代码：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Msort</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> center;  <span class="comment">// 每次将元素对半砍开 </span></span><br><span class="line">    <span class="keyword">if</span>(L &lt; RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        center = (L + RightEnd) / <span class="number">2</span>;          <span class="comment">// 中间位置的元素</span></span><br><span class="line">        MSort(A,tempA,L,center);              <span class="comment">//左半部分 </span></span><br><span class="line">        MSort(A,tempA,center+<span class="number">1</span>，RightEnd);    <span class="comment">//右半部分 </span></span><br><span class="line">    	Merge(A,tempA,L,center+<span class="number">1</span>,RightEnd);   <span class="comment">// 合并两部分 </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="归并的实现---非递归">2、归并的实现 - 非递归</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_Sort</span><span class="params">(ElementType A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> length = <span class="number">1</span>;   <span class="comment">// 最开始 有序子列的长度</span></span><br><span class="line">    ElementType * tempA;   <span class="comment">// 一个辅助交换的和A等大小的空间</span></span><br><span class="line">    tempA = <span class="keyword">new</span> ElementType[N];</span><br><span class="line">    <span class="keyword">if</span>(tempA != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(length &lt; N)  <span class="comment">// 随着有序子列的扩大，最终一定大于等于N</span></span><br><span class="line">        &#123;</span><br><span class="line">            Merge_pass(A,tempA,N,length);</span><br><span class="line">            length *= <span class="number">2</span>;</span><br><span class="line">            Merge_pass(tempA,A,N,length);</span><br><span class="line">            length *= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">delete</span> [] tempA;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;error&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 源元素位置 目标元素位置 元素个数 有序子列的大小</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_pass</span><span class="params">(ElementType A,ElementType tempA,<span class="keyword">int</span> N,<span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt;= N - <span class="number">2</span>*length;i += <span class="number">2</span>*length)   <span class="comment">// 2*length 每次合并的元素的个数 </span></span><br><span class="line">    &#123;</span><br><span class="line">        Merge_(A,tempA,i,i+length,i+<span class="number">2</span>*length - <span class="number">1</span>);  <span class="comment">// 合并</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i+legnth &lt; N)  <span class="comment">// 剩下的元素个数 &gt; length, 表示还可以进行一次合并： 一组的个数</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 此时最后被合并的数据 个数 &lt; 2*length </span></span><br><span class="line">		Merge_(A,tempA,i,i+length,N - <span class="number">1</span>);  <span class="comment">// 合并</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 合并最后部分的元素</span></span><br><span class="line">        <span class="keyword">for</span>(j = i; j &lt; N;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[j] = A[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    leftEnd = R - <span class="number">1</span>  <span class="comment">// 左边部分有序元素的结束位置</span></span><br><span class="line">    temp_index = L;  <span class="comment">// 存放结果数组的初始位置</span></span><br><span class="line">    NumElements = RightEnd - L + <span class="number">1</span>;   <span class="comment">// 计算元素的总个数 - 左右两部份紧挨着 </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd &amp;&amp; R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(A[L] &lt; A[R])</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[L++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>  <span class="comment">// A[L] &gt; A[R]</span></span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[R++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[L++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[R++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信多开</title>
+    <url>/2022/02/28/%E5%BE%AE%E4%BF%A1%E5%A4%9A%E5%BC%80/</url>
+    <content><![CDATA[<h2 id="微信多开的小技巧---windows">微信多开的小技巧 - Windows</h2>
+<ul>
+<li><p>首先，需要你知道你机器上安装微信 - 请记录它的安装位置</p></li>
+<li><p>一般情况下，如果你不做任何修改的话，它会在<code>C:\Program Files (x86)\Tencent\WeChat</code>这个目录下：
+   <img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/wechat_install_path.png"
+title="微信安装位置" /></p></li>
+<li><p>然后，打开你机器上任意的一个文本编辑器，输入如下内容：</p></li>
+<li><p>需要多开多少个微信，你便将如下命令输入重复写多少次。</p>
+<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">start D:\&quot;Program Files (x86)<span class="string">&quot;\Tencent\WeChat\WeChat.exe</span></span><br><span class="line"><span class="string">start D:\&quot;Program Files (x86)&quot;</span>\Tencent\WeChat\WeChat.exe</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请将上面的路径换成你机器上安装微信的路径</span></span><br><span class="line"><span class="comment"># 上面表示的是同时开两个微信程序</span></span><br><span class="line"><span class="comment"># 前面的路径部分中含有空格，为了让系统能识别，我们需要用双引号将其括起来，这样才能正确的识别</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li>
+<li><p>然后将文件保存，文件后缀为<code>.bat</code>,这是<code>cmd</code>识别的命令行，这个时候你打开你刚保存的文件，便会弹出你想要多开的数量。</p>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/multi_open_wechat.png"
+title="微信多开效果图" /></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tips</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记一次总结</title>
+    <url>/2021/10/17/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h3 id="section"></h3>
+<p><code>前记：</code></p>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/GF_Workspace.JPG" /></p>
+<p>    从辞职到新公司，过去了快两个月时间，经过这大段的时间，度过了试用期，开始接手往后日子里要进行的工作。</p>
+<p> 
+   新工作是关于<code>C++　&amp;　OSG</code>的，做一个仿真软件，主要负责一些关于<code>osg</code>的渲染工作，和其中部分界面的编写，项目用到的还算是熟悉的东西：</p>
+<ul>
+<li><code>Qt</code>编写整个软件的界面</li>
+<li><code>osg</code>负责整个3D图形的展示</li>
+</ul>
+<p>  关于这个项目遇到的一些问题：</p>
+<ul>
+<li><code>osg</code>编译劝退</li>
+</ul>
+<p>    讲真，<code>osg</code>的库的编译相当劝退，各种库的依赖关系，以及<code>VS</code>的工具链的选择，以及部分库的调试模式的选择。</p>
+<p>这里推荐<a ref=https://freesouth.blog.csdn.net/>杨石兴的博客</a>详细介绍了OSG的编译的一些问题，同时它提供了编译使用的所有的依赖包，各种工具集的版本。</p>
+<ul>
+<li><code>osg</code>与<code>Qt</code>的集成</li>
+</ul>
+<p>    要求你先编译<code>osg</code>然后才能编译，<code>osgQt</code>在<code>osg3.4</code>之后的版本中便被从原来的库中剔除，需要自己单独编译，</p>
+<p>同时<code>Qt4.0</code>的版本与<code>5.0</code>的版本编译使用的<code>Qt</code>的类也存在一些区别。</p>
+<p>当前阶段，上面提到的这些问题，我们已经解决了，新一番的问题产生了：</p>
+<ul>
+<li>在于不同的团队合作的时候，如何扯皮！</li>
+</ul>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>HJ</category>
+      </categories>
+      <tags>
+        <tag>conclusion</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记一次面试</title>
+    <url>/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95-1/</url>
+    <content><![CDATA[<h2 id="记一次面试">记一次面试:</h2>
+<p>  距离上一次面试，不到半年，频繁的换工作，总是一件不好的事情，关于换工作这件事并不是那么的难以启齿，所以具体原因就先省略了.......
+  这次的目标是国内的一所高校，具体的工作，根据面试的情况看来，是<code>CAD</code>方向，大概都是渲染相关的，所以还是符合我的预期。</p>
+<h2 id="start-interview">Start Interview:</h2>
+<ul>
+<li>首先这是一个<code>Cpp</code>&amp;<code>图形</code>的混合岗位，所以能想到的是，关于对这个岗位的基本要求就是<code>CPP</code>和<code>图形学</code>开发经验,
+可以预见大概的问题就是<code>Cpp</code>和图形相关的知识。</li>
+</ul>
+<hr />
+<h3 id="第一次面试">第一次面试</h3>
+<h4 id="关于简历中提到的之前的项目">关于简历中提到的之前的项目</h4>
+<ul>
+<li>部分和之前项目相关的问题</li>
+<li>一些技术上的解决方案</li>
+<li>......</li>
+</ul>
+<h4 id="cpp的新的语言特性">CPP的新的语言特性</h4>
+<ul>
+<li><code>C++11</code>的新语言特性 - 比较常用的
+<ul>
+<li>智能指针</li>
+<li><code>auto</code>自动类型推导</li>
+<li>标准库的多线程</li>
+<li><code>lambda</code>表达式</li>
+</ul></li>
+<li>一些指针和引用相关的问题
+<ul>
+<li>指针是什么？</li>
+<li>引用是什么？</li>
+<li>两者的区别？</li>
+<li>内存分区的相关问题，如：
+<ul>
+<li>常量在程序中的的存储位置</li>
+<li>静态变量在什么位置</li>
+<li>......</li>
+</ul></li>
+</ul></li>
+</ul>
+<h4 id="图形相关的问题">图形相关的问题</h4>
+<ul>
+<li>图形管线的问题
+<ul>
+<li>坐标变换相关的问题
+<ul>
+<li>投影</li>
+<li>视图</li>
+</ul></li>
+</ul></li>
+<li>一些渲染上面的解决方案
+<ul>
+<li>大数据量的绘制</li>
+</ul></li>
+</ul>
+<h3 id="第二次面试">第二次面试</h3>
+<p>  第二次面试倒是没有什么技术相关的问题，两个老师，一个人士，加上我，一共四个人，具体内容就是一个10分钟的自我介绍，这个介绍包括：</p>
+<ul>
+<li>个人介绍
+<ul>
+<li>基本信息</li>
+<li>求学经历</li>
+<li>......</li>
+</ul></li>
+<li>工作经历
+<ul>
+<li>项目经历</li>
+</ul></li>
+<li>未来的规划
+<ul>
+<li>职业规划</li>
+<li>个人规划</li>
+</ul></li>
+<li>个人爱好</li>
+</ul>
+<p> .......</p>
+<p>  后面部分就是关于这个介绍的提问了，无关痛痒。</p>
+<p>  一周以后......，在我以为黄了的时候，竟然通过了。</p>
+<p>  感谢！</p>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>interview</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>openGL</tag>
+        <tag>computer graphics</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记一次面试</title>
+    <url>/2021/07/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95/</url>
+    <content><![CDATA[<p><em>和老大提出辞职之后，商量了关于我的工作后续的事情，便开始寻找新工作......</em>
+目的地是在重庆的一家公司，具体什么名字，暂时不透露了，面的<code>C++ &amp; Qt</code>，按照面试官的说法，这是一个纯<code>Qt</code>的岗位，所以接下来的问题大概全部是和<code>Qt</code>相关的，当然也会有部分C++的问题在其中。</p>
+<p><font style="color:pink">废话不多说，我们进入正题：</font></p>
+<h2 id="c部分的问题">C++部分的问题：</h2>
+<ul>
+<li><p>第一部分是关于C++这门语言的，面向对象是什么？</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// OOP</span></span><br><span class="line"><span class="comment">// 封装,继承,多态</span></span><br></pre></td></tr></table></figure></li>
+<li><p>对于多态的理解?</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 首先是如何实现多态？</span></span><br><span class="line"><span class="number">1.</span> 多态发生在继承关系中。</span><br><span class="line"><span class="number">2.</span> 需要重写虚函数。</span><br><span class="line"><span class="number">3.</span> 父类的指针指向子类的对象。</span><br><span class="line"><span class="number">4.</span> 通过父类指针对重写的虚函数发起调用，最终调用你要想调用的函数。</span><br></pre></td></tr></table></figure>
+<p>example： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">  &#123;</span></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">      <span class="keyword">int</span> menber;</span><br><span class="line">  </span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      B():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">D</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      D():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      A * a = <span class="keyword">new</span> A;</span><br><span class="line">      B * b = <span class="keyword">new</span> B;</span><br><span class="line">      D * d = <span class="keyword">new</span> D;</span><br><span class="line">  </span><br><span class="line">      A * ptr = b;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = a;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = d;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  	</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure> <font style="color:red">结果如下：</font>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/polymorphism.png"
+title="polymorphism" alt="polymorphism" /></p></li>
+<li><p>多态的实现 -- <font style="color:red">虚函数表</font></p>
+<ul>
+<li><p>验证虚函数表：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一个简单的C 不带有虚函数 </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    C()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;C&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> member;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><font style="color:red">输出结果:</font> <img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/virtual_table_1.png"
+title="virtual table 1" alt="virtual_table" /></p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/virtual_table_2.png"
+title="virtual table 2" alt="virtual table 2" />
+<figcaption aria-hidden="true">virtual table 2</figcaption>
+</figure>
+<ul>
+<li>上面的结果可以看出存在一个成员(存在虚函数的情况)，大小为8个字节(64位软件)。</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="qt部分">Qt部分</h2>
+<ul>
+<li>元对象系统</li>
+<li>窗口刷新机制</li>
+<li>内存托管(删除机制)</li>
+<li>Qquick</li>
+<li>Qt的布局</li>
+</ul>
+<h2 id="opengl部分">OPENGL部分</h2>
+<ul>
+<li><p>缓冲(双缓冲)</p></li>
+<li><p>着色器程序(语言)</p></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>迟到的毕业总结</title>
+    <url>/2021/03/18/%E8%BF%9F%E5%88%B0%E7%9A%84%E6%AF%95%E4%B8%9A%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p><font color=red>2020年</font>在三个月前结束了，这一年大家都收获了满满的经历。当然，我也是。我毕业了，从一个三流学校的渣子变成了社会末流的青年。开始了独属于我的关于这个时代的苟且！</p>
+<p>​ 离开前，大家都像是急于归乡的游子，对身后的这个城市不存半点留恋。</p>
+<p>对于大学，我仿佛有千言万语，却是欲语还休
+。不谈这个这个有些无聊的学校，关于大学，关于这四年，关于我自己，我希望它是美好的，会让我主动怀恋的！</p>
+<p>待续。。。</p>
+<hr />
+<p><code>2021-7-26</code></p>
+<p>​
+下个月就要离开这个城市了，目前心情很是平淡，谈不上悲，亦没有欢喜，我仿佛早有预料一般。却如其实，我的确早有离开的想法，我大学的四年在这个城市度过，对于这里的大部分事物，我也算是熟悉，离开这里对我来说麻烦的地方便是新的城市，新的交际。。。
+当然一切都会是新的，我也是。</p>
+<p>​ 祝愿我将迎接新的美好，朋友我来了！</p>
+]]></content>
+      <categories>
+        <category>bun</category>
+        <category>university</category>
+      </categories>
+      <tags>
+        <tag>conclusion</tag>
+        <tag>university</tag>
       </tags>
   </entry>
 </search>
