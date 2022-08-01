@@ -208,6 +208,51 @@ N时差不多是一个线性复杂度的算法)</li>
       </tags>
   </entry>
   <entry>
+    <title>Bug奇遇记-uint16_t</title>
+    <url>/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/</url>
+    <content><![CDATA[<h3 id="uint16_t">uint16_t</h3>
+<ul>
+<li>标准定义中：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">short</span>  <span class="keyword">uint16_t</span>; <span class="comment">// max == _UI16_MAX 0xffffu </span></span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/uint16_t.png"
+title="uint16" alt="uint16_t" />
+<figcaption aria-hidden="true">uint16_t</figcaption>
+</figure>
+<h4 id="问题">问题：</h4>
+<ul>
+<li><font color=red>这是一个粗心的问题</font></li>
+</ul>
+<p>在我正在实现的功能中有一个数据遍历的部分，我使用了<code>uint16_t</code>类型作为索引的类型，但是<code>uint16_t</code>数据的最大值比较小，所以当基础数据量过大的时候，我们产生的索引会越过索引的最大范围，导致最终得到的索引不是实际需要的索引值，导致我最终绘制的图形不是正确的结果！</p>
+<hr />
+<h3 id="正确的结果展示">正确的结果展示：</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_2.png"
+title="result" alt="lum_2" />
+<figcaption aria-hidden="true">lum_2</figcaption>
+</figure>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_1.png"
+title="Result" alt="right result" />
+<figcaption aria-hidden="true">right result</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>GF</category>
+        <category>data type</category>
+        <category>bugs</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>osg</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Dynamic drawing of osg vertex buffer objects</title>
     <url>/2021/11/07/Dynamic-drawing-of-osg-vertex-buffer-objects/</url>
     <content><![CDATA[<h3
@@ -1955,51 +2000,6 @@ title="virtual table 2" alt="virtual table 2" />
       <tags>
         <tag>conclusion</tag>
         <tag>university</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Bug奇遇记-uint16_t</title>
-    <url>/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/</url>
-    <content><![CDATA[<h3 id="uint16_t">uint16_t</h3>
-<ul>
-<li>标准定义中：</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">short</span>  <span class="keyword">uint16_t</span>; <span class="comment">// max == _UI16_MAX 0xffffu </span></span><br></pre></td></tr></table></figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/uint16_t.png"
-title="uint16" alt="uint16_t" />
-<figcaption aria-hidden="true">uint16_t</figcaption>
-</figure>
-<h4 id="问题">问题：</h4>
-<ul>
-<li><font color=red>这是一个粗心的问题</font></li>
-</ul>
-<p>在我正在实现的功能中有一个数据遍历的部分，我使用了<code>uint16_t</code>类型作为索引的类型，但是<code>uint16_t</code>数据的最大值比较小，所以当基础数据量过大的时候，我们产生的索引会越过索引的最大范围，导致最终得到的索引不是实际需要的索引值，导致我最终绘制的图形不是正确的结果！</p>
-<hr />
-<h3 id="正确的结果展示">正确的结果展示：</h3>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_2.png"
-title="result" alt="lum_2" />
-<figcaption aria-hidden="true">lum_2</figcaption>
-</figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_1.png"
-title="Result" alt="right result" />
-<figcaption aria-hidden="true">right result</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>GF</category>
-        <category>data type</category>
-        <category>bugs</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>osg</tag>
       </tags>
   </entry>
 </search>
