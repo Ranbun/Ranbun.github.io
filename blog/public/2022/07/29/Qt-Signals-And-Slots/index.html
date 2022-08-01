@@ -23,7 +23,7 @@
     <meta name="description" content="Qt  是非常好的用于开发软件界面的库, 当然我这样说有些狭隘, Qt能做的事情远不止如此 但本文我只是说一下Qt的信号槽机制  1. Qt超级经典的信号与槽机制- signal &amp; slot  示例 1234567891011class Use_SignalAndSlot:public QObject&amp;#123;    Q_OBJECTpublic:&#x2F;&#x2F; ......">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Qt Connect">
-<meta property="og:url" content="https://blog.ranbun.com/2022/07/29/Qt-connect-function-the-fifth-param/index.html">
+<meta property="og:url" content="https://blog.ranbun.com/2022/07/29/Qt-Signals-And-Slots/index.html">
 <meta property="og:site_name" content="RanBun&#39;s Blog">
 <meta property="og:description" content="Qt  是非常好的用于开发软件界面的库, 当然我这样说有些狭隘, Qt能做的事情远不止如此 但本文我只是说一下Qt的信号槽机制  1. Qt超级经典的信号与槽机制- signal &amp; slot  示例 1234567891011class Use_SignalAndSlot:public QObject&amp;#123;    Q_OBJECTpublic:&#x2F;&#x2F; ......">
 <meta property="og:locale" content="zh_CN">
@@ -35,11 +35,11 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://blog.ranbun.com/2022/07/29/Qt-connect-function-the-fifth-param/">
+<link rel="canonical" href="https://blog.ranbun.com/2022/07/29/Qt-Signals-And-Slots/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.ranbun.com/2022/07/29/Qt-connect-function-the-fifth-param/","path":"2022/07/29/Qt-connect-function-the-fifth-param/","title":"Qt Connect"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.ranbun.com/2022/07/29/Qt-Signals-And-Slots/","path":"2022/07/29/Qt-Signals-And-Slots/","title":"Qt Connect"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Qt Connect | RanBun's Blog</title>
@@ -89,7 +89,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">19</span></a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">27</span></a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">15</span></a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="user fa-fw"></i>关于</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">27</span></a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">15</span></a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="user fa-fw"></i>关于</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -170,7 +170,7 @@ slot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -237,7 +237,7 @@ slot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2022/07/29/Qt-connect-function-the-fifth-param/">
+    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2022/07/29/Qt-Signals-And-Slots/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -533,7 +533,7 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://blog.ranbun.com/2022/07/29/Qt-connect-function-the-fifth-param/" title="Qt Connect">https://blog.ranbun.com/2022/07/29/Qt-connect-function-the-fifth-param/</a>
+      <a href="https://blog.ranbun.com/2022/07/29/Qt-Signals-And-Slots/" title="Qt Connect">https://blog.ranbun.com/2022/07/29/Qt-Signals-And-Slots/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
