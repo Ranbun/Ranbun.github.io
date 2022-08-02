@@ -308,6 +308,13 @@
 
   
   <url>
+    <loc>https://blog.ranbun.com/tags/mylife/</loc>
+    <lastmod>2022-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.ranbun.com/tags/cpp/</loc>
     <lastmod>2022-08-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -316,13 +323,6 @@
   
   <url>
     <loc>https://blog.ranbun.com/tags/sort/</loc>
-    <lastmod>2022-08-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ranbun.com/tags/mylife/</loc>
     <lastmod>2022-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -357,14 +357,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/tags/OpenGL/</loc>
+    <loc>https://blog.ranbun.com/tags/Qt/</loc>
     <lastmod>2022-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/tags/Qt/</loc>
+    <loc>https://blog.ranbun.com/tags/OpenGL/</loc>
     <lastmod>2022-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -429,7 +429,7 @@
 
   
   <url>
-    <loc>https://blog.ranbun.com/categories/Algorithm/</loc>
+    <loc>https://blog.ranbun.com/categories/bun/</loc>
     <lastmod>2022-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -443,7 +443,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/categories/bun/</loc>
+    <loc>https://blog.ranbun.com/categories/Algorithm/</loc>
     <lastmod>2022-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -457,14 +457,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/categories/Computer-Graph/</loc>
+    <loc>https://blog.ranbun.com/categories/bun/life/</loc>
     <lastmod>2022-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/categories/bun/life/</loc>
+    <loc>https://blog.ranbun.com/categories/Computer-Graph/</loc>
     <lastmod>2022-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -478,7 +478,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/categories/works/HJ/</loc>
+    <loc>https://blog.ranbun.com/categories/develop/</loc>
     <lastmod>2022-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -492,14 +492,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/categories/develop/</loc>
-    <lastmod>2022-08-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ranbun.com/categories/works/SCU/</loc>
+    <loc>https://blog.ranbun.com/categories/works/HJ/</loc>
     <lastmod>2022-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -507,6 +500,13 @@
   
   <url>
     <loc>https://blog.ranbun.com/categories/study/</loc>
+    <lastmod>2022-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ranbun.com/categories/works/SCU/</loc>
     <lastmod>2022-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -562,14 +562,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/categories/works/SCU/Git/</loc>
+    <loc>https://blog.ranbun.com/categories/study/coding/</loc>
     <lastmod>2022-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/categories/study/coding/</loc>
+    <loc>https://blog.ranbun.com/categories/works/SCU/Git/</loc>
     <lastmod>2022-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
