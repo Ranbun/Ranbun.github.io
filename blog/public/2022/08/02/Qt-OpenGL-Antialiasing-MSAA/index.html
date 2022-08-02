@@ -20,28 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.ranbun.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="向量的内积与外积 点与点的减法  描述的是起点到终点的运动  点\({p}\)与向量\(\vec{a}\)的加法  从\(P\)出发经过这个向量\(\vec{a}\)代表的运动，到达一个新的点\(P_0\)  在此处定义两个向量  \(\vec{a}\) \[        \vec{a} &#x3D; \begin{bmatrix}         a_1 \\">
+    <meta name="description" content="Qt OpenGL Antialiasing - MSAA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vector dot product">
-<meta property="og:url" content="https://blog.ranbun.com/2022/07/28/vector-dot-product/index.html">
+<meta property="og:title" content="Qt OpenGL Antialiasing-MSAA">
+<meta property="og:url" content="https://blog.ranbun.com/2022/08/02/Qt-OpenGL-Antialiasing-MSAA/index.html">
 <meta property="og:site_name" content="RanBun&#39;s Blog">
-<meta property="og:description" content="向量的内积与外积 点与点的减法  描述的是起点到终点的运动  点\({p}\)与向量\(\vec{a}\)的加法  从\(P\)出发经过这个向量\(\vec{a}\)代表的运动，到达一个新的点\(P_0\)  在此处定义两个向量  \(\vec{a}\) \[        \vec{a} &#x3D; \begin{bmatrix}         a_1 \\">
+<meta property="og:description" content="Qt OpenGL Antialiasing - MSAA">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-27T16:55:14.000Z">
-<meta property="article:modified_time" content="2022-07-28T11:38:35.131Z">
+<meta property="article:published_time" content="2022-08-02T09:16:16.000Z">
+<meta property="article:modified_time" content="2022-08-02T09:18:30.984Z">
 <meta property="article:author" content="RanBun">
-<meta property="article:tag" content="vector">
+<meta property="article:tag" content="OpenGL">
+<meta property="article:tag" content="Qt">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://blog.ranbun.com/2022/07/28/vector-dot-product/">
+<link rel="canonical" href="https://blog.ranbun.com/2022/08/02/Qt-OpenGL-Antialiasing-MSAA/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.ranbun.com/2022/07/28/vector-dot-product/","path":"2022/07/28/vector-dot-product/","title":"vector dot product"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.ranbun.com/2022/08/02/Qt-OpenGL-Antialiasing-MSAA/","path":"2022/08/02/Qt-OpenGL-Antialiasing-MSAA/","title":"Qt OpenGL Antialiasing-MSAA"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>vector dot product | RanBun's Blog</title>
+<title>Qt OpenGL Antialiasing-MSAA | RanBun's Blog</title>
   
 
 
@@ -145,7 +146,8 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%9A%84%E5%86%85%E7%A7%AF%E4%B8%8E%E5%A4%96%E7%A7%AF"><span class="nav-number">1.</span> <span class="nav-text">向量的内积与外积</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%82%B9%E4%B8%8E%E7%82%B9%E7%9A%84%E5%87%8F%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">点与点的减法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%82%B9p%E4%B8%8E%E5%90%91%E9%87%8Fveca%E7%9A%84%E5%8A%A0%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">点\({p}\)与向量\(\vec{a}\)的加法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E6%AD%A4%E5%A4%84%E5%AE%9A%E4%B9%89%E4%B8%A4%E4%B8%AA%E5%90%91%E9%87%8F"><span class="nav-number">1.3.</span> <span class="nav-text">在此处定义两个向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%82%B9%E5%87%BB"><span class="nav-number">1.4.</span> <span class="nav-text">向量点击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E7%9F%A5%E8%AF%86"><span class="nav-number">1.5.</span> <span class="nav-text">扩展知识</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#qt-opengl-antialiasing---msaa"><span class="nav-number">1.</span> <span class="nav-text">Qt OpenGL Antialiasing -
+MSAA</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -233,7 +235,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2022/07/28/vector-dot-product/">
+    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2022/08/02/Qt-OpenGL-Antialiasing-MSAA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -246,12 +248,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="vector dot product | RanBun's Blog">
+      <meta itemprop="name" content="Qt OpenGL Antialiasing-MSAA | RanBun's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          vector dot product
+          Qt OpenGL Antialiasing-MSAA
         </h1>
 
         <div class="post-meta-container">
@@ -263,7 +265,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-07-28 00:55:14 / 修改时间：19:38:35" itemprop="dateCreated datePublished" datetime="2022-07-28T00:55:14+08:00">2022-07-28</time>
+      <time title="创建时间：2022-08-02 17:16:16 / 修改时间：17:18:30" itemprop="dateCreated datePublished" datetime="2022-08-02T17:16:16+08:00">2022-08-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -271,11 +273,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Math/" itemprop="url" rel="index"><span itemprop="name">Math</span></a>
+          <a href="/categories/works/" itemprop="url" rel="index"><span itemprop="name">works</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Math/linear-algebra/" itemprop="url" rel="index"><span itemprop="name">linear algebra</span></a>
+          <a href="/categories/works/SCUU/" itemprop="url" rel="index"><span itemprop="name">SCUU</span></a>
         </span>
     </span>
 
@@ -289,116 +291,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="向量的内积与外积">向量的内积与外积</h2>
-<h3 id="点与点的减法">点与点的减法</h3>
-<ul>
-<li>描述的是起点到终点的运动</li>
-</ul>
-<h3 id="点p与向量veca的加法">点<span
-class="math inline">\({p}\)</span>与向量<span
-class="math inline">\(\vec{a}\)</span>的加法</h3>
-<ul>
-<li>从<span class="math inline">\(P\)</span>出发经过这个向量<span
-class="math inline">\(\vec{a}\)</span>代表的运动，到达一个新的点<span
-class="math inline">\(P_0\)</span></li>
-</ul>
-<h3 id="在此处定义两个向量">在此处定义两个向量</h3>
-<ul>
-<li><span class="math inline">\(\vec{a}\)</span> <span
-class="math display">\[  
-     \vec{a} = \begin{bmatrix}
-        a_1 \\
-        a_2 \\
-        a_3 \\
-      \end{bmatrix}
-\]</span></li>
-<li><span class="math inline">\(\vec{b}\)</span> <span
-class="math display">\[  
-    \vec{b} = \begin{bmatrix}
-      b_1 \\
-      b_2 \\
-      b_3 \\
-    \end{bmatrix}
-\]</span></li>
-</ul>
-<h3 id="向量点击">向量点击</h3>
-<ul>
-<li>点击(内积)的公式 <span class="math display">\[\vec{a}\cdot\vec{b} =
-|\vec{a}|\times|\vec{b}|\times \cos \theta \]</span> <span
-class="math display">\[ \vec{a}\cdot\vec{b} = \sum_{i=1}^{n} \left\{ a_i
-* b_i \right\}\]</span></li>
-<li>点击的几何意义
-<ul>
-<li><p>
-其中一个向量在另一个向量上的投影且与点击的顺序无关
-</p></li>
-<li><span class="math inline">\(\vec{a}\cdot\vec{b} &gt; 0\)</span>
-方向基本相同，夹角在0°到90°之间</li>
-<li><span class="math inline">\(\vec{a}\cdot\vec{b} = 0\)</span>
-正交，相互垂直</li>
-<li><span class="math inline">\(\vec{a}\cdot\vec{b} &lt; 0\)</span>
-方向基本相反，夹角在90°到180°之间</li>
-</ul></li>
-<li>点击的巧用
-<ul>
-<li>计算向量的模长的平方 <span class="math display">\[|\vec{a}|^2 =
-\vec{a} \cdot \vec{a} \]</span></li>
-<li>计算两个向量之间的夹角的<span
-class="math inline">\(\cos\theta\)</span> -<img
-src="https://raw.githubusercontent.com/Ranbun/images/main/weChat/vector/计算两个向量的夹角.png"
-title="计算两个向量之间的夹角" alt="计算两个向量之间的夹角" />
-<ul>
-<li>两个单位向量的点击等于他们的夹角的<span
-class="math inline">\(\cos\theta\)</span>的值</li>
-</ul></li>
-<li>两个互相垂直的向量的点击总是为<code>0</code> <span
-class="math inline">\(\theta = 90^0\)</span> <span
-class="math display">\[\vec{a} \cdot \vec{b} = |\vec{a}| \ast |\vec{b}|
-\ast \cos\theta = 0 \]</span></li>
-<li>一条射线描述的向量[起点 +
-方向]点击一个平面的法向可以得到起点到平面的距离<br />
-### 向量叉积</li>
-</ul></li>
-<li>外积公式 <span class="math display">\[
-    \vec{a} \times \vec{b} =  
-    \begin{bmatrix}
-      a_2 * b_3 - b_2 * a_3 \\
-      a_3 * b_1 - b_3 * a_1 \\
-      a_1 * b_2 - b_1 * a_2 \\
-    \end{bmatrix}
-\]</span></li>
-<li>叉积的几何意义
-<ul>
-<li>几何表达公式 <span class="math display">\[
-  \vec{a} \times \vec{b} = |\vec{a}| * |\vec{b}| * sin(\theta) * \vec{n}
-\]</span>
-<ul>
-<li><span class="math inline">\(\vec{n}\)</span> 表示<span
-class="math inline">\(\vec{a}\)</span>, <span
-class="math inline">\(\vec{b}\)</span>所构成平面的法向量方向的单位向量</li>
-</ul></li>
-<li>在二维空间中：叉积得到的向量的模长<span
-class="math inline">\(|\vec{a}\times\vec{b}|\)</span>等于这两个向量<span
-class="math inline">\(\vec{a},\vec{b}\)</span>组成的平行四边形的面积</li>
-</ul></li>
-<li>外积的使用
-<ul>
-<li>外积的模长则为夹角的正弦（始终为正）</li>
-</ul></li>
-</ul>
-<h3 id="扩展知识">扩展知识</h3>
-<ul>
-<li>扩展 - 1
-<ul>
-<li>平面上的四个点<span class="math inline">\(P_1\)</span>,<span
-class="math inline">\(P_2\)</span>,<span
-class="math inline">\(P_3\)</span>,<span
-class="math inline">\(P_4\)</span>,分别构成向量 <span
-class="math inline">\(\vec{P_1P_2}\)</span>与<span
-class="math inline">\(\vec{P_3P_4}\)</span>。如何通过点击计算他们交点的坐标?</li>
-<li>下次吧！</li>
-</ul></li>
-</ul>
+        <h3 id="qt-opengl-antialiasing---msaa">Qt OpenGL Antialiasing -
+MSAA</h3>
 
     </div>
 
@@ -416,7 +310,7 @@ class="math inline">\(\vec{P_3P_4}\)</span>。如何通过点击计算他们交�
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://blog.ranbun.com/2022/07/28/vector-dot-product/" title="vector dot product">https://blog.ranbun.com/2022/07/28/vector-dot-product/</a>
+      <a href="https://blog.ranbun.com/2022/08/02/Qt-OpenGL-Antialiasing-MSAA/" title="Qt OpenGL Antialiasing-MSAA">https://blog.ranbun.com/2022/08/02/Qt-OpenGL-Antialiasing-MSAA/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -442,21 +336,19 @@ class="math inline">\(\vec{P_3P_4}\)</span>。如何通过点击计算他们交�
 </div>
 
           <div class="post-tags">
-              <a href="/tags/vector/" rel="tag"># vector</a>
+              <a href="/tags/OpenGL/" rel="tag"># OpenGL</a>
+              <a href="/tags/Qt/" rel="tag"># Qt</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/07/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/" rel="prev" title="Git常用命令(上)">
-                  <i class="fa fa-chevron-left"></i> Git常用命令(上)
+                <a href="/2022/08/01/Smartpointer/" rel="prev" title="Smart pointer 简介">
+                  <i class="fa fa-chevron-left"></i> Smart pointer 简介
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/07/29/Bit-manipulation/" rel="next" title="Bit manipulation">
-                  Bit manipulation <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -509,7 +401,7 @@ class="math inline">\(\vec{P_3P_4}\)</span>。如何通过点击计算他们交�
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 

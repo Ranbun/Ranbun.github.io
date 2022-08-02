@@ -1,101 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>2021年终总结</title>
-    <url>/2022/01/16/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h3 id="我起伏的2021年">我起伏的2021年:</h3>
-<ul>
-<li>2021年鸡毛蒜皮</li>
-</ul>
-<p>....</p>
-<h3 id="我的关于2021年的大事件">我的关于2021年的大事件：</h3>
-<h4 id="换了工作">1、换了工作</h4>
-<h4 id="离开了那个度过了五年的城市">2、离开了那个度过了五年的城市</h4>
-<h4 id="换了工作的城市">3、 换了工作的城市</h4>
-<h4 id="告别了好友">4、告别了好友</h4>
-<h4 id="见了阔怕已久的朋友">5、见了阔怕已久的朋友</h4>
-<h4 id="又一次决定换工作">6、又一次决定换工作</h4>
-<ul>
-<li>面试了一个环境可能更好的工作</li>
-</ul>
-<h3 id="一我换工作这件事">一、我换工作这件事</h3>
-<p>
-先我说我自己吧,一个cpp开发人员,大学毕业之后在济南的一家做仿真的公司,做一些图形相关的工作,这就是我的第一份工作。
-</p>
-<p>  离开我的上一个岗位的原因颇多,当然究其原因，我觉得<code>马老板</code>说的话能够很好的概括我当时的处境， 比较这年头找一份工作很容易，但是找到一份好工作还是比较困难的。
-  新工作也是做仿真的,只是方向有所不同,但是对于一个开发人员,又有什么太大的区别呢,毕竟，核心的算法部分会有专门的人负责，而我知识负责一些图形相关的工作，展示一下仿真的结果。</p>
-<h3 id="二离开济南">二、离开济南</h3>
-<p>  我在这个城市上大学，大学毕业在这里找的工作，也是在这里，度过了我和我对象为期6年的异地恋。
-  若是在学校还好，但是在济南生活，我大概是不适合这个城市了，离开济南不一定是因为我要换掉我之前的工作，也可能是由于我想离开这个城市，寻求更好的发展，或者是我本人有更高的追求，我在这个城市呆了很长时间，熟悉这里的大部分东西，这里的风土人情以及这里的那浓郁的不合于我的生活气息......
-  我算是个重庆人，也许更适合我的地方是川蜀之地，况且我还比较佛系，所以<code>成都</code>应该是个不错的选择，我开始面试，将目标公司地域选到了成都.....
-  然后我选择了一家成都的公司，在一个我去打完疫苗的间隙，足够我用这个时间做很多事情。
-  然后我来了<code>北京</code>.....,只能说，造化弄人。</p>
-<h3 id="三告别好友">三、告别好友</h3>
-<p>  我也算是个热爱生活的人，离别前夕，怎么也会告别这个城市最后的朋友，我们宿舍的<code>二哥</code>还有<code>杨哥</code>,还有隔壁宿舍后面相熟的朋友，大家约在烧烤摊一起畅想了我们的未来的几年。
-  从济南公司离职后，去德州见了好久不见的另一个舍友，在那里度过了一个周末，互相倾诉，对于我们彼此的不容易，都是略有耳闻。</p>
-<h3 id="四见了好久不见的朋友">四、见了好久不见的朋友</h3>
-<p>  2021年8月20日,在北京,我开启了我长达6个月的出差，我刚毕业的时候，我曾经有过想要在北京工作的想法，但是一些原因，我放弃了，同时，也觉得自己以后可能都不会在北京停留，第一次来北京是在16年的时候，我在北京度过了国庆，下了6天雨，这几天北京给我的印象只有雾霾。
-  有人说离别是为了更好的相遇，所以，有时候缘分很重要，大学同学毕业前在北京实习，毕业的时候北京疫情，最后的毕业照都是P上去的，28个人唯独缺了他，挺好的，大家又一次重逢。
-  同样是在这里，遇到了另一位朋友，亦师亦友，感谢相遇。</p>
-<h3 id="五又一次决定换工作">五、又一次决定换工作</h3>
-<p>  决定让自己的未来有更多的选择,于是决定做一些尝试，希望能有个好结果。
-  又一次选择了面试，结果还挺不错，虽然没能拿到想要的待遇，但是是我喜欢的地点，拥有我喜欢的条件，甚好！！！</p>
-]]></content>
-      <categories>
-        <category>bun</category>
-        <category>life</category>
-      </categories>
-      <tags>
-        <tag>mylife</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Bit manipulation</title>
-    <url>/2022/07/29/Bit-manipulation/</url>
-    <content><![CDATA[<h3 id="将二进制数某一位置0置1取反">将二进制数某一位置0，置1，取反</h3>
-<ul>
-<li><h2
-id="用位运算可以解决我们的问题所以下面部分的代码就是一些位运算的简单应用">用位运算可以解决我们的问题,所以下面部分的代码就是一些位运算的简单应用</h2></li>
-<li>函数实现</li>
-</ul>
-<h4 id="将不同进制数转为二进制非必须---我们只是为了显示结果">1.
-将不同进制数转为二进制(非必须) - 我们只是为了显示结果</h4>
-<ul>
-<li>模拟人的计算过程 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showBinary</span><span class="params">(<span class="keyword">int</span> d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">array</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储具体对应的位的值 0 / 1</span></span><br><span class="line">    <span class="built_in">array</span>&lt;<span class="keyword">int</span>, 32&gt; num;</span><br><span class="line">    num.fill(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>; <span class="comment">// 当前转换的Bit位</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">31</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (d &amp; flag)</span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        flag = flag &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查找第一个不是零的数 </span></span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">if</span> 1 </span></span><br><span class="line">    <span class="comment">// 此过程可以省略 做了个显示上的优化</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i = <span class="number">0</span>; i &lt; num.size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (num[i] != <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">                i == <span class="number">0</span> ? index = i : index = i - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span> </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出转换结果</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i = index; i &lt; num.size(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; num[i];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="某一位置为-0">某一位置为 0</h4>
-<ul>
-<li><code>&amp;</code>运算的应用 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 0</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Zero</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 取反是一个只和取反位数以及之后所有位数相关的操作</span></span><br><span class="line">    <span class="comment">// 二进制的位数从0开始计算 所以需要 bits - 1 </span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; (bits(3) - 1) = 4 = 0100 </span></span><br><span class="line">    <span class="comment">// ~4 = 1011</span></span><br><span class="line">    <span class="comment">// &amp; 同为 1 则为 1 =&gt; 1011 &amp; (任意数字) 第三位等于 0</span></span><br><span class="line">    d = d &amp; (~(<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>)));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="某一位置为-1">某一位置为 1</h4>
-<ul>
-<li><code>|</code> 运算的应用, 只要有一个是1 结果都是1
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 1</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2One</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// d(16) = 10000 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 4 = 0100</span></span><br><span class="line">    <span class="comment">// d | 0100 = 10000 | 0100  = 10100 </span></span><br><span class="line">    d = d | (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="某一位置取反">某一位置取反</h4>
-<ul>
-<li><code>^</code> 异或运算的运用
-<ul>
-<li><code>^</code> 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1 其余的情况都是
-0</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位取反</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Negate</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 转换过程</span></span><br><span class="line">    <span class="comment">// ^ 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1  其余的情况都是 0 </span></span><br><span class="line">    <span class="comment">// d(15) == 1111 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 0100</span></span><br><span class="line">    <span class="comment">// 1111</span></span><br><span class="line">    <span class="comment">// 0100 ^</span></span><br><span class="line">    <span class="comment">// 1011 </span></span><br><span class="line">    d = d ^ (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="参考">参考</h2>
-<ul>
-<li>[1] <a
-href="https://gthub.com/Ranbun/blogProjects/tree/main/BitManipulation"
-title="Github">Github</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Coding</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Bucket Sort and Cardinality sort</title>
     <url>/2021/11/07/Bucket-Sort/</url>
     <content><![CDATA[<h3 id="桶排序">桶排序</h3>
@@ -208,6 +113,146 @@ N时差不多是一个线性复杂度的算法)</li>
       </tags>
   </entry>
   <entry>
+    <title>Bit manipulation</title>
+    <url>/2022/07/29/Bit-manipulation/</url>
+    <content><![CDATA[<h3 id="将二进制数某一位置0置1取反">将二进制数某一位置0，置1，取反</h3>
+<ul>
+<li><h2
+id="用位运算可以解决我们的问题所以下面部分的代码就是一些位运算的简单应用">用位运算可以解决我们的问题,所以下面部分的代码就是一些位运算的简单应用</h2></li>
+<li>函数实现</li>
+</ul>
+<h4 id="将不同进制数转为二进制非必须---我们只是为了显示结果">1.
+将不同进制数转为二进制(非必须) - 我们只是为了显示结果</h4>
+<ul>
+<li>模拟人的计算过程 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showBinary</span><span class="params">(<span class="keyword">int</span> d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">array</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储具体对应的位的值 0 / 1</span></span><br><span class="line">    <span class="built_in">array</span>&lt;<span class="keyword">int</span>, 32&gt; num;</span><br><span class="line">    num.fill(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>; <span class="comment">// 当前转换的Bit位</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">31</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (d &amp; flag)</span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        flag = flag &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查找第一个不是零的数 </span></span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">if</span> 1 </span></span><br><span class="line">    <span class="comment">// 此过程可以省略 做了个显示上的优化</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i = <span class="number">0</span>; i &lt; num.size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (num[i] != <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">                i == <span class="number">0</span> ? index = i : index = i - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span> </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出转换结果</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i = index; i &lt; num.size(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; num[i];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="某一位置为-0">某一位置为 0</h4>
+<ul>
+<li><code>&amp;</code>运算的应用 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 0</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Zero</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 取反是一个只和取反位数以及之后所有位数相关的操作</span></span><br><span class="line">    <span class="comment">// 二进制的位数从0开始计算 所以需要 bits - 1 </span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; (bits(3) - 1) = 4 = 0100 </span></span><br><span class="line">    <span class="comment">// ~4 = 1011</span></span><br><span class="line">    <span class="comment">// &amp; 同为 1 则为 1 =&gt; 1011 &amp; (任意数字) 第三位等于 0</span></span><br><span class="line">    d = d &amp; (~(<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>)));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="某一位置为-1">某一位置为 1</h4>
+<ul>
+<li><code>|</code> 运算的应用, 只要有一个是1 结果都是1
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 1</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2One</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// d(16) = 10000 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 4 = 0100</span></span><br><span class="line">    <span class="comment">// d | 0100 = 10000 | 0100  = 10100 </span></span><br><span class="line">    d = d | (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="某一位置取反">某一位置取反</h4>
+<ul>
+<li><code>^</code> 异或运算的运用
+<ul>
+<li><code>^</code> 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1 其余的情况都是
+0</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位取反</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Negate</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 转换过程</span></span><br><span class="line">    <span class="comment">// ^ 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1  其余的情况都是 0 </span></span><br><span class="line">    <span class="comment">// d(15) == 1111 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 0100</span></span><br><span class="line">    <span class="comment">// 1111</span></span><br><span class="line">    <span class="comment">// 0100 ^</span></span><br><span class="line">    <span class="comment">// 1011 </span></span><br><span class="line">    d = d ^ (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="参考">参考</h2>
+<ul>
+<li>[1] <a
+href="https://gthub.com/Ranbun/blogProjects/tree/main/BitManipulation"
+title="Github">Github</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021年终总结</title>
+    <url>/2022/01/16/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h3 id="我起伏的2021年">我起伏的2021年:</h3>
+<ul>
+<li>2021年鸡毛蒜皮</li>
+</ul>
+<p>....</p>
+<h3 id="我的关于2021年的大事件">我的关于2021年的大事件：</h3>
+<h4 id="换了工作">1、换了工作</h4>
+<h4 id="离开了那个度过了五年的城市">2、离开了那个度过了五年的城市</h4>
+<h4 id="换了工作的城市">3、 换了工作的城市</h4>
+<h4 id="告别了好友">4、告别了好友</h4>
+<h4 id="见了阔怕已久的朋友">5、见了阔怕已久的朋友</h4>
+<h4 id="又一次决定换工作">6、又一次决定换工作</h4>
+<ul>
+<li>面试了一个环境可能更好的工作</li>
+</ul>
+<h3 id="一我换工作这件事">一、我换工作这件事</h3>
+<p>
+先我说我自己吧,一个cpp开发人员,大学毕业之后在济南的一家做仿真的公司,做一些图形相关的工作,这就是我的第一份工作。
+</p>
+<p>  离开我的上一个岗位的原因颇多,当然究其原因，我觉得<code>马老板</code>说的话能够很好的概括我当时的处境， 比较这年头找一份工作很容易，但是找到一份好工作还是比较困难的。
+  新工作也是做仿真的,只是方向有所不同,但是对于一个开发人员,又有什么太大的区别呢,毕竟，核心的算法部分会有专门的人负责，而我知识负责一些图形相关的工作，展示一下仿真的结果。</p>
+<h3 id="二离开济南">二、离开济南</h3>
+<p>  我在这个城市上大学，大学毕业在这里找的工作，也是在这里，度过了我和我对象为期6年的异地恋。
+  若是在学校还好，但是在济南生活，我大概是不适合这个城市了，离开济南不一定是因为我要换掉我之前的工作，也可能是由于我想离开这个城市，寻求更好的发展，或者是我本人有更高的追求，我在这个城市呆了很长时间，熟悉这里的大部分东西，这里的风土人情以及这里的那浓郁的不合于我的生活气息......
+  我算是个重庆人，也许更适合我的地方是川蜀之地，况且我还比较佛系，所以<code>成都</code>应该是个不错的选择，我开始面试，将目标公司地域选到了成都.....
+  然后我选择了一家成都的公司，在一个我去打完疫苗的间隙，足够我用这个时间做很多事情。
+  然后我来了<code>北京</code>.....,只能说，造化弄人。</p>
+<h3 id="三告别好友">三、告别好友</h3>
+<p>  我也算是个热爱生活的人，离别前夕，怎么也会告别这个城市最后的朋友，我们宿舍的<code>二哥</code>还有<code>杨哥</code>,还有隔壁宿舍后面相熟的朋友，大家约在烧烤摊一起畅想了我们的未来的几年。
+  从济南公司离职后，去德州见了好久不见的另一个舍友，在那里度过了一个周末，互相倾诉，对于我们彼此的不容易，都是略有耳闻。</p>
+<h3 id="四见了好久不见的朋友">四、见了好久不见的朋友</h3>
+<p>  2021年8月20日,在北京,我开启了我长达6个月的出差，我刚毕业的时候，我曾经有过想要在北京工作的想法，但是一些原因，我放弃了，同时，也觉得自己以后可能都不会在北京停留，第一次来北京是在16年的时候，我在北京度过了国庆，下了6天雨，这几天北京给我的印象只有雾霾。
+  有人说离别是为了更好的相遇，所以，有时候缘分很重要，大学同学毕业前在北京实习，毕业的时候北京疫情，最后的毕业照都是P上去的，28个人唯独缺了他，挺好的，大家又一次重逢。
+  同样是在这里，遇到了另一位朋友，亦师亦友，感谢相遇。</p>
+<h3 id="五又一次决定换工作">五、又一次决定换工作</h3>
+<p>  决定让自己的未来有更多的选择,于是决定做一些尝试，希望能有个好结果。
+  又一次选择了面试，结果还挺不错，虽然没能拿到想要的待遇，但是是我喜欢的地点，拥有我喜欢的条件，甚好！！！</p>
+]]></content>
+      <categories>
+        <category>bun</category>
+        <category>life</category>
+      </categories>
+      <tags>
+        <tag>mylife</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Bug奇遇记-uint16_t</title>
+    <url>/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/</url>
+    <content><![CDATA[<h3 id="uint16_t">uint16_t</h3>
+<ul>
+<li>标准定义中：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">short</span>  <span class="keyword">uint16_t</span>; <span class="comment">// max == _UI16_MAX 0xffffu </span></span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/uint16_t.png"
+title="uint16" alt="uint16_t" />
+<figcaption aria-hidden="true">uint16_t</figcaption>
+</figure>
+<h4 id="问题">问题：</h4>
+<ul>
+<li><font color=red>这是一个粗心的问题</font></li>
+</ul>
+<p>在我正在实现的功能中有一个数据遍历的部分，我使用了<code>uint16_t</code>类型作为索引的类型，但是<code>uint16_t</code>数据的最大值比较小，所以当基础数据量过大的时候，我们产生的索引会越过索引的最大范围，导致最终得到的索引不是实际需要的索引值，导致我最终绘制的图形不是正确的结果！</p>
+<hr />
+<h3 id="正确的结果展示">正确的结果展示：</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_2.png"
+title="result" alt="lum_2" />
+<figcaption aria-hidden="true">lum_2</figcaption>
+</figure>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_1.png"
+title="Result" alt="right result" />
+<figcaption aria-hidden="true">right result</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>GF</category>
+        <category>data type</category>
+        <category>bugs</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>osg</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Dynamic drawing of osg vertex buffer objects</title>
     <url>/2021/11/07/Dynamic-drawing-of-osg-vertex-buffer-objects/</url>
     <content><![CDATA[<h3
@@ -264,51 +309,6 @@ src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/g
       <tags>
         <tag>Games202</tag>
         <tag>Shadow</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Bug奇遇记-uint16_t</title>
-    <url>/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/</url>
-    <content><![CDATA[<h3 id="uint16_t">uint16_t</h3>
-<ul>
-<li>标准定义中：</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">short</span>  <span class="keyword">uint16_t</span>; <span class="comment">// max == _UI16_MAX 0xffffu </span></span><br></pre></td></tr></table></figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/uint16_t.png"
-title="uint16" alt="uint16_t" />
-<figcaption aria-hidden="true">uint16_t</figcaption>
-</figure>
-<h4 id="问题">问题：</h4>
-<ul>
-<li><font color=red>这是一个粗心的问题</font></li>
-</ul>
-<p>在我正在实现的功能中有一个数据遍历的部分，我使用了<code>uint16_t</code>类型作为索引的类型，但是<code>uint16_t</code>数据的最大值比较小，所以当基础数据量过大的时候，我们产生的索引会越过索引的最大范围，导致最终得到的索引不是实际需要的索引值，导致我最终绘制的图形不是正确的结果！</p>
-<hr />
-<h3 id="正确的结果展示">正确的结果展示：</h3>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_2.png"
-title="result" alt="lum_2" />
-<figcaption aria-hidden="true">lum_2</figcaption>
-</figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_1.png"
-title="Result" alt="right result" />
-<figcaption aria-hidden="true">right result</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>GF</category>
-        <category>data type</category>
-        <category>bugs</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>osg</tag>
       </tags>
   </entry>
   <entry>
@@ -430,6 +430,66 @@ C++ 实现  </a></p>
       </tags>
   </entry>
   <entry>
+    <title>OSG-HUD</title>
+    <url>/2021/07/26/OSG-HUD/</url>
+    <content><![CDATA[<h1 id="osg-hud">OSG-HUD</h1>
+<ul>
+<li><p>
+"HUD"在渲染的场景中算是比较常见的存在:
+游戏中的小地图(上帝视角)、实时状态、显示鼠标的实时位置、三维视角...
+</p></li>
+</ul>
+<p><b style="color:red">如何创建HUD ？</b></p>
+<p>
+本质上说，HUD就是一个相机(
+在<code>OSG</code>中可以作为节点)，只是不响应鼠标的操作。只需要设置好相关的参数，添加到场景的根节点就行
+</p>
+<p><b style="color:red">实现要点，如下：</b></p>
+<ul>
+<li>关闭节点的光照，保证整个视口显示的场景的亮度是一样的。</li>
+<li>关闭深度测试</li>
+<li>调整渲染的顺序为最后渲染，让<code>HUD</code>显示在整个场景的最前方</li>
+<li>设置参考帧为绝对参考帧</li>
+<li>设置变换矩阵,不受父节点的影响</li>
+<li>设置投影矩阵(平行投影或者透视),设置视口的大小。</li>
+</ul>
+<h2 id="create-hud">Create HUD</h2>
+<h3 id="创建相机节点">1、创建相机节点</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::Camera&gt; hud_camera = <span class="keyword">new</span> osg::Camera;   <span class="comment">// 创建相机的节点</span></span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; geom = <span class="keyword">new</span> osg::Geometry;      <span class="comment">// 创建绘制的节点(也可以是文字)</span></span><br></pre></td></tr></table></figure>
+<h3 id="设置投影矩阵">2、设置投影矩阵</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setProjectionMatrixAsOrtho2D(<span class="number">-3</span>, <span class="number">4</span>, <span class="number">-3</span>, <span class="number">4</span>, <span class="number">-1.0</span>, <span class="number">100</span>);  <span class="comment">// 2D 也可以 此处设置表示你裁剪的三维空间的实际的能表示的数值的大小</span></span><br></pre></td></tr></table></figure>
+<h3 id="设置视口大小viewport">3、设置视口大小(ViewPort)</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// void setViewport(osg::Viewport* viewport);</span></span><br><span class="line"><span class="comment">// void setViewport(int x,int y,int width,int height);</span></span><br><span class="line">hud_camera-&gt;setviewport();  <span class="comment">// 两种方式都是可以的 </span></span><br></pre></td></tr></table></figure>
+<h3 id="设置渲染的顺序">4、设置渲染的顺序</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setRenderOrder(osg::Camera::POST_RENDER);</span><br></pre></td></tr></table></figure>
+<h3 id="设置参考帧">5、设置参考帧</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setReferenceFrame(osg::Transform::ABSOLUTE_RF);</span><br></pre></td></tr></table></figure>
+<h3 id="设置不受父节点的影响">6、设置不受父节点的影响</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setViewMatrix(osg::Matrix::identity());</span><br></pre></td></tr></table></figure>
+<h3 id="设置不获取焦点">7、设置不获取焦点</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setAllowEventFocus(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="设置节点的更新回调">8、设置节点的更新回调</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// void setUpdateCallback(Callback* nc);</span></span><br><span class="line"><span class="comment">// 需要重写一个节点的更新回调 修改节点的视图矩阵 </span></span><br><span class="line"><span class="comment">// 设置相机的三个参数  </span></span><br><span class="line"><span class="comment">// 视点 相机的位置 相机的向上方向</span></span><br><span class="line">hud_camera-&gt;setUpdateCallback();</span><br></pre></td></tr></table></figure>
+<h2 id="挂载节点">挂载节点</h2>
+<h3 id="将前面创建的几何节点挂载到-相机上">1、将前面创建的几何节点挂载到
+相机上</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::Geode&gt; node = <span class="keyword">new</span> osg::Geode;</span><br><span class="line">node-&gt;addChild(geom.get());</span><br><span class="line">hud_camera-&gt;addChild(node.get());</span><br></pre></td></tr></table></figure>
+<h3 id="设置节点的属性">2、设置节点的属性</h3>
+<ul>
+<li>关闭光照 深度测试 &amp; 打开混溶</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> states = node-&gt;getOrCreateStateSet();</span><br><span class="line">states-&gt;setMode(GL_LIGHTING, osg::StateAttribute::ON);   <span class="comment">//关闭灯光</span></span><br><span class="line">states-&gt;setMode(GL_DEPTH_TEST, osg::StateAttribute::OFF);<span class="comment">//关闭深度测试</span></span><br><span class="line">states-&gt;setMode(GL_BLEND, osg::StateAttribute::ON);  </span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>GF</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>osg</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Multi KeyWord Sort</title>
     <url>/2021/11/07/Multi-KeyWord-Sort/</url>
     <content><![CDATA[<h3 id="多关键字排序">多关键字排序</h3>
@@ -487,66 +547,6 @@ id="将操作节点添加到绘制的根节点或者是其他的叶节点">5、�
         <category>works</category>
         <category>GF</category>
         <category>OSG</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>osg</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OSG-HUD</title>
-    <url>/2021/07/26/OSG-HUD/</url>
-    <content><![CDATA[<h1 id="osg-hud">OSG-HUD</h1>
-<ul>
-<li><p>
-"HUD"在渲染的场景中算是比较常见的存在:
-游戏中的小地图(上帝视角)、实时状态、显示鼠标的实时位置、三维视角...
-</p></li>
-</ul>
-<p><b style="color:red">如何创建HUD ？</b></p>
-<p>
-本质上说，HUD就是一个相机(
-在<code>OSG</code>中可以作为节点)，只是不响应鼠标的操作。只需要设置好相关的参数，添加到场景的根节点就行
-</p>
-<p><b style="color:red">实现要点，如下：</b></p>
-<ul>
-<li>关闭节点的光照，保证整个视口显示的场景的亮度是一样的。</li>
-<li>关闭深度测试</li>
-<li>调整渲染的顺序为最后渲染，让<code>HUD</code>显示在整个场景的最前方</li>
-<li>设置参考帧为绝对参考帧</li>
-<li>设置变换矩阵,不受父节点的影响</li>
-<li>设置投影矩阵(平行投影或者透视),设置视口的大小。</li>
-</ul>
-<h2 id="create-hud">Create HUD</h2>
-<h3 id="创建相机节点">1、创建相机节点</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::Camera&gt; hud_camera = <span class="keyword">new</span> osg::Camera;   <span class="comment">// 创建相机的节点</span></span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; geom = <span class="keyword">new</span> osg::Geometry;      <span class="comment">// 创建绘制的节点(也可以是文字)</span></span><br></pre></td></tr></table></figure>
-<h3 id="设置投影矩阵">2、设置投影矩阵</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setProjectionMatrixAsOrtho2D(<span class="number">-3</span>, <span class="number">4</span>, <span class="number">-3</span>, <span class="number">4</span>, <span class="number">-1.0</span>, <span class="number">100</span>);  <span class="comment">// 2D 也可以 此处设置表示你裁剪的三维空间的实际的能表示的数值的大小</span></span><br></pre></td></tr></table></figure>
-<h3 id="设置视口大小viewport">3、设置视口大小(ViewPort)</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// void setViewport(osg::Viewport* viewport);</span></span><br><span class="line"><span class="comment">// void setViewport(int x,int y,int width,int height);</span></span><br><span class="line">hud_camera-&gt;setviewport();  <span class="comment">// 两种方式都是可以的 </span></span><br></pre></td></tr></table></figure>
-<h3 id="设置渲染的顺序">4、设置渲染的顺序</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setRenderOrder(osg::Camera::POST_RENDER);</span><br></pre></td></tr></table></figure>
-<h3 id="设置参考帧">5、设置参考帧</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setReferenceFrame(osg::Transform::ABSOLUTE_RF);</span><br></pre></td></tr></table></figure>
-<h3 id="设置不受父节点的影响">6、设置不受父节点的影响</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setViewMatrix(osg::Matrix::identity());</span><br></pre></td></tr></table></figure>
-<h3 id="设置不获取焦点">7、设置不获取焦点</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setAllowEventFocus(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="设置节点的更新回调">8、设置节点的更新回调</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// void setUpdateCallback(Callback* nc);</span></span><br><span class="line"><span class="comment">// 需要重写一个节点的更新回调 修改节点的视图矩阵 </span></span><br><span class="line"><span class="comment">// 设置相机的三个参数  </span></span><br><span class="line"><span class="comment">// 视点 相机的位置 相机的向上方向</span></span><br><span class="line">hud_camera-&gt;setUpdateCallback();</span><br></pre></td></tr></table></figure>
-<h2 id="挂载节点">挂载节点</h2>
-<h3 id="将前面创建的几何节点挂载到-相机上">1、将前面创建的几何节点挂载到
-相机上</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::Geode&gt; node = <span class="keyword">new</span> osg::Geode;</span><br><span class="line">node-&gt;addChild(geom.get());</span><br><span class="line">hud_camera-&gt;addChild(node.get());</span><br></pre></td></tr></table></figure>
-<h3 id="设置节点的属性">2、设置节点的属性</h3>
-<ul>
-<li>关闭光照 深度测试 &amp; 打开混溶</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> states = node-&gt;getOrCreateStateSet();</span><br><span class="line">states-&gt;setMode(GL_LIGHTING, osg::StateAttribute::ON);   <span class="comment">//关闭灯光</span></span><br><span class="line">states-&gt;setMode(GL_DEPTH_TEST, osg::StateAttribute::OFF);<span class="comment">//关闭深度测试</span></span><br><span class="line">states-&gt;setMode(GL_BLEND, osg::StateAttribute::ON);  </span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>GF</category>
       </categories>
       <tags>
         <tag>cpp</tag>
@@ -937,6 +937,21 @@ F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
       <tags>
         <tag>cpp</tag>
         <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Qt OpenGL Antialiasing-MSAA</title>
+    <url>/2022/08/02/Qt-OpenGL-Antialiasing-MSAA/</url>
+    <content><![CDATA[<h3 id="qt-opengl-antialiasing---msaa">Qt OpenGL Antialiasing -
+MSAA</h3>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>SCUU</category>
+      </categories>
+      <tags>
+        <tag>OpenGL</tag>
+        <tag>Qt</tag>
       </tags>
   </entry>
   <entry>
