@@ -208,51 +208,6 @@ N时差不多是一个线性复杂度的算法)</li>
       </tags>
   </entry>
   <entry>
-    <title>Bug奇遇记-uint16_t</title>
-    <url>/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/</url>
-    <content><![CDATA[<h3 id="uint16_t">uint16_t</h3>
-<ul>
-<li>标准定义中：</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">short</span>  <span class="keyword">uint16_t</span>; <span class="comment">// max == _UI16_MAX 0xffffu </span></span><br></pre></td></tr></table></figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/uint16_t.png"
-title="uint16" alt="uint16_t" />
-<figcaption aria-hidden="true">uint16_t</figcaption>
-</figure>
-<h4 id="问题">问题：</h4>
-<ul>
-<li><font color=red>这是一个粗心的问题</font></li>
-</ul>
-<p>在我正在实现的功能中有一个数据遍历的部分，我使用了<code>uint16_t</code>类型作为索引的类型，但是<code>uint16_t</code>数据的最大值比较小，所以当基础数据量过大的时候，我们产生的索引会越过索引的最大范围，导致最终得到的索引不是实际需要的索引值，导致我最终绘制的图形不是正确的结果！</p>
-<hr />
-<h3 id="正确的结果展示">正确的结果展示：</h3>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_2.png"
-title="result" alt="lum_2" />
-<figcaption aria-hidden="true">lum_2</figcaption>
-</figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_1.png"
-title="Result" alt="right result" />
-<figcaption aria-hidden="true">right result</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>GF</category>
-        <category>data type</category>
-        <category>bugs</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>osg</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Dynamic drawing of osg vertex buffer objects</title>
     <url>/2021/11/07/Dynamic-drawing-of-osg-vertex-buffer-objects/</url>
     <content><![CDATA[<h3
@@ -271,44 +226,6 @@ id="dynamic-drawing-of-osg-vertex-buffer-objects"><code>Dynamic drawing of osg v
       <tags>
         <tag>cpp</tag>
         <tag>osg</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Games202-ShadowMap</title>
-    <url>/2021/12/13/Games202-ShadowMap/</url>
-    <content><![CDATA[<h2 id="shadow-map">Shadow Map</h2>
-<ul>
-<li>记录一下关于<code>Games202</code>的学习</li>
-</ul>
-<h4 id="shadow-map-1">shadow map</h4>
-<ul>
-<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p></li>
-<li><p>如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：</p>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" /></p></li>
-</ul>
-<p>上图来自<code>Games202</code>的课件：</p>
-<ul>
-<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p></li>
-<li><p>关于计算当前vertex point
-是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p></li>
-<li><p>在<code>Games202</code>的作业1中，我们需要使用提供的matrix的接口处理矩阵。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mat.translate() <span class="comment">// 设置矩阵的移动 </span></span><br><span class="line">mat4.scale      <span class="comment">// 设置矩阵的缩放</span></span><br><span class="line"></span><br><span class="line">mat4.lookAt(); <span class="comment">// 生成的视图矩阵</span></span><br><span class="line">mat4.ortho();  <span class="comment">// 平行投影</span></span><br><span class="line"></span><br><span class="line">mat4.multiply(); <span class="comment">// 矩阵的乘法</span></span><br></pre></td></tr></table></figure>
-<p><a
-href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p></li>
-<li><p>深度比较：</p>
-<figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure></li>
-<li><p>最终效果</p></li>
-</ul>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" /></p>
-]]></content>
-      <categories>
-        <category>Computer Graph</category>
-      </categories>
-      <tags>
-        <tag>Games202</tag>
-        <tag>Shadow</tag>
       </tags>
   </entry>
   <entry>
@@ -362,6 +279,79 @@ alt="git commit" /></li>
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Games202-ShadowMap</title>
+    <url>/2021/12/13/Games202-ShadowMap/</url>
+    <content><![CDATA[<h2 id="shadow-map">Shadow Map</h2>
+<ul>
+<li>记录一下关于<code>Games202</code>的学习</li>
+</ul>
+<h4 id="shadow-map-1">shadow map</h4>
+<ul>
+<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p></li>
+<li><p>如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：</p>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" /></p></li>
+</ul>
+<p>上图来自<code>Games202</code>的课件：</p>
+<ul>
+<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p></li>
+<li><p>关于计算当前vertex point
+是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p></li>
+<li><p>在<code>Games202</code>的作业1中，我们需要使用提供的matrix的接口处理矩阵。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mat.translate() <span class="comment">// 设置矩阵的移动 </span></span><br><span class="line">mat4.scale      <span class="comment">// 设置矩阵的缩放</span></span><br><span class="line"></span><br><span class="line">mat4.lookAt(); <span class="comment">// 生成的视图矩阵</span></span><br><span class="line">mat4.ortho();  <span class="comment">// 平行投影</span></span><br><span class="line"></span><br><span class="line">mat4.multiply(); <span class="comment">// 矩阵的乘法</span></span><br></pre></td></tr></table></figure>
+<p><a
+href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p></li>
+<li><p>深度比较：</p>
+<figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure></li>
+<li><p>最终效果</p></li>
+</ul>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" /></p>
+]]></content>
+      <categories>
+        <category>Computer Graph</category>
+      </categories>
+      <tags>
+        <tag>Games202</tag>
+        <tag>Shadow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Multi KeyWord Sort</title>
+    <url>/2021/11/07/Multi-KeyWord-Sort/</url>
+    <content><![CDATA[<h3 id="多关键字排序">多关键字排序</h3>
+<ul>
+<li><p>扑克牌的例子</p></li>
+<li><p>一副扑克牌是按照两种顺序排的：</p>
+<ul>
+<li>K0,花色：梅花 &lt; 方块 &lt; 红桃 &lt; 黑桃</li>
+<li>k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10
+&lt; J &lt; Q &lt; K &lt; A</li>
+</ul></li>
+<li><p>主位优先：（Most Significant Digit）</p>
+<ul>
+<li>先用四个花色建桶，然后使用面值建桶</li>
+</ul></li>
+</ul>
+<h4 id="一个更好的方法">一个更好的方法：</h4>
+<ul>
+<li><p>依旧使用次位优先：</p>
+<ul>
+<li><p>先使用面值建桶</p></li>
+<li><p>然后按照大小将结果合并，使用花色建桶。</p></li>
+<li><p>最终的输出结果便是有序的</p></li>
+</ul></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
       </tags>
   </entry>
   <entry>
@@ -430,38 +420,32 @@ C++ 实现  </a></p>
       </tags>
   </entry>
   <entry>
-    <title>Multi KeyWord Sort</title>
-    <url>/2021/11/07/Multi-KeyWord-Sort/</url>
-    <content><![CDATA[<h3 id="多关键字排序">多关键字排序</h3>
-<ul>
-<li><p>扑克牌的例子</p></li>
-<li><p>一副扑克牌是按照两种顺序排的：</p>
-<ul>
-<li>K0,花色：梅花 &lt; 方块 &lt; 红桃 &lt; 黑桃</li>
-<li>k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10
-&lt; J &lt; Q &lt; K &lt; A</li>
-</ul></li>
-<li><p>主位优先：（Most Significant Digit）</p>
-<ul>
-<li>先用四个花色建桶，然后使用面值建桶</li>
-</ul></li>
-</ul>
-<h4 id="一个更好的方法">一个更好的方法：</h4>
-<ul>
-<li><p>依旧使用次位优先：</p>
-<ul>
-<li><p>先使用面值建桶</p></li>
-<li><p>然后按照大小将结果合并，使用花色建桶。</p></li>
-<li><p>最终的输出结果便是有序的</p></li>
-</ul></li>
-</ul>
+    <title>OSG踩坑记-模型共享&amp;模型颜色修改</title>
+    <url>/2021/03/20/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E6%A8%A1%E5%9E%8B%E5%85%B1%E4%BA%AB-%E6%A8%A1%E5%9E%8B%E9%A2%9C%E8%89%B2%E4%BF%AE%E6%94%B9/</url>
+    <content><![CDATA[<h3 id="简单概述">简单概述</h3>
+<p>在很多场景中，我们需要将同一个模型绘制到不同的区域并且还需要对模型进行一系列的旋转缩放等操作，同时需要使用不同的颜色，这个时候我们只需要使用一些简单的设置便可以实现这个功能功能。</p>
+<h3 id="伪代码">伪代码：</h3>
+<h4 id="读入模型">1、读入模型</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 无论你是从外部读入模型 还是你自己构建的一个模型都是可以的。</span></span><br><span class="line"><span class="comment">// 使用osg自带读取模型的函数读取模型</span></span><br><span class="line"><span class="comment">// 推荐使用 osg 的智能指针</span></span><br><span class="line"><span class="comment">// 此处使用一个 内嵌的几何体 代替模型 </span></span><br><span class="line"></span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; geom = <span class="keyword">new</span> osg::Geometry; </span><br><span class="line"><span class="comment">// osg 的智能指针采用引用计数的方式决定当前对象是否释放</span></span><br></pre></td></tr></table></figure>
+<h4
+id="计算对模型的旋转缩放平移的操作矩阵">2、计算对模型的旋转、缩放、平移的操作矩阵</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// osg 有专门用户模型操作的类  osg::MatrixTransform </span></span><br><span class="line"><span class="comment">// 创建一个对象 模型操作类中抽象了矩阵的接口 可以当做矩阵操作 本质上是一个节点 </span></span><br><span class="line">osg::ref_ptr&lt;osg::MatrixTransform&gt; trans = <span class="keyword">new</span> osg::MatrixTransform;</span><br><span class="line"><span class="comment">// 对于模型的操作，有PVM矩阵的意思 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建旋转矩阵 </span></span><br><span class="line">osg::Matrix matrix_rotate;</span><br><span class="line"><span class="comment">// 构建旋转，从osg坐标系的沿着Z轴方向转到X轴（都是正方向）  </span></span><br><span class="line">matrix_rotate.makeRotate(osg::vec3(<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>),osg::vec3(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>));  <span class="comment">// 参数分别是两个方向向量 第一个参数是当前模型的方向 第二个参数是你需要旋转的方向</span></span><br><span class="line"><span class="comment">// 你也可以直接选择使用</span></span><br><span class="line">osg::Matrix::rotate(osg::Vec3(),osg::Vec3()); <span class="comment">// 输入的参数也可以是四元数  返回值是一个表示旋转的矩阵</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ==============================================================================================</span></span><br><span class="line"><span class="comment">// 也可以直接 设置最终的变换矩阵 </span></span><br><span class="line">trans-&gt;setMatrix(matrix_rotate * osg::Martix::scale(<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>) * osg::translate(osg::Vec3()));</span><br><span class="line"><span class="comment">// trans 已经存储了 我们对于模型的操作 </span></span><br></pre></td></tr></table></figure>
+<h4 id="对trans节点设置材料等属性">3、对trans节点设置材料等属性</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建材质对象</span></span><br><span class="line">osg::Material* mat = <span class="keyword">new</span> osg::Material();</span><br><span class="line">mat-&gt;setColorMode(osg::Material::ColorMode::DIFFUSE);   <span class="comment">// 设置绘制颜色的模式 </span></span><br><span class="line">mat-&gt;setDiffuse(osg::Material::FRONT, osg::Vec4());      <span class="comment">// 设置此种模式下的颜色 </span></span><br><span class="line"></span><br><span class="line">trans-&gt;getOrCreateStateSet()-&gt;setAttribute(mat);        <span class="comment">// 将材质设置给 节点 </span></span><br></pre></td></tr></table></figure>
+<h4 id="将对象作为节点添加">4、将对象作为节点添加</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">trans.addchild(geom.get());</span><br></pre></td></tr></table></figure>
+<h4
+id="将操作节点添加到绘制的根节点或者是其他的叶节点">5、将操作节点添加到绘制的根节点或者是其他的叶节点</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ......</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Algorithm</category>
+        <category>works</category>
+        <category>GF</category>
+        <category>OSG</category>
       </categories>
       <tags>
         <tag>cpp</tag>
-        <tag>sort</tag>
+        <tag>osg</tag>
       </tags>
   </entry>
   <entry>
@@ -525,28 +509,44 @@ C++ 实现  </a></p>
       </tags>
   </entry>
   <entry>
-    <title>OSG踩坑记-模型共享&amp;模型颜色修改</title>
-    <url>/2021/03/20/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E6%A8%A1%E5%9E%8B%E5%85%B1%E4%BA%AB-%E6%A8%A1%E5%9E%8B%E9%A2%9C%E8%89%B2%E4%BF%AE%E6%94%B9/</url>
-    <content><![CDATA[<h3 id="简单概述">简单概述</h3>
-<p>在很多场景中，我们需要将同一个模型绘制到不同的区域并且还需要对模型进行一系列的旋转缩放等操作，同时需要使用不同的颜色，这个时候我们只需要使用一些简单的设置便可以实现这个功能功能。</p>
-<h3 id="伪代码">伪代码：</h3>
-<h4 id="读入模型">1、读入模型</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 无论你是从外部读入模型 还是你自己构建的一个模型都是可以的。</span></span><br><span class="line"><span class="comment">// 使用osg自带读取模型的函数读取模型</span></span><br><span class="line"><span class="comment">// 推荐使用 osg 的智能指针</span></span><br><span class="line"><span class="comment">// 此处使用一个 内嵌的几何体 代替模型 </span></span><br><span class="line"></span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; geom = <span class="keyword">new</span> osg::Geometry; </span><br><span class="line"><span class="comment">// osg 的智能指针采用引用计数的方式决定当前对象是否释放</span></span><br></pre></td></tr></table></figure>
-<h4
-id="计算对模型的旋转缩放平移的操作矩阵">2、计算对模型的旋转、缩放、平移的操作矩阵</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// osg 有专门用户模型操作的类  osg::MatrixTransform </span></span><br><span class="line"><span class="comment">// 创建一个对象 模型操作类中抽象了矩阵的接口 可以当做矩阵操作 本质上是一个节点 </span></span><br><span class="line">osg::ref_ptr&lt;osg::MatrixTransform&gt; trans = <span class="keyword">new</span> osg::MatrixTransform;</span><br><span class="line"><span class="comment">// 对于模型的操作，有PVM矩阵的意思 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建旋转矩阵 </span></span><br><span class="line">osg::Matrix matrix_rotate;</span><br><span class="line"><span class="comment">// 构建旋转，从osg坐标系的沿着Z轴方向转到X轴（都是正方向）  </span></span><br><span class="line">matrix_rotate.makeRotate(osg::vec3(<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>),osg::vec3(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>));  <span class="comment">// 参数分别是两个方向向量 第一个参数是当前模型的方向 第二个参数是你需要旋转的方向</span></span><br><span class="line"><span class="comment">// 你也可以直接选择使用</span></span><br><span class="line">osg::Matrix::rotate(osg::Vec3(),osg::Vec3()); <span class="comment">// 输入的参数也可以是四元数  返回值是一个表示旋转的矩阵</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ==============================================================================================</span></span><br><span class="line"><span class="comment">// 也可以直接 设置最终的变换矩阵 </span></span><br><span class="line">trans-&gt;setMatrix(matrix_rotate * osg::Martix::scale(<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>) * osg::translate(osg::Vec3()));</span><br><span class="line"><span class="comment">// trans 已经存储了 我们对于模型的操作 </span></span><br></pre></td></tr></table></figure>
-<h4 id="对trans节点设置材料等属性">3、对trans节点设置材料等属性</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建材质对象</span></span><br><span class="line">osg::Material* mat = <span class="keyword">new</span> osg::Material();</span><br><span class="line">mat-&gt;setColorMode(osg::Material::ColorMode::DIFFUSE);   <span class="comment">// 设置绘制颜色的模式 </span></span><br><span class="line">mat-&gt;setDiffuse(osg::Material::FRONT, osg::Vec4());      <span class="comment">// 设置此种模式下的颜色 </span></span><br><span class="line"></span><br><span class="line">trans-&gt;getOrCreateStateSet()-&gt;setAttribute(mat);        <span class="comment">// 将材质设置给 节点 </span></span><br></pre></td></tr></table></figure>
-<h4 id="将对象作为节点添加">4、将对象作为节点添加</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">trans.addchild(geom.get());</span><br></pre></td></tr></table></figure>
-<h4
-id="将操作节点添加到绘制的根节点或者是其他的叶节点">5、将操作节点添加到绘制的根节点或者是其他的叶节点</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ......</span></span><br></pre></td></tr></table></figure>
+    <title>Bug奇遇记-uint16_t</title>
+    <url>/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/</url>
+    <content><![CDATA[<h3 id="uint16_t">uint16_t</h3>
+<ul>
+<li>标准定义中：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">short</span>  <span class="keyword">uint16_t</span>; <span class="comment">// max == _UI16_MAX 0xffffu </span></span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/uint16_t.png"
+title="uint16" alt="uint16_t" />
+<figcaption aria-hidden="true">uint16_t</figcaption>
+</figure>
+<h4 id="问题">问题：</h4>
+<ul>
+<li><font color=red>这是一个粗心的问题</font></li>
+</ul>
+<p>在我正在实现的功能中有一个数据遍历的部分，我使用了<code>uint16_t</code>类型作为索引的类型，但是<code>uint16_t</code>数据的最大值比较小，所以当基础数据量过大的时候，我们产生的索引会越过索引的最大范围，导致最终得到的索引不是实际需要的索引值，导致我最终绘制的图形不是正确的结果！</p>
+<hr />
+<h3 id="正确的结果展示">正确的结果展示：</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_2.png"
+title="result" alt="lum_2" />
+<figcaption aria-hidden="true">lum_2</figcaption>
+</figure>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_1.png"
+title="Result" alt="right result" />
+<figcaption aria-hidden="true">right result</figcaption>
+</figure>
 ]]></content>
       <categories>
         <category>works</category>
         <category>GF</category>
-        <category>OSG</category>
+        <category>data type</category>
+        <category>bugs</category>
       </categories>
       <tags>
         <tag>cpp</tag>
@@ -940,6 +940,116 @@ F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
       </tags>
   </entry>
   <entry>
+    <title>OpenGL Scene ZoomIn &amp; ZoomOut</title>
+    <url>/2022/08/03/OpenGL-Scene-ZoomIn-ZoomOut/</url>
+    <content><![CDATA[
+]]></content>
+      <categories>
+        <category>Computer Graph</category>
+        <category>works</category>
+        <category>SCUU</category>
+      </categories>
+      <tags>
+        <tag>OpenGL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>QuickSort</title>
+    <url>/2021/10/28/QuickSort/</url>
+    <content><![CDATA[<h2 id="quick-sort">Quick Sort</h2>
+<h4 id="快速排序概述">1、快速排序概述</h4>
+<ul>
+<li><p>快速排序也是采用分治的思想实现的，首先你有一组无序的数据，然后通过某种方法，取一个这组数据的中间数（M），然后对这组数据进行分组，大于M放到M的右边，小于M放到M的左边。然后通过相同的方法对这两组数分别做相同的处理，直到数据有序。</p></li>
+<li><p>伪码实现</p></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(ElementType A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(N &lt; <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> ; <span class="comment">//数据有序 不需要排序</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 计算主元 -- 将数据分组</span></span><br><span class="line">    pivot = &#123;A|A中的一个元素&#125;</span><br><span class="line">    将A（S）分成两个独立的子集&#123;A[] \ pivot&#125;；</span><br><span class="line">    A1 = &#123;a∈S|a &lt; pivot&#125;;</span><br><span class="line">    A2 = &#123;a∈S|a &gt; pivot&#125;;</span><br><span class="line">    <span class="comment">// 递归调用QuickSort</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="选主元">2、选主元</h4>
+<ul>
+<li><p>选择一个合适的主元是快速排序算法实现的关键，不能草率的取一个数作为主元。</p></li>
+<li><p>下面介绍一种主元的选取方法：</p>
+<ul>
+<li><p>取头，中，尾的中位数</p></li>
+<li><p>伪码描述： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">ElementType <span class="title">Media3</span><span class="params">(ElementType A[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> center = (left + right) / <span class="number">2</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果坐标的比中间的大</span></span><br><span class="line">    <span class="keyword">if</span>(A[left] &gt; A[center])</span><br><span class="line">    &#123;</span><br><span class="line">        Swap(&amp;A[left],&amp;A[center]);  <span class="comment">// 交换 左中的值 </span></span><br><span class="line">        <span class="comment">//此后 A[center] &gt; A[left]</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 交换后的左 依旧大于右边</span></span><br><span class="line">    <span class="keyword">if</span>(A[left] &gt; A[right])</span><br><span class="line">    &#123;</span><br><span class="line">         Swap(&amp;A[left],&amp;A[right]); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(A[center] &gt; A[right])</span><br><span class="line">    &#123;</span><br><span class="line">         Swap(&amp;A[center],&amp;A[right]); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// A[right] &gt; A[center] 此时我们将center的元素放到此位置，可以只考虑 left+1 -- right-2的元素</span></span><br><span class="line">    swap(&amp;A[center],&amp;A[right - <span class="number">1</span>]);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> A[rigjt <span class="number">-1</span> ];  <span class="comment">// 返回我们得到的主元 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+</ul>
+<h4 id="子集划分">3、子集划分</h4>
+<ul>
+<li>每次完成子集划分，主元会放到一个在全局中都正确的位置，将不会在改变。</li>
+</ul>
+<h4 id="算法实现">4、算法实现</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(ElementType A[], <span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Cutoff &lt;= right - left)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 主元</span></span><br><span class="line">        poivt = Media3(A,left,right);</span><br><span class="line">        <span class="keyword">int</span> i = left;        <span class="comment">// i 当前指向第一个元素的位置 </span></span><br><span class="line">        <span class="keyword">int</span> j = right - <span class="number">1</span>;   <span class="comment">// J 指向主元的位置 </span></span><br><span class="line">        <span class="keyword">for</span>(;;)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(A[++i] &lt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">while</span>(A[--j] &gt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j)</span><br><span class="line">            &#123;</span><br><span class="line">                swap(&amp;A[i],A[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(&amp;A[i],&amp;A[right - <span class="number">1</span>]);</span><br><span class="line">        <span class="comment">// 递归 </span></span><br><span class="line">        QuickSort(A,left,i<span class="number">-1</span>);</span><br><span class="line">        QuickSort(A,i,right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Insert_selection(A+left,right - left + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Qt OpenGL Antialiasing-MSAA</title>
+    <url>/2022/08/02/Qt-OpenGL-Antialiasing-MSAA/</url>
+    <content><![CDATA[<h2 id="qt-opengl-antialiasing---msaa">Qt OpenGL Antialiasing -
+MSAA</h2>
+<h3 id="锯齿是图形绘制中常见的问题">锯齿是图形绘制中常见的问题</h3>
+<ul>
+<li>这是一个采样不足然后信号丢失导致的问题</li>
+<li>经过各位前辈们的其扑后继的研究，终究是有了看起来不错的解决方案</li>
+<li>本文中我们采用一种名为<code>MSAA</code>的抗锯齿的技术</li>
+</ul>
+<h3 id="msaa"><code>MSAA</code></h3>
+<p>
+  超级采样抗锯齿（Super Sampling
+Anti-Aliasing）的原理是把当前分辨率成倍提高,然后再把画缩放到当前的显示器上。这样的做法实际上就是在显示尺寸不变的情况提高分辨率，让单个像素变得极小，这样就能够大幅减轻画面的锯齿感了。不过是由于对整个显示画面的放大，因此它消耗的显示资源也是非常大的。
+</p>
+<h3 id="qt-openggl-的-msaa"><code>Qt OpengGL</code> 的
+<code>MSAA</code></h3>
+<h4 id="走样展示">走样展示</h4>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/OpenGL/OpenGLAntialiasing.png"
+title="线的走样" alt="走样" />
+<figcaption aria-hidden="true">走样</figcaption>
+</figure>
+<h4
+id="开启qtopenglwidget的msaa">开启<code>QtOpenGLWidget</code>的<code>MSAA</code></h4>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/OpenGL/OpenGLAntialiasing-MSAA.png"
+title="MSAA" alt="MSAA" />
+<figcaption aria-hidden="true">MSAA</figcaption>
+</figure>
+<h4
+id="如何开启qtopengl的msaa">如何开启<code>QtOpenGL</code>的<code>MSAA</code></h4>
+<ul>
+<li><p><code>Qt</code>有他自己的关于<code>OpenGL</code>的封装，我们使用的<code>Qt</code>的关于<code>OpenGL</code>封装</p></li>
+<li><p>在创建<code>QOpenGLWidget</code>窗口时，在构造函数中添加如下代码：</p>
+<p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">QSurfaceFormat format;</span><br><span class="line">format.setSamples(<span class="number">4</span>);</span><br><span class="line">setFormat(format);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>setFormat</code>是窗口<code>QOpenGLWidget</code>的函数，在构造函数中使用，会给后面所有依赖的小部件设置一个默认的<code>format</code>，对于后面的小部件(窗口)，如果不做格式的修改，将会使用在构造函数中调用<code>setFormat</code>函数设置的格式作为默认格式</li>
+</ul></li>
+</ul>
+<h4 id="失败的尝试">失败的尝试</h4>
+<p>
+  我尝试，单独修改<code>QopenGLContext</code>的<code>QSurfaceFormat</code>,前面的部分是成功，我获取了当前窗口的<code>QopenGLContext</code>,修改了<code>QSurfaceFormat</code>，向其中添加了
+启用<code>MSAA</code>的代码.然后调用<code>QopenGLContext</code>的<code>create</code>函数，企图重新创建一个<code>QopenGLContext</code>，但是失败了，在初始化<code>QopenGLFunction</code>失败，
+<p style="color:red">
+暂时不知道原因,目测可能需要重新将当前窗口的绑定到重新创建后的上下文，以及调用这个上下文的<code>OpenGL</code>函数
+</p>
+</p>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>SCUU</category>
+        <category>Computer Graph</category>
+      </categories>
+      <tags>
+        <tag>OpenGL</tag>
+        <tag>Qt</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Qt Connect</title>
     <url>/2022/07/29/Qt-Signals-And-Slots/</url>
     <content><![CDATA[<h1 id="qt"><code>Qt</code></h1>
@@ -1173,101 +1283,6 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
       </tags>
   </entry>
   <entry>
-    <title>Qt OpenGL Antialiasing-MSAA</title>
-    <url>/2022/08/02/Qt-OpenGL-Antialiasing-MSAA/</url>
-    <content><![CDATA[<h2 id="qt-opengl-antialiasing---msaa">Qt OpenGL Antialiasing -
-MSAA</h2>
-<h3 id="锯齿是图形绘制中常见的问题">锯齿是图形绘制中常见的问题</h3>
-<ul>
-<li>这是一个采样不足然后信号丢失导致的问题</li>
-<li>经过各位前辈们的其扑后继的研究，终究是有了看起来不错的解决方案</li>
-<li>本文中我们采用一种名为<code>MSAA</code>的抗锯齿的技术</li>
-</ul>
-<h3 id="msaa"><code>MSAA</code></h3>
-<p>
-  超级采样抗锯齿（Super Sampling
-Anti-Aliasing）的原理是把当前分辨率成倍提高,然后再把画缩放到当前的显示器上。这样的做法实际上就是在显示尺寸不变的情况提高分辨率，让单个像素变得极小，这样就能够大幅减轻画面的锯齿感了。不过是由于对整个显示画面的放大，因此它消耗的显示资源也是非常大的。
-</p>
-<h3 id="qt-openggl-的-msaa"><code>Qt OpengGL</code> 的
-<code>MSAA</code></h3>
-<h4 id="走样展示">走样展示</h4>
-<figure>
-<img
-src="https://raw.githubusercontent.com/Ranbun/images/main/blog/OpenGL/OpenGLAntialiasing.png"
-title="线的走样" alt="走样" />
-<figcaption aria-hidden="true">走样</figcaption>
-</figure>
-<h4
-id="开启qtopenglwidget的msaa">开启<code>QtOpenGLWidget</code>的<code>MSAA</code></h4>
-<figure>
-<img
-src="https://raw.githubusercontent.com/Ranbun/images/main/blog/OpenGL/OpenGLAntialiasing-MSAA.png"
-title="MSAA" alt="MSAA" />
-<figcaption aria-hidden="true">MSAA</figcaption>
-</figure>
-<h4
-id="如何开启qtopengl的msaa">如何开启<code>QtOpenGL</code>的<code>MSAA</code></h4>
-<ul>
-<li><p><code>Qt</code>有他自己的关于<code>OpenGL</code>的封装，我们使用的<code>Qt</code>的关于<code>OpenGL</code>封装</p></li>
-<li><p>在创建<code>QOpenGLWidget</code>窗口时，在构造函数中添加如下代码：</p>
-<p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">QSurfaceFormat format;</span><br><span class="line">format.setSamples(<span class="number">4</span>);</span><br><span class="line">setFormat(format);</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><code>setFormat</code>是窗口<code>QOpenGLWidget</code>的函数，在构造函数中使用，会给后面所有依赖的小部件设置一个默认的<code>format</code>，对于后面的小部件(窗口)，如果不做格式的修改，将会使用在构造函数中调用<code>setFormat</code>函数设置的格式作为默认格式</li>
-</ul></li>
-</ul>
-<h4 id="失败的尝试">失败的尝试</h4>
-<p>
-  我尝试，单独修改<code>QopenGLContext</code>的<code>QSurfaceFormat</code>,前面的部分是成功，我获取了当前窗口的<code>QopenGLContext</code>,修改了<code>QSurfaceFormat</code>，向其中添加了
-启用<code>MSAA</code>的代码.然后调用<code>QopenGLContext</code>的<code>create</code>函数，企图重新创建一个<code>QopenGLContext</code>，但是失败了，在初始化<code>QopenGLFunction</code>失败，
-<p style="color:red">
-暂时不知道原因,目测可能需要重新将当前窗口的绑定到重新创建后的上下文，以及调用这个上下文的<code>OpenGL</code>函数
-</p>
-</p>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>SCUU</category>
-      </categories>
-      <tags>
-        <tag>Qt</tag>
-        <tag>OpenGL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>QuickSort</title>
-    <url>/2021/10/28/QuickSort/</url>
-    <content><![CDATA[<h2 id="quick-sort">Quick Sort</h2>
-<h4 id="快速排序概述">1、快速排序概述</h4>
-<ul>
-<li><p>快速排序也是采用分治的思想实现的，首先你有一组无序的数据，然后通过某种方法，取一个这组数据的中间数（M），然后对这组数据进行分组，大于M放到M的右边，小于M放到M的左边。然后通过相同的方法对这两组数分别做相同的处理，直到数据有序。</p></li>
-<li><p>伪码实现</p></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(ElementType A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(N &lt; <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> ; <span class="comment">//数据有序 不需要排序</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 计算主元 -- 将数据分组</span></span><br><span class="line">    pivot = &#123;A|A中的一个元素&#125;</span><br><span class="line">    将A（S）分成两个独立的子集&#123;A[] \ pivot&#125;；</span><br><span class="line">    A1 = &#123;a∈S|a &lt; pivot&#125;;</span><br><span class="line">    A2 = &#123;a∈S|a &gt; pivot&#125;;</span><br><span class="line">    <span class="comment">// 递归调用QuickSort</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="选主元">2、选主元</h4>
-<ul>
-<li><p>选择一个合适的主元是快速排序算法实现的关键，不能草率的取一个数作为主元。</p></li>
-<li><p>下面介绍一种主元的选取方法：</p>
-<ul>
-<li><p>取头，中，尾的中位数</p></li>
-<li><p>伪码描述： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">ElementType <span class="title">Media3</span><span class="params">(ElementType A[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> center = (left + right) / <span class="number">2</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果坐标的比中间的大</span></span><br><span class="line">    <span class="keyword">if</span>(A[left] &gt; A[center])</span><br><span class="line">    &#123;</span><br><span class="line">        Swap(&amp;A[left],&amp;A[center]);  <span class="comment">// 交换 左中的值 </span></span><br><span class="line">        <span class="comment">//此后 A[center] &gt; A[left]</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 交换后的左 依旧大于右边</span></span><br><span class="line">    <span class="keyword">if</span>(A[left] &gt; A[right])</span><br><span class="line">    &#123;</span><br><span class="line">         Swap(&amp;A[left],&amp;A[right]); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(A[center] &gt; A[right])</span><br><span class="line">    &#123;</span><br><span class="line">         Swap(&amp;A[center],&amp;A[right]); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// A[right] &gt; A[center] 此时我们将center的元素放到此位置，可以只考虑 left+1 -- right-2的元素</span></span><br><span class="line">    swap(&amp;A[center],&amp;A[right - <span class="number">1</span>]);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> A[rigjt <span class="number">-1</span> ];  <span class="comment">// 返回我们得到的主元 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-</ul>
-<h4 id="子集划分">3、子集划分</h4>
-<ul>
-<li>每次完成子集划分，主元会放到一个在全局中都正确的位置，将不会在改变。</li>
-</ul>
-<h4 id="算法实现">4、算法实现</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(ElementType A[], <span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Cutoff &lt;= right - left)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 主元</span></span><br><span class="line">        poivt = Media3(A,left,right);</span><br><span class="line">        <span class="keyword">int</span> i = left;        <span class="comment">// i 当前指向第一个元素的位置 </span></span><br><span class="line">        <span class="keyword">int</span> j = right - <span class="number">1</span>;   <span class="comment">// J 指向主元的位置 </span></span><br><span class="line">        <span class="keyword">for</span>(;;)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(A[++i] &lt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">while</span>(A[--j] &gt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j)</span><br><span class="line">            &#123;</span><br><span class="line">                swap(&amp;A[i],A[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(&amp;A[i],&amp;A[right - <span class="number">1</span>]);</span><br><span class="line">        <span class="comment">// 递归 </span></span><br><span class="line">        QuickSort(A,left,i<span class="number">-1</span>);</span><br><span class="line">        QuickSort(A,i,right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Insert_selection(A+left,right - left + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Selection_sort</title>
     <url>/2021/10/25/Selection-sort/</url>
     <content><![CDATA[<h2 id="选择排序">选择排序</h2>
@@ -1399,6 +1414,22 @@ id="如何开启qtopengl的msaa">如何开启<code>QtOpenGL</code>的<code>MSAA<
       <tags>
         <tag>cpp</tag>
         <tag>pointer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Boy</title>
+    <url>/2021/03/16/baozi/</url>
+    <content><![CDATA[<h4 id="about-this-blog">About this Blog</h4>
+<ul>
+<li>个人博客，分享我的日常与一些工作内容</li>
+</ul>
+]]></content>
+      <categories>
+        <category>bun</category>
+        <category>life</category>
+      </categories>
+      <tags>
+        <tag>intraduce</tag>
       </tags>
   </entry>
   <entry>
@@ -1697,22 +1728,6 @@ id="如何开启qtopengl的msaa">如何开启<code>QtOpenGL</code>的<code>MSAA<
       </tags>
   </entry>
   <entry>
-    <title>Boy</title>
-    <url>/2021/03/16/baozi/</url>
-    <content><![CDATA[<h4 id="about-this-blog">About this Blog</h4>
-<ul>
-<li>个人博客，分享我的日常与一些工作内容</li>
-</ul>
-]]></content>
-      <categories>
-        <category>bun</category>
-        <category>life</category>
-      </categories>
-      <tags>
-        <tag>intraduce</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>简单排序-冒泡&amp;插入</title>
     <url>/2021/10/19/sort-bubble-insertion/</url>
     <content><![CDATA[<h2 id="简单排序">简单排序:</h2>
@@ -1794,6 +1809,31 @@ A[j]，则称<code>(i,j)</code>是一对逆序对<font color=red>逆序对(inver
 </ul>
 <p>基于上面的描述，我们要提高此类算法的效率，必须每次消去的逆序对数大于1。</p>
 <h3 id="下面将会介绍希尔排序">下面将会介绍，希尔排序！</h3>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>归并排序</title>
+    <url>/2021/10/26/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h2 id="归并排序">归并排序</h2>
+<ul>
+<li>归并算法，核心机制是分而治之，每次对数据进行拆分，然后合并，每次拆分直到每次排序的元素个数为1，的时候，单个元素必然是有序的，然后合并便可。</li>
+</ul>
+<h4 id="有序子列的归并---伪代码">1、有序子列的归并 - 伪代码</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// L 左边的起始位置 R 右边的起始位置 RightEnd 右边的终点位置</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    leftEnd = R - <span class="number">1</span>  <span class="comment">// 左边部分有序元素的结束位置</span></span><br><span class="line">    temp_index = L;  <span class="comment">// 存放结果数组的初始位置</span></span><br><span class="line">    NumElements = RightEnd - L + <span class="number">1</span>;   <span class="comment">// 计算元素的总个数 - 左右两部份紧挨着 </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd &amp;&amp; R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(A[L] &lt; A[R])</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[L++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>  <span class="comment">// A[L] &gt; A[R]</span></span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[R++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[L++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[R++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将有序的元素写回到A中</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i &lt; NumElements;i++,RightEnd--)</span><br><span class="line">    &#123;</span><br><span class="line">        A[RightEnd] = tempA[RightEnd];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="归并的实现---递归">2、归并的实现 - 递归</h4>
+<ul>
+<li>归并算法的实现有不同的方式，相比之下递归的实现方式相对直观，此处是递归实现的伪代码：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Msort</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> center;  <span class="comment">// 每次将元素对半砍开 </span></span><br><span class="line">    <span class="keyword">if</span>(L &lt; RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        center = (L + RightEnd) / <span class="number">2</span>;          <span class="comment">// 中间位置的元素</span></span><br><span class="line">        MSort(A,tempA,L,center);              <span class="comment">//左半部分 </span></span><br><span class="line">        MSort(A,tempA,center+<span class="number">1</span>，RightEnd);    <span class="comment">//右半部分 </span></span><br><span class="line">    	Merge(A,tempA,L,center+<span class="number">1</span>,RightEnd);   <span class="comment">// 合并两部分 </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="归并的实现---非递归">2、归并的实现 - 非递归</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_Sort</span><span class="params">(ElementType A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> length = <span class="number">1</span>;   <span class="comment">// 最开始 有序子列的长度</span></span><br><span class="line">    ElementType * tempA;   <span class="comment">// 一个辅助交换的和A等大小的空间</span></span><br><span class="line">    tempA = <span class="keyword">new</span> ElementType[N];</span><br><span class="line">    <span class="keyword">if</span>(tempA != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(length &lt; N)  <span class="comment">// 随着有序子列的扩大，最终一定大于等于N</span></span><br><span class="line">        &#123;</span><br><span class="line">            Merge_pass(A,tempA,N,length);</span><br><span class="line">            length *= <span class="number">2</span>;</span><br><span class="line">            Merge_pass(tempA,A,N,length);</span><br><span class="line">            length *= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">delete</span> [] tempA;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;error&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 源元素位置 目标元素位置 元素个数 有序子列的大小</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_pass</span><span class="params">(ElementType A,ElementType tempA,<span class="keyword">int</span> N,<span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt;= N - <span class="number">2</span>*length;i += <span class="number">2</span>*length)   <span class="comment">// 2*length 每次合并的元素的个数 </span></span><br><span class="line">    &#123;</span><br><span class="line">        Merge_(A,tempA,i,i+length,i+<span class="number">2</span>*length - <span class="number">1</span>);  <span class="comment">// 合并</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i+legnth &lt; N)  <span class="comment">// 剩下的元素个数 &gt; length, 表示还可以进行一次合并： 一组的个数</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 此时最后被合并的数据 个数 &lt; 2*length </span></span><br><span class="line">		Merge_(A,tempA,i,i+length,N - <span class="number">1</span>);  <span class="comment">// 合并</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 合并最后部分的元素</span></span><br><span class="line">        <span class="keyword">for</span>(j = i; j &lt; N;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[j] = A[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    leftEnd = R - <span class="number">1</span>  <span class="comment">// 左边部分有序元素的结束位置</span></span><br><span class="line">    temp_index = L;  <span class="comment">// 存放结果数组的初始位置</span></span><br><span class="line">    NumElements = RightEnd - L + <span class="number">1</span>;   <span class="comment">// 计算元素的总个数 - 左右两部份紧挨着 </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd &amp;&amp; R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(A[L] &lt; A[R])</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[L++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>  <span class="comment">// A[L] &gt; A[R]</span></span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[R++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[L++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[R++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Algorithm</category>
@@ -1923,31 +1963,6 @@ class="math inline">\(\vec{P_3P_4}\)</span>。如何通过点击计算他们交�
       </categories>
       <tags>
         <tag>vector</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>归并排序</title>
-    <url>/2021/10/26/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h2 id="归并排序">归并排序</h2>
-<ul>
-<li>归并算法，核心机制是分而治之，每次对数据进行拆分，然后合并，每次拆分直到每次排序的元素个数为1，的时候，单个元素必然是有序的，然后合并便可。</li>
-</ul>
-<h4 id="有序子列的归并---伪代码">1、有序子列的归并 - 伪代码</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// L 左边的起始位置 R 右边的起始位置 RightEnd 右边的终点位置</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    leftEnd = R - <span class="number">1</span>  <span class="comment">// 左边部分有序元素的结束位置</span></span><br><span class="line">    temp_index = L;  <span class="comment">// 存放结果数组的初始位置</span></span><br><span class="line">    NumElements = RightEnd - L + <span class="number">1</span>;   <span class="comment">// 计算元素的总个数 - 左右两部份紧挨着 </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd &amp;&amp; R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(A[L] &lt; A[R])</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[L++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>  <span class="comment">// A[L] &gt; A[R]</span></span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[R++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[L++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[R++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将有序的元素写回到A中</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i &lt; NumElements;i++,RightEnd--)</span><br><span class="line">    &#123;</span><br><span class="line">        A[RightEnd] = tempA[RightEnd];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="归并的实现---递归">2、归并的实现 - 递归</h4>
-<ul>
-<li>归并算法的实现有不同的方式，相比之下递归的实现方式相对直观，此处是递归实现的伪代码：</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Msort</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> center;  <span class="comment">// 每次将元素对半砍开 </span></span><br><span class="line">    <span class="keyword">if</span>(L &lt; RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        center = (L + RightEnd) / <span class="number">2</span>;          <span class="comment">// 中间位置的元素</span></span><br><span class="line">        MSort(A,tempA,L,center);              <span class="comment">//左半部分 </span></span><br><span class="line">        MSort(A,tempA,center+<span class="number">1</span>，RightEnd);    <span class="comment">//右半部分 </span></span><br><span class="line">    	Merge(A,tempA,L,center+<span class="number">1</span>,RightEnd);   <span class="comment">// 合并两部分 </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="归并的实现---非递归">2、归并的实现 - 非递归</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_Sort</span><span class="params">(ElementType A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> length = <span class="number">1</span>;   <span class="comment">// 最开始 有序子列的长度</span></span><br><span class="line">    ElementType * tempA;   <span class="comment">// 一个辅助交换的和A等大小的空间</span></span><br><span class="line">    tempA = <span class="keyword">new</span> ElementType[N];</span><br><span class="line">    <span class="keyword">if</span>(tempA != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(length &lt; N)  <span class="comment">// 随着有序子列的扩大，最终一定大于等于N</span></span><br><span class="line">        &#123;</span><br><span class="line">            Merge_pass(A,tempA,N,length);</span><br><span class="line">            length *= <span class="number">2</span>;</span><br><span class="line">            Merge_pass(tempA,A,N,length);</span><br><span class="line">            length *= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">delete</span> [] tempA;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;error&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 源元素位置 目标元素位置 元素个数 有序子列的大小</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_pass</span><span class="params">(ElementType A,ElementType tempA,<span class="keyword">int</span> N,<span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt;= N - <span class="number">2</span>*length;i += <span class="number">2</span>*length)   <span class="comment">// 2*length 每次合并的元素的个数 </span></span><br><span class="line">    &#123;</span><br><span class="line">        Merge_(A,tempA,i,i+length,i+<span class="number">2</span>*length - <span class="number">1</span>);  <span class="comment">// 合并</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i+legnth &lt; N)  <span class="comment">// 剩下的元素个数 &gt; length, 表示还可以进行一次合并： 一组的个数</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 此时最后被合并的数据 个数 &lt; 2*length </span></span><br><span class="line">		Merge_(A,tempA,i,i+length,N - <span class="number">1</span>);  <span class="comment">// 合并</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 合并最后部分的元素</span></span><br><span class="line">        <span class="keyword">for</span>(j = i; j &lt; N;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[j] = A[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    leftEnd = R - <span class="number">1</span>  <span class="comment">// 左边部分有序元素的结束位置</span></span><br><span class="line">    temp_index = L;  <span class="comment">// 存放结果数组的初始位置</span></span><br><span class="line">    NumElements = RightEnd - L + <span class="number">1</span>;   <span class="comment">// 计算元素的总个数 - 左右两部份紧挨着 </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd &amp;&amp; R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(A[L] &lt; A[R])</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[L++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>  <span class="comment">// A[L] &gt; A[R]</span></span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[R++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[L++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[R++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
       </tags>
   </entry>
   <entry>
