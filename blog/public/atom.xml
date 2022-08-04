@@ -6,7 +6,7 @@
   <link href="https://blog.ranbun.com/atom.xml" rel="self"/>
   
   <link href="https://blog.ranbun.com/"/>
-  <updated>2022-08-03T13:06:21.416Z</updated>
+  <updated>2022-08-04T02:08:58.745Z</updated>
   <id>https://blog.ranbun.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>OpenGL parallel  projection graphics do not scale with the window</title>
+    <link href="https://blog.ranbun.com/2022/08/04/OpenGL-parallel-projection-graphics-do-not-scale-with-the-window/"/>
+    <id>https://blog.ranbun.com/2022/08/04/OpenGL-parallel-projection-graphics-do-not-scale-with-the-window/</id>
+    <published>2022-08-04T02:05:58.000Z</published>
+    <updated>2022-08-04T02:08:58.745Z</updated>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+      
+      
+    <summary type="html">
+</summary>
+      
+    
+    
+    
+    <category term="Computer Graph" scheme="https://blog.ranbun.com/categories/Computer-Graph/"/>
+    
+    <category term="works" scheme="https://blog.ranbun.com/categories/Computer-Graph/works/"/>
+    
+    <category term="SCUU" scheme="https://blog.ranbun.com/categories/Computer-Graph/works/SCUU/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>OpenGL Scene ZoomIn &amp; ZoomOut</title>
     <link href="https://blog.ranbun.com/2022/08/03/OpenGL-Scene-ZoomIn-ZoomOut/"/>
     <id>https://blog.ranbun.com/2022/08/03/OpenGL-Scene-ZoomIn-ZoomOut/</id>
     <published>2022-08-03T13:01:52.000Z</published>
-    <updated>2022-08-03T13:06:21.416Z</updated>
+    <updated>2022-08-04T02:09:01.353Z</updated>
     
     <content type="html"><![CDATA[]]></content>
     
@@ -589,36 +616,6 @@ id=&quot;dynamic-drawing-of-osg-vertex-buffer-objects&quot;&gt;&lt;code&gt;Dynam
 &lt;li&gt;希尔排序：预先定义一系列间隔(增量序列)DK，按照间隔，进行间隔排序
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;DK[i-1]&lt;/code&gt;有序后，执行&lt;code&gt;DK[i]&lt;/code&gt;的排序后，&lt;code&gt;DK[i</summary>
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://blog.ranbun.com/categories/Algorithm/"/>
-    
-    
-    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
-    
-    <category term="sort" scheme="https://blog.ranbun.com/tags/sort/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Selection_sort</title>
-    <link href="https://blog.ranbun.com/2021/10/25/Selection-sort/"/>
-    <id>https://blog.ranbun.com/2021/10/25/Selection-sort/</id>
-    <published>2021-10-25T14:25:09.000Z</published>
-    <updated>2022-07-26T00:48:36.861Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="选择排序">选择排序</h2><ul><li><p>选择排序，每次从无序的数据中选择一个<code>最大的</code>或者是<code>最小的</code>,放到合适的位置。</p></li><li><p>代码实现：</p><p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里为了使用最大堆-我们倒着排序 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Selection_Sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i = N<span class="number">-1</span>;i &gt;= <span class="number">0</span>；i--)</span><br><span class="line">    &#123;</span><br><span class="line">      max_postion = scanForMax(A,<span class="number">0</span>,i); <span class="comment">//获取最大元素的下标 </span></span><br><span class="line">          swap(&amp;A[i],&amp;A[max_position]);    <span class="comment">// 交换元素    </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li><li><p><code>scanForMax</code></p><ul><li>查找当前无序元素中最大的元素，并返回元素的下标<ul><li>常规下，直接对数组元素进行扫描，时间复杂度<code>O(N)</code>,整个算法的时间复杂度<code>T=O(N^2)</code></li><li>优化方案：如何快速找到最大值 -- 最大堆or最小堆。</li></ul></li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;选择排序&quot;&gt;选择排序&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;选择排序，每次从无序的数据中选择一个&lt;code&gt;最大的&lt;/code&gt;或者是&lt;code&gt;最小的&lt;/code&gt;,放到合适的位置。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;代码实现：&lt;/p&gt;
-&lt;p&gt;&lt;figure </summary>
       
     
     

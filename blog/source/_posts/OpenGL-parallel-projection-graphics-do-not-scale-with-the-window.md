@@ -6,5 +6,4 @@ categories:
 - works
 - SCUU
 tags:
-- OpenGL
 ---
