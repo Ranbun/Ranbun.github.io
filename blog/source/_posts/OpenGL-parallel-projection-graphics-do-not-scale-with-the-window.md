@@ -7,3 +7,5 @@ categories:
 - SCUU
 tags:
 ---
+
+# OpenGL parallel  projection graphics do not scale with the window

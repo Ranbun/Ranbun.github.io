@@ -86,7 +86,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">26</span></a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">31</span></a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">17</span></a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="user fa-fw"></i>关于</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">26</span></a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">32</span></a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">17</span></a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="user fa-fw"></i>关于</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives">
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,6 +220,106 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2021/10/26/Shell-Sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="RanBun">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RanBun's Blog">
+      <meta itemprop="description" content="人大概要先见自己,然后才能见众生">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | RanBun's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/26/Shell-Sort/" class="post-title-link" itemprop="url">Shell-Sort</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-26 20:25:46" itemprop="dateCreated datePublished" datetime="2021-10-26T20:25:46+08:00">2021-10-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-26 08:48:36" itemprop="dateModified" datetime="2022-07-26T08:48:36+08:00">2022-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="希尔排序">希尔排序</h3>
+<ul>
+<li>希尔排序：预先定义一系列间隔(增量序列)DK，按照间隔，进行间隔排序
+<ul>
+<li><code>DK[i-1]</code>有序后，执行<code>DK[i]</code>的排序后，<code>DK[i-1]</code>依旧是有序的</li>
+</ul></li>
+</ul>
+<h4 id="原始的希尔排序">1、原始的希尔排序</h4>
+<ul>
+<li><code>DK[i-1] = 取整(N/2),DK[i] = 取整(DK[i-1]/2)</code></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Shell_sort</span><span class="params">(ElementTypes A[], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> D;  <span class="comment">// 当前次序的间隔</span></span><br><span class="line">    <span class="keyword">int</span> P,i;</span><br><span class="line">    ElementType temp;</span><br><span class="line">    <span class="keyword">for</span>(P=N/<span class="number">2</span>;D&gt;<span class="number">0</span>;D/=<span class="number">2</span>) <span class="comment">// 间隔的变换</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 插入排序 </span></span><br><span class="line">        <span class="keyword">for</span>(P = D; P&lt;N; P++)</span><br><span class="line">        &#123;</span><br><span class="line">        	temp = A[P];  <span class="comment">// 当前要插入的元素 </span></span><br><span class="line">            <span class="keyword">for</span>(i = P; i &gt;= D &amp;&amp; A[i-D] &gt; temp;i -= D)  <span class="comment">// 和已经有序的元素进行比较</span></span><br><span class="line">            <span class="comment">// 前一个元素A[i-D]如果大于temp，temp放置的位置在i-D之前，i-D位置的元素向后移动</span></span><br><span class="line">            &#123;</span><br><span class="line">                A[i] = A[i-D];</span><br><span class="line">            &#125;</span><br><span class="line">            A[i] = temp;  <span class="comment">// temp 放到正确位置</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>复杂度分析：
+当所有大于的增量的序列的数据都是有序的时候，所有的交换操作都会在增量为1的时候执行，这回导致一个不怎么好的结果，时间复杂度会达到<code>O(N^2)</code>。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1321,105 +1421,6 @@ src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_1.png"
 title="Result" alt="right result" />
 <figcaption aria-hidden="true">right result</figcaption>
 </figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2021/03/18/%E8%BF%9F%E5%88%B0%E7%9A%84%E6%AF%95%E4%B8%9A%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="RanBun">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="RanBun's Blog">
-      <meta itemprop="description" content="人大概要先见自己,然后才能见众生">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | RanBun's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/18/%E8%BF%9F%E5%88%B0%E7%9A%84%E6%AF%95%E4%B8%9A%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">迟到的毕业总结</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-03-18 23:59:55" itemprop="dateCreated datePublished" datetime="2021-03-18T23:59:55+08:00">2021-03-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-26 08:48:36" itemprop="dateModified" datetime="2022-07-26T08:48:36+08:00">2022-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/bun/" itemprop="url" rel="index"><span itemprop="name">bun</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/bun/university/" itemprop="url" rel="index"><span itemprop="name">university</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><font color=red>2020年</font>在三个月前结束了，这一年大家都收获了满满的经历。当然，我也是。我毕业了，从一个三流学校的渣子变成了社会末流的青年。开始了独属于我的关于这个时代的苟且！</p>
-<p>​ 离开前，大家都像是急于归乡的游子，对身后的这个城市不存半点留恋。</p>
-<p>对于大学，我仿佛有千言万语，却是欲语还休
-。不谈这个这个有些无聊的学校，关于大学，关于这四年，关于我自己，我希望它是美好的，会让我主动怀恋的！</p>
-<p>待续。。。</p>
-<hr />
-<p><code>2021-7-26</code></p>
-<p>​
-下个月就要离开这个城市了，目前心情很是平淡，谈不上悲，亦没有欢喜，我仿佛早有预料一般。却如其实，我的确早有离开的想法，我大学的四年在这个城市度过，对于这里的大部分事物，我也算是熟悉，离开这里对我来说麻烦的地方便是新的城市，新的交际。。。
-当然一切都会是新的，我也是。</p>
-<p>​ 祝愿我将迎接新的美好，朋友我来了！</p>
 
       
     </div>

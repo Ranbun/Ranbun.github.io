@@ -6,7 +6,7 @@
   <link href="https://blog.ranbun.com/atom.xml" rel="self"/>
   
   <link href="https://blog.ranbun.com/"/>
-  <updated>2022-08-04T02:08:58.745Z</updated>
+  <updated>2022-08-04T02:14:47.179Z</updated>
   <id>https://blog.ranbun.com/</id>
   
   <author>
@@ -21,15 +21,16 @@
     <link href="https://blog.ranbun.com/2022/08/04/OpenGL-parallel-projection-graphics-do-not-scale-with-the-window/"/>
     <id>https://blog.ranbun.com/2022/08/04/OpenGL-parallel-projection-graphics-do-not-scale-with-the-window/</id>
     <published>2022-08-04T02:05:58.000Z</published>
-    <updated>2022-08-04T02:08:58.745Z</updated>
+    <updated>2022-08-04T02:14:47.179Z</updated>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h1id="opengl-parallel-projection-graphics-do-not-scale-with-the-window">OpenGLparallel projection graphics do not scale with the window</h1>]]></content>
     
     
       
       
-    <summary type="html">
-</summary>
+    <summary type="html">&lt;h1
+id=&quot;opengl-parallel-projection-graphics-do-not-scale-with-the-window&quot;&gt;OpenGL
+parallel projection graphics do not scale with the window</summary>
       
     
     
@@ -44,18 +45,48 @@
   </entry>
   
   <entry>
+    <title>OpenGL Move Scene</title>
+    <link href="https://blog.ranbun.com/2022/08/03/OpenGL-Move-Scene/"/>
+    <id>https://blog.ranbun.com/2022/08/03/OpenGL-Move-Scene/</id>
+    <published>2022-08-03T13:05:59.000Z</published>
+    <updated>2022-08-04T02:16:33.466Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="opengl-move-scene">OpenGL Move Scene</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;opengl-move-scene&quot;&gt;OpenGL Move Scene&lt;/h1&gt;
+</summary>
+      
+    
+    
+    
+    <category term="Computer Graph" scheme="https://blog.ranbun.com/categories/Computer-Graph/"/>
+    
+    <category term="works" scheme="https://blog.ranbun.com/categories/Computer-Graph/works/"/>
+    
+    <category term="SCUU" scheme="https://blog.ranbun.com/categories/Computer-Graph/works/SCUU/"/>
+    
+    
+    <category term="OpenGL" scheme="https://blog.ranbun.com/tags/OpenGL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>OpenGL Scene ZoomIn &amp; ZoomOut</title>
     <link href="https://blog.ranbun.com/2022/08/03/OpenGL-Scene-ZoomIn-ZoomOut/"/>
     <id>https://blog.ranbun.com/2022/08/03/OpenGL-Scene-ZoomIn-ZoomOut/</id>
     <published>2022-08-03T13:01:52.000Z</published>
-    <updated>2022-08-04T02:09:01.353Z</updated>
+    <updated>2022-08-04T02:14:35.346Z</updated>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h1id="opengl-scene-zoomin-zoomout"><code>OpenGL Scene ZoomIn &amp; ZoomOut</code></h1>]]></content>
     
     
       
       
-    <summary type="html">
+    <summary type="html">&lt;h1
+id=&quot;opengl-scene-zoomin-zoomout&quot;&gt;&lt;code&gt;OpenGL Scene ZoomIn &amp;amp; ZoomOut&lt;/code&gt;&lt;/h1&gt;
 </summary>
       
     
@@ -586,36 +617,6 @@ id=&quot;dynamic-drawing-of-osg-vertex-buffer-objects&quot;&gt;&lt;code&gt;Dynam
 &lt;li&gt;归并算法，核心机制是分而治之，每次对数据进行拆分，然后合并，每次拆分直到每次排序的元素个数为1，的时候，单个元素必然是有序的，然后合并便可。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&quot;有序子列的归并---伪代码</summary>
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://blog.ranbun.com/categories/Algorithm/"/>
-    
-    
-    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
-    
-    <category term="sort" scheme="https://blog.ranbun.com/tags/sort/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell-Sort</title>
-    <link href="https://blog.ranbun.com/2021/10/26/Shell-Sort/"/>
-    <id>https://blog.ranbun.com/2021/10/26/Shell-Sort/</id>
-    <published>2021-10-26T12:25:46.000Z</published>
-    <updated>2022-07-26T00:48:36.862Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="希尔排序">希尔排序</h3><ul><li>希尔排序：预先定义一系列间隔(增量序列)DK，按照间隔，进行间隔排序<ul><li><code>DK[i-1]</code>有序后，执行<code>DK[i]</code>的排序后，<code>DK[i-1]</code>依旧是有序的</li></ul></li></ul><h4 id="原始的希尔排序">1、原始的希尔排序</h4><ul><li><code>DK[i-1] = 取整(N/2),DK[i] = 取整(DK[i-1]/2)</code></li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Shell_sort</span><span class="params">(ElementTypes A[], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> D;  <span class="comment">// 当前次序的间隔</span></span><br><span class="line">    <span class="keyword">int</span> P,i;</span><br><span class="line">    ElementType temp;</span><br><span class="line">    <span class="keyword">for</span>(P=N/<span class="number">2</span>;D&gt;<span class="number">0</span>;D/=<span class="number">2</span>) <span class="comment">// 间隔的变换</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 插入排序 </span></span><br><span class="line">        <span class="keyword">for</span>(P = D; P&lt;N; P++)</span><br><span class="line">        &#123;</span><br><span class="line">        temp = A[P];  <span class="comment">// 当前要插入的元素 </span></span><br><span class="line">            <span class="keyword">for</span>(i = P; i &gt;= D &amp;&amp; A[i-D] &gt; temp;i -= D)  <span class="comment">// 和已经有序的元素进行比较</span></span><br><span class="line">            <span class="comment">// 前一个元素A[i-D]如果大于temp，temp放置的位置在i-D之前，i-D位置的元素向后移动</span></span><br><span class="line">            &#123;</span><br><span class="line">                A[i] = A[i-D];</span><br><span class="line">            &#125;</span><br><span class="line">            A[i] = temp;  <span class="comment">// temp 放到正确位置</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li>复杂度分析：当所有大于的增量的序列的数据都是有序的时候，所有的交换操作都会在增量为1的时候执行，这回导致一个不怎么好的结果，时间复杂度会达到<code>O(N^2)</code>。</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;希尔排序&quot;&gt;希尔排序&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;希尔排序：预先定义一系列间隔(增量序列)DK，按照间隔，进行间隔排序
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;DK[i-1]&lt;/code&gt;有序后，执行&lt;code&gt;DK[i]&lt;/code&gt;的排序后，&lt;code&gt;DK[i</summary>
       
     
     
