@@ -78,16 +78,21 @@ parallel projection graphics do not scale with the window</summary>
     <link href="https://blog.ranbun.com/2022/08/03/OpenGL-Scene-ZoomIn-ZoomOut/"/>
     <id>https://blog.ranbun.com/2022/08/03/OpenGL-Scene-ZoomIn-ZoomOut/</id>
     <published>2022-08-03T13:01:52.000Z</published>
-    <updated>2022-08-07T02:03:25.456Z</updated>
+    <updated>2022-08-07T08:17:04.676Z</updated>
     
-    <content type="html"><![CDATA[<!-- # `OpenGL Scene ZoomIn & ZoomOut` --><h2 id="实现思路">实现思路</h2>]]></content>
+    <content type="html"><![CDATA[<!-- # `OpenGL Scene ZoomIn & ZoomOut` --><center><h1>OpenGL的缩放</h1></center><h2 id="about">About</h2><h3 id="直接缩放场景">1. 直接缩放场景</h3><h4 id="实现思路">1. 实现思路</h4><ul><li>通过模型矩阵修改场景</li></ul><h3 id="修改投影矩阵">2. 修改投影矩阵</h3><h4 id="实现思路-1">1. 实现思路</h4><ul><li>获取鼠标滚轮的变化(这个改变是带方向的向上获取一个正值,向下获取的是一个负值)</li><li>将获取的这个值映射到和投影变换参数上</li><li>修改投影矩阵</li><li>重新绘制,你将获得缩放后的场景</li></ul><p style="color:red">在我的实现中采用的是第二种方式</p><h2 id="缩放的实现">缩放的实现</h2><h3 id="获取滚轮旋转角度">1. 获取滚轮旋转角度</h3><p>我是用的是<code>Qt</code>的<code>OpenGL</code>,可以直接重写窗口的一些事件，比起使用<code>glfw</code>等方式，比起它们注册回调的方式可能相对方便一些。</p><h4 id="qt的滚轮事件">Qt的滚轮事件</h4><h5 id="qwheelevent"><code>QWheelEvent</code></h5><ul><li>在出发滚轮事件之后，我们通过一个<code>QWheelEvent</code>对象获取我们需要的关于滚轮的信息</li></ul><div><pre><code>&lt;p&gt;    &amp;ensp;&amp;ensp;Wheel events are sent to the widget under the mouse cursor, but if that widget does not handle the event they are sent to the focus widget. Wheel events are generated for both mouse wheels and trackpad scroll gestures. There are two ways to read the wheel event delta: &lt;code&gt;angleDelta()&lt;/code&gt; returns the deltas in wheel degrees. These values are always provided. &lt;code&gt;pixelDelta()&lt;/code&gt; returns the deltas in screen pixels.&lt;/p&gt;&lt;p&gt;    &amp;ensp;&amp;ensp; 上述部分来自&lt;code&gt;Qt&lt;/code&gt;官方文档,我们有两种方法可以获取鼠标滚轮的增量(正负代表方向)，&lt;code&gt;angleDelta()&lt;/code&gt;，&lt;code&gt;pixelDelta()&lt;/code&gt;.&lt;/p&gt;</code></pre></div>]]></content>
     
     
       
       
     <summary type="html">&lt;!-- # `OpenGL Scene ZoomIn &amp; ZoomOut` --&gt;
-&lt;h2 id=&quot;实现思路&quot;&gt;实现思路&lt;/h2&gt;
-</summary>
+&lt;center&gt;
+&lt;h1&gt;
+OpenGL的缩放
+&lt;/h1&gt;
+&lt;/center&gt;
+&lt;h2 id=&quot;about&quot;&gt;About&lt;/h2&gt;
+&lt;h3 id=&quot;直接缩放场景&quot;&gt;1. 直接缩放场</summary>
       
     
     
