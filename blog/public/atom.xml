@@ -78,15 +78,15 @@ parallel projection graphics do not scale with the window</summary>
     <link href="https://blog.ranbun.com/2022/08/03/OpenGL-Scene-ZoomIn-ZoomOut/"/>
     <id>https://blog.ranbun.com/2022/08/03/OpenGL-Scene-ZoomIn-ZoomOut/</id>
     <published>2022-08-03T13:01:52.000Z</published>
-    <updated>2022-08-04T02:14:35.346Z</updated>
+    <updated>2022-08-07T02:03:25.456Z</updated>
     
-    <content type="html"><![CDATA[<h1id="opengl-scene-zoomin-zoomout"><code>OpenGL Scene ZoomIn &amp; ZoomOut</code></h1>]]></content>
+    <content type="html"><![CDATA[<!-- # `OpenGL Scene ZoomIn & ZoomOut` --><h2 id="实现思路">实现思路</h2>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1
-id=&quot;opengl-scene-zoomin-zoomout&quot;&gt;&lt;code&gt;OpenGL Scene ZoomIn &amp;amp; ZoomOut&lt;/code&gt;&lt;/h1&gt;
+    <summary type="html">&lt;!-- # `OpenGL Scene ZoomIn &amp; ZoomOut` --&gt;
+&lt;h2 id=&quot;实现思路&quot;&gt;实现思路&lt;/h2&gt;
 </summary>
       
     

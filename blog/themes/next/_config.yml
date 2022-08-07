@@ -106,9 +106,9 @@ menu:
   home: /|| home
   categories: /categories/|| th
   #schedule: /schedule || calendar
-  #sitemap: /sitemap.xml || sitemap
-  sitemap:
-    path: sitemap.xml
+  sitemap: /sitemap.xml || sitemap
+  # sitemap:
+  #  path: sitemap.xml
   archives: /archives|| archive
   tags: /tags|| tags
   about: /about|| user
