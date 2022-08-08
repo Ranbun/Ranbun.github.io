@@ -67,7 +67,7 @@ tags:
 - <code style="color:red">通过上面步骤便可以获取滚轮实际旋转的角度</code>
 
 ### 2. 将滚轮旋转角度映射到投影矩阵
-- $ratio = delta / 360^\circ$
+- $ratio = delta/360^\circ$
 - 使用这个值去修改投影矩阵的参数 
 - 我们使用的是平行投影的方式 
   - `left`
