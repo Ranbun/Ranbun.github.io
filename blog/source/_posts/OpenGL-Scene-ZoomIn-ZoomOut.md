@@ -58,13 +58,13 @@ tags:
 &ensp;&ensp;Most mouse types work in steps of 15 degrees, in which case the delta value is a multiple of 120; i.e., 120 units * 1/8 = 15 degrees.
 </p>
 
-- 正值表示滚轮向上,远离用户.负值向下,靠近用户.
+- 正值表示滚轮向上,远离用户. 负值向下,靠近用户.
 - 此函数将返回两个方向上的滚动
     - <font color=red>我们此处使用是垂直方向的滚动的角度 </font>
-- 滚轮每次触发滚动的的角度是$15^。(delta)$，但是实际的返回值是 $delta \times 8  = 120 $
+- 滚轮每次触发滚动的的角度是$15^\circ\left(delta\right)$，但是实际的返回值是 $delta \times 8  = 120 $
 - 返回的值应以 $ 1/8 $ 为单位:
-    - $angleDelta() / 8$得到鼠标实际滚动的度数
-
+    - $angleDelta() / 8$ 得到鼠标实际滚动的度数
+- <code style="color:red">通过上面步骤便可以获取滚轮实际旋转的角度</code>
 
 
 

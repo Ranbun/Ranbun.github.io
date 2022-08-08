@@ -447,7 +447,7 @@ parallel projection graphics do not scale with the window</h1>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-07 16:17:04" itemprop="dateModified" datetime="2022-08-07T16:17:04+08:00">2022-08-07</time>
+      <time title="修改时间：2022-08-08 08:47:52" itemprop="dateModified" datetime="2022-08-08T08:47:52+08:00">2022-08-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -512,14 +512,54 @@ OpenGL的缩放
 <li>在出发滚轮事件之后，我们通过一个<code>QWheelEvent</code>对象获取我们需要的关于滚轮的信息</li>
 </ul>
 <div>
-<pre><code>&lt;p&gt;
-    &amp;ensp;&amp;ensp;Wheel events are sent to the widget under the mouse cursor, but if that widget does not handle the event they are sent to the focus widget. Wheel events are generated for both mouse wheels and trackpad scroll gestures. There are two ways to read the wheel event delta: &lt;code&gt;angleDelta()&lt;/code&gt; returns the deltas in wheel degrees. These values are always provided. &lt;code&gt;pixelDelta()&lt;/code&gt; returns the deltas in screen pixels.
-&lt;/p&gt;
-
-&lt;p&gt;
-    &amp;ensp;&amp;ensp; 上述部分来自&lt;code&gt;Qt&lt;/code&gt;官方文档,我们有两种方法可以获取鼠标滚轮的增量(正负代表方向)，&lt;code&gt;angleDelta()&lt;/code&gt;，&lt;code&gt;pixelDelta()&lt;/code&gt;.
-&lt;/p&gt;</code></pre>
+<p>
+  Wheel events are sent to the widget under the mouse cursor, but if
+that widget does not handle the event they are sent to the focus widget.
+Wheel events are generated for both mouse wheels and trackpad scroll
+gestures. There are two ways to read the wheel event delta:
+<code>angleDelta()</code> returns the deltas in wheel degrees. These
+values are always provided. <code>pixelDelta()</code> returns the deltas
+in screen pixels.
+</p>
+<p>
+  
+上述部分来自<code>Qt</code>官方文档,我们有两种方法可以获取鼠标滚轮的增量(正负代表方向)，<code>angleDelta()</code>，<code>pixelDelta()</code>.
+</p>
 </div>
+<h6>
+<code>QPoint QWheelEvent::angleDelta() const</code>
+</h6>
+<p>
+<p>  Returns the relative amount that the wheel was rotated, in eighths
+of a degree. A positive value indicates that the wheel was rotated
+forwards away from the user; a negative value indicates that the wheel
+was rotated backwards toward the user. angleDelta().y() provides the
+angle through which the common vertical mouse wheel was rotated since
+the previous event. angleDelta().x() provides the angle through which
+the horizontal mouse wheel was rotated, if the mouse has a horizontal
+wheel; otherwise it stays at zero. Some mice allow the user to tilt the
+wheel to perform horizontal scrolling, and some touchpads support a
+horizontal scrolling gesture; that will also appear in
+angleDelta().x().</p>
+  Most mouse types work in steps of 15 degrees, in which case the delta
+value is a multiple of 120; i.e., 120 units * 1/8 = 15 degrees.
+</p>
+<ul>
+<li>正值表示滚轮向上,远离用户. 负值向下,靠近用户.</li>
+<li>此函数将返回两个方向上的滚动
+<ul>
+<li><font color=red>我们此处使用是垂直方向的滚动的角度 </font></li>
+</ul></li>
+<li>滚轮每次触发滚动的的角度是<span
+class="math inline">\(15^\circ\left(delta\right)\)</span>，但是实际的返回值是
+$delta = 120 $</li>
+<li>返回的值应以 $ 1/8 $ 为单位:
+<ul>
+<li><span class="math inline">\(angleDelta() / 8\)</span>
+得到鼠标实际滚动的度数</li>
+</ul></li>
+<li><code style="color:red">通过上面步骤便可以获取滚轮实际旋转的角度</code></li>
+</ul>
 
       
     </div>
