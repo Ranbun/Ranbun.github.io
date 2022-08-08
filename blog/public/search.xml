@@ -50,6 +50,97 @@
       </tags>
   </entry>
   <entry>
+    <title>Bit manipulation</title>
+    <url>/2022/07/29/Bit-manipulation/</url>
+    <content><![CDATA[<h3 id="将二进制数某一位置0置1取反">将二进制数某一位置0，置1，取反</h3>
+<ul>
+<li><h2
+id="用位运算可以解决我们的问题所以下面部分的代码就是一些位运算的简单应用">用位运算可以解决我们的问题,所以下面部分的代码就是一些位运算的简单应用</h2></li>
+<li>函数实现</li>
+</ul>
+<h4 id="将不同进制数转为二进制非必须---我们只是为了显示结果">1.
+将不同进制数转为二进制(非必须) - 我们只是为了显示结果</h4>
+<ul>
+<li>模拟人的计算过程 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showBinary</span><span class="params">(<span class="keyword">int</span> d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">array</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储具体对应的位的值 0 / 1</span></span><br><span class="line">    <span class="built_in">array</span>&lt;<span class="keyword">int</span>, 32&gt; num;</span><br><span class="line">    num.fill(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>; <span class="comment">// 当前转换的Bit位</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">31</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (d &amp; flag)</span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        flag = flag &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查找第一个不是零的数 </span></span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">if</span> 1 </span></span><br><span class="line">    <span class="comment">// 此过程可以省略 做了个显示上的优化</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i = <span class="number">0</span>; i &lt; num.size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (num[i] != <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">                i == <span class="number">0</span> ? index = i : index = i - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span> </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出转换结果</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i = index; i &lt; num.size(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; num[i];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="某一位置为-0">某一位置为 0</h4>
+<ul>
+<li><code>&amp;</code>运算的应用 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 0</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Zero</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 取反是一个只和取反位数以及之后所有位数相关的操作</span></span><br><span class="line">    <span class="comment">// 二进制的位数从0开始计算 所以需要 bits - 1 </span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; (bits(3) - 1) = 4 = 0100 </span></span><br><span class="line">    <span class="comment">// ~4 = 1011</span></span><br><span class="line">    <span class="comment">// &amp; 同为 1 则为 1 =&gt; 1011 &amp; (任意数字) 第三位等于 0</span></span><br><span class="line">    d = d &amp; (~(<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>)));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="某一位置为-1">某一位置为 1</h4>
+<ul>
+<li><code>|</code> 运算的应用, 只要有一个是1 结果都是1
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 1</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2One</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// d(16) = 10000 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 4 = 0100</span></span><br><span class="line">    <span class="comment">// d | 0100 = 10000 | 0100  = 10100 </span></span><br><span class="line">    d = d | (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="某一位置取反">某一位置取反</h4>
+<ul>
+<li><code>^</code> 异或运算的运用
+<ul>
+<li><code>^</code> 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1 其余的情况都是
+0</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位取反</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Negate</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 转换过程</span></span><br><span class="line">    <span class="comment">// ^ 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1  其余的情况都是 0 </span></span><br><span class="line">    <span class="comment">// d(15) == 1111 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 0100</span></span><br><span class="line">    <span class="comment">// 1111</span></span><br><span class="line">    <span class="comment">// 0100 ^</span></span><br><span class="line">    <span class="comment">// 1011 </span></span><br><span class="line">    d = d ^ (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="参考">参考</h2>
+<ul>
+<li>[1] <a
+href="https://gthub.com/Ranbun/blogProjects/tree/main/BitManipulation"
+title="Github">Github</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Bug奇遇记-uint16_t</title>
+    <url>/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/</url>
+    <content><![CDATA[<h3 id="uint16_t">uint16_t</h3>
+<ul>
+<li>标准定义中：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">short</span>  <span class="keyword">uint16_t</span>; <span class="comment">// max == _UI16_MAX 0xffffu </span></span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/uint16_t.png"
+title="uint16" alt="uint16_t" />
+<figcaption aria-hidden="true">uint16_t</figcaption>
+</figure>
+<h4 id="问题">问题：</h4>
+<ul>
+<li><font color=red>这是一个粗心的问题</font></li>
+</ul>
+<p>在我正在实现的功能中有一个数据遍历的部分，我使用了<code>uint16_t</code>类型作为索引的类型，但是<code>uint16_t</code>数据的最大值比较小，所以当基础数据量过大的时候，我们产生的索引会越过索引的最大范围，导致最终得到的索引不是实际需要的索引值，导致我最终绘制的图形不是正确的结果！</p>
+<hr />
+<h3 id="正确的结果展示">正确的结果展示：</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_2.png"
+title="result" alt="lum_2" />
+<figcaption aria-hidden="true">lum_2</figcaption>
+</figure>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_1.png"
+title="Result" alt="right result" />
+<figcaption aria-hidden="true">right result</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>GF</category>
+        <category>data type</category>
+        <category>bugs</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>osg</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Bucket Sort and Cardinality sort</title>
     <url>/2021/11/07/Bucket-Sort/</url>
     <content><![CDATA[<h3 id="桶排序">桶排序</h3>
@@ -162,94 +253,20 @@ N时差不多是一个线性复杂度的算法)</li>
       </tags>
   </entry>
   <entry>
-    <title>Bit manipulation</title>
-    <url>/2022/07/29/Bit-manipulation/</url>
-    <content><![CDATA[<h3 id="将二进制数某一位置0置1取反">将二进制数某一位置0，置1，取反</h3>
-<ul>
-<li><h2
-id="用位运算可以解决我们的问题所以下面部分的代码就是一些位运算的简单应用">用位运算可以解决我们的问题,所以下面部分的代码就是一些位运算的简单应用</h2></li>
-<li>函数实现</li>
-</ul>
-<h4 id="将不同进制数转为二进制非必须---我们只是为了显示结果">1.
-将不同进制数转为二进制(非必须) - 我们只是为了显示结果</h4>
-<ul>
-<li>模拟人的计算过程 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showBinary</span><span class="params">(<span class="keyword">int</span> d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">array</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储具体对应的位的值 0 / 1</span></span><br><span class="line">    <span class="built_in">array</span>&lt;<span class="keyword">int</span>, 32&gt; num;</span><br><span class="line">    num.fill(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>; <span class="comment">// 当前转换的Bit位</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">31</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (d &amp; flag)</span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        flag = flag &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查找第一个不是零的数 </span></span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">if</span> 1 </span></span><br><span class="line">    <span class="comment">// 此过程可以省略 做了个显示上的优化</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i = <span class="number">0</span>; i &lt; num.size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (num[i] != <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">                i == <span class="number">0</span> ? index = i : index = i - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span> </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出转换结果</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i = index; i &lt; num.size(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; num[i];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="某一位置为-0">某一位置为 0</h4>
-<ul>
-<li><code>&amp;</code>运算的应用 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 0</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Zero</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 取反是一个只和取反位数以及之后所有位数相关的操作</span></span><br><span class="line">    <span class="comment">// 二进制的位数从0开始计算 所以需要 bits - 1 </span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; (bits(3) - 1) = 4 = 0100 </span></span><br><span class="line">    <span class="comment">// ~4 = 1011</span></span><br><span class="line">    <span class="comment">// &amp; 同为 1 则为 1 =&gt; 1011 &amp; (任意数字) 第三位等于 0</span></span><br><span class="line">    d = d &amp; (~(<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>)));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="某一位置为-1">某一位置为 1</h4>
-<ul>
-<li><code>|</code> 运算的应用, 只要有一个是1 结果都是1
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 1</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2One</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// d(16) = 10000 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 4 = 0100</span></span><br><span class="line">    <span class="comment">// d | 0100 = 10000 | 0100  = 10100 </span></span><br><span class="line">    d = d | (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="某一位置取反">某一位置取反</h4>
-<ul>
-<li><code>^</code> 异或运算的运用
-<ul>
-<li><code>^</code> 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1 其余的情况都是
-0</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位取反</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Negate</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 转换过程</span></span><br><span class="line">    <span class="comment">// ^ 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1  其余的情况都是 0 </span></span><br><span class="line">    <span class="comment">// d(15) == 1111 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 0100</span></span><br><span class="line">    <span class="comment">// 1111</span></span><br><span class="line">    <span class="comment">// 0100 ^</span></span><br><span class="line">    <span class="comment">// 1011 </span></span><br><span class="line">    d = d ^ (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="参考">参考</h2>
-<ul>
-<li>[1] <a
-href="https://gthub.com/Ranbun/blogProjects/tree/main/BitManipulation"
-title="Github">Github</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Coding</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Bug奇遇记-uint16_t</title>
-    <url>/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/</url>
-    <content><![CDATA[<h3 id="uint16_t">uint16_t</h3>
-<ul>
-<li>标准定义中：</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">short</span>  <span class="keyword">uint16_t</span>; <span class="comment">// max == _UI16_MAX 0xffffu </span></span><br></pre></td></tr></table></figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/uint16_t.png"
-title="uint16" alt="uint16_t" />
-<figcaption aria-hidden="true">uint16_t</figcaption>
-</figure>
-<h4 id="问题">问题：</h4>
-<ul>
-<li><font color=red>这是一个粗心的问题</font></li>
-</ul>
-<p>在我正在实现的功能中有一个数据遍历的部分，我使用了<code>uint16_t</code>类型作为索引的类型，但是<code>uint16_t</code>数据的最大值比较小，所以当基础数据量过大的时候，我们产生的索引会越过索引的最大范围，导致最终得到的索引不是实际需要的索引值，导致我最终绘制的图形不是正确的结果！</p>
+    <title>Cplusplus key words - extern</title>
+    <url>/2022/08/08/Cplusplus-key-words-extern/</url>
+    <content><![CDATA[<center>
+<h2>
+<code>extern</code> 关键字
+</h2>
+</center>
 <hr />
-<h3 id="正确的结果展示">正确的结果展示：</h3>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_2.png"
-title="result" alt="lum_2" />
-<figcaption aria-hidden="true">lum_2</figcaption>
-</figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_1.png"
-title="Result" alt="right result" />
-<figcaption aria-hidden="true">right result</figcaption>
-</figure>
 ]]></content>
       <categories>
-        <category>works</category>
-        <category>GF</category>
-        <category>data type</category>
-        <category>bugs</category>
+        <category>cpp</category>
       </categories>
       <tags>
-        <tag>cpp</tag>
-        <tag>osg</tag>
+        <tag>key words</tag>
       </tags>
   </entry>
   <entry>
@@ -271,6 +288,44 @@ id="dynamic-drawing-of-osg-vertex-buffer-objects"><code>Dynamic drawing of osg v
       <tags>
         <tag>cpp</tag>
         <tag>osg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Games202-ShadowMap</title>
+    <url>/2021/12/13/Games202-ShadowMap/</url>
+    <content><![CDATA[<h2 id="shadow-map">Shadow Map</h2>
+<ul>
+<li>记录一下关于<code>Games202</code>的学习</li>
+</ul>
+<h4 id="shadow-map-1">shadow map</h4>
+<ul>
+<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p></li>
+<li><p>如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：</p>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" /></p></li>
+</ul>
+<p>上图来自<code>Games202</code>的课件：</p>
+<ul>
+<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p></li>
+<li><p>关于计算当前vertex point
+是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p></li>
+<li><p>在<code>Games202</code>的作业1中，我们需要使用提供的matrix的接口处理矩阵。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mat.translate() <span class="comment">// 设置矩阵的移动 </span></span><br><span class="line">mat4.scale      <span class="comment">// 设置矩阵的缩放</span></span><br><span class="line"></span><br><span class="line">mat4.lookAt(); <span class="comment">// 生成的视图矩阵</span></span><br><span class="line">mat4.ortho();  <span class="comment">// 平行投影</span></span><br><span class="line"></span><br><span class="line">mat4.multiply(); <span class="comment">// 矩阵的乘法</span></span><br></pre></td></tr></table></figure>
+<p><a
+href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p></li>
+<li><p>深度比较：</p>
+<figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure></li>
+<li><p>最终效果</p></li>
+</ul>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" /></p>
+]]></content>
+      <categories>
+        <category>Computer Graph</category>
+      </categories>
+      <tags>
+        <tag>Games202</tag>
+        <tag>Shadow</tag>
       </tags>
   </entry>
   <entry>
@@ -327,41 +382,68 @@ alt="git commit" /></li>
       </tags>
   </entry>
   <entry>
-    <title>Games202-ShadowMap</title>
-    <url>/2021/12/13/Games202-ShadowMap/</url>
-    <content><![CDATA[<h2 id="shadow-map">Shadow Map</h2>
+    <title>Heap</title>
+    <url>/2021/10/24/Heap/</url>
+    <content><![CDATA[<h2 id="堆">堆</h2>
+<h4
+id="优先队列pripority-queue">优先队列(<code>Pripority Queue</code>)</h4>
 <ul>
-<li>记录一下关于<code>Games202</code>的学习</li>
-</ul>
-<h4 id="shadow-map-1">shadow map</h4>
+<li>特殊的
+"队列",取出元素的顺序是按照元素的优先级大小，而不是进入队列的先后顺序。</li>
+<li>使用数组构建：
 <ul>
-<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p></li>
-<li><p>如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：</p>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" /></p></li>
-</ul>
-<p>上图来自<code>Games202</code>的课件：</p>
+<li>插入：      总是插入数组的尾部<code>T = O(1)</code></li>
+<li>删除：      查找到最大的(最小的元素)：<code>T=O(N)</code>
+     从数组中删除元素，需要将元素移动位置：<code>T=O(N)</code></li>
+</ul></li>
+<li>链表构建：
 <ul>
-<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p></li>
-<li><p>关于计算当前vertex point
-是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p></li>
-<li><p>在<code>Games202</code>的作业1中，我们需要使用提供的matrix的接口处理矩阵。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mat.translate() <span class="comment">// 设置矩阵的移动 </span></span><br><span class="line">mat4.scale      <span class="comment">// 设置矩阵的缩放</span></span><br><span class="line"></span><br><span class="line">mat4.lookAt(); <span class="comment">// 生成的视图矩阵</span></span><br><span class="line">mat4.ortho();  <span class="comment">// 平行投影</span></span><br><span class="line"></span><br><span class="line">mat4.multiply(); <span class="comment">// 矩阵的乘法</span></span><br></pre></td></tr></table></figure>
-<p><a
-href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p></li>
-<li><p>深度比较：</p>
-<figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure></li>
-<li><p>最终效果</p></li>
+<li>插入：      总是插入链表的头部<code>T = O(1)</code></li>
+<li>删除：      查找到最大的(最小的元素)：<code>T=O(N)</code>
+     删除元素：<code>T=O(1)</code></li>
+</ul></li>
+<li>有序数组：
+<ul>
+<li>插入：     找到合适的位置:<code>T = O(N) or O(log2(N))</code>
+    移动元素并插入<code>T=O(N)</code></li>
+<li>删除：     删除最后一个元素：<code>T=O(1)</code></li>
+</ul></li>
+<li>有序链表：
+<ul>
+<li>插入：     找到合适的位置:<code>T = O(N)</code>
+    插入<code>T=O(1)</code></li>
+<li>删除：     删除最后一个元素(或者首元素)：<code>T=O(1)</code></li>
+</ul></li>
 </ul>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" /></p>
+<h4 id="最大堆---完全二叉树大顶堆">最大堆 - 完全二叉树（大顶堆）</h4>
+<ul>
+<li>根元素是当前树中最大的</li>
+</ul>
+<h5 id="堆的创建----创建空堆">1、堆的创建 -- 创建空堆</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> strut HeapStruct * MaxHeap;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">HeadStruct</span>&#123;</span></span><br><span class="line">    ElementType * Elements;   <span class="comment">// 存储元素的数组 </span></span><br><span class="line">    <span class="keyword">int</span> Size;                 <span class="comment">// 当前元素个数</span></span><br><span class="line">    <span class="keyword">int</span> Capacity;             <span class="comment">// 堆的最大容量</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建堆</span></span><br><span class="line"><span class="function">MaxHeap <span class="title">create</span><span class="params">(<span class="keyword">int</span> MaxSize)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    MaxHeap H = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct HeapStruct));</span><br><span class="line">    H-&gt;Elements = <span class="built_in">malloc</span>((MaxSize+<span class="number">1</span>) * <span class="keyword">sizeof</span>(ElementType));</span><br><span class="line">    H-&gt;size = <span class="number">0</span>;</span><br><span class="line">    H-&gt;Capactity = MaxSize;</span><br><span class="line">    H-&gt;Elements[<span class="number">0</span>] = MaxData;  <span class="comment">// O号位置存储的是哨兵 不是个元素 </span></span><br><span class="line">	<span class="keyword">return</span> H;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="堆的插入">2，堆的插入</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Insert</span><span class="params">(MaxHeap H,ElementType item)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">if</span>(isFull(H))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;最大堆已经满了&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    i = ++H-&gt;Size;  <span class="comment">// i等于 插入元素后的堆中的最后一个元素的下标</span></span><br><span class="line">    <span class="comment">// 交换节点的位置 </span></span><br><span class="line">    <span class="keyword">for</span>(;H-&gt;Elements[i/<span class="number">2</span>] &lt; item; i = i/<span class="number">2</span>) <span class="comment">// 如果I对应的那个插入元素 大于其父节点的数据 交换两个元素的值</span></span><br><span class="line">    &#123;</span><br><span class="line">        H-&gt;Elements[i] = H-&gt;Elements[i/<span class="number">2</span>];  <span class="comment">// 覆盖结果</span></span><br><span class="line">    &#125;</span><br><span class="line">    H-&gt;Elements[i] = item;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="堆的删除">3、堆的删除</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 取出根节点</span></span><br><span class="line"><span class="comment">// 将最后一个元素放到根节点(保留树的特性)</span></span><br><span class="line"><span class="comment">// 修改使其具有最大（最小）堆的特性</span></span><br><span class="line"></span><br><span class="line"><span class="function">EleementType <span class="title">deleteMax</span><span class="params">(MaxHeap H)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> parent,child;</span><br><span class="line">    ElementType MaxChild,temp;</span><br><span class="line">    <span class="keyword">if</span>(IsEmpty(H))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;堆为空&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    MaxItem = H-&gt;Elements[<span class="number">1</span>]; <span class="comment">// 取出根的最大值 </span></span><br><span class="line">    <span class="comment">// 取出堆中最后一个元素， 并将Size - 1</span></span><br><span class="line">    temp = H-&gt;Elements[H-&gt;Size --];</span><br><span class="line">    <span class="comment">// 调整数据的大小关系 </span></span><br><span class="line">    <span class="keyword">for</span>(parent = <span class="number">1</span>; parent*<span class="number">2</span> &lt; H-&gt;Size;parent = child)  <span class="comment">// 是不是存在左孩子 </span></span><br><span class="line">    &#123;</span><br><span class="line">        child = parent * <span class="number">2</span>;</span><br><span class="line">        <span class="comment">// 比较左右孩子的大小</span></span><br><span class="line">        <span class="keyword">if</span>((child != H-&gt;Size)) &amp;&amp; (H-&gt;Elements[child] &lt; H-&gt;Elements[child+<span class="number">1</span>]))  <span class="comment">// 当前child不是最后一个元素 </span></span><br><span class="line">        &#123;</span><br><span class="line">            child++; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 不满足交换条件 - 结束循环</span></span><br><span class="line">        <span class="keyword">if</span>(temp &gt; H-&gt;Elements[child])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 交换元素 </span></span><br><span class="line">            H-&gt;Elements[parent] = H-&gt;Elements[child];</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 循环结束代表找到temp元素的合适安置位置 -- 放到合适的位置即可</span></span><br><span class="line">    H-&gt;Elements[parent] = temp;</span><br><span class="line">    <span class="keyword">return</span> MaxItem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="最大堆的建立">4、最大堆的建立</h5>
+<p>  建立最大堆：将已经存在的N个元素按最大堆的要求存放在一个一维数组中</p>
+<p>  1、通过插入操作，将N个元素一个一个的插入到空堆中去：<code>T = O(NlogN)</code></p>
+<p>  2、线性时间复杂度下建立最大堆</p>
+<p>​   1、将元素安顺序输入，先构建完全二叉树（下标为1开始）</p>
+<p>   2、调整元素位置，使其满足最大堆</p>
+<p><a href=https://github.com/CuntBoy/Sort_Algorithm/tree/main/heap style="color:red">Heap
+C++ 实现  </a></p>
+<h4 id="最小堆--完全二叉树小顶堆">最小堆- 完全二叉树（小顶堆）</h4>
+<ul>
+<li>可以参照最大堆写</li>
+</ul>
 ]]></content>
       <categories>
-        <category>Computer Graph</category>
+        <category>Algorithm</category>
       </categories>
       <tags>
-        <tag>Games202</tag>
-        <tag>Shadow</tag>
+        <tag>cpp</tag>
+        <tag>sort</tag>
       </tags>
   </entry>
   <entry>
@@ -457,71 +539,6 @@ src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/g
       <tags>
         <tag>cpp</tag>
         <tag>osg</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Heap</title>
-    <url>/2021/10/24/Heap/</url>
-    <content><![CDATA[<h2 id="堆">堆</h2>
-<h4
-id="优先队列pripority-queue">优先队列(<code>Pripority Queue</code>)</h4>
-<ul>
-<li>特殊的
-"队列",取出元素的顺序是按照元素的优先级大小，而不是进入队列的先后顺序。</li>
-<li>使用数组构建：
-<ul>
-<li>插入：      总是插入数组的尾部<code>T = O(1)</code></li>
-<li>删除：      查找到最大的(最小的元素)：<code>T=O(N)</code>
-     从数组中删除元素，需要将元素移动位置：<code>T=O(N)</code></li>
-</ul></li>
-<li>链表构建：
-<ul>
-<li>插入：      总是插入链表的头部<code>T = O(1)</code></li>
-<li>删除：      查找到最大的(最小的元素)：<code>T=O(N)</code>
-     删除元素：<code>T=O(1)</code></li>
-</ul></li>
-<li>有序数组：
-<ul>
-<li>插入：     找到合适的位置:<code>T = O(N) or O(log2(N))</code>
-    移动元素并插入<code>T=O(N)</code></li>
-<li>删除：     删除最后一个元素：<code>T=O(1)</code></li>
-</ul></li>
-<li>有序链表：
-<ul>
-<li>插入：     找到合适的位置:<code>T = O(N)</code>
-    插入<code>T=O(1)</code></li>
-<li>删除：     删除最后一个元素(或者首元素)：<code>T=O(1)</code></li>
-</ul></li>
-</ul>
-<h4 id="最大堆---完全二叉树大顶堆">最大堆 - 完全二叉树（大顶堆）</h4>
-<ul>
-<li>根元素是当前树中最大的</li>
-</ul>
-<h5 id="堆的创建----创建空堆">1、堆的创建 -- 创建空堆</h5>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> strut HeapStruct * MaxHeap;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">HeadStruct</span>&#123;</span></span><br><span class="line">    ElementType * Elements;   <span class="comment">// 存储元素的数组 </span></span><br><span class="line">    <span class="keyword">int</span> Size;                 <span class="comment">// 当前元素个数</span></span><br><span class="line">    <span class="keyword">int</span> Capacity;             <span class="comment">// 堆的最大容量</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建堆</span></span><br><span class="line"><span class="function">MaxHeap <span class="title">create</span><span class="params">(<span class="keyword">int</span> MaxSize)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    MaxHeap H = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct HeapStruct));</span><br><span class="line">    H-&gt;Elements = <span class="built_in">malloc</span>((MaxSize+<span class="number">1</span>) * <span class="keyword">sizeof</span>(ElementType));</span><br><span class="line">    H-&gt;size = <span class="number">0</span>;</span><br><span class="line">    H-&gt;Capactity = MaxSize;</span><br><span class="line">    H-&gt;Elements[<span class="number">0</span>] = MaxData;  <span class="comment">// O号位置存储的是哨兵 不是个元素 </span></span><br><span class="line">	<span class="keyword">return</span> H;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h5 id="堆的插入">2，堆的插入</h5>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Insert</span><span class="params">(MaxHeap H,ElementType item)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">if</span>(isFull(H))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;最大堆已经满了&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    i = ++H-&gt;Size;  <span class="comment">// i等于 插入元素后的堆中的最后一个元素的下标</span></span><br><span class="line">    <span class="comment">// 交换节点的位置 </span></span><br><span class="line">    <span class="keyword">for</span>(;H-&gt;Elements[i/<span class="number">2</span>] &lt; item; i = i/<span class="number">2</span>) <span class="comment">// 如果I对应的那个插入元素 大于其父节点的数据 交换两个元素的值</span></span><br><span class="line">    &#123;</span><br><span class="line">        H-&gt;Elements[i] = H-&gt;Elements[i/<span class="number">2</span>];  <span class="comment">// 覆盖结果</span></span><br><span class="line">    &#125;</span><br><span class="line">    H-&gt;Elements[i] = item;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h5 id="堆的删除">3、堆的删除</h5>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 取出根节点</span></span><br><span class="line"><span class="comment">// 将最后一个元素放到根节点(保留树的特性)</span></span><br><span class="line"><span class="comment">// 修改使其具有最大（最小）堆的特性</span></span><br><span class="line"></span><br><span class="line"><span class="function">EleementType <span class="title">deleteMax</span><span class="params">(MaxHeap H)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> parent,child;</span><br><span class="line">    ElementType MaxChild,temp;</span><br><span class="line">    <span class="keyword">if</span>(IsEmpty(H))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;堆为空&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    MaxItem = H-&gt;Elements[<span class="number">1</span>]; <span class="comment">// 取出根的最大值 </span></span><br><span class="line">    <span class="comment">// 取出堆中最后一个元素， 并将Size - 1</span></span><br><span class="line">    temp = H-&gt;Elements[H-&gt;Size --];</span><br><span class="line">    <span class="comment">// 调整数据的大小关系 </span></span><br><span class="line">    <span class="keyword">for</span>(parent = <span class="number">1</span>; parent*<span class="number">2</span> &lt; H-&gt;Size;parent = child)  <span class="comment">// 是不是存在左孩子 </span></span><br><span class="line">    &#123;</span><br><span class="line">        child = parent * <span class="number">2</span>;</span><br><span class="line">        <span class="comment">// 比较左右孩子的大小</span></span><br><span class="line">        <span class="keyword">if</span>((child != H-&gt;Size)) &amp;&amp; (H-&gt;Elements[child] &lt; H-&gt;Elements[child+<span class="number">1</span>]))  <span class="comment">// 当前child不是最后一个元素 </span></span><br><span class="line">        &#123;</span><br><span class="line">            child++; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 不满足交换条件 - 结束循环</span></span><br><span class="line">        <span class="keyword">if</span>(temp &gt; H-&gt;Elements[child])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 交换元素 </span></span><br><span class="line">            H-&gt;Elements[parent] = H-&gt;Elements[child];</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 循环结束代表找到temp元素的合适安置位置 -- 放到合适的位置即可</span></span><br><span class="line">    H-&gt;Elements[parent] = temp;</span><br><span class="line">    <span class="keyword">return</span> MaxItem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h5 id="最大堆的建立">4、最大堆的建立</h5>
-<p>  建立最大堆：将已经存在的N个元素按最大堆的要求存放在一个一维数组中</p>
-<p>  1、通过插入操作，将N个元素一个一个的插入到空堆中去：<code>T = O(NlogN)</code></p>
-<p>  2、线性时间复杂度下建立最大堆</p>
-<p>​   1、将元素安顺序输入，先构建完全二叉树（下标为1开始）</p>
-<p>   2、调整元素位置，使其满足最大堆</p>
-<p><a href=https://github.com/CuntBoy/Sort_Algorithm/tree/main/heap style="color:red">Heap
-C++ 实现  </a></p>
-<h4 id="最小堆--完全二叉树小顶堆">最小堆- 完全二叉树（小顶堆）</h4>
-<ul>
-<li>可以参照最大堆写</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
       </tags>
   </entry>
   <entry>
@@ -692,6 +709,25 @@ $delta = 120 $</li>
 得到鼠标实际滚动的度数</li>
 </ul></li>
 <li><code style="color:red">通过上面步骤便可以获取滚轮实际旋转的角度</code></li>
+</ul>
+<h3 id="将滚轮旋转角度映射到投影矩阵">2.
+将滚轮旋转角度映射到投影矩阵</h3>
+<ul>
+<li>$ ratio = delta / 360^ $</li>
+<li>使用这个值去修改投影矩阵的参数</li>
+<li>我们使用的是平行投影的方式
+<ul>
+<li><code>left</code></li>
+<li><code>rght</code></li>
+<li><code>bottom</code></li>
+<li><code>top</code></li>
+</ul></li>
+</ul>
+<h3 id="更新投影矩阵">3. 更新投影矩阵</h3>
+<ul>
+<li>在此之前 请将矩阵设置为单位矩阵 然后重新计算投影矩阵</li>
+<li>更新投影矩阵</li>
+<li>调用强制重新绘制(<code>Qt</code>) - <code>repaint()</code></li>
 </ul>
 ]]></content>
       <categories>
@@ -1526,6 +1562,22 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
       </tags>
   </entry>
   <entry>
+    <title>Boy</title>
+    <url>/2021/03/16/baozi/</url>
+    <content><![CDATA[<h4 id="about-this-blog">About this Blog</h4>
+<ul>
+<li>个人博客，分享我的日常与一些工作内容</li>
+</ul>
+]]></content>
+      <categories>
+        <category>bun</category>
+        <category>life</category>
+      </categories>
+      <tags>
+        <tag>intraduce</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Table-Sort</title>
     <url>/2021/11/07/Table-Sort/</url>
     <content><![CDATA[<h3 id="表排序">表排序</h3>
@@ -1818,22 +1870,6 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
       <tags>
         <tag>cpp</tag>
         <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Boy</title>
-    <url>/2021/03/16/baozi/</url>
-    <content><![CDATA[<h4 id="about-this-blog">About this Blog</h4>
-<ul>
-<li>个人博客，分享我的日常与一些工作内容</li>
-</ul>
-]]></content>
-      <categories>
-        <category>bun</category>
-        <category>life</category>
-      </categories>
-      <tags>
-        <tag>intraduce</tag>
       </tags>
   </entry>
   <entry>
