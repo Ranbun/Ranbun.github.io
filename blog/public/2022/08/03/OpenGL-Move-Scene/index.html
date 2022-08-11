@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.ranbun.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="OpenGL Move Scene">
+    <meta name="description" content="OpenGL Move Scene - 平面上移动    我们考虑一个简单的平面的移动  某个维度为 0,我们只需要在某个平面上移动   1. 计算移动的方向  在此之前对于相机的概念，希望您是熟悉的 虽然在OpenGL中本身并没有相机的概念  eye - point center - point up - vector   计算相机的朝向  右方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenGL Move Scene">
 <meta property="og:url" content="https://blog.ranbun.com/2022/08/03/OpenGL-Move-Scene/index.html">
 <meta property="og:site_name" content="RanBun&#39;s Blog">
-<meta property="og:description" content="OpenGL Move Scene">
+<meta property="og:description" content="OpenGL Move Scene - 平面上移动    我们考虑一个简单的平面的移动  某个维度为 0,我们只需要在某个平面上移动   1. 计算移动的方向  在此之前对于相机的概念，希望您是熟悉的 虽然在OpenGL中本身并没有相机的概念  eye - point center - point up - vector   计算相机的朝向  右方">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-03T13:05:59.000Z">
-<meta property="article:modified_time" content="2022-08-04T02:16:33.466Z">
+<meta property="article:modified_time" content="2022-08-11T12:49:33.937Z">
 <meta property="article:author" content="RanBun">
 <meta property="article:tag" content="OpenGL">
 <meta name="twitter:card" content="summary">
@@ -145,7 +145,10 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#opengl-move-scene"><span class="nav-number">1.</span> <span class="nav-text">OpenGL Move Scene</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">
+OpenGL Move Scene - 平面上移动
+</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E7%A7%BB%E5%8A%A8%E7%9A%84%E6%96%B9%E5%90%91"><span class="nav-number">1.1.</span> <span class="nav-text">1. 计算移动的方向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E7%9B%B8%E6%9C%BA%E7%9A%84%E6%9C%9D%E5%90%91"><span class="nav-number">1.1.1.</span> <span class="nav-text">计算相机的朝向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E7%9B%B8%E6%9C%BA%E7%9A%84%E5%8F%B3%E6%96%B9%E5%90%91"><span class="nav-number">1.1.2.</span> <span class="nav-text">计算相机的右方向</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BC%A0%E6%A0%87%E7%9A%84%E7%A7%BB%E5%8A%A8"><span class="nav-number">1.2.</span> <span class="nav-text">2. 鼠标的移动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%93%E5%8F%B3%E9%94%AE%E6%8C%89%E4%B8%8B%E6%88%91%E4%BB%AC%E8%AE%B0%E5%BD%95%E5%BD%93%E5%89%8D%E7%9A%84%E9%BC%A0%E6%A0%87%E7%9A%84%E5%9D%90%E6%A0%87"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.
+当右键按下我们记录当前的鼠标的坐标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A6%E5%8F%91%E7%A7%BB%E5%8A%A8%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 触发移动事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.3.</span> <span class="nav-text">移动场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E8%A7%86%E5%9B%BE%E7%9F%A9%E9%98%B5repaint"><span class="nav-number">1.4.</span> <span class="nav-text">更新视图矩阵&amp;repaint</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -269,7 +272,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-04 10:16:33" itemprop="dateModified" datetime="2022-08-04T10:16:33+08:00">2022-08-04</time>
+      <time title="修改时间：2022-08-11 20:49:33" itemprop="dateModified" datetime="2022-08-11T20:49:33+08:00">2022-08-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -299,7 +302,77 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="opengl-move-scene">OpenGL Move Scene</h1>
+        <center>
+<h1>
+OpenGL Move Scene - 平面上移动
+</h1>
+</center>
+<ul>
+<li>我们考虑一个简单的平面的移动
+<ul>
+<li>某个维度为 <code>0</code>,我们只需要在某个平面上移动</li>
+</ul></li>
+</ul>
+<h2 id="计算移动的方向">1. 计算移动的方向</h2>
+<ul>
+<li>在此之前对于相机的概念，希望您是熟悉的</li>
+<li>虽然在<code>OpenGL</code>中本身并没有相机的概念
+<ul>
+<li><code>eye</code> - <code>point</code></li>
+<li><code>center</code> - <code>point</code></li>
+<li><code>up</code> - <code>vector</code></li>
+</ul></li>
+</ul>
+<h3 id="计算相机的朝向">计算相机的朝向</h3>
+<ul>
+<li>右方向：<span class="math inline">\(\vec{front} = center -
+eye\)</span></li>
+</ul>
+<h3 id="计算相机的右方向">计算相机的右方向</h3>
+<ul>
+<li><span class="math inline">\(\vec{right} = \vec{front} \times
+\vec{up}\)</span></li>
+<li>记得将向量<span
+class="math inline">\(\vec{right}\)</span>归一化处理</li>
+</ul>
+<h2 id="鼠标的移动">2. 鼠标的移动</h2>
+<ul>
+<li>规定使用鼠标右键平移场景</li>
+<li>我们使用<code>Qt</code>的鼠标事件
+<ul>
+<li>在<code>x</code>方向上，两次记录的位置相减携带了移动的方向</li>
+<li>在<code>y</code>方向上，<code>Qt</code>窗口的原点与<code>OpenGL</code>的窗口存在差别，需要做额外的处理
+- 反向</li>
+</ul></li>
+</ul>
+<h3 id="当右键按下我们记录当前的鼠标的坐标">1.
+当右键按下我们记录当前的鼠标的坐标</h3>
+<h3 id="触发移动事件">2. 触发移动事件</h3>
+<ul>
+<li>此处每一次出发移动我们将计算一次场景的移动
+<ul>
+<li><code>X</code>方向 - <code>offsetX</code></li>
+<li><code>Y</code>方向 - <code>offsetY</code></li>
+</ul></li>
+<li>更新我们记录的上一次的鼠标的位置</li>
+</ul>
+<h2 id="移动场景">移动场景</h2>
+<ul>
+<li>将这个移动映射成为数据的比例，作为移动方向的系数，作用到<code>eye</code>&amp;<code>center</code>,
+重新计算视图矩阵，更新场景 ### 计算新的 <code>eye</code> &amp;
+<code>center</code></li>
+<li>计算沿着<span class="math inline">\(\vec{right}\)</span> &amp; <span
+class="math inline">\(\vec{up}\)</span>方向的移动的距离</li>
+<li>获取窗口的宽高为 <code>w&amp;h</code></li>
+<li>在投影矩阵中 <span class="math inline">\(right - left =
+spanX\)</span> &amp; <span class="math inline">\(top - bottom =
+spanY\)</span> <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">offsetX / w * spanX = disX;</span><br><span class="line">offsetY / h * spanY = disY;</span><br><span class="line"></span><br><span class="line">eye += right * disX + up *  disY;</span><br><span class="line">center += right * disX + up *  disY;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="更新视图矩阵repaint">更新视图矩阵&amp;<code>repaint</code></h2>
+<ul>
+<li><code>ViewMat.lookAt(eye,center,up)</code></li>
+<li><code>repaint()</code></li>
+</ul>
 
     </div>
 

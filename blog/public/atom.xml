@@ -79,15 +79,23 @@ parallel projection graphics do not scale with the window</summary>
     <link href="https://blog.ranbun.com/2022/08/03/OpenGL-Move-Scene/"/>
     <id>https://blog.ranbun.com/2022/08/03/OpenGL-Move-Scene/</id>
     <published>2022-08-03T13:05:59.000Z</published>
-    <updated>2022-08-04T02:16:33.466Z</updated>
+    <updated>2022-08-11T12:49:33.937Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="opengl-move-scene">OpenGL Move Scene</h1>]]></content>
+    <content type="html"><![CDATA[<center><h1>OpenGL Move Scene - 平面上移动</h1></center><ul><li>我们考虑一个简单的平面的移动<ul><li>某个维度为 <code>0</code>,我们只需要在某个平面上移动</li></ul></li></ul><h2 id="计算移动的方向">1. 计算移动的方向</h2><ul><li>在此之前对于相机的概念，希望您是熟悉的</li><li>虽然在<code>OpenGL</code>中本身并没有相机的概念<ul><li><code>eye</code> - <code>point</code></li><li><code>center</code> - <code>point</code></li><li><code>up</code> - <code>vector</code></li></ul></li></ul><h3 id="计算相机的朝向">计算相机的朝向</h3><ul><li>右方向：<span class="math inline">\(\vec{front} = center -eye\)</span></li></ul><h3 id="计算相机的右方向">计算相机的右方向</h3><ul><li><span class="math inline">\(\vec{right} = \vec{front} \times\vec{up}\)</span></li><li>记得将向量<spanclass="math inline">\(\vec{right}\)</span>归一化处理</li></ul><h2 id="鼠标的移动">2. 鼠标的移动</h2><ul><li>规定使用鼠标右键平移场景</li><li>我们使用<code>Qt</code>的鼠标事件<ul><li>在<code>x</code>方向上，两次记录的位置相减携带了移动的方向</li><li>在<code>y</code>方向上，<code>Qt</code>窗口的原点与<code>OpenGL</code>的窗口存在差别，需要做额外的处理- 反向</li></ul></li></ul><h3 id="当右键按下我们记录当前的鼠标的坐标">1.当右键按下我们记录当前的鼠标的坐标</h3><h3 id="触发移动事件">2. 触发移动事件</h3><ul><li>此处每一次出发移动我们将计算一次场景的移动<ul><li><code>X</code>方向 - <code>offsetX</code></li><li><code>Y</code>方向 - <code>offsetY</code></li></ul></li><li>更新我们记录的上一次的鼠标的位置</li></ul><h2 id="移动场景">移动场景</h2><ul><li>将这个移动映射成为数据的比例，作为移动方向的系数，作用到<code>eye</code>&amp;<code>center</code>,重新计算视图矩阵，更新场景 ### 计算新的 <code>eye</code> &amp;<code>center</code></li><li>计算沿着<span class="math inline">\(\vec{right}\)</span> &amp; <spanclass="math inline">\(\vec{up}\)</span>方向的移动的距离</li><li>获取窗口的宽高为 <code>w&amp;h</code></li><li>在投影矩阵中 <span class="math inline">\(right - left =spanX\)</span> &amp; <span class="math inline">\(top - bottom =spanY\)</span> <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">offsetX / w * spanX = disX;</span><br><span class="line">offsetY / h * spanY = disY;</span><br><span class="line"></span><br><span class="line">eye += right * disX + up *  disY;</span><br><span class="line">center += right * disX + up *  disY;</span><br></pre></td></tr></table></figure></li></ul><h2 id="更新视图矩阵repaint">更新视图矩阵&amp;<code>repaint</code></h2><ul><li><code>ViewMat.lookAt(eye,center,up)</code></li><li><code>repaint()</code></li></ul>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;opengl-move-scene&quot;&gt;OpenGL Move Scene&lt;/h1&gt;
-</summary>
+    <summary type="html">&lt;center&gt;
+&lt;h1&gt;
+OpenGL Move Scene - 平面上移动
+&lt;/h1&gt;
+&lt;/center&gt;
+&lt;ul&gt;
+&lt;li&gt;我们考虑一个简单的平面的移动
+&lt;ul&gt;
+&lt;li&gt;某个维度为 &lt;code&gt;0&lt;/code&gt;,我们只需要在某个平面上移动&lt;/li&gt;
+&lt;/</summary>
       
     
     
@@ -108,7 +116,7 @@ parallel projection graphics do not scale with the window</summary>
     <link href="https://blog.ranbun.com/2022/08/03/OpenGL-Scene-ZoomIn-ZoomOut/"/>
     <id>https://blog.ranbun.com/2022/08/03/OpenGL-Scene-ZoomIn-ZoomOut/</id>
     <published>2022-08-03T13:01:52.000Z</published>
-    <updated>2022-08-08T00:47:52.226Z</updated>
+    <updated>2022-08-11T11:57:49.663Z</updated>
     
     <content type="html"><![CDATA[<!-- # `OpenGL Scene ZoomIn & ZoomOut` --><center><h1>OpenGL的缩放</h1></center><h2 id="about">About</h2><h3 id="直接缩放场景">1. 直接缩放场景</h3><h4 id="实现思路">1. 实现思路</h4><ul><li>通过模型矩阵修改场景</li></ul><h3 id="修改投影矩阵">2. 修改投影矩阵</h3><h4 id="实现思路-1">1. 实现思路</h4><ul><li>获取鼠标滚轮的变化(这个改变是带方向的向上获取一个正值,向下获取的是一个负值)</li><li>将获取的这个值映射到和投影变换参数上</li><li>修改投影矩阵</li><li>重新绘制,你将获得缩放后的场景</li></ul><p style="color:red">在我的实现中采用的是第二种方式</p><h2 id="缩放的实现">缩放的实现</h2><h3 id="获取滚轮旋转角度">1. 获取滚轮旋转角度</h3><p>我是用的是<code>Qt</code>的<code>OpenGL</code>,可以直接重写窗口的一些事件，比起使用<code>glfw</code>等方式，比起它们注册回调的方式可能相对方便一些。</p><h4 id="qt的滚轮事件">Qt的滚轮事件</h4><h5 id="qwheelevent"><code>QWheelEvent</code></h5><ul><li>在出发滚轮事件之后，我们通过一个<code>QWheelEvent</code>对象获取我们需要的关于滚轮的信息</li></ul><div><p>  Wheel events are sent to the widget under the mouse cursor, but ifthat widget does not handle the event they are sent to the focus widget.Wheel events are generated for both mouse wheels and trackpad scrollgestures. There are two ways to read the wheel event delta:<code>angleDelta()</code> returns the deltas in wheel degrees. Thesevalues are always provided. <code>pixelDelta()</code> returns the deltasin screen pixels.</p><p>  上述部分来自<code>Qt</code>官方文档,我们有两种方法可以获取鼠标滚轮的增量(正负代表方向)，<code>angleDelta()</code>，<code>pixelDelta()</code>.</p></div><h6><code>QPoint QWheelEvent::angleDelta() const</code></h6><p><p>  Returns the relative amount that the wheel was rotated, in eighthsof a degree. A positive value indicates that the wheel was rotatedforwards away from the user; a negative value indicates that the wheelwas rotated backwards toward the user. angleDelta().y() provides theangle through which the common vertical mouse wheel was rotated sincethe previous event. angleDelta().x() provides the angle through whichthe horizontal mouse wheel was rotated, if the mouse has a horizontalwheel; otherwise it stays at zero. Some mice allow the user to tilt thewheel to perform horizontal scrolling, and some touchpads support ahorizontal scrolling gesture; that will also appear inangleDelta().x().</p>  Most mouse types work in steps of 15 degrees, in which case the deltavalue is a multiple of 120; i.e., 120 units * 1/8 = 15 degrees.</p><ul><li>正值表示滚轮向上,远离用户. 负值向下,靠近用户.</li><li>此函数将返回两个方向上的滚动<ul><li><font color=red>我们此处使用是垂直方向的滚动的角度 </font></li></ul></li><li>滚轮每次触发滚动的的角度是<spanclass="math inline">\(15^\circ\left(delta\right)\)</span>，但是实际的返回值是$delta = 120 $</li><li>返回的值应以 $ 1/8 $ 为单位:<ul><li><span class="math inline">\(angleDelta() / 8\)</span>得到鼠标实际滚动的度数</li></ul></li><li><code style="color:red">通过上面步骤便可以获取滚轮实际旋转的角度</code></li></ul><h3 id="将滚轮旋转角度映射到投影矩阵">2.将滚轮旋转角度映射到投影矩阵</h3><ul><li><span class="math inline">\(ratio = delta/360^\circ\)</span></li><li>使用这个值去修改投影矩阵的参数</li><li>我们使用的是平行投影的方式<ul><li><code>left</code></li><li><code>rght</code></li><li><code>bottom</code></li><li><code>top</code></li></ul></li></ul><h3 id="更新投影矩阵">3. 更新投影矩阵</h3><ul><li>在此之前 请将矩阵设置为单位矩阵 然后重新计算投影矩阵</li><li>更新投影矩阵</li><li>调用强制重新绘制(<code>Qt</code>) - <code>repaint()</code></li><li>你将得到放大后的场景</li></ul>]]></content>
     
@@ -189,8 +197,7 @@ MSAA&lt;/h2&gt;
   智能指针是行为类似于指针的类对象，但这种对象还有其他功能。
 &lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;下面我将将会分别介绍几种不同的智能指针&lt;/li&gt;
-</summary>
+&lt;li&gt;下面我将将会分别介绍几种不同的智能指针&lt;/li&gt;</summary>
       
     
     

@@ -438,7 +438,7 @@ parallel projection graphics do not scale with the window</h1>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-04 10:16:33" itemprop="dateModified" datetime="2022-08-04T10:16:33+08:00">2022-08-04</time>
+      <time title="修改时间：2022-08-11 20:49:33" itemprop="dateModified" datetime="2022-08-11T20:49:33+08:00">2022-08-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -468,7 +468,77 @@ parallel projection graphics do not scale with the window</h1>
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="opengl-move-scene">OpenGL Move Scene</h1>
+          <center>
+<h1>
+OpenGL Move Scene - 平面上移动
+</h1>
+</center>
+<ul>
+<li>我们考虑一个简单的平面的移动
+<ul>
+<li>某个维度为 <code>0</code>,我们只需要在某个平面上移动</li>
+</ul></li>
+</ul>
+<h2 id="计算移动的方向">1. 计算移动的方向</h2>
+<ul>
+<li>在此之前对于相机的概念，希望您是熟悉的</li>
+<li>虽然在<code>OpenGL</code>中本身并没有相机的概念
+<ul>
+<li><code>eye</code> - <code>point</code></li>
+<li><code>center</code> - <code>point</code></li>
+<li><code>up</code> - <code>vector</code></li>
+</ul></li>
+</ul>
+<h3 id="计算相机的朝向">计算相机的朝向</h3>
+<ul>
+<li>右方向：<span class="math inline">\(\vec{front} = center -
+eye\)</span></li>
+</ul>
+<h3 id="计算相机的右方向">计算相机的右方向</h3>
+<ul>
+<li><span class="math inline">\(\vec{right} = \vec{front} \times
+\vec{up}\)</span></li>
+<li>记得将向量<span
+class="math inline">\(\vec{right}\)</span>归一化处理</li>
+</ul>
+<h2 id="鼠标的移动">2. 鼠标的移动</h2>
+<ul>
+<li>规定使用鼠标右键平移场景</li>
+<li>我们使用<code>Qt</code>的鼠标事件
+<ul>
+<li>在<code>x</code>方向上，两次记录的位置相减携带了移动的方向</li>
+<li>在<code>y</code>方向上，<code>Qt</code>窗口的原点与<code>OpenGL</code>的窗口存在差别，需要做额外的处理
+- 反向</li>
+</ul></li>
+</ul>
+<h3 id="当右键按下我们记录当前的鼠标的坐标">1.
+当右键按下我们记录当前的鼠标的坐标</h3>
+<h3 id="触发移动事件">2. 触发移动事件</h3>
+<ul>
+<li>此处每一次出发移动我们将计算一次场景的移动
+<ul>
+<li><code>X</code>方向 - <code>offsetX</code></li>
+<li><code>Y</code>方向 - <code>offsetY</code></li>
+</ul></li>
+<li>更新我们记录的上一次的鼠标的位置</li>
+</ul>
+<h2 id="移动场景">移动场景</h2>
+<ul>
+<li>将这个移动映射成为数据的比例，作为移动方向的系数，作用到<code>eye</code>&amp;<code>center</code>,
+重新计算视图矩阵，更新场景 ### 计算新的 <code>eye</code> &amp;
+<code>center</code></li>
+<li>计算沿着<span class="math inline">\(\vec{right}\)</span> &amp; <span
+class="math inline">\(\vec{up}\)</span>方向的移动的距离</li>
+<li>获取窗口的宽高为 <code>w&amp;h</code></li>
+<li>在投影矩阵中 <span class="math inline">\(right - left =
+spanX\)</span> &amp; <span class="math inline">\(top - bottom =
+spanY\)</span> <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">offsetX / w * spanX = disX;</span><br><span class="line">offsetY / h * spanY = disY;</span><br><span class="line"></span><br><span class="line">eye += right * disX + up *  disY;</span><br><span class="line">center += right * disX + up *  disY;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="更新视图矩阵repaint">更新视图矩阵&amp;<code>repaint</code></h2>
+<ul>
+<li><code>ViewMat.lookAt(eye,center,up)</code></li>
+<li><code>repaint()</code></li>
+</ul>
 
       
     </div>
@@ -531,7 +601,7 @@ parallel projection graphics do not scale with the window</h1>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-08 08:47:52" itemprop="dateModified" datetime="2022-08-08T08:47:52+08:00">2022-08-08</time>
+      <time title="修改时间：2022-08-11 19:57:49" itemprop="dateModified" datetime="2022-08-11T19:57:49+08:00">2022-08-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
