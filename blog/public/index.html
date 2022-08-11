@@ -531,7 +531,7 @@ parallel projection graphics do not scale with the window</h1>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-08 08:47:52" itemprop="dateModified" datetime="2022-08-08T08:47:52+08:00">2022-08-08</time>
+      <time title="修改时间：2022-08-11 19:57:49" itemprop="dateModified" datetime="2022-08-11T19:57:49+08:00">2022-08-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -643,6 +643,26 @@ $delta = 120 $</li>
 得到鼠标实际滚动的度数</li>
 </ul></li>
 <li><code style="color:red">通过上面步骤便可以获取滚轮实际旋转的角度</code></li>
+</ul>
+<h3 id="将滚轮旋转角度映射到投影矩阵">2.
+将滚轮旋转角度映射到投影矩阵</h3>
+<ul>
+<li><span class="math inline">\(ratio = delta/360^\circ\)</span></li>
+<li>使用这个值去修改投影矩阵的参数</li>
+<li>我们使用的是平行投影的方式
+<ul>
+<li><code>left</code></li>
+<li><code>rght</code></li>
+<li><code>bottom</code></li>
+<li><code>top</code></li>
+</ul></li>
+</ul>
+<h3 id="更新投影矩阵">3. 更新投影矩阵</h3>
+<ul>
+<li>在此之前 请将矩阵设置为单位矩阵 然后重新计算投影矩阵</li>
+<li>更新投影矩阵</li>
+<li>调用强制重新绘制(<code>Qt</code>) - <code>repaint()</code></li>
+<li>你将得到放大后的场景</li>
 </ul>
 
       
