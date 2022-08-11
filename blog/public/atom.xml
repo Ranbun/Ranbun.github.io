@@ -6,7 +6,7 @@
   <link href="https://blog.ranbun.com/atom.xml" rel="self"/>
   
   <link href="https://blog.ranbun.com/"/>
-  <updated>2022-08-04T02:14:47.179Z</updated>
+  <updated>2022-08-08T06:40:41.295Z</updated>
   <id>https://blog.ranbun.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cplusplus key words - extern</title>
+    <link href="https://blog.ranbun.com/2022/08/08/Cplusplus-key-words-extern/"/>
+    <id>https://blog.ranbun.com/2022/08/08/Cplusplus-key-words-extern/</id>
+    <published>2022-08-08T03:41:35.000Z</published>
+    <updated>2022-08-08T06:40:41.295Z</updated>
+    
+    <content type="html"><![CDATA[<center><h2><code>extern</code> 关键字</h2></center><hr />]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;center&gt;
+&lt;h2&gt;
+&lt;code&gt;extern&lt;/code&gt; 关键字
+&lt;/h2&gt;
+&lt;/center&gt;
+&lt;hr /&gt;
+</summary>
+      
+    
+    
+    
+    <category term="cpp" scheme="https://blog.ranbun.com/categories/cpp/"/>
+    
+    
+    <category term="key words" scheme="https://blog.ranbun.com/tags/key-words/"/>
+    
+  </entry>
   
   <entry>
     <title>OpenGL parallel  projection graphics do not scale with the window</title>
@@ -592,36 +622,6 @@ id=&quot;dynamic-drawing-of-osg-vertex-buffer-objects&quot;&gt;&lt;code&gt;Dynam
 &lt;h4 id=&quot;快速排序概述&quot;&gt;1、快速排序概述&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;快速排序也是采用分治的思想实现的，首先你有一组无序的数据，然后通过某种方法，取一个这组数据的中间数（M），然后对这组数</summary>
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://blog.ranbun.com/categories/Algorithm/"/>
-    
-    
-    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
-    
-    <category term="sort" scheme="https://blog.ranbun.com/tags/sort/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>归并排序</title>
-    <link href="https://blog.ranbun.com/2021/10/26/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
-    <id>https://blog.ranbun.com/2021/10/26/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</id>
-    <published>2021-10-26T15:53:24.000Z</published>
-    <updated>2022-07-26T00:48:36.867Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="归并排序">归并排序</h2><ul><li>归并算法，核心机制是分而治之，每次对数据进行拆分，然后合并，每次拆分直到每次排序的元素个数为1，的时候，单个元素必然是有序的，然后合并便可。</li></ul><h4 id="有序子列的归并---伪代码">1、有序子列的归并 - 伪代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// L 左边的起始位置 R 右边的起始位置 RightEnd 右边的终点位置</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    leftEnd = R - <span class="number">1</span>  <span class="comment">// 左边部分有序元素的结束位置</span></span><br><span class="line">    temp_index = L;  <span class="comment">// 存放结果数组的初始位置</span></span><br><span class="line">    NumElements = RightEnd - L + <span class="number">1</span>;   <span class="comment">// 计算元素的总个数 - 左右两部份紧挨着 </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd &amp;&amp; R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(A[L] &lt; A[R])</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[L++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>  <span class="comment">// A[L] &gt; A[R]</span></span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[R++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[L++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[R++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将有序的元素写回到A中</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i &lt; NumElements;i++,RightEnd--)</span><br><span class="line">    &#123;</span><br><span class="line">        A[RightEnd] = tempA[RightEnd];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h4 id="归并的实现---递归">2、归并的实现 - 递归</h4><ul><li>归并算法的实现有不同的方式，相比之下递归的实现方式相对直观，此处是递归实现的伪代码：</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Msort</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> center;  <span class="comment">// 每次将元素对半砍开 </span></span><br><span class="line">    <span class="keyword">if</span>(L &lt; RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        center = (L + RightEnd) / <span class="number">2</span>;          <span class="comment">// 中间位置的元素</span></span><br><span class="line">        MSort(A,tempA,L,center);              <span class="comment">//左半部分 </span></span><br><span class="line">        MSort(A,tempA,center+<span class="number">1</span>，RightEnd);    <span class="comment">//右半部分 </span></span><br><span class="line">    Merge(A,tempA,L,center+<span class="number">1</span>,RightEnd);   <span class="comment">// 合并两部分 </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="归并的实现---非递归">2、归并的实现 - 非递归</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_Sort</span><span class="params">(ElementType A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> length = <span class="number">1</span>;   <span class="comment">// 最开始 有序子列的长度</span></span><br><span class="line">    ElementType * tempA;   <span class="comment">// 一个辅助交换的和A等大小的空间</span></span><br><span class="line">    tempA = <span class="keyword">new</span> ElementType[N];</span><br><span class="line">    <span class="keyword">if</span>(tempA != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(length &lt; N)  <span class="comment">// 随着有序子列的扩大，最终一定大于等于N</span></span><br><span class="line">        &#123;</span><br><span class="line">            Merge_pass(A,tempA,N,length);</span><br><span class="line">            length *= <span class="number">2</span>;</span><br><span class="line">            Merge_pass(tempA,A,N,length);</span><br><span class="line">            length *= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">delete</span> [] tempA;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;error&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 源元素位置 目标元素位置 元素个数 有序子列的大小</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_pass</span><span class="params">(ElementType A,ElementType tempA,<span class="keyword">int</span> N,<span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt;= N - <span class="number">2</span>*length;i += <span class="number">2</span>*length)   <span class="comment">// 2*length 每次合并的元素的个数 </span></span><br><span class="line">    &#123;</span><br><span class="line">        Merge_(A,tempA,i,i+length,i+<span class="number">2</span>*length - <span class="number">1</span>);  <span class="comment">// 合并</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i+legnth &lt; N)  <span class="comment">// 剩下的元素个数 &gt; length, 表示还可以进行一次合并： 一组的个数</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 此时最后被合并的数据 个数 &lt; 2*length </span></span><br><span class="line">Merge_(A,tempA,i,i+length,N - <span class="number">1</span>);  <span class="comment">// 合并</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 合并最后部分的元素</span></span><br><span class="line">        <span class="keyword">for</span>(j = i; j &lt; N;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[j] = A[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    leftEnd = R - <span class="number">1</span>  <span class="comment">// 左边部分有序元素的结束位置</span></span><br><span class="line">    temp_index = L;  <span class="comment">// 存放结果数组的初始位置</span></span><br><span class="line">    NumElements = RightEnd - L + <span class="number">1</span>;   <span class="comment">// 计算元素的总个数 - 左右两部份紧挨着 </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd &amp;&amp; R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(A[L] &lt; A[R])</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[L++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>  <span class="comment">// A[L] &gt; A[R]</span></span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[R++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[L++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[R++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;归并排序&quot;&gt;归并排序&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;归并算法，核心机制是分而治之，每次对数据进行拆分，然后合并，每次拆分直到每次排序的元素个数为1，的时候，单个元素必然是有序的，然后合并便可。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;有序子列的归并---伪代码</summary>
       
     
     

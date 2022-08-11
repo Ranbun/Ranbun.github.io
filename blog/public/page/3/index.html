@@ -86,7 +86,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">26</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">32</span></a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">17</span></a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="user fa-fw"></i>关于</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">27</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">33</span></a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">18</span></a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="user fa-fw"></i>关于</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -157,18 +157,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives">
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags">
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -220,6 +220,103 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2021/10/26/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="RanBun">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RanBun's Blog">
+      <meta itemprop="description" content="人大概要先见自己,然后才能见众生">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | RanBun's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/26/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">归并排序</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-26 23:53:24" itemprop="dateCreated datePublished" datetime="2021-10-26T23:53:24+08:00">2021-10-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-26 08:48:36" itemprop="dateModified" datetime="2022-07-26T08:48:36+08:00">2022-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="归并排序">归并排序</h2>
+<ul>
+<li>归并算法，核心机制是分而治之，每次对数据进行拆分，然后合并，每次拆分直到每次排序的元素个数为1，的时候，单个元素必然是有序的，然后合并便可。</li>
+</ul>
+<h4 id="有序子列的归并---伪代码">1、有序子列的归并 - 伪代码</h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// L 左边的起始位置 R 右边的起始位置 RightEnd 右边的终点位置</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    leftEnd = R - <span class="number">1</span>  <span class="comment">// 左边部分有序元素的结束位置</span></span><br><span class="line">    temp_index = L;  <span class="comment">// 存放结果数组的初始位置</span></span><br><span class="line">    NumElements = RightEnd - L + <span class="number">1</span>;   <span class="comment">// 计算元素的总个数 - 左右两部份紧挨着 </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd &amp;&amp; R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(A[L] &lt; A[R])</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[L++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>  <span class="comment">// A[L] &gt; A[R]</span></span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[R++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[L++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[R++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将有序的元素写回到A中</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i &lt; NumElements;i++,RightEnd--)</span><br><span class="line">    &#123;</span><br><span class="line">        A[RightEnd] = tempA[RightEnd];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="归并的实现---递归">2、归并的实现 - 递归</h4>
+<ul>
+<li>归并算法的实现有不同的方式，相比之下递归的实现方式相对直观，此处是递归实现的伪代码：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Msort</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> center;  <span class="comment">// 每次将元素对半砍开 </span></span><br><span class="line">    <span class="keyword">if</span>(L &lt; RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        center = (L + RightEnd) / <span class="number">2</span>;          <span class="comment">// 中间位置的元素</span></span><br><span class="line">        MSort(A,tempA,L,center);              <span class="comment">//左半部分 </span></span><br><span class="line">        MSort(A,tempA,center+<span class="number">1</span>，RightEnd);    <span class="comment">//右半部分 </span></span><br><span class="line">    	Merge(A,tempA,L,center+<span class="number">1</span>,RightEnd);   <span class="comment">// 合并两部分 </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="归并的实现---非递归">2、归并的实现 - 非递归</h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_Sort</span><span class="params">(ElementType A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> length = <span class="number">1</span>;   <span class="comment">// 最开始 有序子列的长度</span></span><br><span class="line">    ElementType * tempA;   <span class="comment">// 一个辅助交换的和A等大小的空间</span></span><br><span class="line">    tempA = <span class="keyword">new</span> ElementType[N];</span><br><span class="line">    <span class="keyword">if</span>(tempA != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(length &lt; N)  <span class="comment">// 随着有序子列的扩大，最终一定大于等于N</span></span><br><span class="line">        &#123;</span><br><span class="line">            Merge_pass(A,tempA,N,length);</span><br><span class="line">            length *= <span class="number">2</span>;</span><br><span class="line">            Merge_pass(tempA,A,N,length);</span><br><span class="line">            length *= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">delete</span> [] tempA;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;error&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 源元素位置 目标元素位置 元素个数 有序子列的大小</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_pass</span><span class="params">(ElementType A,ElementType tempA,<span class="keyword">int</span> N,<span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt;= N - <span class="number">2</span>*length;i += <span class="number">2</span>*length)   <span class="comment">// 2*length 每次合并的元素的个数 </span></span><br><span class="line">    &#123;</span><br><span class="line">        Merge_(A,tempA,i,i+length,i+<span class="number">2</span>*length - <span class="number">1</span>);  <span class="comment">// 合并</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i+legnth &lt; N)  <span class="comment">// 剩下的元素个数 &gt; length, 表示还可以进行一次合并： 一组的个数</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 此时最后被合并的数据 个数 &lt; 2*length </span></span><br><span class="line">		Merge_(A,tempA,i,i+length,N - <span class="number">1</span>);  <span class="comment">// 合并</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 合并最后部分的元素</span></span><br><span class="line">        <span class="keyword">for</span>(j = i; j &lt; N;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[j] = A[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge_</span><span class="params">(ElementType A[],ElementType tempA[],<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> RightEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    leftEnd = R - <span class="number">1</span>  <span class="comment">// 左边部分有序元素的结束位置</span></span><br><span class="line">    temp_index = L;  <span class="comment">// 存放结果数组的初始位置</span></span><br><span class="line">    NumElements = RightEnd - L + <span class="number">1</span>;   <span class="comment">// 计算元素的总个数 - 左右两部份紧挨着 </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd &amp;&amp; R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(A[L] &lt; A[R])</span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[L++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>  <span class="comment">// A[L] &gt; A[R]</span></span><br><span class="line">        &#123;</span><br><span class="line">            tempA[temp_index++] = A[R++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(L &lt;= LeftEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[L++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(R &lt;= RightEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        tempA[temp_index++] = A[R++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1295,132 +1392,6 @@ id="计算对模型的旋转缩放平移的操作矩阵">2、计算对模型的�
 <h4
 id="将操作节点添加到绘制的根节点或者是其他的叶节点">5、将操作节点添加到绘制的根节点或者是其他的叶节点</h4>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ......</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="RanBun">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="RanBun's Blog">
-      <meta itemprop="description" content="人大概要先见自己,然后才能见众生">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | RanBun's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/" class="post-title-link" itemprop="url">Bug奇遇记-uint16_t</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-03-19 20:47:11" itemprop="dateCreated datePublished" datetime="2021-03-19T20:47:11+08:00">2021-03-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-26 08:48:36" itemprop="dateModified" datetime="2022-07-26T08:48:36+08:00">2022-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/works/" itemprop="url" rel="index"><span itemprop="name">works</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/works/GF/" itemprop="url" rel="index"><span itemprop="name">GF</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/works/GF/data-type/" itemprop="url" rel="index"><span itemprop="name">data type</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/works/GF/data-type/bugs/" itemprop="url" rel="index"><span itemprop="name">bugs</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="uint16_t">uint16_t</h3>
-<ul>
-<li>标准定义中：</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">short</span>  <span class="keyword">uint16_t</span>; <span class="comment">// max == _UI16_MAX 0xffffu </span></span><br></pre></td></tr></table></figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/uint16_t.png"
-title="uint16" alt="uint16_t" />
-<figcaption aria-hidden="true">uint16_t</figcaption>
-</figure>
-<h4 id="问题">问题：</h4>
-<ul>
-<li><font color=red>这是一个粗心的问题</font></li>
-</ul>
-<p>在我正在实现的功能中有一个数据遍历的部分，我使用了<code>uint16_t</code>类型作为索引的类型，但是<code>uint16_t</code>数据的最大值比较小，所以当基础数据量过大的时候，我们产生的索引会越过索引的最大范围，导致最终得到的索引不是实际需要的索引值，导致我最终绘制的图形不是正确的结果！</p>
-<hr />
-<h3 id="正确的结果展示">正确的结果展示：</h3>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_2.png"
-title="result" alt="lum_2" />
-<figcaption aria-hidden="true">lum_2</figcaption>
-</figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_1.png"
-title="Result" alt="right result" />
-<figcaption aria-hidden="true">right result</figcaption>
-</figure>
 
       
     </div>
