@@ -259,7 +259,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-08-08 11:41:35 / 修改时间：14:40:41" itemprop="dateCreated datePublished" datetime="2022-08-08T11:41:35+08:00">2022-08-08</time>
+      <time title="创建时间：2022-08-08 11:41:35 / 修改时间：23:02:54" itemprop="dateCreated datePublished" datetime="2022-08-08T11:41:35+08:00">2022-08-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -341,9 +341,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-08-04 10:05:58 / 修改时间：10:14:47" itemprop="dateCreated datePublished" datetime="2022-08-04T10:05:58+08:00">2022-08-04</time>
+      <time title="创建时间：2022-08-04 10:05:58" itemprop="dateCreated datePublished" datetime="2022-08-04T10:05:58+08:00">2022-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-14 17:07:49" itemprop="dateModified" datetime="2022-08-14T17:07:49+08:00">2022-08-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -373,9 +379,46 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1
-id="opengl-parallel-projection-graphics-do-not-scale-with-the-window">OpenGL
-parallel projection graphics do not scale with the window</h1>
+          <center>
+<h2>
+OpenGL parallel projection graphics do not scale with the window
+</h2>
+</center>
+<h3 id="实现步骤">实现步骤</h3>
+<ul>
+<li>重写窗口的<code>resize</code>事件
+<ul>
+<li>计算投影的范围</li>
+</ul></li>
+<li>更新投影矩阵</li>
+<li><code>drawcull</code></li>
+</ul>
+<h4 id="resizegl"><code>resizeGL</code></h4>
+<ul>
+<li>我们最初计算一个比例：
+<ul>
+<li>关于窗口的<code>size</code>和投影的范围的
+<ul>
+<li>使用<code>left, right</code>计算一个<code>spanx(right - left)</code>,
+<code>top, bottom</code>计算<code>spany(top - bottom)</code>,
+分别与窗口的宽高比较 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> ratioW = w / spanx;</span><br><span class="line"><span class="keyword">auto</span> ratioH = h / spany; </span><br><span class="line"><span class="comment">// 取最小的一个 </span></span><br><span class="line"><span class="keyword">auto</span> ratio = <span class="built_in">std</span>::min(ratioW,ratioH);</span><br></pre></td></tr></table></figure></li>
+</ul></li>
+<li>每次窗口缩放，我们就使用上述的范围计算新的<code>left,right,bottom,top</code>
+<ul>
+<li>只要投影的范围没有发生改变我们便不计算新的<code>ratio</code></li>
+</ul></li>
+</ul></li>
+<li>计算新的<code>left,right,bottom,top</code> <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OpenGLWidget::resizeGL</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> h)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    glViewport(<span class="number">0</span>,<span class="number">0</span>,w,h);</span><br><span class="line"></span><br><span class="line">    left = - w / ratio;</span><br><span class="line">    right = <span class="built_in">abs</span>(left);</span><br><span class="line">    bottom = -h / ratio;</span><br><span class="line">    top = <span class="built_in">abs</span>(bottom);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="更新投影矩阵">更新投影矩阵</h4>
+<ul>
+<li>update
+<ul>
+<li>关于<code>zNear &amp; zFar</code>投影当二维平面时候，并未使用这两个参数
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">projMat.ortho(left,right,bottom,top,<span class="number">0.1f</span>,<span class="number">100.0f</span>);</span><br></pre></td></tr></table></figure> #### 更新绘制的场景</li>
+</ul></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">shaderProgram.bind(); </span><br><span class="line">shaderProgram-&gt;setUniformValue(<span class="string">&quot;projectionMatrix&quot;</span>, projMat); </span><br><span class="line">glDrawArray()</span><br><span class="line">......</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -438,7 +481,7 @@ parallel projection graphics do not scale with the window</h1>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-11 20:49:33" itemprop="dateModified" datetime="2022-08-11T20:49:33+08:00">2022-08-11</time>
+      <time title="修改时间：2022-08-12 23:30:08" itemprop="dateModified" datetime="2022-08-12T23:30:08+08:00">2022-08-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -601,7 +644,7 @@ spanY\)</span> <figure class="highlight c++"><table><tr><td class="gutter"><pre>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-11 19:57:49" itemprop="dateModified" datetime="2022-08-11T19:57:49+08:00">2022-08-11</time>
+      <time title="修改时间：2022-08-08 23:40:52" itemprop="dateModified" datetime="2022-08-08T23:40:52+08:00">2022-08-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -796,7 +839,7 @@ $delta = 120 $</li>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-03 20:41:29" itemprop="dateModified" datetime="2022-08-03T20:41:29+08:00">2022-08-03</time>
+      <time title="修改时间：2022-08-06 01:00:11" itemprop="dateModified" datetime="2022-08-06T01:00:11+08:00">2022-08-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -928,9 +971,15 @@ id="如何开启qtopengl的msaa">如何开启<code>QtOpenGL</code>的<code>MSAA<
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-08-01 19:53:40 / 修改时间：20:39:33" itemprop="dateCreated datePublished" datetime="2022-08-01T19:53:40+08:00">2022-08-01</time>
+      <time title="创建时间：2022-08-01 19:53:40" itemprop="dateCreated datePublished" datetime="2022-08-01T19:53:40+08:00">2022-08-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-06 01:00:11" itemprop="dateModified" datetime="2022-08-06T01:00:11+08:00">2022-08-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1085,7 +1134,7 @@ id="如何开启qtopengl的msaa">如何开启<code>QtOpenGL</code>的<code>MSAA<
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-31 20:34:27" itemprop="dateModified" datetime="2022-07-31T20:34:27+08:00">2022-07-31</time>
+      <time title="修改时间：2022-08-06 01:00:11" itemprop="dateModified" datetime="2022-08-06T01:00:11+08:00">2022-08-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1390,7 +1439,7 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-31 15:03:23" itemprop="dateModified" datetime="2022-07-31T15:03:23+08:00">2022-07-31</time>
+      <time title="修改时间：2022-07-31 23:50:22" itemprop="dateModified" datetime="2022-07-31T23:50:22+08:00">2022-07-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1501,9 +1550,15 @@ title="Github">Github</a></li>
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-07-28 00:55:14 / 修改时间：19:38:35" itemprop="dateCreated datePublished" datetime="2022-07-28T00:55:14+08:00">2022-07-28</time>
+      <time title="创建时间：2022-07-28 00:55:14" itemprop="dateCreated datePublished" datetime="2022-07-28T00:55:14+08:00">2022-07-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-29 00:37:23" itemprop="dateModified" datetime="2022-07-29T00:37:23+08:00">2022-07-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1701,7 +1756,7 @@ class="math inline">\(\vec{P_3P_4}\)</span>。如何通过点击计算他们交�
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-01 19:47:13" itemprop="dateModified" datetime="2022-08-01T19:47:13+08:00">2022-08-01</time>
+      <time title="修改时间：2022-08-06 01:00:11" itemprop="dateModified" datetime="2022-08-06T01:00:11+08:00">2022-08-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">

@@ -1,52 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Bit manipulation</title>
-    <url>/2022/07/29/Bit-manipulation/</url>
-    <content><![CDATA[<h3 id="将二进制数某一位置0置1取反">将二进制数某一位置0，置1，取反</h3>
-<ul>
-<li><h2
-id="用位运算可以解决我们的问题所以下面部分的代码就是一些位运算的简单应用">用位运算可以解决我们的问题,所以下面部分的代码就是一些位运算的简单应用</h2></li>
-<li>函数实现</li>
-</ul>
-<h4 id="将不同进制数转为二进制非必须---我们只是为了显示结果">1.
-将不同进制数转为二进制(非必须) - 我们只是为了显示结果</h4>
-<ul>
-<li>模拟人的计算过程 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showBinary</span><span class="params">(<span class="keyword">int</span> d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">array</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储具体对应的位的值 0 / 1</span></span><br><span class="line">    <span class="built_in">array</span>&lt;<span class="keyword">int</span>, 32&gt; num;</span><br><span class="line">    num.fill(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>; <span class="comment">// 当前转换的Bit位</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">31</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (d &amp; flag)</span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        flag = flag &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查找第一个不是零的数 </span></span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">if</span> 1 </span></span><br><span class="line">    <span class="comment">// 此过程可以省略 做了个显示上的优化</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i = <span class="number">0</span>; i &lt; num.size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (num[i] != <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">                i == <span class="number">0</span> ? index = i : index = i - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span> </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出转换结果</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i = index; i &lt; num.size(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; num[i];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="某一位置为-0">某一位置为 0</h4>
-<ul>
-<li><code>&amp;</code>运算的应用 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 0</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Zero</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 取反是一个只和取反位数以及之后所有位数相关的操作</span></span><br><span class="line">    <span class="comment">// 二进制的位数从0开始计算 所以需要 bits - 1 </span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; (bits(3) - 1) = 4 = 0100 </span></span><br><span class="line">    <span class="comment">// ~4 = 1011</span></span><br><span class="line">    <span class="comment">// &amp; 同为 1 则为 1 =&gt; 1011 &amp; (任意数字) 第三位等于 0</span></span><br><span class="line">    d = d &amp; (~(<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>)));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="某一位置为-1">某一位置为 1</h4>
-<ul>
-<li><code>|</code> 运算的应用, 只要有一个是1 结果都是1
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 1</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2One</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// d(16) = 10000 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 4 = 0100</span></span><br><span class="line">    <span class="comment">// d | 0100 = 10000 | 0100  = 10100 </span></span><br><span class="line">    d = d | (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="某一位置取反">某一位置取反</h4>
-<ul>
-<li><code>^</code> 异或运算的运用
-<ul>
-<li><code>^</code> 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1 其余的情况都是
-0</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位取反</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Negate</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 转换过程</span></span><br><span class="line">    <span class="comment">// ^ 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1  其余的情况都是 0 </span></span><br><span class="line">    <span class="comment">// d(15) == 1111 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 0100</span></span><br><span class="line">    <span class="comment">// 1111</span></span><br><span class="line">    <span class="comment">// 0100 ^</span></span><br><span class="line">    <span class="comment">// 1011 </span></span><br><span class="line">    d = d ^ (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="参考">参考</h2>
-<ul>
-<li>[1] <a
-href="https://gthub.com/Ranbun/blogProjects/tree/main/BitManipulation"
-title="Github">Github</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Coding</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021年终总结</title>
     <url>/2022/01/16/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h3 id="我起伏的2021年">我起伏的2021年:</h3>
@@ -93,6 +47,97 @@ title="Github">Github</a></li>
       </categories>
       <tags>
         <tag>mylife</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Bit manipulation</title>
+    <url>/2022/07/29/Bit-manipulation/</url>
+    <content><![CDATA[<h3 id="将二进制数某一位置0置1取反">将二进制数某一位置0，置1，取反</h3>
+<ul>
+<li><h2
+id="用位运算可以解决我们的问题所以下面部分的代码就是一些位运算的简单应用">用位运算可以解决我们的问题,所以下面部分的代码就是一些位运算的简单应用</h2></li>
+<li>函数实现</li>
+</ul>
+<h4 id="将不同进制数转为二进制非必须---我们只是为了显示结果">1.
+将不同进制数转为二进制(非必须) - 我们只是为了显示结果</h4>
+<ul>
+<li>模拟人的计算过程 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showBinary</span><span class="params">(<span class="keyword">int</span> d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">array</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储具体对应的位的值 0 / 1</span></span><br><span class="line">    <span class="built_in">array</span>&lt;<span class="keyword">int</span>, 32&gt; num;</span><br><span class="line">    num.fill(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>; <span class="comment">// 当前转换的Bit位</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">31</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (d &amp; flag)</span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        flag = flag &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查找第一个不是零的数 </span></span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">if</span> 1 </span></span><br><span class="line">    <span class="comment">// 此过程可以省略 做了个显示上的优化</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i = <span class="number">0</span>; i &lt; num.size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (num[i] != <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">                i == <span class="number">0</span> ? index = i : index = i - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span> </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出转换结果</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i = index; i &lt; num.size(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; num[i];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="某一位置为-0">某一位置为 0</h4>
+<ul>
+<li><code>&amp;</code>运算的应用 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 0</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Zero</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 取反是一个只和取反位数以及之后所有位数相关的操作</span></span><br><span class="line">    <span class="comment">// 二进制的位数从0开始计算 所以需要 bits - 1 </span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; (bits(3) - 1) = 4 = 0100 </span></span><br><span class="line">    <span class="comment">// ~4 = 1011</span></span><br><span class="line">    <span class="comment">// &amp; 同为 1 则为 1 =&gt; 1011 &amp; (任意数字) 第三位等于 0</span></span><br><span class="line">    d = d &amp; (~(<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>)));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="某一位置为-1">某一位置为 1</h4>
+<ul>
+<li><code>|</code> 运算的应用, 只要有一个是1 结果都是1
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 1</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2One</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// d(16) = 10000 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 4 = 0100</span></span><br><span class="line">    <span class="comment">// d | 0100 = 10000 | 0100  = 10100 </span></span><br><span class="line">    d = d | (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="某一位置取反">某一位置取反</h4>
+<ul>
+<li><code>^</code> 异或运算的运用
+<ul>
+<li><code>^</code> 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1 其余的情况都是
+0</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位取反</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Negate</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 转换过程</span></span><br><span class="line">    <span class="comment">// ^ 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1  其余的情况都是 0 </span></span><br><span class="line">    <span class="comment">// d(15) == 1111 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 0100</span></span><br><span class="line">    <span class="comment">// 1111</span></span><br><span class="line">    <span class="comment">// 0100 ^</span></span><br><span class="line">    <span class="comment">// 1011 </span></span><br><span class="line">    d = d ^ (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="参考">参考</h2>
+<ul>
+<li>[1] <a
+href="https://gthub.com/Ranbun/blogProjects/tree/main/BitManipulation"
+title="Github">Github</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Bug奇遇记-uint16_t</title>
+    <url>/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/</url>
+    <content><![CDATA[<h3 id="uint16_t">uint16_t</h3>
+<ul>
+<li>标准定义中：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">short</span>  <span class="keyword">uint16_t</span>; <span class="comment">// max == _UI16_MAX 0xffffu </span></span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/uint16_t.png"
+title="uint16" alt="uint16_t" />
+<figcaption aria-hidden="true">uint16_t</figcaption>
+</figure>
+<h4 id="问题">问题：</h4>
+<ul>
+<li><font color=red>这是一个粗心的问题</font></li>
+</ul>
+<p>在我正在实现的功能中有一个数据遍历的部分，我使用了<code>uint16_t</code>类型作为索引的类型，但是<code>uint16_t</code>数据的最大值比较小，所以当基础数据量过大的时候，我们产生的索引会越过索引的最大范围，导致最终得到的索引不是实际需要的索引值，导致我最终绘制的图形不是正确的结果！</p>
+<hr />
+<h3 id="正确的结果展示">正确的结果展示：</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_2.png"
+title="result" alt="lum_2" />
+<figcaption aria-hidden="true">lum_2</figcaption>
+</figure>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_1.png"
+title="Result" alt="right result" />
+<figcaption aria-hidden="true">right result</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>GF</category>
+        <category>data type</category>
+        <category>bugs</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>osg</tag>
       </tags>
   </entry>
   <entry>
@@ -205,68 +250,6 @@ N时差不多是一个线性复杂度的算法)</li>
       <tags>
         <tag>cpp</tag>
         <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Bug奇遇记-uint16_t</title>
-    <url>/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/</url>
-    <content><![CDATA[<h3 id="uint16_t">uint16_t</h3>
-<ul>
-<li>标准定义中：</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">short</span>  <span class="keyword">uint16_t</span>; <span class="comment">// max == _UI16_MAX 0xffffu </span></span><br></pre></td></tr></table></figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/uint16_t.png"
-title="uint16" alt="uint16_t" />
-<figcaption aria-hidden="true">uint16_t</figcaption>
-</figure>
-<h4 id="问题">问题：</h4>
-<ul>
-<li><font color=red>这是一个粗心的问题</font></li>
-</ul>
-<p>在我正在实现的功能中有一个数据遍历的部分，我使用了<code>uint16_t</code>类型作为索引的类型，但是<code>uint16_t</code>数据的最大值比较小，所以当基础数据量过大的时候，我们产生的索引会越过索引的最大范围，导致最终得到的索引不是实际需要的索引值，导致我最终绘制的图形不是正确的结果！</p>
-<hr />
-<h3 id="正确的结果展示">正确的结果展示：</h3>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_2.png"
-title="result" alt="lum_2" />
-<figcaption aria-hidden="true">lum_2</figcaption>
-</figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_1.png"
-title="Result" alt="right result" />
-<figcaption aria-hidden="true">right result</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>GF</category>
-        <category>data type</category>
-        <category>bugs</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>osg</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cplusplus key words - extern</title>
-    <url>/2022/08/08/Cplusplus-key-words-extern/</url>
-    <content><![CDATA[<center>
-<h2>
-<code>extern</code> 关键字
-</h2>
-</center>
-<hr />
-]]></content>
-      <categories>
-        <category>cpp</category>
-      </categories>
-      <tags>
-        <tag>key words</tag>
       </tags>
   </entry>
   <entry>
@@ -444,6 +427,23 @@ C++ 实现  </a></p>
       <tags>
         <tag>cpp</tag>
         <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cplusplus key words - extern</title>
+    <url>/2022/08/08/Cplusplus-key-words-extern/</url>
+    <content><![CDATA[<center>
+<h2>
+<code>extern</code> 关键字
+</h2>
+</center>
+<hr />
+]]></content>
+      <categories>
+        <category>cpp</category>
+      </categories>
+      <tags>
+        <tag>key words</tag>
       </tags>
   </entry>
   <entry>
@@ -809,19 +809,6 @@ $delta = 120 $</li>
       <tags>
         <tag>OpenGL</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>OpenGL parallel  projection graphics do not scale with the window</title>
-    <url>/2022/08/04/OpenGL-parallel-projection-graphics-do-not-scale-with-the-window/</url>
-    <content><![CDATA[<h1
-id="opengl-parallel-projection-graphics-do-not-scale-with-the-window">OpenGL
-parallel projection graphics do not scale with the window</h1>
-]]></content>
-      <categories>
-        <category>Computer Graph</category>
-        <category>works</category>
-        <category>SCUU</category>
-      </categories>
   </entry>
   <entry>
     <title>Physical Sort</title>
@@ -1465,6 +1452,59 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
       </tags>
   </entry>
   <entry>
+    <title>OpenGL parallel  projection graphics do not scale with the window</title>
+    <url>/2022/08/04/OpenGL-parallel-projection-graphics-do-not-scale-with-the-window/</url>
+    <content><![CDATA[<center>
+<h2>
+OpenGL parallel projection graphics do not scale with the window
+</h2>
+</center>
+<h3 id="实现步骤">实现步骤</h3>
+<ul>
+<li>重写窗口的<code>resize</code>事件
+<ul>
+<li>计算投影的范围</li>
+</ul></li>
+<li>更新投影矩阵</li>
+<li><code>drawcull</code></li>
+</ul>
+<h4 id="resizegl"><code>resizeGL</code></h4>
+<ul>
+<li>我们最初计算一个比例：
+<ul>
+<li>关于窗口的<code>size</code>和投影的范围的
+<ul>
+<li>使用<code>left, right</code>计算一个<code>spanx(right - left)</code>,
+<code>top, bottom</code>计算<code>spany(top - bottom)</code>,
+分别与窗口的宽高比较 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> ratioW = w / spanx;</span><br><span class="line"><span class="keyword">auto</span> ratioH = h / spany; </span><br><span class="line"><span class="comment">// 取最小的一个 </span></span><br><span class="line"><span class="keyword">auto</span> ratio = <span class="built_in">std</span>::min(ratioW,ratioH);</span><br></pre></td></tr></table></figure></li>
+</ul></li>
+<li>每次窗口缩放，我们就使用上述的范围计算新的<code>left,right,bottom,top</code>
+<ul>
+<li>只要投影的范围没有发生改变我们便不计算新的<code>ratio</code></li>
+</ul></li>
+</ul></li>
+<li>计算新的<code>left,right,bottom,top</code> <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OpenGLWidget::resizeGL</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> h)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    glViewport(<span class="number">0</span>,<span class="number">0</span>,w,h);</span><br><span class="line"></span><br><span class="line">    left = - w / ratio;</span><br><span class="line">    right = <span class="built_in">abs</span>(left);</span><br><span class="line">    bottom = -h / ratio;</span><br><span class="line">    top = <span class="built_in">abs</span>(bottom);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="更新投影矩阵">更新投影矩阵</h4>
+<ul>
+<li>update
+<ul>
+<li>关于<code>zNear &amp; zFar</code>投影当二维平面时候，并未使用这两个参数
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">projMat.ortho(left,right,bottom,top,<span class="number">0.1f</span>,<span class="number">100.0f</span>);</span><br></pre></td></tr></table></figure> #### 更新绘制的场景</li>
+</ul></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">shaderProgram.bind(); </span><br><span class="line">shaderProgram-&gt;setUniformValue(<span class="string">&quot;projectionMatrix&quot;</span>, projMat); </span><br><span class="line">glDrawArray()</span><br><span class="line">......</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Computer Graph</category>
+        <category>works</category>
+        <category>SCUU</category>
+      </categories>
+      <tags>
+        <tag>OpenGL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>QuickSort</title>
     <url>/2021/10/28/QuickSort/</url>
     <content><![CDATA[<h2 id="quick-sort">Quick Sort</h2>
@@ -1514,34 +1554,6 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
 <li>优化方案：如何快速找到最大值 -- 最大堆or最小堆。</li>
 </ul></li>
 </ul></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Shell-Sort</title>
-    <url>/2021/10/26/Shell-Sort/</url>
-    <content><![CDATA[<h3 id="希尔排序">希尔排序</h3>
-<ul>
-<li>希尔排序：预先定义一系列间隔(增量序列)DK，按照间隔，进行间隔排序
-<ul>
-<li><code>DK[i-1]</code>有序后，执行<code>DK[i]</code>的排序后，<code>DK[i-1]</code>依旧是有序的</li>
-</ul></li>
-</ul>
-<h4 id="原始的希尔排序">1、原始的希尔排序</h4>
-<ul>
-<li><code>DK[i-1] = 取整(N/2),DK[i] = 取整(DK[i-1]/2)</code></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Shell_sort</span><span class="params">(ElementTypes A[], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> D;  <span class="comment">// 当前次序的间隔</span></span><br><span class="line">    <span class="keyword">int</span> P,i;</span><br><span class="line">    ElementType temp;</span><br><span class="line">    <span class="keyword">for</span>(P=N/<span class="number">2</span>;D&gt;<span class="number">0</span>;D/=<span class="number">2</span>) <span class="comment">// 间隔的变换</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 插入排序 </span></span><br><span class="line">        <span class="keyword">for</span>(P = D; P&lt;N; P++)</span><br><span class="line">        &#123;</span><br><span class="line">        	temp = A[P];  <span class="comment">// 当前要插入的元素 </span></span><br><span class="line">            <span class="keyword">for</span>(i = P; i &gt;= D &amp;&amp; A[i-D] &gt; temp;i -= D)  <span class="comment">// 和已经有序的元素进行比较</span></span><br><span class="line">            <span class="comment">// 前一个元素A[i-D]如果大于temp，temp放置的位置在i-D之前，i-D位置的元素向后移动</span></span><br><span class="line">            &#123;</span><br><span class="line">                A[i] = A[i-D];</span><br><span class="line">            &#125;</span><br><span class="line">            A[i] = temp;  <span class="comment">// temp 放到正确位置</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>复杂度分析：
-当所有大于的增量的序列的数据都是有序的时候，所有的交换操作都会在增量为1的时候执行，这回导致一个不怎么好的结果，时间复杂度会达到<code>O(N^2)</code>。</li>
 </ul>
 ]]></content>
       <categories>
@@ -1928,6 +1940,34 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
       </tags>
   </entry>
   <entry>
+    <title>Shell-Sort</title>
+    <url>/2021/10/26/Shell-Sort/</url>
+    <content><![CDATA[<h3 id="希尔排序">希尔排序</h3>
+<ul>
+<li>希尔排序：预先定义一系列间隔(增量序列)DK，按照间隔，进行间隔排序
+<ul>
+<li><code>DK[i-1]</code>有序后，执行<code>DK[i]</code>的排序后，<code>DK[i-1]</code>依旧是有序的</li>
+</ul></li>
+</ul>
+<h4 id="原始的希尔排序">1、原始的希尔排序</h4>
+<ul>
+<li><code>DK[i-1] = 取整(N/2),DK[i] = 取整(DK[i-1]/2)</code></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Shell_sort</span><span class="params">(ElementTypes A[], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> D;  <span class="comment">// 当前次序的间隔</span></span><br><span class="line">    <span class="keyword">int</span> P,i;</span><br><span class="line">    ElementType temp;</span><br><span class="line">    <span class="keyword">for</span>(P=N/<span class="number">2</span>;D&gt;<span class="number">0</span>;D/=<span class="number">2</span>) <span class="comment">// 间隔的变换</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 插入排序 </span></span><br><span class="line">        <span class="keyword">for</span>(P = D; P&lt;N; P++)</span><br><span class="line">        &#123;</span><br><span class="line">        	temp = A[P];  <span class="comment">// 当前要插入的元素 </span></span><br><span class="line">            <span class="keyword">for</span>(i = P; i &gt;= D &amp;&amp; A[i-D] &gt; temp;i -= D)  <span class="comment">// 和已经有序的元素进行比较</span></span><br><span class="line">            <span class="comment">// 前一个元素A[i-D]如果大于temp，temp放置的位置在i-D之前，i-D位置的元素向后移动</span></span><br><span class="line">            &#123;</span><br><span class="line">                A[i] = A[i-D];</span><br><span class="line">            &#125;</span><br><span class="line">            A[i] = temp;  <span class="comment">// temp 放到正确位置</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>复杂度分析：
+当所有大于的增量的序列的数据都是有序的时候，所有的交换操作都会在增量为1的时候执行，这回导致一个不怎么好的结果，时间复杂度会达到<code>O(N^2)</code>。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Boy</title>
     <url>/2021/03/16/baozi/</url>
     <content><![CDATA[<h4 id="about-this-blog">About this Blog</h4>
@@ -2247,6 +2287,56 @@ src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/GF_Workspace.JPG
   </entry>
   <entry>
     <title>记一次面试</title>
+    <url>/2021/07/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95/</url>
+    <content><![CDATA[<p><em>和老大提出辞职之后，商量了关于我的工作后续的事情，便开始寻找新工作......</em>
+目的地是在重庆的一家公司，具体什么名字，暂时不透露了，面的<code>C++ &amp; Qt</code>，按照面试官的说法，这是一个纯<code>Qt</code>的岗位，所以接下来的问题大概全部是和<code>Qt</code>相关的，当然也会有部分C++的问题在其中。</p>
+<p><font style="color:pink">废话不多说，我们进入正题：</font></p>
+<h2 id="c部分的问题">C++部分的问题：</h2>
+<ul>
+<li><p>第一部分是关于C++这门语言的，面向对象是什么？</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// OOP</span></span><br><span class="line"><span class="comment">// 封装,继承,多态</span></span><br></pre></td></tr></table></figure></li>
+<li><p>对于多态的理解?</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 首先是如何实现多态？</span></span><br><span class="line"><span class="number">1.</span> 多态发生在继承关系中。</span><br><span class="line"><span class="number">2.</span> 需要重写虚函数。</span><br><span class="line"><span class="number">3.</span> 父类的指针指向子类的对象。</span><br><span class="line"><span class="number">4.</span> 通过父类指针对重写的虚函数发起调用，最终调用你要想调用的函数。</span><br></pre></td></tr></table></figure>
+<p>example： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">  &#123;</span></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">      <span class="keyword">int</span> menber;</span><br><span class="line">  </span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      B():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">D</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      D():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      A * a = <span class="keyword">new</span> A;</span><br><span class="line">      B * b = <span class="keyword">new</span> B;</span><br><span class="line">      D * d = <span class="keyword">new</span> D;</span><br><span class="line">  </span><br><span class="line">      A * ptr = b;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = a;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = d;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  	</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure> <font style="color:red">结果如下：</font>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/polymorphism.png"
+title="polymorphism" alt="polymorphism" /></p></li>
+<li><p>多态的实现 -- <font style="color:red">虚函数表</font></p>
+<ul>
+<li><p>验证虚函数表：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一个简单的C 不带有虚函数 </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    C()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;C&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> member;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><font style="color:red">输出结果:</font> <img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/virtual_table_1.png"
+title="virtual table 1" alt="virtual_table" /></p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/virtual_table_2.png"
+title="virtual table 2" alt="virtual table 2" />
+<figcaption aria-hidden="true">virtual table 2</figcaption>
+</figure>
+<ul>
+<li>上面的结果可以看出存在一个成员(存在虚函数的情况)，大小为8个字节(64位软件)。</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="qt部分">Qt部分</h2>
+<ul>
+<li>元对象系统</li>
+<li>窗口刷新机制</li>
+<li>内存托管(删除机制)</li>
+<li>Qquick</li>
+<li>Qt的布局</li>
+</ul>
+<h2 id="opengl部分">OPENGL部分</h2>
+<ul>
+<li><p>缓冲(双缓冲)</p></li>
+<li><p>着色器程序(语言)</p></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>记一次面试</title>
     <url>/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95-1/</url>
     <content><![CDATA[<h2 id="记一次面试">记一次面试:</h2>
 <p>  距离上一次面试，不到半年，频繁的换工作，总是一件不好的事情，关于换工作这件事并不是那么的难以启齿，所以具体原因就先省略了.......
@@ -2335,56 +2425,6 @@ src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/GF_Workspace.JPG
         <tag>openGL</tag>
         <tag>computer graphics</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>记一次面试</title>
-    <url>/2021/07/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95/</url>
-    <content><![CDATA[<p><em>和老大提出辞职之后，商量了关于我的工作后续的事情，便开始寻找新工作......</em>
-目的地是在重庆的一家公司，具体什么名字，暂时不透露了，面的<code>C++ &amp; Qt</code>，按照面试官的说法，这是一个纯<code>Qt</code>的岗位，所以接下来的问题大概全部是和<code>Qt</code>相关的，当然也会有部分C++的问题在其中。</p>
-<p><font style="color:pink">废话不多说，我们进入正题：</font></p>
-<h2 id="c部分的问题">C++部分的问题：</h2>
-<ul>
-<li><p>第一部分是关于C++这门语言的，面向对象是什么？</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// OOP</span></span><br><span class="line"><span class="comment">// 封装,继承,多态</span></span><br></pre></td></tr></table></figure></li>
-<li><p>对于多态的理解?</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 首先是如何实现多态？</span></span><br><span class="line"><span class="number">1.</span> 多态发生在继承关系中。</span><br><span class="line"><span class="number">2.</span> 需要重写虚函数。</span><br><span class="line"><span class="number">3.</span> 父类的指针指向子类的对象。</span><br><span class="line"><span class="number">4.</span> 通过父类指针对重写的虚函数发起调用，最终调用你要想调用的函数。</span><br></pre></td></tr></table></figure>
-<p>example： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">  &#123;</span></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">      <span class="keyword">int</span> menber;</span><br><span class="line">  </span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      B():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">D</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      D():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      A * a = <span class="keyword">new</span> A;</span><br><span class="line">      B * b = <span class="keyword">new</span> B;</span><br><span class="line">      D * d = <span class="keyword">new</span> D;</span><br><span class="line">  </span><br><span class="line">      A * ptr = b;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = a;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = d;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  	</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure> <font style="color:red">结果如下：</font>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/polymorphism.png"
-title="polymorphism" alt="polymorphism" /></p></li>
-<li><p>多态的实现 -- <font style="color:red">虚函数表</font></p>
-<ul>
-<li><p>验证虚函数表：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一个简单的C 不带有虚函数 </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    C()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;C&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> member;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><font style="color:red">输出结果:</font> <img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/virtual_table_1.png"
-title="virtual table 1" alt="virtual_table" /></p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/virtual_table_2.png"
-title="virtual table 2" alt="virtual table 2" />
-<figcaption aria-hidden="true">virtual table 2</figcaption>
-</figure>
-<ul>
-<li>上面的结果可以看出存在一个成员(存在虚函数的情况)，大小为8个字节(64位软件)。</li>
-</ul></li>
-</ul></li>
-</ul>
-<hr />
-<h2 id="qt部分">Qt部分</h2>
-<ul>
-<li>元对象系统</li>
-<li>窗口刷新机制</li>
-<li>内存托管(删除机制)</li>
-<li>Qquick</li>
-<li>Qt的布局</li>
-</ul>
-<h2 id="opengl部分">OPENGL部分</h2>
-<ul>
-<li><p>缓冲(双缓冲)</p></li>
-<li><p>着色器程序(语言)</p></li>
-</ul>
-]]></content>
   </entry>
   <entry>
     <title>迟到的毕业总结</title>
