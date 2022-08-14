@@ -368,13 +368,13 @@ class=&quot;math </summary>
   </entry>
   
   <entry>
-    <title>记一次面试</title>
-    <link href="https://blog.ranbun.com/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95-1/"/>
-    <id>https://blog.ranbun.com/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95-1/</id>
+    <title>渲染(CAD)</title>
+    <link href="https://blog.ranbun.com/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95_CAD%E6%B8%B2%E6%9F%93/"/>
+    <id>https://blog.ranbun.com/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95_CAD%E6%B8%B2%E6%9F%93/</id>
     <published>2022-01-15T16:51:02.000Z</published>
-    <updated>2022-07-28T16:37:23.270Z</updated>
+    <updated>2022-08-14T09:17:43.139Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="记一次面试">记一次面试:</h2><p>  距离上一次面试，不到半年，频繁的换工作，总是一件不好的事情，关于换工作这件事并不是那么的难以启齿，所以具体原因就先省略了.......  这次的目标是国内的一所高校，具体的工作，根据面试的情况看来，是<code>CAD</code>方向，大概都是渲染相关的，所以还是符合我的预期。</p><h2 id="start-interview">Start Interview:</h2><ul><li>首先这是一个<code>Cpp</code>&amp;<code>图形</code>的混合岗位，所以能想到的是，关于对这个岗位的基本要求就是<code>CPP</code>和<code>图形学</code>开发经验,可以预见大概的问题就是<code>Cpp</code>和图形相关的知识。</li></ul><hr /><h3 id="第一次面试">第一次面试</h3><h4 id="关于简历中提到的之前的项目">关于简历中提到的之前的项目</h4><ul><li>部分和之前项目相关的问题</li><li>一些技术上的解决方案</li><li>......</li></ul><h4 id="cpp的新的语言特性">CPP的新的语言特性</h4><ul><li><code>C++11</code>的新语言特性 - 比较常用的<ul><li>智能指针</li><li><code>auto</code>自动类型推导</li><li>标准库的多线程</li><li><code>lambda</code>表达式</li></ul></li><li>一些指针和引用相关的问题<ul><li>指针是什么？</li><li>引用是什么？</li><li>两者的区别？</li><li>内存分区的相关问题，如：<ul><li>常量在程序中的的存储位置</li><li>静态变量在什么位置</li><li>......</li></ul></li></ul></li></ul><h4 id="图形相关的问题">图形相关的问题</h4><ul><li>图形管线的问题<ul><li>坐标变换相关的问题<ul><li>投影</li><li>视图</li></ul></li></ul></li><li>一些渲染上面的解决方案<ul><li>大数据量的绘制</li></ul></li></ul><h3 id="第二次面试">第二次面试</h3><p>  第二次面试倒是没有什么技术相关的问题，两个老师，一个人士，加上我，一共四个人，具体内容就是一个10分钟的自我介绍，这个介绍包括：</p><ul><li>个人介绍<ul><li>基本信息</li><li>求学经历</li><li>......</li></ul></li><li>工作经历<ul><li>项目经历</li></ul></li><li>未来的规划<ul><li>职业规划</li><li>个人规划</li></ul></li><li>个人爱好</li></ul><p> .......</p><p>  后面部分就是关于这个介绍的提问了，无关痛痒。</p><p>  一周以后......，在我以为黄了的时候，竟然通过了。</p><p>  感谢！</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="记一次面试">记一次面试:</h2><p>  距离上一次面试，不到半年，频繁的换工作，总是一件不好的事情，关于换工作这件事并不是那么的难以启齿，所以具体原因就先省略了.......  这次的目标是国内的一所高校，具体的工作，根据面试的情况看来，是<code>CAD</code>方向，大概都是渲染相关的，所以还是符合我的预期。</p><h2 id="start-interview">Start Interview:</h2><ul><li>首先这是一个<code>Cpp</code>&amp;<code>图形</code>的混合岗位，所以能想到的是，关于对这个岗位的基本要求就是<code>CPP</code>和<code>图形学</code>开发经验,可以预见大概的问题就是<code>Cpp</code>和图形相关的知识。</li></ul><hr /><h3 id="第一次面试">第一次面试</h3><h4 id="关于简历中提到的之前的项目">关于简历中提到的之前的项目</h4><ul><li>部分和之前项目相关的问题</li><li>一些技术上的解决方案</li><li>......</li></ul><h4 id="cpp的新的语言特性">CPP的新的语言特性</h4><ul><li><code>C++11</code>的新语言特性 - 比较常用的<ul><li>智能指针</li><li><code>auto</code>自动类型推导</li><li>标准库的多线程</li><li><code>lambda</code>表达式</li></ul></li><li>一些指针和引用相关的问题<ul><li>指针是什么？</li><li>引用是什么？</li><li>两者的区别？</li><li>内存分区的相关问题，如：<ul><li>常量在程序中的的存储位置</li><li>静态变量在什么位置</li><li>......</li></ul></li></ul></li></ul><h4 id="图形相关的问题">图形相关的问题</h4><ul><li>图形管线的问题<ul><li>坐标变换相关的问题<ul><li>投影</li><li>视图</li></ul></li></ul></li><li>一些渲染上面的解决方案<ul><li>大数据量的绘制</li></ul></li></ul><h3 id="第二次面试">第二次面试</h3><p>  第二次面试倒是没有什么技术相关的问题，两个老师，一个人事，加上我，一共四个人，具体内容就是一个10分钟的自我介绍，这个介绍包括：</p><ul><li>个人介绍<ul><li>基本信息</li><li>求学经历</li><li>......</li></ul></li><li>工作经历<ul><li>项目经历</li></ul></li><li>未来的规划<ul><li>职业规划</li><li>个人规划</li></ul></li><li>个人爱好</li></ul><p> .......</p><p>  后面部分就是关于这个介绍的提问了，无关痛痒。</p><p>  一周以后......，在我以为黄了的时候，竟然通过了。</p><p>  感谢！</p>]]></content>
     
     
       
