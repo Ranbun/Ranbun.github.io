@@ -19,16 +19,16 @@ minify: false
 # Define custom file paths.
 # Create your custom files in site directory `source/_data` and uncomment needed files below.
 custom_file_path:
-#head: source/_data/head.njk
-#header: source/_data/header.njk
-#sidebar: source/_data/sidebar.njk
-#postMeta: source/_data/post-meta.njk
-#postBodyEnd: source/_data/post-body-end.njk
-#footer: source/_data/footer.njk
-#bodyEnd: source/_data/body-end.njk
-#variable: source/_data/variables.styl
-#mixin: source/_data/mixins.styl
-#style: source/_data/styles.styl
+  #head: source/_data/head.njk
+  #header: source/_data/header.njk
+  #sidebar: source/_data/sidebar.njk
+  #postMeta: source/_data/post-meta.njk
+  #postBodyEnd: source/_data/post-body-end.njk
+  #footer: source/_data/footer.njk
+  #bodyEnd: source/_data/body-end.njk
+  #variable: source/_data/variables.styl
+  #mixin: source/_data/mixins.styl
+  #style: source/_data/styles.styl
 
 
 # ---------------------------------------------------------------
@@ -77,13 +77,13 @@ creative_commons:
 open_graph:
   enable: true
   options:
-  #twitter_card: <twitter:card>
-  #twitter_id: <twitter:creator>
-  #twitter_site: <twitter:site>
-  #twitter_image: <twitter:image>
-  #google_plus: <g+:profile_link>
-  #fb_admins: <fb:admin_id>
-  #fb_app_id: <fb:app_id>
+    #twitter_card: <twitter:card>
+    #twitter_id: <twitter:creator>
+    #twitter_site: <twitter:site>
+    #twitter_image: <twitter:image>
+    #google_plus: <g+:profile_link>
+    #fb_admins: <fb:admin_id>
+    #fb_app_id: <fb:app_id>
 
 
 # ---------------------------------------------------------------
@@ -104,13 +104,15 @@ menu:
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
   home: /|| fa fa-home
-  tags: /tags/ ||
   categories: /categories/|| fa fa-th
-  sitemap: /sitemap.xml|| fa fa-sitemap
-  archives: /archives/|| fa fa-archive
-  about: /about/|| fa fa-user
-  # commonweal: /404
   #schedule: /schedule || calendar
+  sitemap: /sitemap.xml || fa fa-sitemap
+  # sitemap:
+  #  path: sitemap.xml
+  archives: /archives|| fa fa-archive
+  tags: /tags|| fafa-tags
+  about: /about|| fa fa-user
+  # commonweal: /404
 
 
 # Enable / Disable menu icons / item badges.
@@ -164,10 +166,10 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  GitHub: https://github.com/Ranbun || fa-brands fa-github
-  E-Mail: mailto::ranbao@gmail.com  || fa fa-envelope
-  FaceBook: https://www.facebook.com/477740261.baozi/  || fa-brands fa-facebook
-  Zhihu: https://www.zhihu.com/people/bao-zi-17-17/ || fa-brands fa-zhihu
+  GitHub: https://github.com/Ranbun # || github
+  E-Mail: mailto::ranbao@gmail.com # || envelope
+  FaceBook: https://www.facebook.com/477740261.baozi/ # || facebook
+  Zhihu: https://www.zhihu.com/people/bao-zi-17-17/ # || zhihu
   #GitHub: https://github.com/yourname || fab fa-github
   #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
@@ -181,13 +183,13 @@ social:
 
 social_icons:
   enable: true
-  icons_only: true
-  transition: true
-  # GitHub: fa fa-github
-  # E-Mail: fa fa-envelope
+  # icons_only: true
+  # transition: true
+  GitHub: github
+  E-Mail: envelope
   # Twitter: twitter
-  # Zhihu: fa fa-zhihu
-  # FaceBook: fa fa-facebook
+  Zhihu: zhihu
+  FaceBook: facebook
 
 # Blog rolls
 links_settings:
@@ -197,7 +199,7 @@ links_settings:
   layout: block
 
 links:
-#Title: https://example.com
+  #Title: https://example.com
 
 # Table of Contents in the Sidebar
 # Front-matter variable (nonsupport wrap expand_all).
@@ -294,10 +296,10 @@ reward_settings:
   #comment: Buy me a coffee
 
 reward:
-#wechatpay: /images/wechatpay.png
-#alipay: /images/alipay.png
-#paypal: /images/paypal.png
-#bitcoin: /images/bitcoin.png
+  #wechatpay: /images/wechatpay.png
+  #alipay: /images/alipay.png
+  #paypal: /images/paypal.png
+  #bitcoin: /images/bitcoin.png
 
 # Subscribe through Telegram Channel, Twitter, etc.
 # Usage: `Key: permalink || icon` (Font Awesome)
@@ -589,7 +591,8 @@ quicklink:
 # ---------------------------------------------------------------
 
 # Multiple Comment System Support
-comments:  # Available values: tabs | buttons
+comments:
+  # Available values: tabs | buttons
   style: tabs
   # Choose a comment system to be displayed by default.
   # Available values: disqus | disqusjs | changyan | livere | gitalk | utterances
@@ -600,12 +603,11 @@ comments:  # Available values: tabs | buttons
   lazyload: false
   # Modify texts or order for any naves, here are some examples.
   nav:
-  #disqus:
-  #  text: Load Disqus
-  #  order: -1
-  #gitalk:
-  #  order: -2
-
+    #disqus:
+    #  text: Load Disqus
+    #  order: -1
+    #gitalk:
+    #  order: -2
 
 # Disqus
 # For more information: https://disqus.com
