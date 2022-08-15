@@ -337,134 +337,134 @@
 
   <url>
     <loc>https://blog.ranbun.com/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://blog.ranbun.com/tags/cpp/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <loc>https://blog.ranbun.com/tags/mylife/</loc>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/tags/mylife/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <loc>https://blog.ranbun.com/tags/cpp/</loc>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/tags/sort/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/tags/osg/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/tags/key-words/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/tags/Games202/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/tags/Shadow/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/tags/Git/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/tags/OpenGL/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/tags/Qt/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/tags/pointer/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/tags/intraduce/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/tags/vector/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/tags/windows/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/tags/conclusion/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/tags/openGL/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/tags/computer-graphics/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/tags/university/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -472,190 +472,190 @@
 
   
   <url>
-    <loc>https://blog.ranbun.com/categories/Coding/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <loc>https://blog.ranbun.com/categories/bun/</loc>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/categories/bun/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <loc>https://blog.ranbun.com/categories/Coding/</loc>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/Algorithm/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/works/</loc>
-    <lastmod>2022-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ranbun.com/categories/cpp/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/bun/life/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ranbun.com/categories/cpp/</loc>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/Computer-Graph/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/works/GF/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/works/HJ/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/works/SCUU/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/develop/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/works/SCU/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/study/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/works/GF/data-type/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/Math/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/works/GF/OSG/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/Tips/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/works/interview/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/Computer-Graph/works/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/bun/university/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/works/HJ/OSG/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/works/SCUU/Computer-Graph/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/works/SCU/Git/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/study/coding/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/works/GF/data-type/bugs/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/Math/linear-algebra/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ranbun.com/categories/Computer-Graph/works/SCUU/</loc>
-    <lastmod>2022-08-11</lastmod>
+    <lastmod>2022-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

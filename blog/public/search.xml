@@ -1,52 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Bit manipulation</title>
-    <url>/2022/07/29/Bit-manipulation/</url>
-    <content><![CDATA[<h3 id="将二进制数某一位置0置1取反">将二进制数某一位置0，置1，取反</h3>
-<ul>
-<li><h2
-id="用位运算可以解决我们的问题所以下面部分的代码就是一些位运算的简单应用">用位运算可以解决我们的问题,所以下面部分的代码就是一些位运算的简单应用</h2></li>
-<li>函数实现</li>
-</ul>
-<h4 id="将不同进制数转为二进制非必须---我们只是为了显示结果">1.
-将不同进制数转为二进制(非必须) - 我们只是为了显示结果</h4>
-<ul>
-<li>模拟人的计算过程 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showBinary</span><span class="params">(<span class="keyword">int</span> d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">array</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储具体对应的位的值 0 / 1</span></span><br><span class="line">    <span class="built_in">array</span>&lt;<span class="keyword">int</span>, 32&gt; num;</span><br><span class="line">    num.fill(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>; <span class="comment">// 当前转换的Bit位</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">31</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (d &amp; flag)</span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        flag = flag &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查找第一个不是零的数 </span></span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">if</span> 1 </span></span><br><span class="line">    <span class="comment">// 此过程可以省略 做了个显示上的优化</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i = <span class="number">0</span>; i &lt; num.size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (num[i] != <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">                i == <span class="number">0</span> ? index = i : index = i - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span> </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出转换结果</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i = index; i &lt; num.size(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; num[i];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="某一位置为-0">某一位置为 0</h4>
-<ul>
-<li><code>&amp;</code>运算的应用 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 0</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Zero</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 取反是一个只和取反位数以及之后所有位数相关的操作</span></span><br><span class="line">    <span class="comment">// 二进制的位数从0开始计算 所以需要 bits - 1 </span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; (bits(3) - 1) = 4 = 0100 </span></span><br><span class="line">    <span class="comment">// ~4 = 1011</span></span><br><span class="line">    <span class="comment">// &amp; 同为 1 则为 1 =&gt; 1011 &amp; (任意数字) 第三位等于 0</span></span><br><span class="line">    d = d &amp; (~(<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>)));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="某一位置为-1">某一位置为 1</h4>
-<ul>
-<li><code>|</code> 运算的应用, 只要有一个是1 结果都是1
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 1</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2One</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// d(16) = 10000 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 4 = 0100</span></span><br><span class="line">    <span class="comment">// d | 0100 = 10000 | 0100  = 10100 </span></span><br><span class="line">    d = d | (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="某一位置取反">某一位置取反</h4>
-<ul>
-<li><code>^</code> 异或运算的运用
-<ul>
-<li><code>^</code> 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1 其余的情况都是
-0</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位取反</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Negate</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 转换过程</span></span><br><span class="line">    <span class="comment">// ^ 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1  其余的情况都是 0 </span></span><br><span class="line">    <span class="comment">// d(15) == 1111 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 0100</span></span><br><span class="line">    <span class="comment">// 1111</span></span><br><span class="line">    <span class="comment">// 0100 ^</span></span><br><span class="line">    <span class="comment">// 1011 </span></span><br><span class="line">    d = d ^ (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="参考">参考</h2>
-<ul>
-<li>[1] <a
-href="https://gthub.com/Ranbun/blogProjects/tree/main/BitManipulation"
-title="Github">Github</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Coding</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021年终总结</title>
     <url>/2022/01/16/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h3 id="我起伏的2021年">我起伏的2021年:</h3>
@@ -93,6 +47,52 @@ title="Github">Github</a></li>
       </categories>
       <tags>
         <tag>mylife</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Bit manipulation</title>
+    <url>/2022/07/29/Bit-manipulation/</url>
+    <content><![CDATA[<h3 id="将二进制数某一位置0置1取反">将二进制数某一位置0，置1，取反</h3>
+<ul>
+<li><h2
+id="用位运算可以解决我们的问题所以下面部分的代码就是一些位运算的简单应用">用位运算可以解决我们的问题,所以下面部分的代码就是一些位运算的简单应用</h2></li>
+<li>函数实现</li>
+</ul>
+<h4 id="将不同进制数转为二进制非必须---我们只是为了显示结果">1.
+将不同进制数转为二进制(非必须) - 我们只是为了显示结果</h4>
+<ul>
+<li>模拟人的计算过程 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showBinary</span><span class="params">(<span class="keyword">int</span> d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">array</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储具体对应的位的值 0 / 1</span></span><br><span class="line">    <span class="built_in">array</span>&lt;<span class="keyword">int</span>, 32&gt; num;</span><br><span class="line">    num.fill(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>; <span class="comment">// 当前转换的Bit位</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">31</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (d &amp; flag)</span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            num[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        flag = flag &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查找第一个不是零的数 </span></span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">if</span> 1 </span></span><br><span class="line">    <span class="comment">// 此过程可以省略 做了个显示上的优化</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i = <span class="number">0</span>; i &lt; num.size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (num[i] != <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">                i == <span class="number">0</span> ? index = i : index = i - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span> </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出转换结果</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i = index; i &lt; num.size(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; num[i];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="某一位置为-0">某一位置为 0</h4>
+<ul>
+<li><code>&amp;</code>运算的应用 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 0</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Zero</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 取反是一个只和取反位数以及之后所有位数相关的操作</span></span><br><span class="line">    <span class="comment">// 二进制的位数从0开始计算 所以需要 bits - 1 </span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; (bits(3) - 1) = 4 = 0100 </span></span><br><span class="line">    <span class="comment">// ~4 = 1011</span></span><br><span class="line">    <span class="comment">// &amp; 同为 1 则为 1 =&gt; 1011 &amp; (任意数字) 第三位等于 0</span></span><br><span class="line">    d = d &amp; (~(<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>)));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="某一位置为-1">某一位置为 1</h4>
+<ul>
+<li><code>|</code> 运算的应用, 只要有一个是1 结果都是1
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位设置为 1</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2One</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// d(16) = 10000 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 4 = 0100</span></span><br><span class="line">    <span class="comment">// d | 0100 = 10000 | 0100  = 10100 </span></span><br><span class="line">    d = d | (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="某一位置取反">某一位置取反</h4>
+<ul>
+<li><code>^</code> 异或运算的运用
+<ul>
+<li><code>^</code> 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1 其余的情况都是
+0</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 某一位取反</span></span><br><span class="line"><span class="comment">/// d 你要修改的数 </span></span><br><span class="line"><span class="comment">/// bits 你要修改的位置</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">setBit2Negate</span><span class="params">(T d, <span class="keyword">int</span> bits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="comment">// 转换过程</span></span><br><span class="line">    <span class="comment">// ^ 异或运算 1 ^ 0 == 1 / 0 ^ 1 == 1  其余的情况都是 0 </span></span><br><span class="line">    <span class="comment">// d(15) == 1111 bits = 3</span></span><br><span class="line">    <span class="comment">// 1 &lt;&lt; bits - 1 == 0100</span></span><br><span class="line">    <span class="comment">// 1111</span></span><br><span class="line">    <span class="comment">// 0100 ^</span></span><br><span class="line">    <span class="comment">// 1011 </span></span><br><span class="line">    d = d ^ (<span class="number">1</span> &lt;&lt; (bits - <span class="number">1</span>));</span><br><span class="line">    BitManipulate::showBinary(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(d));</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="参考">参考</h2>
+<ul>
+<li>[1] <a
+href="https://gthub.com/Ranbun/blogProjects/tree/main/BitManipulation"
+title="Github">Github</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
       </tags>
   </entry>
   <entry>
