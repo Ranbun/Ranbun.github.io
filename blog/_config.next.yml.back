@@ -110,7 +110,7 @@ menu:
   # sitemap:
   #  path: sitemap.xml
   archives: /archives|| fa fa-archive
-  tags: /tags|| fafa-tags
+  tags: /tags|| fa fa-tags
   about: /about|| fa fa-user
   # commonweal: /404
 

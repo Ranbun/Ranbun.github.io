@@ -104,7 +104,7 @@ menu:
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
   home: /|| fa fa-home
-  tags: /tags/ ||
+  tags: /tags/ || fas fa-tags
   categories: /categories/|| fa fa-th
   sitemap: /sitemap.xml|| fa fa-sitemap
   archives: /archives/|| fa fa-archive

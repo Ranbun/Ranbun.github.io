@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>起伏的2022(上)</title>
+    <url>/2022/08/14/2022%E5%8D%8A%E5%B9%B4%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<center>
+<h1>
+关于我的2022(上)
+</h1>
+</center>
+<ul>
+<li>辞掉了原来的工作
+<ul>
+<li>离开了北京</li>
+<li>又去见了一些人</li>
+</ul></li>
+<li>来了成都</li>
+<li>给自己翻篇</li>
+<li>遇到了她
+<ul>
+<li>准备一起写我们的故事</li>
+</ul></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>mylife</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021年终总结</title>
     <url>/2022/01/16/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h3 id="我起伏的2021年">我起伏的2021年:</h3>
@@ -45,32 +71,6 @@
         <category>bun</category>
         <category>life</category>
       </categories>
-      <tags>
-        <tag>mylife</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>起伏的2022(上)</title>
-    <url>/2022/08/14/2022%E5%8D%8A%E5%B9%B4%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<center>
-<h1>
-关于我的2022(上)
-</h1>
-</center>
-<ul>
-<li>辞掉了原来的工作
-<ul>
-<li>离开了北京</li>
-<li>又去见了一些人</li>
-</ul></li>
-<li>来了成都</li>
-<li>给自己翻篇</li>
-<li>遇到了她
-<ul>
-<li>准备一起写我们的故事</li>
-</ul></li>
-</ul>
-]]></content>
       <tags>
         <tag>mylife</tag>
       </tags>
@@ -234,6 +234,23 @@ title="Github">Github</a></li>
       </tags>
   </entry>
   <entry>
+    <title>Cplusplus key words - extern</title>
+    <url>/2022/08/08/Cplusplus-key-words-extern/</url>
+    <content><![CDATA[<center>
+<h2>
+<code>extern</code> 关键字
+</h2>
+</center>
+<hr />
+]]></content>
+      <categories>
+        <category>cpp</category>
+      </categories>
+      <tags>
+        <tag>key words</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Bug奇遇记-uint16_t</title>
     <url>/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/</url>
     <content><![CDATA[<h3 id="uint16_t">uint16_t</h3>
@@ -279,44 +296,6 @@ title="Result" alt="right result" />
       </tags>
   </entry>
   <entry>
-    <title>Cplusplus key words - extern</title>
-    <url>/2022/08/08/Cplusplus-key-words-extern/</url>
-    <content><![CDATA[<center>
-<h2>
-<code>extern</code> 关键字
-</h2>
-</center>
-<hr />
-]]></content>
-      <categories>
-        <category>cpp</category>
-      </categories>
-      <tags>
-        <tag>key words</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Dynamic drawing of osg vertex buffer objects</title>
-    <url>/2021/11/07/Dynamic-drawing-of-osg-vertex-buffer-objects/</url>
-    <content><![CDATA[<h3
-id="dynamic-drawing-of-osg-vertex-buffer-objects"><code>Dynamic drawing of osg vertex buffer objects</code></h3>
-<ul>
-<li><p>使用<code>显示列表</code>绘制图形在速度上并没有<code>vertex buffer object</code>那么快，所以在更高的<code>osg</code>的版本中，推荐使用<code>vertex buffer object</code></p></li>
-<li><p>在使用<code>vertex buffer object</code>的情况下，动态更新绘制的数据</p></li>
-<li><p>代码实现： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 首先- 创建完成 osg::Geometry</span></span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; geom = <span class="keyword">new</span> osg::Geometry;</span><br><span class="line"><span class="comment">// 关闭显示列表 并使用vbo(vertex buffer object)</span></span><br><span class="line">geom-&gt;setUseDisplayLists(<span class="literal">false</span>);</span><br><span class="line">geom-&gt;setUseVertexBufferObject(<span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 修改几何体的绘制数据的类型 </span></span><br><span class="line">geom-&gt;setDataVariance(osg::Object::DataVariance::DYNAMIC);</span><br><span class="line"><span class="comment">//================================================================</span></span><br><span class="line"><span class="comment">// 更新操作 </span></span><br><span class="line"><span class="comment">// 先获取顶点数组 </span></span><br><span class="line"><span class="keyword">auto</span> varray = <span class="keyword">dynamic_cast</span>&lt;osg::Vec3Array&gt;(geom-&gt;getVertexArray());</span><br><span class="line"><span class="comment">// 需改顶点数据</span></span><br><span class="line"><span class="comment">// ---------------------你可以想数组中插入顶点-----------------------------------</span></span><br><span class="line"><span class="comment">// 调用 dirty函数，告诉osg::Geometry你修改了顶点</span></span><br><span class="line">varray-&gt;dirty();</span><br><span class="line"><span class="comment">// 修改 PrimitiveSet(OpenGL的DrawArray(图元，开始点，绘制个数))</span></span><br><span class="line"><span class="comment">// PrimitiveSet* osg::Geometry::getPrimitiveSet  ( unsigned int  pos ) </span></span><br><span class="line"><span class="keyword">auto</span> pri_set = geom-&gt;getPrimitiveSet(<span class="number">0</span>);</span><br><span class="line"><span class="comment">// void  setNumInstances (int n) </span></span><br><span class="line">pri_set-&gt;setNumInstances(修改后的顶点个数)；</span><br><span class="line">pri_set-&gt;dirty();</span><br><span class="line"><span class="comment">// 更新几何体</span></span><br><span class="line">geom-&gt;dirty();</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>HJ</category>
-        <category>OSG</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>osg</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Games202-ShadowMap</title>
     <url>/2021/12/13/Games202-ShadowMap/</url>
     <content><![CDATA[<h2 id="shadow-map">Shadow Map</h2>
@@ -352,6 +331,27 @@ src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/g
       <tags>
         <tag>Games202</tag>
         <tag>Shadow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Dynamic drawing of osg vertex buffer objects</title>
+    <url>/2021/11/07/Dynamic-drawing-of-osg-vertex-buffer-objects/</url>
+    <content><![CDATA[<h3
+id="dynamic-drawing-of-osg-vertex-buffer-objects"><code>Dynamic drawing of osg vertex buffer objects</code></h3>
+<ul>
+<li><p>使用<code>显示列表</code>绘制图形在速度上并没有<code>vertex buffer object</code>那么快，所以在更高的<code>osg</code>的版本中，推荐使用<code>vertex buffer object</code></p></li>
+<li><p>在使用<code>vertex buffer object</code>的情况下，动态更新绘制的数据</p></li>
+<li><p>代码实现： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 首先- 创建完成 osg::Geometry</span></span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; geom = <span class="keyword">new</span> osg::Geometry;</span><br><span class="line"><span class="comment">// 关闭显示列表 并使用vbo(vertex buffer object)</span></span><br><span class="line">geom-&gt;setUseDisplayLists(<span class="literal">false</span>);</span><br><span class="line">geom-&gt;setUseVertexBufferObject(<span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 修改几何体的绘制数据的类型 </span></span><br><span class="line">geom-&gt;setDataVariance(osg::Object::DataVariance::DYNAMIC);</span><br><span class="line"><span class="comment">//================================================================</span></span><br><span class="line"><span class="comment">// 更新操作 </span></span><br><span class="line"><span class="comment">// 先获取顶点数组 </span></span><br><span class="line"><span class="keyword">auto</span> varray = <span class="keyword">dynamic_cast</span>&lt;osg::Vec3Array&gt;(geom-&gt;getVertexArray());</span><br><span class="line"><span class="comment">// 需改顶点数据</span></span><br><span class="line"><span class="comment">// ---------------------你可以想数组中插入顶点-----------------------------------</span></span><br><span class="line"><span class="comment">// 调用 dirty函数，告诉osg::Geometry你修改了顶点</span></span><br><span class="line">varray-&gt;dirty();</span><br><span class="line"><span class="comment">// 修改 PrimitiveSet(OpenGL的DrawArray(图元，开始点，绘制个数))</span></span><br><span class="line"><span class="comment">// PrimitiveSet* osg::Geometry::getPrimitiveSet  ( unsigned int  pos ) </span></span><br><span class="line"><span class="keyword">auto</span> pri_set = geom-&gt;getPrimitiveSet(<span class="number">0</span>);</span><br><span class="line"><span class="comment">// void  setNumInstances (int n) </span></span><br><span class="line">pri_set-&gt;setNumInstances(修改后的顶点个数)；</span><br><span class="line">pri_set-&gt;dirty();</span><br><span class="line"><span class="comment">// 更新几何体</span></span><br><span class="line">geom-&gt;dirty();</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>HJ</category>
+        <category>OSG</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>osg</tag>
       </tags>
   </entry>
   <entry>
@@ -405,41 +405,6 @@ alt="git commit" /></li>
       </categories>
       <tags>
         <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Multi KeyWord Sort</title>
-    <url>/2021/11/07/Multi-KeyWord-Sort/</url>
-    <content><![CDATA[<h3 id="多关键字排序">多关键字排序</h3>
-<ul>
-<li><p>扑克牌的例子</p></li>
-<li><p>一副扑克牌是按照两种顺序排的：</p>
-<ul>
-<li>K0,花色：梅花 &lt; 方块 &lt; 红桃 &lt; 黑桃</li>
-<li>k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10
-&lt; J &lt; Q &lt; K &lt; A</li>
-</ul></li>
-<li><p>主位优先：（Most Significant Digit）</p>
-<ul>
-<li>先用四个花色建桶，然后使用面值建桶</li>
-</ul></li>
-</ul>
-<h4 id="一个更好的方法">一个更好的方法：</h4>
-<ul>
-<li><p>依旧使用次位优先：</p>
-<ul>
-<li><p>先使用面值建桶</p></li>
-<li><p>然后按照大小将结果合并，使用花色建桶。</p></li>
-<li><p>最终的输出结果便是有序的</p></li>
-</ul></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
       </tags>
   </entry>
   <entry>
@@ -497,6 +462,41 @@ C++ 实现  </a></p>
 <h4 id="最小堆--完全二叉树小顶堆">最小堆- 完全二叉树（小顶堆）</h4>
 <ul>
 <li>可以参照最大堆写</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Multi KeyWord Sort</title>
+    <url>/2021/11/07/Multi-KeyWord-Sort/</url>
+    <content><![CDATA[<h3 id="多关键字排序">多关键字排序</h3>
+<ul>
+<li><p>扑克牌的例子</p></li>
+<li><p>一副扑克牌是按照两种顺序排的：</p>
+<ul>
+<li>K0,花色：梅花 &lt; 方块 &lt; 红桃 &lt; 黑桃</li>
+<li>k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10
+&lt; J &lt; Q &lt; K &lt; A</li>
+</ul></li>
+<li><p>主位优先：（Most Significant Digit）</p>
+<ul>
+<li>先用四个花色建桶，然后使用面值建桶</li>
+</ul></li>
+</ul>
+<h4 id="一个更好的方法">一个更好的方法：</h4>
+<ul>
+<li><p>依旧使用次位优先：</p>
+<ul>
+<li><p>先使用面值建桶</p></li>
+<li><p>然后按照大小将结果合并，使用花色建桶。</p></li>
+<li><p>最终的输出结果便是有序的</p></li>
+</ul></li>
 </ul>
 ]]></content>
       <categories>
@@ -597,6 +597,46 @@ id="将操作节点添加到绘制的根节点或者是其他的叶节点">5、�
       </tags>
   </entry>
   <entry>
+    <title>OSG踩坑记-默认光源</title>
+    <url>/2021/04/04/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90/</url>
+    <content><![CDATA[<h3 id="osg-viewer默认光源">OSG-Viewer默认光源</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    <span class="comment">// 法线随着模型大小变化而变化。</span></span><br><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::StateAttribute::OFF | osg::StateAttribute::OVERRIDE); <span class="comment">// 关闭节点光源 并遵从父节点的光照设置</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h5
+id="不指定法向----仍然可以看到-光照效果-但是无法看到明暗变化"><code>不指定法向</code>
+-- <font color=red>仍然可以看到 光照效果 但是无法看到明暗变化
+</font></h5>
+<h3 id="viewer-默认光源的使用">Viewer 默认光源的使用</h3>
+<h4 id="设置光照的相关的信息">1、设置光照的相关的信息</h4>
+<ul>
+<li><p><code>osg::Viewer默认存在缺省光源,但是需要进行部分设置,不然可能与你当前的场景不匹配</code></p></li>
+<li><p>你需要设置的信息包括:
+ambient、diffuse、specular、光照方向（可以不设置，使用缺省的）、光照位置、光的衰减参数。</p></li>
+</ul>
+<blockquote>
+<p>设置光照 -- <font color=Green>衰减公式</font> <span
+class="math display">\[
+F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
+\]</span></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 获取缺省的光照</span></span><br><span class="line">osg::Light *light = viewer-&gt;getLight(); <span class="comment">// 从当前的查看器 获取光照设置 </span></span><br><span class="line">light-&gt;setAmbient(osg::Vec4(<span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">1.0</span>));   <span class="comment">// 环境光   OPENGL的默认值是 osg::Vec3(0.2,0.2,0.2);</span></span><br><span class="line">light-&gt;setDiffuse(osg::Vec4(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1.0</span>));   <span class="comment">// 漫反射   直接来源于光源</span></span><br><span class="line">light-&gt;setSpecular(osg::Vec4(<span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">1.0</span>));  <span class="comment">// specular   高光 此处给的很低  </span></span><br><span class="line"><span class="comment">// 由于此处我们使用的是平行光</span></span><br><span class="line"><span class="function">osg::Vec4 <span class="title">lightpos</span><span class="params">(x, y, z, <span class="number">0.0f</span>)</span></span>;   <span class="comment">// 记住: 平行光的位置的最后一个分量必须是 0 </span></span><br><span class="line">light-&gt;setPosition(lightpos);        <span class="comment">// 设置光照位置 </span></span><br><span class="line"><span class="comment">// 光照方向设置</span></span><br><span class="line"><span class="comment">// 需要用到高度角和方位角 -- 计算一个你需要方向 </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置光的衰减 -- 只设置 常量衰减的话 --   无距离衰减</span></span><br><span class="line">light-&gt;setConstantAttenuation(<span class="number">1.0f</span>);</span><br><span class="line">light-&gt;setLinearAttenuation(<span class="number">0.0f</span>);</span><br><span class="line">light-&gt;setQuadraticAttenuation(<span class="number">0.f</span>);</span><br></pre></td></tr></table></figure>
+<p><font color=red> 产生平行光，位置分量的第四分量必须是0 </font></p>
+<h4 id="对节点设置好材料属性">2、对节点设置好材料属性</h4>
+<ul>
+<li>材料的设置是针对你要显示的节点设置的、你可以创建一个材料并设置相关的颜色，这样就可以拥有一个更好的显示效果。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>GF</category>
+        <category>OSG</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>osg</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OpenGL Move Scene</title>
     <url>/2022/08/03/OpenGL-Move-Scene/</url>
     <content><![CDATA[<center>
@@ -678,46 +718,6 @@ spanY\)</span> <figure class="highlight c++"><table><tr><td class="code"><pre><s
       </categories>
       <tags>
         <tag>OpenGL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OSG踩坑记-默认光源</title>
-    <url>/2021/04/04/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90/</url>
-    <content><![CDATA[<h3 id="osg-viewer默认光源">OSG-Viewer默认光源</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    <span class="comment">// 法线随着模型大小变化而变化。</span></span><br><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::StateAttribute::OFF | osg::StateAttribute::OVERRIDE); <span class="comment">// 关闭节点光源 并遵从父节点的光照设置</span></span><br></pre></td></tr></table></figure>
-<hr />
-<h5
-id="不指定法向----仍然可以看到-光照效果-但是无法看到明暗变化"><code>不指定法向</code>
--- <font color=red>仍然可以看到 光照效果 但是无法看到明暗变化
-</font></h5>
-<h3 id="viewer-默认光源的使用">Viewer 默认光源的使用</h3>
-<h4 id="设置光照的相关的信息">1、设置光照的相关的信息</h4>
-<ul>
-<li><p><code>osg::Viewer默认存在缺省光源,但是需要进行部分设置,不然可能与你当前的场景不匹配</code></p></li>
-<li><p>你需要设置的信息包括:
-ambient、diffuse、specular、光照方向（可以不设置，使用缺省的）、光照位置、光的衰减参数。</p></li>
-</ul>
-<blockquote>
-<p>设置光照 -- <font color=Green>衰减公式</font> <span
-class="math display">\[
-F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
-\]</span></p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 获取缺省的光照</span></span><br><span class="line">osg::Light *light = viewer-&gt;getLight(); <span class="comment">// 从当前的查看器 获取光照设置 </span></span><br><span class="line">light-&gt;setAmbient(osg::Vec4(<span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">1.0</span>));   <span class="comment">// 环境光   OPENGL的默认值是 osg::Vec3(0.2,0.2,0.2);</span></span><br><span class="line">light-&gt;setDiffuse(osg::Vec4(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1.0</span>));   <span class="comment">// 漫反射   直接来源于光源</span></span><br><span class="line">light-&gt;setSpecular(osg::Vec4(<span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">1.0</span>));  <span class="comment">// specular   高光 此处给的很低  </span></span><br><span class="line"><span class="comment">// 由于此处我们使用的是平行光</span></span><br><span class="line"><span class="function">osg::Vec4 <span class="title">lightpos</span><span class="params">(x, y, z, <span class="number">0.0f</span>)</span></span>;   <span class="comment">// 记住: 平行光的位置的最后一个分量必须是 0 </span></span><br><span class="line">light-&gt;setPosition(lightpos);        <span class="comment">// 设置光照位置 </span></span><br><span class="line"><span class="comment">// 光照方向设置</span></span><br><span class="line"><span class="comment">// 需要用到高度角和方位角 -- 计算一个你需要方向 </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置光的衰减 -- 只设置 常量衰减的话 --   无距离衰减</span></span><br><span class="line">light-&gt;setConstantAttenuation(<span class="number">1.0f</span>);</span><br><span class="line">light-&gt;setLinearAttenuation(<span class="number">0.0f</span>);</span><br><span class="line">light-&gt;setQuadraticAttenuation(<span class="number">0.f</span>);</span><br></pre></td></tr></table></figure>
-<p><font color=red> 产生平行光，位置分量的第四分量必须是0 </font></p>
-<h4 id="对节点设置好材料属性">2、对节点设置好材料属性</h4>
-<ul>
-<li>材料的设置是针对你要显示的节点设置的、你可以创建一个材料并设置相关的颜色，这样就可以拥有一个更好的显示效果。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>GF</category>
-        <category>OSG</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>osg</tag>
       </tags>
   </entry>
   <entry>
@@ -1531,6 +1531,32 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
       </tags>
   </entry>
   <entry>
+    <title>Selection_sort</title>
+    <url>/2021/10/25/Selection-sort/</url>
+    <content><![CDATA[<h2 id="选择排序">选择排序</h2>
+<ul>
+<li><p>选择排序，每次从无序的数据中选择一个<code>最大的</code>或者是<code>最小的</code>,放到合适的位置。</p></li>
+<li><p>代码实现：</p>
+<p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这里为了使用最大堆-我们倒着排序 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Selection_Sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i = N<span class="number">-1</span>;i &gt;= <span class="number">0</span>；i--)</span><br><span class="line">    &#123;</span><br><span class="line">    	  max_postion = scanForMax(A,<span class="number">0</span>,i); <span class="comment">//获取最大元素的下标 </span></span><br><span class="line">          swap(&amp;A[i],&amp;A[max_position]);    <span class="comment">// 交换元素    </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>scanForMax</code></p>
+<ul>
+<li>查找当前无序元素中最大的元素，并返回元素的下标
+<ul>
+<li>常规下，直接对数组元素进行扫描，时间复杂度<code>O(N)</code>,整个算法的时间复杂度<code>T=O(N^2)</code></li>
+<li>优化方案：如何快速找到最大值 -- 最大堆or最小堆。</li>
+</ul></li>
+</ul></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>QuickSort</title>
     <url>/2021/10/28/QuickSort/</url>
     <content><![CDATA[<h2 id="quick-sort">Quick Sort</h2>
@@ -1555,32 +1581,6 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
 </ul>
 <h4 id="算法实现">4、算法实现</h4>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(ElementType A[], <span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Cutoff &lt;= right - left)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 主元</span></span><br><span class="line">        poivt = Media3(A,left,right);</span><br><span class="line">        <span class="keyword">int</span> i = left;        <span class="comment">// i 当前指向第一个元素的位置 </span></span><br><span class="line">        <span class="keyword">int</span> j = right - <span class="number">1</span>;   <span class="comment">// J 指向主元的位置 </span></span><br><span class="line">        <span class="keyword">for</span>(;;)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(A[++i] &lt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">while</span>(A[--j] &gt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j)</span><br><span class="line">            &#123;</span><br><span class="line">                swap(&amp;A[i],A[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(&amp;A[i],&amp;A[right - <span class="number">1</span>]);</span><br><span class="line">        <span class="comment">// 递归 </span></span><br><span class="line">        QuickSort(A,left,i<span class="number">-1</span>);</span><br><span class="line">        QuickSort(A,i,right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Insert_selection(A+left,right - left + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Selection_sort</title>
-    <url>/2021/10/25/Selection-sort/</url>
-    <content><![CDATA[<h2 id="选择排序">选择排序</h2>
-<ul>
-<li><p>选择排序，每次从无序的数据中选择一个<code>最大的</code>或者是<code>最小的</code>,放到合适的位置。</p></li>
-<li><p>代码实现：</p>
-<p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这里为了使用最大堆-我们倒着排序 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Selection_Sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i = N<span class="number">-1</span>;i &gt;= <span class="number">0</span>；i--)</span><br><span class="line">    &#123;</span><br><span class="line">    	  max_postion = scanForMax(A,<span class="number">0</span>,i); <span class="comment">//获取最大元素的下标 </span></span><br><span class="line">          swap(&amp;A[i],&amp;A[max_position]);    <span class="comment">// 交换元素    </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p><code>scanForMax</code></p>
-<ul>
-<li>查找当前无序元素中最大的元素，并返回元素的下标
-<ul>
-<li>常规下，直接对数组元素进行扫描，时间复杂度<code>O(N)</code>,整个算法的时间复杂度<code>T=O(N^2)</code></li>
-<li>优化方案：如何快速找到最大值 -- 最大堆or最小堆。</li>
-</ul></li>
-</ul></li>
-</ul>
 ]]></content>
       <categories>
         <category>Algorithm</category>
