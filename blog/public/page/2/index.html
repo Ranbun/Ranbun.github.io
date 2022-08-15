@@ -86,7 +86,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">27</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">33</span></a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">18</span></a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="user fa-fw"></i>关于</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">27</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">34</span></a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">18</span></a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="user fa-fw"></i>关于</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives">
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -229,6 +229,138 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2022/07/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="RanBun">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RanBun's Blog">
+      <meta itemprop="description" content="人大概要先见自己,然后才能见众生">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | RanBun's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/" class="post-title-link" itemprop="url">Git常用命令(上)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-24 18:25:51" itemprop="dateCreated datePublished" datetime="2022-07-24T18:25:51+08:00">2022-07-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-06 01:00:11" itemprop="dateModified" datetime="2022-08-06T01:00:11+08:00">2022-08-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/works/" itemprop="url" rel="index"><span itemprop="name">works</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/works/SCU/" itemprop="url" rel="index"><span itemprop="name">SCU</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/works/SCU/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="git常用命令">Git常用命令</h1>
+<h3 id="install-git"><code>install Git</code></h3>
+<ul>
+<li>Git -- <a target="_blank" rel="noopener" href="https://git-scm.com/">官方网站</a></li>
+</ul>
+<h3 id="常用命令">常用命令</h3>
+<ul>
+<li><p>安装完成Git之后的操作 - 指定UserName &amp; Email</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name  &quot;Your Git UserName&quot;</span><br><span class="line">git config --global user.email &quot;Your Email Address&quot;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>一般时候在你安装完成之后需要做一下这个的配置。</li>
+</ul></li>
+<li><p>生成密钥</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen.exe -t rsa</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>命令提示 <img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/git/ssh-genkey.png"
+alt="Image" /></p></li>
+<li><p>然后将你的公钥添加为你所使用的远程管理平台对应SSH Key</p></li>
+</ul></li>
+<li><p>创建本地版本库</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir repositoryDir  &#x2F;&#x2F; 创建本地文件夹</span><br><span class="line">cd    repositoryDir  &#x2F;&#x2F; 进入到文件夹</span><br><span class="line">git   init           &#x2F;&#x2F; 初始化为本地仓库 创建.git目录</span><br></pre></td></tr></table></figure></p></li>
+<li><p>添加文件到本地暂存区&amp;提交文件到本地</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add &quot;fileName&quot;       &#x2F;&#x2F; 提交具体的文件 </span><br><span class="line">git add .                &#x2F;&#x2F; 提交所有修改文件</span><br><span class="line">git commit -m  &quot;备注信息&quot; &#x2F;&#x2F; 提交暂存区文件到本地</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>git commit</code> 命令详解 <img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/git/git-commit.png"
+alt="git commit" /></li>
+</ul></li>
+<li><p>版本控制</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git log                      &#x2F;&#x2F;查看提交历史记录，从最近到最远，可以看到3次</span><br><span class="line">git log --pretty&#x3D;oneline     &#x2F;&#x2F;加参数，简洁查看</span><br><span class="line">git reflog                   &#x2F;&#x2F;查看每一次修改历史</span><br><span class="line">cat &quot;fileName&quot;                &#x2F;&#x2F;查看文件内容 -- linux 命令</span><br><span class="line">git status                   &#x2F;&#x2F;查看工作区中文件当前状态</span><br><span class="line">git reset --hard HEAD^(HEAD~100)(commit_id)  &#x2F;&#x2F;回退版本</span><br><span class="line">git checkout -- &quot;fileName&quot;         &#x2F;&#x2F;丢弃工作区的修改，即撤销修改</span><br><span class="line">git reset HEAD &quot;fileName&quot;          &#x2F;&#x2F;丢弃暂存区的修改（若已提交，则回退）</span><br></pre></td></tr></table></figure></p></li>
+<li><p>删除文件</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rm &quot;filename&quot;   &#x2F;&#x2F; 删除单个文件 </span><br><span class="line">rm -rf *.*      &#x2F;&#x2F; 强制递归删除所有文件</span><br><span class="line">git rm &quot;filename&quot;  &#x2F;&#x2F; 直接删除</span><br><span class="line">&#x2F;&#x2F; 恢复删除的文件</span><br><span class="line">git checkout -- &quot;filename&quot;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>推送到远程的相关命令</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;前面设置的Email&quot;     &#x2F;&#x2F;创建SSH Key 也可以不指定-C与邮件地址</span><br><span class="line">git remote add origin &quot;git的远程仓库地址&quot;  &#x2F;&#x2F;关联远程仓库-源</span><br><span class="line">git push -u origin main                  &#x2F;&#x2F;将本地内容推送到远程-第一次强制推送</span><br><span class="line">git push origin main                     &#x2F;&#x2F;将本地内容推送到远程</span><br><span class="line">git remote -v                            &#x2F;&#x2F;查看远程源信息</span><br><span class="line">git remote rm origin                     &#x2F;&#x2F;删除远程源</span><br><span class="line">git clone &quot;远程仓库地址可以是https的也可以是SSH(此时需要配置密钥)&quot;  &#x2F;&#x2F;克隆远程仓库</span><br><span class="line">git remote                               &#x2F;&#x2F;查看远程库的信息</span><br><span class="line">git remote -v                            &#x2F;&#x2F;查看远程库的详细信</span><br></pre></td></tr></table></figure></p></li>
+<li><p>分支管理</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 老版本的 git命令 </span><br><span class="line">git checkout -b main        &#x2F;&#x2F;创建并切换到分支dev</span><br><span class="line">&#x3D;&#x3D; 如下操作</span><br><span class="line">git branch   feature        &#x2F;&#x2F;创建分支main</span><br><span class="line">git checkout feature        &#x2F;&#x2F;切换到分支feature</span><br><span class="line">git checkout origin&#x2F;main    &#x2F;&#x2F;拉取远程分支并切换</span><br><span class="line">&#x2F;&#x2F; 版本比较新一定的分支管理命令 </span><br><span class="line">git switch -c feature       &#x2F;&#x2F;创建分支feature并切换</span><br><span class="line">git switch main             &#x2F;&#x2F;直接切换到分支main</span><br><span class="line">&#x2F;&#x2F; -----------------------------------------------------------------------</span><br><span class="line">git branch                  &#x2F;&#x2F;查看当前分支</span><br><span class="line">git merge  feature          &#x2F;&#x2F; 合并分支feature到当前分支(记得合并前拉取一下)</span><br><span class="line">git branch -d dev           &#x2F;&#x2F; 删除dev分支 -d 强制删除</span><br></pre></td></tr></table></figure></p></li>
+<li><p>推送到远程</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git push origin main                               &#x2F;&#x2F;推送分支到远程</span><br><span class="line">git checkout -b feature origin&#x2F;feature                     &#x2F;&#x2F;创建远程origin的dev分支到本地</span><br><span class="line">git pull                                           &#x2F;&#x2F;拉取远程分支内容</span><br><span class="line">git branch --set-upstream-to&#x3D;origin&#x2F;main main        &#x2F;&#x2F;指定本地与远程dev的链接</span><br><span class="line">&#x2F;&#x2F; 另一种合并操作，相比merge不会产生一次额外的提交</span><br><span class="line">git rebase                                         &#x2F;&#x2F;把本地未push的分叉提交历史整理成直线</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2022/02/28/%E5%BE%AE%E4%BF%A1%E5%A4%9A%E5%BC%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -265,7 +397,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-26 08:48:36" itemprop="dateModified" datetime="2022-07-26T08:48:36+08:00">2022-07-26</time>
+      <time title="修改时间：2022-07-29 00:37:23" itemprop="dateModified" datetime="2022-07-29T00:37:23+08:00">2022-07-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -328,7 +460,7 @@ title="微信多开效果图" /></p></li>
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95-1/">
+    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95_CAD%E6%B8%B2%E6%9F%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -346,7 +478,7 @@ title="微信多开效果图" /></p></li>
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95-1/" class="post-title-link" itemprop="url">记一次面试</a>
+          <a href="/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95_CAD%E6%B8%B2%E6%9F%93/" class="post-title-link" itemprop="url">渲染(CAD)</a>
         </h2>
 
         <div class="post-meta-container">
@@ -364,7 +496,7 @@ title="微信多开效果图" /></p></li>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-26 08:56:37" itemprop="dateModified" datetime="2022-07-26T08:56:37+08:00">2022-07-26</time>
+      <time title="修改时间：2022-08-14 17:17:43" itemprop="dateModified" datetime="2022-08-14T17:17:43+08:00">2022-08-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -444,7 +576,7 @@ title="微信多开效果图" /></p></li>
 </ul></li>
 </ul>
 <h3 id="第二次面试">第二次面试</h3>
-<p>  第二次面试倒是没有什么技术相关的问题，两个老师，一个人士，加上我，一共四个人，具体内容就是一个10分钟的自我介绍，这个介绍包括：</p>
+<p>  第二次面试倒是没有什么技术相关的问题，两个老师，一个人事，加上我，一共四个人，具体内容就是一个10分钟的自我介绍，这个介绍包括：</p>
 <ul>
 <li>个人介绍
 <ul>
@@ -529,7 +661,7 @@ title="微信多开效果图" /></p></li>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-26 08:48:36" itemprop="dateModified" datetime="2022-07-26T08:48:36+08:00">2022-07-26</time>
+      <time title="修改时间：2022-07-29 00:37:23" itemprop="dateModified" datetime="2022-07-29T00:37:23+08:00">2022-07-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -654,7 +786,7 @@ title="微信多开效果图" /></p></li>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-26 08:48:36" itemprop="dateModified" datetime="2022-07-26T08:48:36+08:00">2022-07-26</time>
+      <time title="修改时间：2022-07-29 00:37:23" itemprop="dateModified" datetime="2022-07-29T00:37:23+08:00">2022-07-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -764,7 +896,7 @@ src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/g
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-26 08:48:36" itemprop="dateModified" datetime="2022-07-26T08:48:36+08:00">2022-07-26</time>
+      <time title="修改时间：2022-07-29 00:37:23" itemprop="dateModified" datetime="2022-07-29T00:37:23+08:00">2022-07-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -871,7 +1003,7 @@ src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/g
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-26 08:48:36" itemprop="dateModified" datetime="2022-07-26T08:48:36+08:00">2022-07-26</time>
+      <time title="修改时间：2022-07-29 00:37:23" itemprop="dateModified" datetime="2022-07-29T00:37:23+08:00">2022-07-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1055,7 +1187,7 @@ N时差不多是一个线性复杂度的算法)</li>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-26 08:48:36" itemprop="dateModified" datetime="2022-07-26T08:48:36+08:00">2022-07-26</time>
+      <time title="修改时间：2022-07-29 00:37:23" itemprop="dateModified" datetime="2022-07-29T00:37:23+08:00">2022-07-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1473,7 +1605,7 @@ N时差不多是一个线性复杂度的算法)</li>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-26 08:48:36" itemprop="dateModified" datetime="2022-07-26T08:48:36+08:00">2022-07-26</time>
+      <time title="修改时间：2022-07-29 00:37:23" itemprop="dateModified" datetime="2022-07-29T00:37:23+08:00">2022-07-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1572,7 +1704,7 @@ id="dynamic-drawing-of-osg-vertex-buffer-objects"><code>Dynamic drawing of osg v
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-26 08:48:36" itemprop="dateModified" datetime="2022-07-26T08:48:36+08:00">2022-07-26</time>
+      <time title="修改时间：2022-07-29 00:37:23" itemprop="dateModified" datetime="2022-07-29T00:37:23+08:00">2022-07-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1877,112 +2009,6 @@ id="dynamic-drawing-of-osg-vertex-buffer-objects"><code>Dynamic drawing of osg v
 <li><code>A[table[0]],A[table[0]]........</code></li>
 </ul></li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2021/10/28/QuickSort/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="RanBun">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="RanBun's Blog">
-      <meta itemprop="description" content="人大概要先见自己,然后才能见众生">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | RanBun's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/10/28/QuickSort/" class="post-title-link" itemprop="url">QuickSort</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-10-28 22:28:59" itemprop="dateCreated datePublished" datetime="2021-10-28T22:28:59+08:00">2021-10-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-26 08:48:36" itemprop="dateModified" datetime="2022-07-26T08:48:36+08:00">2022-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="quick-sort">Quick Sort</h2>
-<h4 id="快速排序概述">1、快速排序概述</h4>
-<ul>
-<li><p>快速排序也是采用分治的思想实现的，首先你有一组无序的数据，然后通过某种方法，取一个这组数据的中间数（M），然后对这组数据进行分组，大于M放到M的右边，小于M放到M的左边。然后通过相同的方法对这两组数分别做相同的处理，直到数据有序。</p></li>
-<li><p>伪码实现</p></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(ElementType A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(N &lt; <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> ; <span class="comment">//数据有序 不需要排序</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 计算主元 -- 将数据分组</span></span><br><span class="line">    pivot = &#123;A|A中的一个元素&#125;</span><br><span class="line">    将A（S）分成两个独立的子集&#123;A[] \ pivot&#125;；</span><br><span class="line">    A1 = &#123;a∈S|a &lt; pivot&#125;;</span><br><span class="line">    A2 = &#123;a∈S|a &gt; pivot&#125;;</span><br><span class="line">    <span class="comment">// 递归调用QuickSort</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="选主元">2、选主元</h4>
-<ul>
-<li><p>选择一个合适的主元是快速排序算法实现的关键，不能草率的取一个数作为主元。</p></li>
-<li><p>下面介绍一种主元的选取方法：</p>
-<ul>
-<li><p>取头，中，尾的中位数</p></li>
-<li><p>伪码描述： <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ElementType <span class="title">Media3</span><span class="params">(ElementType A[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> center = (left + right) / <span class="number">2</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果坐标的比中间的大</span></span><br><span class="line">    <span class="keyword">if</span>(A[left] &gt; A[center])</span><br><span class="line">    &#123;</span><br><span class="line">        Swap(&amp;A[left],&amp;A[center]);  <span class="comment">// 交换 左中的值 </span></span><br><span class="line">        <span class="comment">//此后 A[center] &gt; A[left]</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 交换后的左 依旧大于右边</span></span><br><span class="line">    <span class="keyword">if</span>(A[left] &gt; A[right])</span><br><span class="line">    &#123;</span><br><span class="line">         Swap(&amp;A[left],&amp;A[right]); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(A[center] &gt; A[right])</span><br><span class="line">    &#123;</span><br><span class="line">         Swap(&amp;A[center],&amp;A[right]); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// A[right] &gt; A[center] 此时我们将center的元素放到此位置，可以只考虑 left+1 -- right-2的元素</span></span><br><span class="line">    swap(&amp;A[center],&amp;A[right - <span class="number">1</span>]);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> A[rigjt <span class="number">-1</span> ];  <span class="comment">// 返回我们得到的主元 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-</ul>
-<h4 id="子集划分">3、子集划分</h4>
-<ul>
-<li>每次完成子集划分，主元会放到一个在全局中都正确的位置，将不会在改变。</li>
-</ul>
-<h4 id="算法实现">4、算法实现</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(ElementType A[], <span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Cutoff &lt;= right - left)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 主元</span></span><br><span class="line">        poivt = Media3(A,left,right);</span><br><span class="line">        <span class="keyword">int</span> i = left;        <span class="comment">// i 当前指向第一个元素的位置 </span></span><br><span class="line">        <span class="keyword">int</span> j = right - <span class="number">1</span>;   <span class="comment">// J 指向主元的位置 </span></span><br><span class="line">        <span class="keyword">for</span>(;;)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(A[++i] &lt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">while</span>(A[--j] &gt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j)</span><br><span class="line">            &#123;</span><br><span class="line">                swap(&amp;A[i],A[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(&amp;A[i],&amp;A[right - <span class="number">1</span>]);</span><br><span class="line">        <span class="comment">// 递归 </span></span><br><span class="line">        QuickSort(A,left,i<span class="number">-1</span>);</span><br><span class="line">        QuickSort(A,i,right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Insert_selection(A+left,right - left + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
