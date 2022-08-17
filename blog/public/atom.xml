@@ -55,20 +55,21 @@
     <link href="https://blog.ranbun.com/2022/08/08/Cplusplus-key-words-extern/"/>
     <id>https://blog.ranbun.com/2022/08/08/Cplusplus-key-words-extern/</id>
     <published>2022-08-08T03:41:35.000Z</published>
-    <updated>2022-08-08T15:02:54.807Z</updated>
+    <updated>2022-08-17T16:15:03.468Z</updated>
     
-    <content type="html"><![CDATA[<center><h2><code>extern</code> 关键字</h2></center><hr />]]></content>
+    <content type="html"><![CDATA[<center><h2><code>extern</code>关键字</h2></center><h2 id="extern-初解"><code>Extern</code> 初解</h2><ul><li>关于<code>extern</code>关键字可以应用于全局变量、函数或模板声明。它指定符号具有外部链接性质。<ul><li>在非const 全局变量声明中， extern指定变量或函数在另一个转换单元中定义。extern必须在定义变量的所有文件中应用该变量。</li><li>const在变量声明中，它指定变量具有 external 链接。extern必须应用于所有文件中的所有声明。 默认情况下， (全局 const变量具有内部链接。)</li><li>extern "C" 指定函数在别处定义并使用 C 语言调用约定。 extern"C"修饰符也可能应用于块中的多个函数声明。</li><li>在模板声明中， extern 指定模板已在其他位置实例化。 extern告知编译器它可以重复使用另一个实例化，而不是在当前位置创建新实例。有关此用法 extern的详细信息，请参阅 显式实例化。</li></ul></li></ul>]]></content>
     
     
       
       
     <summary type="html">&lt;center&gt;
 &lt;h2&gt;
-&lt;code&gt;extern&lt;/code&gt; 关键字
+&lt;code&gt;extern&lt;/code&gt;关键字
 &lt;/h2&gt;
 &lt;/center&gt;
-&lt;hr /&gt;
-</summary>
+&lt;h2 id=&quot;extern-初解&quot;&gt;&lt;code&gt;Extern&lt;/code&gt; 初解&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;关于&lt;code&gt;extern&lt;/code&gt;关键字</summary>
       
     
     
