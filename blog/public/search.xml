@@ -1,32 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>起伏的2022(上)</title>
-    <url>/2022/08/14/2022%E5%8D%8A%E5%B9%B4%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<center>
-<h1>
-关于我的2022(上)
-</h1>
-</center>
-<ul>
-<li>辞掉了原来的工作
-<ul>
-<li>离开了北京</li>
-<li>又去见了一些人</li>
-</ul></li>
-<li>来了成都</li>
-<li>给自己翻篇</li>
-<li>遇到了她
-<ul>
-<li>准备一起写我们的故事</li>
-</ul></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>mylife</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021年终总结</title>
     <url>/2022/01/16/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h3 id="我起伏的2021年">我起伏的2021年:</h3>
@@ -71,6 +45,32 @@
         <category>bun</category>
         <category>life</category>
       </categories>
+      <tags>
+        <tag>mylife</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>起伏的2022(上)</title>
+    <url>/2022/08/14/2022%E5%8D%8A%E5%B9%B4%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<center>
+<h1>
+关于我的2022(上)
+</h1>
+</center>
+<ul>
+<li>辞掉了原来的工作
+<ul>
+<li>离开了北京</li>
+<li>又去见了一些人</li>
+</ul></li>
+<li>来了成都</li>
+<li>给自己翻篇</li>
+<li>遇到了她
+<ul>
+<li>准备一起写我们的故事</li>
+</ul></li>
+</ul>
+]]></content>
       <tags>
         <tag>mylife</tag>
       </tags>
@@ -234,23 +234,6 @@ title="Github">Github</a></li>
       </tags>
   </entry>
   <entry>
-    <title>Cplusplus key words - extern</title>
-    <url>/2022/08/08/Cplusplus-key-words-extern/</url>
-    <content><![CDATA[<center>
-<h2>
-<code>extern</code> 关键字
-</h2>
-</center>
-<hr />
-]]></content>
-      <categories>
-        <category>cpp</category>
-      </categories>
-      <tags>
-        <tag>key words</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Bug奇遇记-uint16_t</title>
     <url>/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/</url>
     <content><![CDATA[<h3 id="uint16_t">uint16_t</h3>
@@ -296,41 +279,20 @@ title="Result" alt="right result" />
       </tags>
   </entry>
   <entry>
-    <title>Games202-ShadowMap</title>
-    <url>/2021/12/13/Games202-ShadowMap/</url>
-    <content><![CDATA[<h2 id="shadow-map">Shadow Map</h2>
-<ul>
-<li>记录一下关于<code>Games202</code>的学习</li>
-</ul>
-<h4 id="shadow-map-1">shadow map</h4>
-<ul>
-<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p></li>
-<li><p>如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：</p>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" /></p></li>
-</ul>
-<p>上图来自<code>Games202</code>的课件：</p>
-<ul>
-<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p></li>
-<li><p>关于计算当前vertex point
-是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p></li>
-<li><p>在<code>Games202</code>的作业1中，我们需要使用提供的matrix的接口处理矩阵。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mat.translate() <span class="comment">// 设置矩阵的移动 </span></span><br><span class="line">mat4.scale      <span class="comment">// 设置矩阵的缩放</span></span><br><span class="line"></span><br><span class="line">mat4.lookAt(); <span class="comment">// 生成的视图矩阵</span></span><br><span class="line">mat4.ortho();  <span class="comment">// 平行投影</span></span><br><span class="line"></span><br><span class="line">mat4.multiply(); <span class="comment">// 矩阵的乘法</span></span><br></pre></td></tr></table></figure>
-<p><a
-href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p></li>
-<li><p>深度比较：</p>
-<figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure></li>
-<li><p>最终效果</p></li>
-</ul>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" /></p>
+    <title>Cplusplus key words - extern</title>
+    <url>/2022/08/08/Cplusplus-key-words-extern/</url>
+    <content><![CDATA[<center>
+<h2>
+<code>extern</code> 关键字
+</h2>
+</center>
+<hr />
 ]]></content>
       <categories>
-        <category>Computer Graph</category>
+        <category>cpp</category>
       </categories>
       <tags>
-        <tag>Games202</tag>
-        <tag>Shadow</tag>
+        <tag>key words</tag>
       </tags>
   </entry>
   <entry>
@@ -405,6 +367,44 @@ alt="git commit" /></li>
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Games202-ShadowMap</title>
+    <url>/2021/12/13/Games202-ShadowMap/</url>
+    <content><![CDATA[<h2 id="shadow-map">Shadow Map</h2>
+<ul>
+<li>记录一下关于<code>Games202</code>的学习</li>
+</ul>
+<h4 id="shadow-map-1">shadow map</h4>
+<ul>
+<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p></li>
+<li><p>如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：</p>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" /></p></li>
+</ul>
+<p>上图来自<code>Games202</code>的课件：</p>
+<ul>
+<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p></li>
+<li><p>关于计算当前vertex point
+是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p></li>
+<li><p>在<code>Games202</code>的作业1中，我们需要使用提供的matrix的接口处理矩阵。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mat.translate() <span class="comment">// 设置矩阵的移动 </span></span><br><span class="line">mat4.scale      <span class="comment">// 设置矩阵的缩放</span></span><br><span class="line"></span><br><span class="line">mat4.lookAt(); <span class="comment">// 生成的视图矩阵</span></span><br><span class="line">mat4.ortho();  <span class="comment">// 平行投影</span></span><br><span class="line"></span><br><span class="line">mat4.multiply(); <span class="comment">// 矩阵的乘法</span></span><br></pre></td></tr></table></figure>
+<p><a
+href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p></li>
+<li><p>深度比较：</p>
+<figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure></li>
+<li><p>最终效果</p></li>
+</ul>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" /></p>
+]]></content>
+      <categories>
+        <category>Computer Graph</category>
+      </categories>
+      <tags>
+        <tag>Games202</tag>
+        <tag>Shadow</tag>
       </tags>
   </entry>
   <entry>
@@ -585,46 +585,6 @@ id="计算对模型的旋转缩放平移的操作矩阵">2、计算对模型的�
 <h4
 id="将操作节点添加到绘制的根节点或者是其他的叶节点">5、将操作节点添加到绘制的根节点或者是其他的叶节点</h4>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ......</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>GF</category>
-        <category>OSG</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>osg</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OSG踩坑记-默认光源</title>
-    <url>/2021/04/04/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90/</url>
-    <content><![CDATA[<h3 id="osg-viewer默认光源">OSG-Viewer默认光源</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    <span class="comment">// 法线随着模型大小变化而变化。</span></span><br><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::StateAttribute::OFF | osg::StateAttribute::OVERRIDE); <span class="comment">// 关闭节点光源 并遵从父节点的光照设置</span></span><br></pre></td></tr></table></figure>
-<hr />
-<h5
-id="不指定法向----仍然可以看到-光照效果-但是无法看到明暗变化"><code>不指定法向</code>
--- <font color=red>仍然可以看到 光照效果 但是无法看到明暗变化
-</font></h5>
-<h3 id="viewer-默认光源的使用">Viewer 默认光源的使用</h3>
-<h4 id="设置光照的相关的信息">1、设置光照的相关的信息</h4>
-<ul>
-<li><p><code>osg::Viewer默认存在缺省光源,但是需要进行部分设置,不然可能与你当前的场景不匹配</code></p></li>
-<li><p>你需要设置的信息包括:
-ambient、diffuse、specular、光照方向（可以不设置，使用缺省的）、光照位置、光的衰减参数。</p></li>
-</ul>
-<blockquote>
-<p>设置光照 -- <font color=Green>衰减公式</font> <span
-class="math display">\[
-F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
-\]</span></p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 获取缺省的光照</span></span><br><span class="line">osg::Light *light = viewer-&gt;getLight(); <span class="comment">// 从当前的查看器 获取光照设置 </span></span><br><span class="line">light-&gt;setAmbient(osg::Vec4(<span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">1.0</span>));   <span class="comment">// 环境光   OPENGL的默认值是 osg::Vec3(0.2,0.2,0.2);</span></span><br><span class="line">light-&gt;setDiffuse(osg::Vec4(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1.0</span>));   <span class="comment">// 漫反射   直接来源于光源</span></span><br><span class="line">light-&gt;setSpecular(osg::Vec4(<span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">1.0</span>));  <span class="comment">// specular   高光 此处给的很低  </span></span><br><span class="line"><span class="comment">// 由于此处我们使用的是平行光</span></span><br><span class="line"><span class="function">osg::Vec4 <span class="title">lightpos</span><span class="params">(x, y, z, <span class="number">0.0f</span>)</span></span>;   <span class="comment">// 记住: 平行光的位置的最后一个分量必须是 0 </span></span><br><span class="line">light-&gt;setPosition(lightpos);        <span class="comment">// 设置光照位置 </span></span><br><span class="line"><span class="comment">// 光照方向设置</span></span><br><span class="line"><span class="comment">// 需要用到高度角和方位角 -- 计算一个你需要方向 </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置光的衰减 -- 只设置 常量衰减的话 --   无距离衰减</span></span><br><span class="line">light-&gt;setConstantAttenuation(<span class="number">1.0f</span>);</span><br><span class="line">light-&gt;setLinearAttenuation(<span class="number">0.0f</span>);</span><br><span class="line">light-&gt;setQuadraticAttenuation(<span class="number">0.f</span>);</span><br></pre></td></tr></table></figure>
-<p><font color=red> 产生平行光，位置分量的第四分量必须是0 </font></p>
-<h4 id="对节点设置好材料属性">2、对节点设置好材料属性</h4>
-<ul>
-<li>材料的设置是针对你要显示的节点设置的、你可以创建一个材料并设置相关的颜色，这样就可以拥有一个更好的显示效果。</li>
-</ul>
 ]]></content>
       <categories>
         <category>works</category>
@@ -837,6 +797,46 @@ $delta = 120 $</li>
       </tags>
   </entry>
   <entry>
+    <title>OSG踩坑记-默认光源</title>
+    <url>/2021/04/04/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90/</url>
+    <content><![CDATA[<h3 id="osg-viewer默认光源">OSG-Viewer默认光源</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    <span class="comment">// 法线随着模型大小变化而变化。</span></span><br><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::StateAttribute::OFF | osg::StateAttribute::OVERRIDE); <span class="comment">// 关闭节点光源 并遵从父节点的光照设置</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h5
+id="不指定法向----仍然可以看到-光照效果-但是无法看到明暗变化"><code>不指定法向</code>
+-- <font color=red>仍然可以看到 光照效果 但是无法看到明暗变化
+</font></h5>
+<h3 id="viewer-默认光源的使用">Viewer 默认光源的使用</h3>
+<h4 id="设置光照的相关的信息">1、设置光照的相关的信息</h4>
+<ul>
+<li><p><code>osg::Viewer默认存在缺省光源,但是需要进行部分设置,不然可能与你当前的场景不匹配</code></p></li>
+<li><p>你需要设置的信息包括:
+ambient、diffuse、specular、光照方向（可以不设置，使用缺省的）、光照位置、光的衰减参数。</p></li>
+</ul>
+<blockquote>
+<p>设置光照 -- <font color=Green>衰减公式</font> <span
+class="math display">\[
+F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
+\]</span></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 获取缺省的光照</span></span><br><span class="line">osg::Light *light = viewer-&gt;getLight(); <span class="comment">// 从当前的查看器 获取光照设置 </span></span><br><span class="line">light-&gt;setAmbient(osg::Vec4(<span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">1.0</span>));   <span class="comment">// 环境光   OPENGL的默认值是 osg::Vec3(0.2,0.2,0.2);</span></span><br><span class="line">light-&gt;setDiffuse(osg::Vec4(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1.0</span>));   <span class="comment">// 漫反射   直接来源于光源</span></span><br><span class="line">light-&gt;setSpecular(osg::Vec4(<span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">1.0</span>));  <span class="comment">// specular   高光 此处给的很低  </span></span><br><span class="line"><span class="comment">// 由于此处我们使用的是平行光</span></span><br><span class="line"><span class="function">osg::Vec4 <span class="title">lightpos</span><span class="params">(x, y, z, <span class="number">0.0f</span>)</span></span>;   <span class="comment">// 记住: 平行光的位置的最后一个分量必须是 0 </span></span><br><span class="line">light-&gt;setPosition(lightpos);        <span class="comment">// 设置光照位置 </span></span><br><span class="line"><span class="comment">// 光照方向设置</span></span><br><span class="line"><span class="comment">// 需要用到高度角和方位角 -- 计算一个你需要方向 </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置光的衰减 -- 只设置 常量衰减的话 --   无距离衰减</span></span><br><span class="line">light-&gt;setConstantAttenuation(<span class="number">1.0f</span>);</span><br><span class="line">light-&gt;setLinearAttenuation(<span class="number">0.0f</span>);</span><br><span class="line">light-&gt;setQuadraticAttenuation(<span class="number">0.f</span>);</span><br></pre></td></tr></table></figure>
+<p><font color=red> 产生平行光，位置分量的第四分量必须是0 </font></p>
+<h4 id="对节点设置好材料属性">2、对节点设置好材料属性</h4>
+<ul>
+<li>材料的设置是针对你要显示的节点设置的、你可以创建一个材料并设置相关的颜色，这样就可以拥有一个更好的显示效果。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>GF</category>
+        <category>OSG</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>osg</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OpenGL parallel  projection graphics do not scale with the window</title>
     <url>/2022/08/04/OpenGL-parallel-projection-graphics-do-not-scale-with-the-window/</url>
     <content><![CDATA[<center>
@@ -875,9 +875,10 @@ OpenGL parallel projection graphics do not scale with the window
 <li>update
 <ul>
 <li>关于<code>zNear &amp; zFar</code>投影当二维平面时候，并未使用这两个参数
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">projMat.ortho(left,right,bottom,top,<span class="number">0.1f</span>,<span class="number">100.0f</span>);</span><br></pre></td></tr></table></figure> #### 更新绘制的场景</li>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">projMat.ortho(left,right,bottom,top,<span class="number">0.1f</span>,<span class="number">100.0f</span>);</span><br></pre></td></tr></table></figure></li>
 </ul></li>
 </ul>
+<h4 id="更新绘制的场景">更新绘制的场景</h4>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">shaderProgram.bind(); </span><br><span class="line">shaderProgram-&gt;setUniformValue(<span class="string">&quot;projectionMatrix&quot;</span>, projMat); </span><br><span class="line">glDrawArray()</span><br><span class="line">......</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
@@ -1531,32 +1532,6 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
       </tags>
   </entry>
   <entry>
-    <title>Selection_sort</title>
-    <url>/2021/10/25/Selection-sort/</url>
-    <content><![CDATA[<h2 id="选择排序">选择排序</h2>
-<ul>
-<li><p>选择排序，每次从无序的数据中选择一个<code>最大的</code>或者是<code>最小的</code>,放到合适的位置。</p></li>
-<li><p>代码实现：</p>
-<p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这里为了使用最大堆-我们倒着排序 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Selection_Sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i = N<span class="number">-1</span>;i &gt;= <span class="number">0</span>；i--)</span><br><span class="line">    &#123;</span><br><span class="line">    	  max_postion = scanForMax(A,<span class="number">0</span>,i); <span class="comment">//获取最大元素的下标 </span></span><br><span class="line">          swap(&amp;A[i],&amp;A[max_position]);    <span class="comment">// 交换元素    </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p><code>scanForMax</code></p>
-<ul>
-<li>查找当前无序元素中最大的元素，并返回元素的下标
-<ul>
-<li>常规下，直接对数组元素进行扫描，时间复杂度<code>O(N)</code>,整个算法的时间复杂度<code>T=O(N^2)</code></li>
-<li>优化方案：如何快速找到最大值 -- 最大堆or最小堆。</li>
-</ul></li>
-</ul></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>QuickSort</title>
     <url>/2021/10/28/QuickSort/</url>
     <content><![CDATA[<h2 id="quick-sort">Quick Sort</h2>
@@ -1581,6 +1556,32 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
 </ul>
 <h4 id="算法实现">4、算法实现</h4>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(ElementType A[], <span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Cutoff &lt;= right - left)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 主元</span></span><br><span class="line">        poivt = Media3(A,left,right);</span><br><span class="line">        <span class="keyword">int</span> i = left;        <span class="comment">// i 当前指向第一个元素的位置 </span></span><br><span class="line">        <span class="keyword">int</span> j = right - <span class="number">1</span>;   <span class="comment">// J 指向主元的位置 </span></span><br><span class="line">        <span class="keyword">for</span>(;;)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(A[++i] &lt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">while</span>(A[--j] &gt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j)</span><br><span class="line">            &#123;</span><br><span class="line">                swap(&amp;A[i],A[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(&amp;A[i],&amp;A[right - <span class="number">1</span>]);</span><br><span class="line">        <span class="comment">// 递归 </span></span><br><span class="line">        QuickSort(A,left,i<span class="number">-1</span>);</span><br><span class="line">        QuickSort(A,i,right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Insert_selection(A+left,right - left + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Selection_sort</title>
+    <url>/2021/10/25/Selection-sort/</url>
+    <content><![CDATA[<h2 id="选择排序">选择排序</h2>
+<ul>
+<li><p>选择排序，每次从无序的数据中选择一个<code>最大的</code>或者是<code>最小的</code>,放到合适的位置。</p></li>
+<li><p>代码实现：</p>
+<p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这里为了使用最大堆-我们倒着排序 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Selection_Sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i = N<span class="number">-1</span>;i &gt;= <span class="number">0</span>；i--)</span><br><span class="line">    &#123;</span><br><span class="line">    	  max_postion = scanForMax(A,<span class="number">0</span>,i); <span class="comment">//获取最大元素的下标 </span></span><br><span class="line">          swap(&amp;A[i],&amp;A[max_position]);    <span class="comment">// 交换元素    </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>scanForMax</code></p>
+<ul>
+<li>查找当前无序元素中最大的元素，并返回元素的下标
+<ul>
+<li>常规下，直接对数组元素进行扫描，时间复杂度<code>O(N)</code>,整个算法的时间复杂度<code>T=O(N^2)</code></li>
+<li>优化方案：如何快速找到最大值 -- 最大堆or最小堆。</li>
+</ul></li>
+</ul></li>
+</ul>
 ]]></content>
       <categories>
         <category>Algorithm</category>
@@ -2248,32 +2249,6 @@ class="math inline">\(\vec{P_3P_4}\)</span>。如何通过点击计算他们交�
       </tags>
   </entry>
   <entry>
-    <title>微信多开</title>
-    <url>/2022/02/28/%E5%BE%AE%E4%BF%A1%E5%A4%9A%E5%BC%80/</url>
-    <content><![CDATA[<h2 id="微信多开的小技巧---windows">微信多开的小技巧 - Windows</h2>
-<ul>
-<li><p>首先，需要你知道你机器上安装微信 - 请记录它的安装位置</p></li>
-<li><p>一般情况下，如果你不做任何修改的话，它会在<code>C:\Program Files (x86)\Tencent\WeChat</code>这个目录下：
-   <img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/wechat_install_path.png"
-title="微信安装位置" /></p></li>
-<li><p>然后，打开你机器上任意的一个文本编辑器，输入如下内容：</p></li>
-<li><p>需要多开多少个微信，你便将如下命令输入重复写多少次。</p>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">start D:\&quot;Program Files (x86)<span class="string">&quot;\Tencent\WeChat\WeChat.exe</span></span><br><span class="line"><span class="string">start D:\&quot;Program Files (x86)&quot;</span>\Tencent\WeChat\WeChat.exe</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请将上面的路径换成你机器上安装微信的路径</span></span><br><span class="line"><span class="comment"># 上面表示的是同时开两个微信程序</span></span><br><span class="line"><span class="comment"># 前面的路径部分中含有空格，为了让系统能识别，我们需要用双引号将其括起来，这样才能正确的识别</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li>
-<li><p>然后将文件保存，文件后缀为<code>.bat</code>,这是<code>cmd</code>识别的命令行，这个时候你打开你刚保存的文件，便会弹出你想要多开的数量。</p>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/multi_open_wechat.png"
-title="微信多开效果图" /></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Tips</category>
-      </categories>
-      <tags>
-        <tag>windows</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>第一次换工作</title>
     <url>/2021/10/17/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%80%BB%E7%BB%93_%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%8D%A2%E5%B7%A5%E4%BD%9C/</url>
     <content><![CDATA[<h3 id="section"></h3>
@@ -2310,6 +2285,82 @@ src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/GF_Workspace.JPG
       <tags>
         <tag>conclusion</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>微信多开</title>
+    <url>/2022/02/28/%E5%BE%AE%E4%BF%A1%E5%A4%9A%E5%BC%80/</url>
+    <content><![CDATA[<h2 id="微信多开的小技巧---windows">微信多开的小技巧 - Windows</h2>
+<ul>
+<li><p>首先，需要你知道你机器上安装微信 - 请记录它的安装位置</p></li>
+<li><p>一般情况下，如果你不做任何修改的话，它会在<code>C:\Program Files (x86)\Tencent\WeChat</code>这个目录下：
+   <img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/wechat_install_path.png"
+title="微信安装位置" /></p></li>
+<li><p>然后，打开你机器上任意的一个文本编辑器，输入如下内容：</p></li>
+<li><p>需要多开多少个微信，你便将如下命令输入重复写多少次。</p>
+<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">start D:\&quot;Program Files (x86)<span class="string">&quot;\Tencent\WeChat\WeChat.exe</span></span><br><span class="line"><span class="string">start D:\&quot;Program Files (x86)&quot;</span>\Tencent\WeChat\WeChat.exe</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请将上面的路径换成你机器上安装微信的路径</span></span><br><span class="line"><span class="comment"># 上面表示的是同时开两个微信程序</span></span><br><span class="line"><span class="comment"># 前面的路径部分中含有空格，为了让系统能识别，我们需要用双引号将其括起来，这样才能正确的识别</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li>
+<li><p>然后将文件保存，文件后缀为<code>.bat</code>,这是<code>cmd</code>识别的命令行，这个时候你打开你刚保存的文件，便会弹出你想要多开的数量。</p>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/multi_open_wechat.png"
+title="微信多开效果图" /></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tips</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Qt</title>
+    <url>/2021/07/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95_Qt/</url>
+    <content><![CDATA[<p><em>和老大提出辞职之后，商量了关于我的工作后续的事情，便开始寻找新工作......</em>
+目的地是在重庆的一家公司，具体什么名字，暂时不透露了，面的<code>C++ &amp; Qt</code>，按照面试官的说法，这是一个纯<code>Qt</code>的岗位，所以接下来的问题大概全部是和<code>Qt</code>相关的，当然也会有部分C++的问题在其中。</p>
+<p><font style="color:pink">废话不多说，我们进入正题：</font></p>
+<h2 id="c部分的问题">C++部分的问题：</h2>
+<ul>
+<li><p>第一部分是关于C++这门语言的，面向对象是什么？</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// OOP</span></span><br><span class="line"><span class="comment">// 封装,继承,多态</span></span><br></pre></td></tr></table></figure></li>
+<li><p>对于多态的理解?</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 首先是如何实现多态？</span></span><br><span class="line"><span class="number">1.</span> 多态发生在继承关系中。</span><br><span class="line"><span class="number">2.</span> 需要重写虚函数。</span><br><span class="line"><span class="number">3.</span> 父类的指针指向子类的对象。</span><br><span class="line"><span class="number">4.</span> 通过父类指针对重写的虚函数发起调用，最终调用你要想调用的函数。</span><br></pre></td></tr></table></figure>
+<p>example： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">  &#123;</span></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">      <span class="keyword">int</span> menber;</span><br><span class="line">  </span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      B():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">D</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      D():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      A * a = <span class="keyword">new</span> A;</span><br><span class="line">      B * b = <span class="keyword">new</span> B;</span><br><span class="line">      D * d = <span class="keyword">new</span> D;</span><br><span class="line">  </span><br><span class="line">      A * ptr = b;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = a;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = d;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  	</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure> <font style="color:red">结果如下：</font>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/polymorphism.png"
+title="polymorphism" alt="polymorphism" /></p></li>
+<li><p>多态的实现 -- <font style="color:red">虚函数表</font></p>
+<ul>
+<li><p>验证虚函数表：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一个简单的C 不带有虚函数 </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    C()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;C&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> member;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><font style="color:red">输出结果:</font> <img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/virtual_table_1.png"
+title="virtual table 1" alt="virtual_table" /></p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/virtual_table_2.png"
+title="virtual table 2" alt="virtual table 2" />
+<figcaption aria-hidden="true">virtual table 2</figcaption>
+</figure>
+<ul>
+<li>上面的结果可以看出存在一个成员(存在虚函数的情况)，大小为8个字节(64位软件)。</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="qt部分">Qt部分</h2>
+<ul>
+<li>元对象系统</li>
+<li>窗口刷新机制</li>
+<li>内存托管(删除机制)</li>
+<li>Qquick</li>
+<li>Qt的布局</li>
+</ul>
+<h2 id="opengl部分">OPENGL部分</h2>
+<ul>
+<li><p>缓冲(双缓冲)</p></li>
+<li><p>着色器程序(语言)</p></li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>渲染(CAD)</title>
@@ -2401,56 +2452,6 @@ src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/GF_Workspace.JPG
         <tag>openGL</tag>
         <tag>computer graphics</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Qt</title>
-    <url>/2021/07/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95_Qt/</url>
-    <content><![CDATA[<p><em>和老大提出辞职之后，商量了关于我的工作后续的事情，便开始寻找新工作......</em>
-目的地是在重庆的一家公司，具体什么名字，暂时不透露了，面的<code>C++ &amp; Qt</code>，按照面试官的说法，这是一个纯<code>Qt</code>的岗位，所以接下来的问题大概全部是和<code>Qt</code>相关的，当然也会有部分C++的问题在其中。</p>
-<p><font style="color:pink">废话不多说，我们进入正题：</font></p>
-<h2 id="c部分的问题">C++部分的问题：</h2>
-<ul>
-<li><p>第一部分是关于C++这门语言的，面向对象是什么？</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// OOP</span></span><br><span class="line"><span class="comment">// 封装,继承,多态</span></span><br></pre></td></tr></table></figure></li>
-<li><p>对于多态的理解?</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 首先是如何实现多态？</span></span><br><span class="line"><span class="number">1.</span> 多态发生在继承关系中。</span><br><span class="line"><span class="number">2.</span> 需要重写虚函数。</span><br><span class="line"><span class="number">3.</span> 父类的指针指向子类的对象。</span><br><span class="line"><span class="number">4.</span> 通过父类指针对重写的虚函数发起调用，最终调用你要想调用的函数。</span><br></pre></td></tr></table></figure>
-<p>example： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">  &#123;</span></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">      <span class="keyword">int</span> menber;</span><br><span class="line">  </span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      B():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">D</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      D():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      A * a = <span class="keyword">new</span> A;</span><br><span class="line">      B * b = <span class="keyword">new</span> B;</span><br><span class="line">      D * d = <span class="keyword">new</span> D;</span><br><span class="line">  </span><br><span class="line">      A * ptr = b;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = a;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = d;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  	</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure> <font style="color:red">结果如下：</font>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/polymorphism.png"
-title="polymorphism" alt="polymorphism" /></p></li>
-<li><p>多态的实现 -- <font style="color:red">虚函数表</font></p>
-<ul>
-<li><p>验证虚函数表：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一个简单的C 不带有虚函数 </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    C()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;C&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> member;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><font style="color:red">输出结果:</font> <img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/virtual_table_1.png"
-title="virtual table 1" alt="virtual_table" /></p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/virtual_table_2.png"
-title="virtual table 2" alt="virtual table 2" />
-<figcaption aria-hidden="true">virtual table 2</figcaption>
-</figure>
-<ul>
-<li>上面的结果可以看出存在一个成员(存在虚函数的情况)，大小为8个字节(64位软件)。</li>
-</ul></li>
-</ul></li>
-</ul>
-<hr />
-<h2 id="qt部分">Qt部分</h2>
-<ul>
-<li>元对象系统</li>
-<li>窗口刷新机制</li>
-<li>内存托管(删除机制)</li>
-<li>Qquick</li>
-<li>Qt的布局</li>
-</ul>
-<h2 id="opengl部分">OPENGL部分</h2>
-<ul>
-<li><p>缓冲(双缓冲)</p></li>
-<li><p>着色器程序(语言)</p></li>
-</ul>
-]]></content>
   </entry>
   <entry>
     <title>迟到的毕业总结</title>

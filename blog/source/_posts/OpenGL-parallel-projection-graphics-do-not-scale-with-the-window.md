@@ -49,7 +49,9 @@ void OpenGLWidget::resizeGL(int w, int h)
 ```c++
 projMat.ortho(left,right,bottom,top,0.1f,100.0f);
 ```
+
 #### 更新绘制的场景 
+
 
 ```C++
 
