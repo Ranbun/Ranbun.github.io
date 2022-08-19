@@ -6,7 +6,7 @@
   <link href="https://blog.ranbun.com/atom.xml" rel="self"/>
   
   <link href="https://blog.ranbun.com/"/>
-  <updated>2022-08-19T12:30:52.652Z</updated>
+  <updated>2022-08-19T12:41:30.700Z</updated>
   <id>https://blog.ranbun.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>View/Camera Transformation</title>
+    <link href="https://blog.ranbun.com/2022/08/19/View-Camera-Transformation/"/>
+    <id>https://blog.ranbun.com/2022/08/19/View-Camera-Transformation/</id>
+    <published>2022-08-19T12:39:56.000Z</published>
+    <updated>2022-08-19T12:41:30.700Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="视图变换">视图变换</h1><ul><li>变换过程</li><li>视图矩阵计算<ul><li>坐标系</li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;视图变换&quot;&gt;视图变换&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;变换过程&lt;/li&gt;
+&lt;li&gt;视图矩阵计算
+&lt;ul&gt;
+&lt;li&gt;坐标系&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</summary>
+      
+    
+    
+    
+    <category term="Computer Graph" scheme="https://blog.ranbun.com/categories/Computer-Graph/"/>
+    
+    
+    <category term="Base" scheme="https://blog.ranbun.com/tags/Base/"/>
+    
+  </entry>
   
   <entry>
     <title>起伏的2022(上)</title>
@@ -624,38 +656,6 @@ id=&quot;dynamic-drawing-of-osg-vertex-buffer-objects&quot;&gt;&lt;code&gt;Dynam
     <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
     
     <category term="osg" scheme="https://blog.ranbun.com/tags/osg/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Table-Sort</title>
-    <link href="https://blog.ranbun.com/2021/11/07/Table-Sort/"/>
-    <id>https://blog.ranbun.com/2021/11/07/Table-Sort/</id>
-    <published>2021-11-06T16:30:03.000Z</published>
-    <updated>2022-07-26T00:48:36.864Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="表排序">表排序</h3><ul><li>某些场景，移动元素的成本比较大，元素移动的时间是不可以俘忽略的，为了节省时间，我们不得不寻求其他的办法。<ul><li>定义一个指针数组作为"表"（table）</li></ul></li><li>概述，存在表A，存储的是对应的关键字，每个关键字代表具体的实体，我们根据关键字进行排序，这样省去额外的数据交换的时间。<ul><li>我们定义一个新的部分<code>table</code>记录数组中每个元素的下标</li></ul></li></ul><table><colgroup><col style="width: 9%" /><col style="width: 9%" /><col style="width: 9%" /><col style="width: 9%" /><col style="width: 9%" /><col style="width: 9%" /><col style="width: 9%" /><col style="width: 9%" /><col style="width: 9%" /><col style="width: 9%" /><col style="width: 9%" /></colgroup><thead><tr class="header"><th style="text-align: center;">A</th><th style="text-align: center;">A[0]</th><th style="text-align: center;">A[1]</th><th style="text-align: center;">A[2]</th><th style="text-align: center;">A[3]</th><th style="text-align: center;">A[4]</th><th style="text-align: center;">A[5]</th><th style="text-align: center;">A[6]</th><th style="text-align: center;">A[7]</th><th style="text-align: center;">A[8]</th><th style="text-align: center;">A[9]</th></tr></thead><tbody><tr class="odd"><td style="text-align: center;">Key</td><td style="text-align: center;">f</td><td style="text-align: center;">d</td><td style="text-align: center;">c</td><td style="text-align: center;">a</td><td style="text-align: center;">g</td><td style="text-align: center;">b</td><td style="text-align: center;">h</td><td style="text-align: center;">e</td><td style="text-align: center;">i</td><td style="text-align: center;">u</td></tr><tr class="even"><td style="text-align: center;">table</td><td style="text-align: center;">0</td><td style="text-align: center;">1</td><td style="text-align: center;">2</td><td style="text-align: center;">3</td><td style="text-align: center;">4</td><td style="text-align: center;">5</td><td style="text-align: center;">6</td><td style="text-align: center;">7</td><td style="text-align: center;">8</td><td style="text-align: center;">9</td></tr></tbody></table><ul><li><ul><li>初始状态下，<code>table[index]</code> 等于A的<code>index</code></li><li>然后我们同通过任意一种排序比较<code>A[table]</code>对应的关键字的大小，从而交换<code>table</code>中的值——排序</li></ul></li><li><p>排序结果 -- 使用插入排序</p><table style="width:100%;"><colgroup><col style="width: 20%" /><col style="width: 8%" /><col style="width: 8%" /><col style="width: 8%" /><col style="width: 8%" /><col style="width: 8%" /><col style="width: 8%" /><col style="width: 8%" /><col style="width: 8%" /><col style="width: 8%" /><col style="width: 8%" /></colgroup><thead><tr class="header"><th style="text-align: center;">A</th><th style="text-align: center;">A[0]</th><th style="text-align: center;">A[1]</th><th style="text-align: center;">A[2]</th><th style="text-align: center;">A[3]</th><th style="text-align: center;">A[4]</th><th style="text-align: center;">A[5]</th><th style="text-align: center;">A[6]</th><th style="text-align: center;">A[7]</th><th style="text-align: center;">A[8]</th><th style="text-align: center;">A[9]</th></tr></thead><tbody><tr class="odd"><td style="text-align: center;">Key</td><td style="text-align: center;">f</td><td style="text-align: center;">d</td><td style="text-align: center;">c</td><td style="text-align: center;">a</td><td style="text-align: center;">g</td><td style="text-align: center;">b</td><td style="text-align: center;">h</td><td style="text-align: center;">e</td><td style="text-align: center;">i</td><td style="text-align: center;">u</td></tr><tr class="even"><td style="text-align: center;">table</td><td style="text-align: center;">0</td><td style="text-align: center;">1</td><td style="text-align: center;">2</td><td style="text-align: center;">3</td><td style="text-align: center;">4</td><td style="text-align: center;">5</td><td style="text-align: center;">6</td><td style="text-align: center;">7</td><td style="text-align: center;">8</td><td style="text-align: center;">9</td></tr><tr class="odd"><td style="text-align: center;">第零次插入</td><td style="text-align: center;">0</td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td></tr><tr class="even"><td style="text-align: center;">第一次插入</td><td style="text-align: center;">1</td><td style="text-align: center;">0</td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td></tr><tr class="odd"><td style="text-align: center;">第二次插入</td><td style="text-align: center;">2</td><td style="text-align: center;">1</td><td style="text-align: center;">0</td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td></tr><tr class="even"><td style="text-align: center;">第三次插入</td><td style="text-align: center;">3</td><td style="text-align: center;">2</td><td style="text-align: center;">1</td><td style="text-align: center;">0</td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td></tr><tr class="odd"><td style="text-align: center;">第四次插入</td><td style="text-align: center;">3</td><td style="text-align: center;">2</td><td style="text-align: center;">1</td><td style="text-align: center;">0</td><td style="text-align: center;">4</td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td></tr><tr class="even"><td style="text-align: center;">第五次插入</td><td style="text-align: center;">3</td><td style="text-align: center;">5</td><td style="text-align: center;">2</td><td style="text-align: center;">1</td><td style="text-align: center;">0</td><td style="text-align: center;">4</td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td></tr><tr class="odd"><td style="text-align: center;">第六次插入</td><td style="text-align: center;">3</td><td style="text-align: center;">5</td><td style="text-align: center;">2</td><td style="text-align: center;">1</td><td style="text-align: center;">0</td><td style="text-align: center;">4</td><td style="text-align: center;">6</td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td></tr><tr class="even"><td style="text-align: center;">第七次插入</td><td style="text-align: center;">3</td><td style="text-align: center;">5</td><td style="text-align: center;">2</td><td style="text-align: center;">1</td><td style="text-align: center;">7</td><td style="text-align: center;">0</td><td style="text-align: center;">4</td><td style="text-align: center;">6</td><td style="text-align: center;"></td><td style="text-align: center;"></td></tr><tr class="odd"><td style="text-align: center;">第八次插入</td><td style="text-align: center;">3</td><td style="text-align: center;">5</td><td style="text-align: center;">2</td><td style="text-align: center;">1</td><td style="text-align: center;">7</td><td style="text-align: center;">0</td><td style="text-align: center;">4</td><td style="text-align: center;">6</td><td style="text-align: center;">8</td><td style="text-align: center;"></td></tr><tr class="even"><td style="text-align: center;">第九次插入</td><td style="text-align: center;">3</td><td style="text-align: center;">5</td><td style="text-align: center;">2</td><td style="text-align: center;">1</td><td style="text-align: center;">7</td><td style="text-align: center;">0</td><td style="text-align: center;">4</td><td style="text-align: center;">6</td><td style="text-align: center;">8</td><td style="text-align: center;">9</td></tr><tr class="odd"><td style="text-align: center;">table</td><td style="text-align: center;">3</td><td style="text-align: center;">5</td><td style="text-align: center;">2</td><td style="text-align: center;">1</td><td style="text-align: center;">7</td><td style="text-align: center;">0</td><td style="text-align: center;">4</td><td style="text-align: center;">6</td><td style="text-align: center;">8</td><td style="text-align: center;">9</td></tr></tbody></table></li><li><p>到此，上述表变得有序：</p></li><li><p>正确的输出结果是:</p><ul><li><code>A[table[0]],A[table[0]]........</code></li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;表排序&quot;&gt;表排序&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;某些场景，移动元素的成本比较大，元素移动的时间是不可以俘忽略的，为了节省时间，我们不得不寻求其他的办法。
-&lt;ul&gt;
-&lt;li&gt;定义一个指针数组作为&quot;表&quot;（table）&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;</summary>
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://blog.ranbun.com/categories/Algorithm/"/>
-    
-    
-    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
-    
-    <category term="sort" scheme="https://blog.ranbun.com/tags/sort/"/>
     
   </entry>
   

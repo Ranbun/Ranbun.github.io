@@ -20,28 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.ranbun.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="OpenGL parallel projection graphics do not scale with the window   实现步骤  重写窗口的resize事件  计算投影的范围  更新投影矩阵 drawcull  resizeGL  我们最初计算一个比例：  关于窗口的size和投影的范围的  使用left, right计算一个spanx(">
+    <meta name="description" content="视图变换  变换过程 视图矩阵计算  坐标系">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenGL parallel  projection graphics do not scale with the window">
-<meta property="og:url" content="https://blog.ranbun.com/2022/08/04/OpenGL-parallel-projection-graphics-do-not-scale-with-the-window/index.html">
+<meta property="og:title" content="View&#x2F;Camera Transformation">
+<meta property="og:url" content="https://blog.ranbun.com/2022/08/19/View-Camera-Transformation/index.html">
 <meta property="og:site_name" content="RanBun&#39;s Blog">
-<meta property="og:description" content="OpenGL parallel projection graphics do not scale with the window   实现步骤  重写窗口的resize事件  计算投影的范围  更新投影矩阵 drawcull  resizeGL  我们最初计算一个比例：  关于窗口的size和投影的范围的  使用left, right计算一个spanx(">
+<meta property="og:description" content="视图变换  变换过程 视图矩阵计算  坐标系">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-04T02:05:58.000Z">
-<meta property="article:modified_time" content="2022-08-19T11:33:17.188Z">
+<meta property="article:published_time" content="2022-08-19T12:39:56.000Z">
+<meta property="article:modified_time" content="2022-08-19T12:41:30.700Z">
 <meta property="article:author" content="RanBun">
-<meta property="article:tag" content="OpenGL">
+<meta property="article:tag" content="Base">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://blog.ranbun.com/2022/08/04/OpenGL-parallel-projection-graphics-do-not-scale-with-the-window/">
+<link rel="canonical" href="https://blog.ranbun.com/2022/08/19/View-Camera-Transformation/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.ranbun.com/2022/08/04/OpenGL-parallel-projection-graphics-do-not-scale-with-the-window/","path":"2022/08/04/OpenGL-parallel-projection-graphics-do-not-scale-with-the-window/","title":"OpenGL parallel  projection graphics do not scale with the window"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.ranbun.com/2022/08/19/View-Camera-Transformation/","path":"2022/08/19/View-Camera-Transformation/","title":"View/Camera Transformation"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>OpenGL parallel  projection graphics do not scale with the window | RanBun's Blog</title>
+<title>View/Camera Transformation | RanBun's Blog</title>
   
 
 
@@ -145,9 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">
-OpenGL parallel projection graphics do not scale with the window
-</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.1.</span> <span class="nav-text">实现步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#resizegl"><span class="nav-number">1.1.1.</span> <span class="nav-text">resizeGL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%8A%95%E5%BD%B1%E7%9F%A9%E9%98%B5"><span class="nav-number">1.1.2.</span> <span class="nav-text">更新投影矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E7%BB%98%E5%88%B6%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="nav-number">1.1.3.</span> <span class="nav-text">更新绘制的场景</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E5%8F%98%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">视图变换</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -235,7 +233,7 @@ OpenGL parallel projection graphics do not scale with the window
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2022/08/04/OpenGL-parallel-projection-graphics-do-not-scale-with-the-window/">
+    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2022/08/19/View-Camera-Transformation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -248,12 +246,12 @@ OpenGL parallel projection graphics do not scale with the window
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="OpenGL parallel  projection graphics do not scale with the window | RanBun's Blog">
+      <meta itemprop="name" content="View/Camera Transformation | RanBun's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          OpenGL parallel  projection graphics do not scale with the window
+          View/Camera Transformation
         </h1>
 
         <div class="post-meta-container">
@@ -263,15 +261,9 @@ OpenGL parallel projection graphics do not scale with the window
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-08-04 10:05:58" itemprop="dateCreated datePublished" datetime="2022-08-04T10:05:58+08:00">2022-08-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-19 19:33:17" itemprop="dateModified" datetime="2022-08-19T19:33:17+08:00">2022-08-19</time>
+      <time title="创建时间：2022-08-19 20:39:56 / 修改时间：20:41:30" itemprop="dateCreated datePublished" datetime="2022-08-19T20:39:56+08:00">2022-08-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -280,14 +272,6 @@ OpenGL parallel projection graphics do not scale with the window
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/Computer-Graph/" itemprop="url" rel="index"><span itemprop="name">Computer Graph</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Computer-Graph/works/" itemprop="url" rel="index"><span itemprop="name">works</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Computer-Graph/works/SCUU/" itemprop="url" rel="index"><span itemprop="name">SCUU</span></a>
         </span>
     </span>
 
@@ -301,47 +285,14 @@ OpenGL parallel projection graphics do not scale with the window
     
     
     <div class="post-body" itemprop="articleBody">
-        <center>
-<h2>
-OpenGL parallel projection graphics do not scale with the window
-</h2>
-</center>
-<h3 id="实现步骤">实现步骤</h3>
+        <h1 id="视图变换">视图变换</h1>
 <ul>
-<li>重写窗口的<code>resize</code>事件
+<li>变换过程</li>
+<li>视图矩阵计算
 <ul>
-<li>计算投影的范围</li>
-</ul></li>
-<li>更新投影矩阵</li>
-<li><code>drawcull</code></li>
-</ul>
-<h4 id="resizegl"><code>resizeGL</code></h4>
-<ul>
-<li>我们最初计算一个比例：
-<ul>
-<li>关于窗口的<code>size</code>和投影的范围的
-<ul>
-<li>使用<code>left, right</code>计算一个<code>spanx(right - left)</code>,
-<code>top, bottom</code>计算<code>spany(top - bottom)</code>,
-分别与窗口的宽高比较 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> ratioW = w / spanx;</span><br><span class="line"><span class="keyword">auto</span> ratioH = h / spany; </span><br><span class="line"><span class="comment">// 取最小的一个 </span></span><br><span class="line"><span class="keyword">auto</span> ratio = <span class="built_in">std</span>::min(ratioW,ratioH);</span><br></pre></td></tr></table></figure></li>
-</ul></li>
-<li>每次窗口缩放，我们就使用上述的范围计算新的<code>left,right,bottom,top</code>
-<ul>
-<li>只要投影的范围没有发生改变我们便不计算新的<code>ratio</code></li>
-</ul></li>
-</ul></li>
-<li>计算新的<code>left,right,bottom,top</code> <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OpenGLWidget::resizeGL</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> h)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    glViewport(<span class="number">0</span>,<span class="number">0</span>,w,h);</span><br><span class="line"></span><br><span class="line">    left = - w / ratio;</span><br><span class="line">    right = <span class="built_in">abs</span>(left);</span><br><span class="line">    bottom = -h / ratio;</span><br><span class="line">    top = <span class="built_in">abs</span>(bottom);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="更新投影矩阵">更新投影矩阵</h4>
-<ul>
-<li>update
-<ul>
-<li>关于<code>zNear &amp; zFar</code>投影当二维平面时候，并未使用这两个参数
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">projMat.ortho(left,right,bottom,top,<span class="number">0.1f</span>,<span class="number">100.0f</span>);</span><br></pre></td></tr></table></figure></li>
+<li>坐标系</li>
 </ul></li>
 </ul>
-<h4 id="更新绘制的场景">更新绘制的场景</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">shaderProgram.bind(); </span><br><span class="line">shaderProgram-&gt;setUniformValue(<span class="string">&quot;projectionMatrix&quot;</span>, projMat); </span><br><span class="line">glDrawArray()</span><br><span class="line">......</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -359,7 +310,7 @@ OpenGL parallel projection graphics do not scale with the window
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://blog.ranbun.com/2022/08/04/OpenGL-parallel-projection-graphics-do-not-scale-with-the-window/" title="OpenGL parallel  projection graphics do not scale with the window">https://blog.ranbun.com/2022/08/04/OpenGL-parallel-projection-graphics-do-not-scale-with-the-window/</a>
+      <a href="https://blog.ranbun.com/2022/08/19/View-Camera-Transformation/" title="View&#x2F;Camera Transformation">https://blog.ranbun.com/2022/08/19/View-Camera-Transformation/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -385,21 +336,18 @@ OpenGL parallel projection graphics do not scale with the window
 </div>
 
           <div class="post-tags">
-              <a href="/tags/OpenGL/" rel="tag"># OpenGL</a>
+              <a href="/tags/Base/" rel="tag"># Base</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/08/03/OpenGL-Move-Scene/" rel="prev" title="OpenGL Move Scene">
-                  <i class="fa fa-chevron-left"></i> OpenGL Move Scene
+                <a href="/2022/08/14/2022%E5%8D%8A%E5%B9%B4%E6%80%BB%E7%BB%93/" rel="prev" title="起伏的2022(上)">
+                  <i class="fa fa-chevron-left"></i> 起伏的2022(上)
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/08/08/Cplusplus-key-words-extern/" rel="next" title="Cplusplus key words - extern">
-                  Cplusplus key words - extern <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

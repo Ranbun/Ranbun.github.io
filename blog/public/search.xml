@@ -2062,6 +2062,25 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
       </tags>
   </entry>
   <entry>
+    <title>View/Camera Transformation</title>
+    <url>/2022/08/19/View-Camera-Transformation/</url>
+    <content><![CDATA[<h1 id="视图变换">视图变换</h1>
+<ul>
+<li>变换过程</li>
+<li>视图矩阵计算
+<ul>
+<li>坐标系</li>
+</ul></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Computer Graph</category>
+      </categories>
+      <tags>
+        <tag>Base</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Boy</title>
     <url>/2021/03/16/baozi/</url>
     <content><![CDATA[<h4 id="about-this-blog">About this Blog</h4>
