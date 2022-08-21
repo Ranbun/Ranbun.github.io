@@ -408,48 +408,6 @@ id="dynamic-drawing-of-osg-vertex-buffer-objects"><code>Dynamic drawing of osg v
       </tags>
   </entry>
   <entry>
-    <title>Games202-ShadowMap</title>
-    <url>/2021/12/13/Games202-ShadowMap/</url>
-    <content><![CDATA[<p>
-  你该如何渲染阴影...
-</p>
-<span id="more"></span>
-<h2 id="shadow-map">Shadow Map</h2>
-<ul>
-<li>记录一下关于<code>Games202</code>的学习</li>
-</ul>
-<h4 id="shadow-map-1">shadow map</h4>
-<ul>
-<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p></li>
-<li><p>如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：</p>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" /></p></li>
-</ul>
-<p>上图来自<code>Games202</code>的课件：</p>
-<ul>
-<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p></li>
-<li><p>关于计算当前vertex point
-是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p></li>
-<li><p>在<code>Games202</code>的作业1中，我们需要使用提供的matrix的接口处理矩阵。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mat.translate() <span class="comment">// 设置矩阵的移动 </span></span><br><span class="line">mat4.scale      <span class="comment">// 设置矩阵的缩放</span></span><br><span class="line"></span><br><span class="line">mat4.lookAt(); <span class="comment">// 生成的视图矩阵</span></span><br><span class="line">mat4.ortho();  <span class="comment">// 平行投影</span></span><br><span class="line"></span><br><span class="line">mat4.multiply(); <span class="comment">// 矩阵的乘法</span></span><br></pre></td></tr></table></figure>
-<p><a
-href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p></li>
-<li><p>深度比较：</p>
-<figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure></li>
-<li><p>最终效果</p></li>
-</ul>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" /></p>
-]]></content>
-      <categories>
-        <category>Computer Graph</category>
-      </categories>
-      <tags>
-        <tag>Games202</tag>
-        <tag>Shadow</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git常用命令(上)</title>
     <url>/2022/07/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/</url>
     <content><![CDATA[<p>
@@ -504,6 +462,48 @@ alt="git commit" /></li>
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Games202-ShadowMap</title>
+    <url>/2021/12/13/Games202-ShadowMap/</url>
+    <content><![CDATA[<p>
+  你该如何渲染阴影...
+</p>
+<span id="more"></span>
+<h2 id="shadow-map">Shadow Map</h2>
+<ul>
+<li>记录一下关于<code>Games202</code>的学习</li>
+</ul>
+<h4 id="shadow-map-1">shadow map</h4>
+<ul>
+<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p></li>
+<li><p>如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：</p>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" /></p></li>
+</ul>
+<p>上图来自<code>Games202</code>的课件：</p>
+<ul>
+<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p></li>
+<li><p>关于计算当前vertex point
+是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p></li>
+<li><p>在<code>Games202</code>的作业1中，我们需要使用提供的matrix的接口处理矩阵。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mat.translate() <span class="comment">// 设置矩阵的移动 </span></span><br><span class="line">mat4.scale      <span class="comment">// 设置矩阵的缩放</span></span><br><span class="line"></span><br><span class="line">mat4.lookAt(); <span class="comment">// 生成的视图矩阵</span></span><br><span class="line">mat4.ortho();  <span class="comment">// 平行投影</span></span><br><span class="line"></span><br><span class="line">mat4.multiply(); <span class="comment">// 矩阵的乘法</span></span><br></pre></td></tr></table></figure>
+<p><a
+href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p></li>
+<li><p>深度比较：</p>
+<figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure></li>
+<li><p>最终效果</p></li>
+</ul>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" /></p>
+]]></content>
+      <categories>
+        <category>Computer Graph</category>
+      </categories>
+      <tags>
+        <tag>Games202</tag>
+        <tag>Shadow</tag>
       </tags>
   </entry>
   <entry>
@@ -753,6 +753,94 @@ F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
       <tags>
         <tag>cpp</tag>
         <tag>osg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenGL Move Scene</title>
+    <url>/2022/08/03/OpenGL-Move-Scene/</url>
+    <content><![CDATA[<p>
+  <code>OpenGL</code>场景移动...
+</p>
+<span id="more"></span>
+<center>
+<h1>
+OpenGL Move Scene - 平面上移动
+</h1>
+</center>
+<ul>
+<li>我们考虑一个简单的平面的移动
+<ul>
+<li>某个维度为 <code>0</code>,我们只需要在某个平面上移动</li>
+</ul></li>
+</ul>
+<h2 id="计算移动的方向">1. 计算移动的方向</h2>
+<ul>
+<li>在此之前对于相机的概念，希望您是熟悉的</li>
+<li>虽然在<code>OpenGL</code>中本身并没有相机的概念
+<ul>
+<li><code>eye</code> - <code>point</code></li>
+<li><code>center</code> - <code>point</code></li>
+<li><code>up</code> - <code>vector</code></li>
+</ul></li>
+</ul>
+<h3 id="计算相机的朝向">计算相机的朝向</h3>
+<ul>
+<li>右方向：<span class="math inline">\(\vec{front} = center -
+eye\)</span></li>
+</ul>
+<h3 id="计算相机的右方向">计算相机的右方向</h3>
+<ul>
+<li><span class="math inline">\(\vec{right} = \vec{front} \times
+\vec{up}\)</span></li>
+<li>记得将向量<span
+class="math inline">\(\vec{right}\)</span>归一化处理</li>
+</ul>
+<h2 id="鼠标的移动">2. 鼠标的移动</h2>
+<ul>
+<li>规定使用鼠标右键平移场景</li>
+<li>我们使用<code>Qt</code>的鼠标事件
+<ul>
+<li>在<code>x</code>方向上，两次记录的位置相减携带了移动的方向</li>
+<li>在<code>y</code>方向上，<code>Qt</code>窗口的原点与<code>OpenGL</code>的窗口存在差别，需要做额外的处理
+- 反向</li>
+</ul></li>
+</ul>
+<h3 id="当右键按下我们记录当前的鼠标的坐标">1.
+当右键按下我们记录当前的鼠标的坐标</h3>
+<h3 id="触发移动事件">2. 触发移动事件</h3>
+<ul>
+<li>此处每一次出发移动我们将计算一次场景的移动
+<ul>
+<li><code>X</code>方向 - <code>offsetX</code></li>
+<li><code>Y</code>方向 - <code>offsetY</code></li>
+</ul></li>
+<li>更新我们记录的上一次的鼠标的位置</li>
+</ul>
+<h2 id="移动场景">移动场景</h2>
+<ul>
+<li>将这个移动映射成为数据的比例，作为移动方向的系数，作用到<code>eye</code>&amp;<code>center</code>,
+重新计算视图矩阵，更新场景 ### 计算新的 <code>eye</code> &amp;
+<code>center</code></li>
+<li>计算沿着<span class="math inline">\(\vec{right}\)</span> &amp; <span
+class="math inline">\(\vec{up}\)</span>方向的移动的距离</li>
+<li>获取窗口的宽高为 <code>w&amp;h</code></li>
+<li>在投影矩阵中 <span class="math inline">\(right - left =
+spanX\)</span> &amp; <span class="math inline">\(top - bottom =
+spanY\)</span> <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">offsetX / w * spanX = disX;</span><br><span class="line">offsetY / h * spanY = disY;</span><br><span class="line"></span><br><span class="line">eye += right * disX + up *  disY;</span><br><span class="line">center += right * disX + up *  disY;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="更新视图矩阵repaint">更新视图矩阵&amp;<code>repaint</code></h2>
+<ul>
+<li><code>ViewMat.lookAt(eye,center,up)</code></li>
+<li><code>repaint()</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Computer Graph</category>
+        <category>works</category>
+        <category>SCUU</category>
+      </categories>
+      <tags>
+        <tag>OpenGL</tag>
       </tags>
   </entry>
   <entry>
@@ -1281,94 +1369,6 @@ OpenGL parallel projection graphics do not scale with the window
       <tags>
         <tag>cpp</tag>
         <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OpenGL Move Scene</title>
-    <url>/2022/08/03/OpenGL-Move-Scene/</url>
-    <content><![CDATA[<p>
-  <code>OpenGL</code>场景移动...
-</p>
-<span id="more"></span>
-<center>
-<h1>
-OpenGL Move Scene - 平面上移动
-</h1>
-</center>
-<ul>
-<li>我们考虑一个简单的平面的移动
-<ul>
-<li>某个维度为 <code>0</code>,我们只需要在某个平面上移动</li>
-</ul></li>
-</ul>
-<h2 id="计算移动的方向">1. 计算移动的方向</h2>
-<ul>
-<li>在此之前对于相机的概念，希望您是熟悉的</li>
-<li>虽然在<code>OpenGL</code>中本身并没有相机的概念
-<ul>
-<li><code>eye</code> - <code>point</code></li>
-<li><code>center</code> - <code>point</code></li>
-<li><code>up</code> - <code>vector</code></li>
-</ul></li>
-</ul>
-<h3 id="计算相机的朝向">计算相机的朝向</h3>
-<ul>
-<li>右方向：<span class="math inline">\(\vec{front} = center -
-eye\)</span></li>
-</ul>
-<h3 id="计算相机的右方向">计算相机的右方向</h3>
-<ul>
-<li><span class="math inline">\(\vec{right} = \vec{front} \times
-\vec{up}\)</span></li>
-<li>记得将向量<span
-class="math inline">\(\vec{right}\)</span>归一化处理</li>
-</ul>
-<h2 id="鼠标的移动">2. 鼠标的移动</h2>
-<ul>
-<li>规定使用鼠标右键平移场景</li>
-<li>我们使用<code>Qt</code>的鼠标事件
-<ul>
-<li>在<code>x</code>方向上，两次记录的位置相减携带了移动的方向</li>
-<li>在<code>y</code>方向上，<code>Qt</code>窗口的原点与<code>OpenGL</code>的窗口存在差别，需要做额外的处理
-- 反向</li>
-</ul></li>
-</ul>
-<h3 id="当右键按下我们记录当前的鼠标的坐标">1.
-当右键按下我们记录当前的鼠标的坐标</h3>
-<h3 id="触发移动事件">2. 触发移动事件</h3>
-<ul>
-<li>此处每一次出发移动我们将计算一次场景的移动
-<ul>
-<li><code>X</code>方向 - <code>offsetX</code></li>
-<li><code>Y</code>方向 - <code>offsetY</code></li>
-</ul></li>
-<li>更新我们记录的上一次的鼠标的位置</li>
-</ul>
-<h2 id="移动场景">移动场景</h2>
-<ul>
-<li>将这个移动映射成为数据的比例，作为移动方向的系数，作用到<code>eye</code>&amp;<code>center</code>,
-重新计算视图矩阵，更新场景 ### 计算新的 <code>eye</code> &amp;
-<code>center</code></li>
-<li>计算沿着<span class="math inline">\(\vec{right}\)</span> &amp; <span
-class="math inline">\(\vec{up}\)</span>方向的移动的距离</li>
-<li>获取窗口的宽高为 <code>w&amp;h</code></li>
-<li>在投影矩阵中 <span class="math inline">\(right - left =
-spanX\)</span> &amp; <span class="math inline">\(top - bottom =
-spanY\)</span> <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">offsetX / w * spanX = disX;</span><br><span class="line">offsetY / h * spanY = disY;</span><br><span class="line"></span><br><span class="line">eye += right * disX + up *  disY;</span><br><span class="line">center += right * disX + up *  disY;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="更新视图矩阵repaint">更新视图矩阵&amp;<code>repaint</code></h2>
-<ul>
-<li><code>ViewMat.lookAt(eye,center,up)</code></li>
-<li><code>repaint()</code></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Computer Graph</category>
-        <category>works</category>
-        <category>SCUU</category>
-      </categories>
-      <tags>
-        <tag>OpenGL</tag>
       </tags>
   </entry>
   <entry>
@@ -2161,7 +2161,7 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
     <title>View/Camera Transformation</title>
     <url>/2022/08/19/View-Camera-Transformation/</url>
     <content><![CDATA[<p>
-  计算机图形学的试图变换过程的解析...
+  计算机图形学的视图变换过程的解析...
 </p>
 <span id="more"></span>
 <h1 id="视图变换">视图变换</h1>
@@ -2176,6 +2176,77 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
 </ul></li>
 </ul>
 <h2 id="视图变换-变换过程">视图变换-变换过程</h2>
+<ul>
+<li>从顶点构建到最终渲染成一张二维的图片，在行业中大家将之类比为拍照的行为
+<ul>
+<li>模型变换 - 取景的过程</li>
+<li><font color=red>视图变换 - 摆放相机的过程</font></li>
+<li>......</li>
+<li>此处我们只是讨论视图变换的过程</li>
+</ul></li>
+</ul>
+<h3 id="定义一个相机">定义一个相机</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer%20graph/define_cameracamera.png"
+title="define camera" alt="camera" />
+<figcaption aria-hidden="true">camera</figcaption>
+</figure>
+<ul>
+<li>对于上述的那个拍照的行为，我们要拍摄这个摆放好的景物，关于相机我们只需要关心三个方面。
+<ul>
+<li>我们基于<font color=red>右手系</font>考虑下面的这些信息</li>
+<li>相机的位置 <span class="math inline">\(e\)</span> -&gt; <span
+class="math inline">\(eye\)</span> = $x,y,z,1$</li>
+<li>相机的看的方向，既相机的拍摄方向 <span
+class="math inline">\(\vec{dir}\)</span> - <code>lookAt direction</code>
+$x,y,z,0 $</li>
+<li>相机的上方向 <span class="math inline">\(\vec{up}\)</span> = <span
+class="math inline">\(\lbrace x,y,z,1\rbrace\)</span>
+<ul>
+<li>大概是手机横屏与竖屏的区别</li>
+</ul></li>
+</ul></li>
+<li>我们获得一个观察方向,一个向上的方向
+<ul>
+<li>观察方向与向上方向垂直</li>
+<li>通过叉积我们可以得到一个向右的方向<span
+class="math inline">\(\vec{right}\)</span></li>
+</ul></li>
+</ul>
+<p style="color:red">
+  
+从拍照的行为来看，相机的观察方向是指向模型摆放的位置，我们保持两个物体的相对位置关系(相机与场景)，相机做了某种变换，模型也跟着做同样的变换。基于这种相对位置的变化，我们约定，将相机永远变换到原点，相机的观察方向永远是
+<code> -z </code>方向,以此我们构建一个坐标系
+</p>
+<p><img id="view_coordinate" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer graph/camera构建坐标系.png"/></p>
+<h3 id="旋转矩阵">旋转矩阵</h3>
+<p><img id="旋转矩阵构建" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer%20graph/旋转矩阵的构建.png"/></p>
+<ul>
+<li><p>我们将以相机定义的坐标框架通过旋转与平移将之与世界空间的坐标重合</p>
+<ul>
+<li><span class="math inline">\(\vec{g}\)</span> -&gt; $ $</li>
+<li><span class="math inline">\(\vec{t}\)</span> -&gt; $ $</li>
+<li><span class="math inline">\(\vec{t} \times \vec{g}\)</span> -&gt;
+<span class="math inline">\({\vec{X}}\)</span></li>
+<li><font color=red>但是我们要做到上面的事情比较困难，换一种思路，我们做相反的事情</font></li>
+</ul></li>
+<li><p>我们将世界空间的坐标通过旋转&amp;平移将之与相机定义的坐标系重合</p>
+<ul>
+<li><span class="math inline">\(\vec{Y}\)</span> -&gt; <span
+class="math inline">\(\vec{t}\)</span></li>
+<li><span class="math inline">\(\vec{-Z}\)</span> -&gt; <span
+class="math inline">\(\vec{g}\)</span></li>
+<li><span class="math inline">\({\vec{X}}\)</span> -&gt; <span
+class="math inline">\(\vec{t} \times \vec{g}\)</span></li>
+</ul></li>
+<li><p>构建一个旋转矩阵的逆矩阵，</p>
+<ul>
+<li>由于坐标系的三个轴是正交的，我们只需要将矩阵转置就可以得到这个旋转矩阵。</li>
+</ul></li>
+<li><p>待续....</p></li>
+<li><p><a href="#view_coordinate">view coordinate</a></p></li>
+</ul>
 ]]></content>
       <categories>
         <category>Computer Graph</category>
