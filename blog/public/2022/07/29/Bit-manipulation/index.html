@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.ranbun.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="将二进制数某一位置0，置1，取反  用位运算可以解决我们的问题,所以下面部分的代码就是一些位运算的简单应用 函数实现  1. 将不同进制数转为二进制(非必须) - 我们只是为了显示结果  模拟人的计算过程 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748st">
+    <meta name="description" content="将二进制数某一位置0，置1，取反  用位运算可以解决我们的问题,所以下面部分的代码就是一些位运算的简单应用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bit manipulation">
 <meta property="og:url" content="https://blog.ranbun.com/2022/07/29/Bit-manipulation/index.html">
 <meta property="og:site_name" content="RanBun&#39;s Blog">
-<meta property="og:description" content="将二进制数某一位置0，置1，取反  用位运算可以解决我们的问题,所以下面部分的代码就是一些位运算的简单应用 函数实现  1. 将不同进制数转为二进制(非必须) - 我们只是为了显示结果  模拟人的计算过程 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748st">
+<meta property="og:description" content="将二进制数某一位置0，置1，取反  用位运算可以解决我们的问题,所以下面部分的代码就是一些位运算的简单应用">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-29T09:24:35.000Z">
-<meta property="article:modified_time" content="2022-07-31T07:03:23.382Z">
+<meta property="article:modified_time" content="2022-08-21T06:00:10.116Z">
 <meta property="article:author" content="RanBun">
 <meta property="article:tag" content="cpp">
 <meta name="twitter:card" content="summary">
@@ -88,7 +88,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fas fa-tags fa-fw"></i>标签<span class="badge">19</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">27</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">35</span></a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fas fa-tags fa-fw"></i>标签<span class="badge">19</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">27</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">38</span></a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -145,8 +145,8 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E6%9F%90%E4%B8%80%E4%BD%8D%E7%BD%AE0%E7%BD%AE1%E5%8F%96%E5%8F%8D"><span class="nav-number">1.</span> <span class="nav-text">将二进制数某一位置0，置1，取反</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E4%BD%8D%E8%BF%90%E7%AE%97%E5%8F%AF%E4%BB%A5%E8%A7%A3%E5%86%B3%E6%88%91%E4%BB%AC%E7%9A%84%E9%97%AE%E9%A2%98%E6%89%80%E4%BB%A5%E4%B8%8B%E9%9D%A2%E9%83%A8%E5%88%86%E7%9A%84%E4%BB%A3%E7%A0%81%E5%B0%B1%E6%98%AF%E4%B8%80%E4%BA%9B%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9A%84%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8"><span class="nav-number"></span> <span class="nav-text">用位运算可以解决我们的问题,所以下面部分的代码就是一些位运算的简单应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%86%E4%B8%8D%E5%90%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E4%B8%BA%E4%BA%8C%E8%BF%9B%E5%88%B6%E9%9D%9E%E5%BF%85%E9%A1%BB---%E6%88%91%E4%BB%AC%E5%8F%AA%E6%98%AF%E4%B8%BA%E4%BA%86%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C"><span class="nav-number">0.1.</span> <span class="nav-text">1.
-将不同进制数转为二进制(非必须) - 我们只是为了显示结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%90%E4%B8%80%E4%BD%8D%E7%BD%AE%E4%B8%BA-0"><span class="nav-number">0.2.</span> <span class="nav-text">某一位置为 0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%90%E4%B8%80%E4%BD%8D%E7%BD%AE%E4%B8%BA-1"><span class="nav-number">0.3.</span> <span class="nav-text">某一位置为 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%90%E4%B8%80%E4%BD%8D%E7%BD%AE%E5%8F%96%E5%8F%8D"><span class="nav-number">0.4.</span> <span class="nav-text">某一位置取反</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number"></span> <span class="nav-text">参考</span></a></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E6%9F%90%E4%B8%80%E4%BD%8D%E7%BD%AE0%E7%BD%AE1%E5%8F%96%E5%8F%8D"><span class="nav-number">1.</span> <span class="nav-text">将二进制数某一位置0，置1，取反</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%86%E4%B8%8D%E5%90%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E4%B8%BA%E4%BA%8C%E8%BF%9B%E5%88%B6%E9%9D%9E%E5%BF%85%E9%A1%BB---%E6%88%91%E4%BB%AC%E5%8F%AA%E6%98%AF%E4%B8%BA%E4%BA%86%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%9C"><span class="nav-number">1.1.</span> <span class="nav-text">1.
+将不同进制数转为二进制(非必须) - 我们只是为了显示结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%90%E4%B8%80%E4%BD%8D%E7%BD%AE%E4%B8%BA-0"><span class="nav-number">1.2.</span> <span class="nav-text">某一位置为 0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%90%E4%B8%80%E4%BD%8D%E7%BD%AE%E4%B8%BA-1"><span class="nav-number">1.3.</span> <span class="nav-text">某一位置为 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%90%E4%B8%80%E4%BD%8D%E7%BD%AE%E5%8F%96%E5%8F%8D"><span class="nav-number">1.4.</span> <span class="nav-text">某一位置取反</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number"></span> <span class="nav-text">参考</span></a></div>
         </div>
         <!--/noindex-->
 
@@ -161,7 +161,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -270,7 +270,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-31 15:03:23" itemprop="dateModified" datetime="2022-07-31T15:03:23+08:00">2022-07-31</time>
+      <time title="修改时间：2022-08-21 14:00:10" itemprop="dateModified" datetime="2022-08-21T14:00:10+08:00">2022-08-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -294,8 +294,10 @@
     <div class="post-body" itemprop="articleBody">
         <h3 id="将二进制数某一位置0置1取反">将二进制数某一位置0，置1，取反</h3>
 <ul>
-<li><h2
-id="用位运算可以解决我们的问题所以下面部分的代码就是一些位运算的简单应用">用位运算可以解决我们的问题,所以下面部分的代码就是一些位运算的简单应用</h2></li>
+<li>用位运算可以解决我们的问题,所以下面部分的代码就是一些位运算的简单应用</li>
+</ul>
+<span id="more"></span>
+<ul>
 <li>函数实现</li>
 </ul>
 <h4 id="将不同进制数转为二进制非必须---我们只是为了显示结果">1.

@@ -8,6 +8,12 @@ tags:
 - Shadow
 ---
 
+<p>
+&ensp;&ensp;你该如何渲染阴影...
+</p>
+
+<!-- more -->
+
 ## Shadow Map
 
 - 记录一下关于`Games202`的学习

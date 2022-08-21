@@ -11,6 +11,12 @@ tags:
 mathjax: true
 ---
 
+<p>
+&ensp;&ensp;<code>OSG</code>默认光源...
+</p>
+
+<!-- more -->
+
 ### OSG-Viewer默认光源
 
 ```C++

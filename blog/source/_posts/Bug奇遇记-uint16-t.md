@@ -11,6 +11,12 @@ tags:
  - osg
 ---
 
+<p>
+&ensp;&ensp;bug奇遇记之<code>uint16_t</code>...
+</p>
+
+<!-- more -->
+
 ### uint16_t 
 
 - 标准定义中：

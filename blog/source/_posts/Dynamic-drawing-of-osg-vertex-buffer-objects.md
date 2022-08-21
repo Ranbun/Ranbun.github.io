@@ -14,6 +14,8 @@ tags:
 
 - 使用`显示列表`绘制图形在速度上并没有`vertex buffer object`那么快，所以在更高的`osg`的版本中，推荐使用`vertex buffer object`
 
+<!-- more -->
+
 - 在使用`vertex buffer object`的情况下，动态更新绘制的数据
 
 - 代码实现：

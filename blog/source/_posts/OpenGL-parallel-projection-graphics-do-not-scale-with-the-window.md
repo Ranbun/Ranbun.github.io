@@ -9,6 +9,12 @@ tags:
 - OpenGL
 ---
 
+<p>
+&ensp;&ensp;<code>QtOpenGL</code>平行投影窗口缩放导致图形变形...
+</p>
+
+<!-- more -->
+
 <center><h2>OpenGL parallel projection graphics do not scale with the window </h2> </center>
 
 ###  实现步骤 

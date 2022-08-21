@@ -7,6 +7,12 @@ tags:
 - key words
 ---
 
+<p>
+&ensp;&ensp;<code>cpp</code>关键词之<code>extern</code>...
+</p>
+
+<!-- more -->
+
 <center><h2> <code>extern</code>关键字</h2></center>
 ## `Extern` 初解
 - 关于`extern`关键字可以应用于全局变量、函数或模板声明。它指定符号具有外部链接性质。

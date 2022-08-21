@@ -9,6 +9,13 @@ tags:
 - OpenGL
 ---
 
+<p>
+&ensp;&ensp;<code>QtOpenGL</code>场景缩放...
+</p>
+
+<!-- more -->
+
+
 <!-- # `OpenGL Scene ZoomIn & ZoomOut` -->
 <center> <h1>OpenGL的缩放</h1></center>
 

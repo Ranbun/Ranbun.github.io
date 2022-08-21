@@ -8,6 +8,12 @@ tags:
 - sort
 ---
 
+<p>
+&ensp;&ensp;快速排序...
+</p>
+
+<!-- more -->
+
 ## Quick Sort
 
 #### 1、快速排序概述

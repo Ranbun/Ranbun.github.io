@@ -9,6 +9,12 @@ tags:
   - OpenGL
 ---
 
+<p>
+&ensp;&ensp;<code>OpenGL</code>场景移动...
+</p>
+
+<!-- more -->
+
 <center><h1> OpenGL Move Scene - 平面上移动 </h1></center>
 
 - 我们考虑一个简单的平面的移动

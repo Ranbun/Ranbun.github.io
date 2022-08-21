@@ -10,6 +10,12 @@ tags:
 
 ---
 
+<p>
+&ensp;&ensp;智能指针...
+</p>
+
+<!-- more -->
+
 # Smart Pointer
 <p style="color:red">
 &ensp;&ensp;智能指针是行为类似于指针的类对象，但这种对象还有其他功能。   

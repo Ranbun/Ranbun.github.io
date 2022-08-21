@@ -10,6 +10,12 @@ tags:
 - Qt
 ---
 
+<p>
+&ensp;&ensp;<code>QtOpenGL</code>MSAA算法介绍...
+</p>
+
+<!-- more -->
+
 ## Qt OpenGL Antialiasing - MSAA 
 
 ### 锯齿是图形绘制中常见的问题

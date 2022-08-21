@@ -8,6 +8,12 @@ tags:
 - sort
 ---
 
+<p>
+&ensp;&ensp;<code>Heap</code>数据结构介绍...
+</p>
+
+<!-- more -->
+
 ## 堆
 
 #### 优先队列(`Pripority Queue`)
