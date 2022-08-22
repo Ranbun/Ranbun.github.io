@@ -384,30 +384,6 @@ extern必须应用于所有文件中的所有声明。 默认情况下， (全�
       </tags>
   </entry>
   <entry>
-    <title>Dynamic drawing of osg vertex buffer objects</title>
-    <url>/2021/11/07/Dynamic-drawing-of-osg-vertex-buffer-objects/</url>
-    <content><![CDATA[<h3
-id="dynamic-drawing-of-osg-vertex-buffer-objects"><code>Dynamic drawing of osg vertex buffer objects</code></h3>
-<ul>
-<li>使用<code>显示列表</code>绘制图形在速度上并没有<code>vertex buffer object</code>那么快，所以在更高的<code>osg</code>的版本中，推荐使用<code>vertex buffer object</code></li>
-</ul>
-<span id="more"></span>
-<ul>
-<li><p>在使用<code>vertex buffer object</code>的情况下，动态更新绘制的数据</p></li>
-<li><p>代码实现： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 首先- 创建完成 osg::Geometry</span></span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; geom = <span class="keyword">new</span> osg::Geometry;</span><br><span class="line"><span class="comment">// 关闭显示列表 并使用vbo(vertex buffer object)</span></span><br><span class="line">geom-&gt;setUseDisplayLists(<span class="literal">false</span>);</span><br><span class="line">geom-&gt;setUseVertexBufferObject(<span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 修改几何体的绘制数据的类型 </span></span><br><span class="line">geom-&gt;setDataVariance(osg::Object::DataVariance::DYNAMIC);</span><br><span class="line"><span class="comment">//================================================================</span></span><br><span class="line"><span class="comment">// 更新操作 </span></span><br><span class="line"><span class="comment">// 先获取顶点数组 </span></span><br><span class="line"><span class="keyword">auto</span> varray = <span class="keyword">dynamic_cast</span>&lt;osg::Vec3Array&gt;(geom-&gt;getVertexArray());</span><br><span class="line"><span class="comment">// 需改顶点数据</span></span><br><span class="line"><span class="comment">// ---------------------你可以想数组中插入顶点-----------------------------------</span></span><br><span class="line"><span class="comment">// 调用 dirty函数，告诉osg::Geometry你修改了顶点</span></span><br><span class="line">varray-&gt;dirty();</span><br><span class="line"><span class="comment">// 修改 PrimitiveSet(OpenGL的DrawArray(图元，开始点，绘制个数))</span></span><br><span class="line"><span class="comment">// PrimitiveSet* osg::Geometry::getPrimitiveSet  ( unsigned int  pos ) </span></span><br><span class="line"><span class="keyword">auto</span> pri_set = geom-&gt;getPrimitiveSet(<span class="number">0</span>);</span><br><span class="line"><span class="comment">// void  setNumInstances (int n) </span></span><br><span class="line">pri_set-&gt;setNumInstances(修改后的顶点个数)；</span><br><span class="line">pri_set-&gt;dirty();</span><br><span class="line"><span class="comment">// 更新几何体</span></span><br><span class="line">geom-&gt;dirty();</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>HJ</category>
-        <category>OSG</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>osg</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Games202-ShadowMap</title>
     <url>/2021/12/13/Games202-ShadowMap/</url>
     <content><![CDATA[<p>
@@ -576,63 +552,23 @@ C++ 实现  </a></p>
       </tags>
   </entry>
   <entry>
-    <title>OSG-HUD</title>
-    <url>/2021/07/26/OSG-HUD/</url>
-    <content><![CDATA[<p>
-  <code>OSG</code>HUD...
-</p>
+    <title>Dynamic drawing of osg vertex buffer objects</title>
+    <url>/2021/11/07/Dynamic-drawing-of-osg-vertex-buffer-objects/</url>
+    <content><![CDATA[<h3
+id="dynamic-drawing-of-osg-vertex-buffer-objects"><code>Dynamic drawing of osg vertex buffer objects</code></h3>
+<ul>
+<li>使用<code>显示列表</code>绘制图形在速度上并没有<code>vertex buffer object</code>那么快，所以在更高的<code>osg</code>的版本中，推荐使用<code>vertex buffer object</code></li>
+</ul>
 <span id="more"></span>
-<h1 id="osg-hud">OSG-HUD</h1>
 <ul>
-<li><p>
-"HUD"在渲染的场景中算是比较常见的存在:
-游戏中的小地图(上帝视角)、实时状态、显示鼠标的实时位置、三维视角...
-</p></li>
+<li><p>在使用<code>vertex buffer object</code>的情况下，动态更新绘制的数据</p></li>
+<li><p>代码实现： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 首先- 创建完成 osg::Geometry</span></span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; geom = <span class="keyword">new</span> osg::Geometry;</span><br><span class="line"><span class="comment">// 关闭显示列表 并使用vbo(vertex buffer object)</span></span><br><span class="line">geom-&gt;setUseDisplayLists(<span class="literal">false</span>);</span><br><span class="line">geom-&gt;setUseVertexBufferObject(<span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 修改几何体的绘制数据的类型 </span></span><br><span class="line">geom-&gt;setDataVariance(osg::Object::DataVariance::DYNAMIC);</span><br><span class="line"><span class="comment">//================================================================</span></span><br><span class="line"><span class="comment">// 更新操作 </span></span><br><span class="line"><span class="comment">// 先获取顶点数组 </span></span><br><span class="line"><span class="keyword">auto</span> varray = <span class="keyword">dynamic_cast</span>&lt;osg::Vec3Array&gt;(geom-&gt;getVertexArray());</span><br><span class="line"><span class="comment">// 需改顶点数据</span></span><br><span class="line"><span class="comment">// ---------------------你可以想数组中插入顶点-----------------------------------</span></span><br><span class="line"><span class="comment">// 调用 dirty函数，告诉osg::Geometry你修改了顶点</span></span><br><span class="line">varray-&gt;dirty();</span><br><span class="line"><span class="comment">// 修改 PrimitiveSet(OpenGL的DrawArray(图元，开始点，绘制个数))</span></span><br><span class="line"><span class="comment">// PrimitiveSet* osg::Geometry::getPrimitiveSet  ( unsigned int  pos ) </span></span><br><span class="line"><span class="keyword">auto</span> pri_set = geom-&gt;getPrimitiveSet(<span class="number">0</span>);</span><br><span class="line"><span class="comment">// void  setNumInstances (int n) </span></span><br><span class="line">pri_set-&gt;setNumInstances(修改后的顶点个数)；</span><br><span class="line">pri_set-&gt;dirty();</span><br><span class="line"><span class="comment">// 更新几何体</span></span><br><span class="line">geom-&gt;dirty();</span><br></pre></td></tr></table></figure></p></li>
 </ul>
-<p><b style="color:red">如何创建HUD ？</b></p>
-<p>
-本质上说，HUD就是一个相机(
-在<code>OSG</code>中可以作为节点)，只是不响应鼠标的操作。只需要设置好相关的参数，添加到场景的根节点就行
-</p>
-<p><b style="color:red">实现要点，如下：</b></p>
-<ul>
-<li>关闭节点的光照，保证整个视口显示的场景的亮度是一样的。</li>
-<li>关闭深度测试</li>
-<li>调整渲染的顺序为最后渲染，让<code>HUD</code>显示在整个场景的最前方</li>
-<li>设置参考帧为绝对参考帧</li>
-<li>设置变换矩阵,不受父节点的影响</li>
-<li>设置投影矩阵(平行投影或者透视),设置视口的大小。</li>
-</ul>
-<h2 id="create-hud">Create HUD</h2>
-<h3 id="创建相机节点">1、创建相机节点</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::Camera&gt; hud_camera = <span class="keyword">new</span> osg::Camera;   <span class="comment">// 创建相机的节点</span></span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; geom = <span class="keyword">new</span> osg::Geometry;      <span class="comment">// 创建绘制的节点(也可以是文字)</span></span><br></pre></td></tr></table></figure>
-<h3 id="设置投影矩阵">2、设置投影矩阵</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setProjectionMatrixAsOrtho2D(<span class="number">-3</span>, <span class="number">4</span>, <span class="number">-3</span>, <span class="number">4</span>, <span class="number">-1.0</span>, <span class="number">100</span>);  <span class="comment">// 2D 也可以 此处设置表示你裁剪的三维空间的实际的能表示的数值的大小</span></span><br></pre></td></tr></table></figure>
-<h3 id="设置视口大小viewport">3、设置视口大小(ViewPort)</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// void setViewport(osg::Viewport* viewport);</span></span><br><span class="line"><span class="comment">// void setViewport(int x,int y,int width,int height);</span></span><br><span class="line">hud_camera-&gt;setviewport();  <span class="comment">// 两种方式都是可以的 </span></span><br></pre></td></tr></table></figure>
-<h3 id="设置渲染的顺序">4、设置渲染的顺序</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setRenderOrder(osg::Camera::POST_RENDER);</span><br></pre></td></tr></table></figure>
-<h3 id="设置参考帧">5、设置参考帧</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setReferenceFrame(osg::Transform::ABSOLUTE_RF);</span><br></pre></td></tr></table></figure>
-<h3 id="设置不受父节点的影响">6、设置不受父节点的影响</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setViewMatrix(osg::Matrix::identity());</span><br></pre></td></tr></table></figure>
-<h3 id="设置不获取焦点">7、设置不获取焦点</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setAllowEventFocus(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="设置节点的更新回调">8、设置节点的更新回调</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// void setUpdateCallback(Callback* nc);</span></span><br><span class="line"><span class="comment">// 需要重写一个节点的更新回调 修改节点的视图矩阵 </span></span><br><span class="line"><span class="comment">// 设置相机的三个参数  </span></span><br><span class="line"><span class="comment">// 视点 相机的位置 相机的向上方向</span></span><br><span class="line">hud_camera-&gt;setUpdateCallback();</span><br></pre></td></tr></table></figure>
-<h2 id="挂载节点">挂载节点</h2>
-<h3 id="将前面创建的几何节点挂载到-相机上">1、将前面创建的几何节点挂载到
-相机上</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::Geode&gt; node = <span class="keyword">new</span> osg::Geode;</span><br><span class="line">node-&gt;addChild(geom.get());</span><br><span class="line">hud_camera-&gt;addChild(node.get());</span><br></pre></td></tr></table></figure>
-<h3 id="设置节点的属性">2、设置节点的属性</h3>
-<ul>
-<li>关闭光照 深度测试 &amp; 打开混溶</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> states = node-&gt;getOrCreateStateSet();</span><br><span class="line">states-&gt;setMode(GL_LIGHTING, osg::StateAttribute::ON);   <span class="comment">//关闭灯光</span></span><br><span class="line">states-&gt;setMode(GL_DEPTH_TEST, osg::StateAttribute::OFF);<span class="comment">//关闭深度测试</span></span><br><span class="line">states-&gt;setMode(GL_BLEND, osg::StateAttribute::ON);  </span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>works</category>
-        <category>GF</category>
+        <category>HJ</category>
+        <category>OSG</category>
       </categories>
       <tags>
         <tag>cpp</tag>
@@ -705,6 +641,70 @@ id="将操作节点添加到绘制的根节点或者是其他的叶节点">5、�
         <category>works</category>
         <category>GF</category>
         <category>OSG</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>osg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OSG-HUD</title>
+    <url>/2021/07/26/OSG-HUD/</url>
+    <content><![CDATA[<p>
+  <code>OSG</code>HUD...
+</p>
+<span id="more"></span>
+<h1 id="osg-hud">OSG-HUD</h1>
+<ul>
+<li><p>
+"HUD"在渲染的场景中算是比较常见的存在:
+游戏中的小地图(上帝视角)、实时状态、显示鼠标的实时位置、三维视角...
+</p></li>
+</ul>
+<p><b style="color:red">如何创建HUD ？</b></p>
+<p>
+本质上说，HUD就是一个相机(
+在<code>OSG</code>中可以作为节点)，只是不响应鼠标的操作。只需要设置好相关的参数，添加到场景的根节点就行
+</p>
+<p><b style="color:red">实现要点，如下：</b></p>
+<ul>
+<li>关闭节点的光照，保证整个视口显示的场景的亮度是一样的。</li>
+<li>关闭深度测试</li>
+<li>调整渲染的顺序为最后渲染，让<code>HUD</code>显示在整个场景的最前方</li>
+<li>设置参考帧为绝对参考帧</li>
+<li>设置变换矩阵,不受父节点的影响</li>
+<li>设置投影矩阵(平行投影或者透视),设置视口的大小。</li>
+</ul>
+<h2 id="create-hud">Create HUD</h2>
+<h3 id="创建相机节点">1、创建相机节点</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::Camera&gt; hud_camera = <span class="keyword">new</span> osg::Camera;   <span class="comment">// 创建相机的节点</span></span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; geom = <span class="keyword">new</span> osg::Geometry;      <span class="comment">// 创建绘制的节点(也可以是文字)</span></span><br></pre></td></tr></table></figure>
+<h3 id="设置投影矩阵">2、设置投影矩阵</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setProjectionMatrixAsOrtho2D(<span class="number">-3</span>, <span class="number">4</span>, <span class="number">-3</span>, <span class="number">4</span>, <span class="number">-1.0</span>, <span class="number">100</span>);  <span class="comment">// 2D 也可以 此处设置表示你裁剪的三维空间的实际的能表示的数值的大小</span></span><br></pre></td></tr></table></figure>
+<h3 id="设置视口大小viewport">3、设置视口大小(ViewPort)</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// void setViewport(osg::Viewport* viewport);</span></span><br><span class="line"><span class="comment">// void setViewport(int x,int y,int width,int height);</span></span><br><span class="line">hud_camera-&gt;setviewport();  <span class="comment">// 两种方式都是可以的 </span></span><br></pre></td></tr></table></figure>
+<h3 id="设置渲染的顺序">4、设置渲染的顺序</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setRenderOrder(osg::Camera::POST_RENDER);</span><br></pre></td></tr></table></figure>
+<h3 id="设置参考帧">5、设置参考帧</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setReferenceFrame(osg::Transform::ABSOLUTE_RF);</span><br></pre></td></tr></table></figure>
+<h3 id="设置不受父节点的影响">6、设置不受父节点的影响</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setViewMatrix(osg::Matrix::identity());</span><br></pre></td></tr></table></figure>
+<h3 id="设置不获取焦点">7、设置不获取焦点</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">hud_camera-&gt;setAllowEventFocus(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="设置节点的更新回调">8、设置节点的更新回调</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// void setUpdateCallback(Callback* nc);</span></span><br><span class="line"><span class="comment">// 需要重写一个节点的更新回调 修改节点的视图矩阵 </span></span><br><span class="line"><span class="comment">// 设置相机的三个参数  </span></span><br><span class="line"><span class="comment">// 视点 相机的位置 相机的向上方向</span></span><br><span class="line">hud_camera-&gt;setUpdateCallback();</span><br></pre></td></tr></table></figure>
+<h2 id="挂载节点">挂载节点</h2>
+<h3 id="将前面创建的几何节点挂载到-相机上">1、将前面创建的几何节点挂载到
+相机上</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::ref_ptr&lt;osg::Geode&gt; node = <span class="keyword">new</span> osg::Geode;</span><br><span class="line">node-&gt;addChild(geom.get());</span><br><span class="line">hud_camera-&gt;addChild(node.get());</span><br></pre></td></tr></table></figure>
+<h3 id="设置节点的属性">2、设置节点的属性</h3>
+<ul>
+<li>关闭光照 深度测试 &amp; 打开混溶</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> states = node-&gt;getOrCreateStateSet();</span><br><span class="line">states-&gt;setMode(GL_LIGHTING, osg::StateAttribute::ON);   <span class="comment">//关闭灯光</span></span><br><span class="line">states-&gt;setMode(GL_DEPTH_TEST, osg::StateAttribute::OFF);<span class="comment">//关闭深度测试</span></span><br><span class="line">states-&gt;setMode(GL_BLEND, osg::StateAttribute::ON);  </span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>GF</category>
       </categories>
       <tags>
         <tag>cpp</tag>
@@ -2753,15 +2753,6 @@ title="virtual table 2" alt="virtual table 2" />
 ]]></content>
   </entry>
   <entry>
-    <title>设计模式-单例模式</title>
-    <url>/2022/08/19/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<p>
-  设计模式之单例模式...
-</p>
-<span id="more"></span>
-]]></content>
-  </entry>
-  <entry>
     <title>设计模式-工厂模式</title>
     <url>/2022/08/19/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<p>
@@ -2806,5 +2797,14 @@ title="virtual table 2" alt="virtual table 2" />
         <tag>conclusion</tag>
         <tag>university</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>设计模式-单例模式</title>
+    <url>/2022/08/19/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<p>
+  设计模式之单例模式...
+</p>
+<span id="more"></span>
+]]></content>
   </entry>
 </search>
