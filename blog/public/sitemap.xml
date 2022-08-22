@@ -459,6 +459,13 @@
   </url>
   
   <url>
+    <loc>https://blog.ranbun.com/tags/pointer/</loc>
+    <lastmod>2022-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.ranbun.com/tags/Base/</loc>
     <lastmod>2022-08-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -473,13 +480,6 @@
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/tags/pointer/</loc>
-    <lastmod>2022-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.ranbun.com/tags/vector/</loc>
     <lastmod>2022-08-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -487,14 +487,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/tags/conclusion/</loc>
+    <loc>https://blog.ranbun.com/tags/windows/</loc>
     <lastmod>2022-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/tags/windows/</loc>
+    <loc>https://blog.ranbun.com/tags/conclusion/</loc>
     <lastmod>2022-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -601,14 +601,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/categories/works/SCU/</loc>
+    <loc>https://blog.ranbun.com/categories/study/</loc>
     <lastmod>2022-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/categories/study/</loc>
+    <loc>https://blog.ranbun.com/categories/works/SCU/</loc>
     <lastmod>2022-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -671,14 +671,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/categories/works/SCU/Git/</loc>
+    <loc>https://blog.ranbun.com/categories/study/coding/</loc>
     <lastmod>2022-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/categories/study/coding/</loc>
+    <loc>https://blog.ranbun.com/categories/works/SCU/Git/</loc>
     <lastmod>2022-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
