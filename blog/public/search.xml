@@ -2220,10 +2220,10 @@ class="math inline">\(\vec{right}\)</span></li>
 <code> -z </code>方向,以此我们构建一个坐标系
 </p>
 <p><img id="view_coordinate" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer graph/camera构建坐标系.png"/></p>
-<h3 id="旋转矩阵">旋转矩阵</h3>
+<h2 id="计算视图变换矩阵">计算视图变换矩阵</h2>
 <p><img id="旋转矩阵构建" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer%20graph/旋转矩阵的构建.png"/></p>
 <ul>
-<li><p>我们将以相机定义的坐标框架通过旋转与平移将之与世界空间的坐标重合</p>
+<li>我们将以相机定义的坐标框架通过旋转与平移将之与世界空间的坐标重合
 <ul>
 <li><span class="math inline">\(\vec{g}\)</span> -&gt; $ $</li>
 <li><span class="math inline">\(\vec{t}\)</span> -&gt; $ $</li>
@@ -2231,7 +2231,7 @@ class="math inline">\(\vec{right}\)</span></li>
 <span class="math inline">\({\vec{X}}\)</span></li>
 <li><font color=red>但是我们要做到上面的事情比较困难，换一种思路，我们做相反的事情</font></li>
 </ul></li>
-<li><p>我们将世界空间的坐标通过旋转&amp;平移将之与相机定义的坐标系重合</p>
+<li>我们将世界空间的坐标通过旋转&amp;平移将之与相机定义的坐标系重合
 <ul>
 <li><span class="math inline">\(\vec{Y}\)</span> -&gt; <span
 class="math inline">\(\vec{t}\)</span></li>
@@ -2240,36 +2240,22 @@ class="math inline">\(\vec{g}\)</span></li>
 <li><span class="math inline">\({\vec{X}}\)</span> -&gt; <span
 class="math inline">\(\vec{t} \times \vec{g}\)</span></li>
 </ul></li>
-<li><p>构建一个旋转矩阵的逆矩阵，</p>
+<li>构建一个旋转矩阵的逆矩阵，然后计算逆矩阵的逆便得到我们想要的矩阵。
 <ul>
 <li>由于坐标系的三个轴是正交的，我们只需要将矩阵转置就可以得到这个旋转矩阵。</li>
 </ul></li>
-<li><p>待续....</p></li>
-<li><p><a href="#view_coordinate">view coordinate</a></p></li>
+<li>将旋转矩阵与平移矩阵乘起来，就得到想要的试图变换矩阵</li>
 </ul>
+<p><img src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer graph/旋转矩阵计算.jpg"/></p>
+<p style="color:pink">
+<p>   上述过程描述了视图变换的过程与视图矩阵的计算。</p>
+</p>
 ]]></content>
       <categories>
         <category>Computer Graph</category>
       </categories>
       <tags>
         <tag>Base</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Boy</title>
-    <url>/2021/03/16/baozi/</url>
-    <content><![CDATA[<h4 id="about-this-blog">About this Blog</h4>
-<ul>
-<li>个人博客，分享我的日常与一些工作内容</li>
-</ul>
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>bun</category>
-        <category>life</category>
-      </categories>
-      <tags>
-        <tag>intraduce</tag>
       </tags>
   </entry>
   <entry>
@@ -2365,6 +2351,23 @@ A[j]，则称<code>(i,j)</code>是一对逆序对<font color=red>逆序对(inver
       <tags>
         <tag>cpp</tag>
         <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Boy</title>
+    <url>/2021/03/16/baozi/</url>
+    <content><![CDATA[<h4 id="about-this-blog">About this Blog</h4>
+<ul>
+<li>个人博客，分享我的日常与一些工作内容</li>
+</ul>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>bun</category>
+        <category>life</category>
+      </categories>
+      <tags>
+        <tag>intraduce</tag>
       </tags>
   </entry>
   <entry>

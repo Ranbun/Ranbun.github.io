@@ -1,6 +1,7 @@
 ---
 title: View/Camera Transformation
 date: 2022-08-19 20:39:56
+mathjax: true
 categories:
 - Computer Graph
 tags:
@@ -45,7 +46,7 @@ tags:
 
 <img id="view_coordinate" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer graph/camera构建坐标系.png"/>
 
-### 旋转矩阵
+## 计算视图变换矩阵
 <img id="旋转矩阵构建" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer%20graph/旋转矩阵的构建.png"/>
 
 - 我们将以相机定义的坐标框架通过旋转与平移将之与世界空间的坐标重合
@@ -59,12 +60,16 @@ tags:
     - $\vec{-Z}$ -> $\vec{g}$
     - ${\vec{X}}$ -> $\vec{t} \times \vec{g}$
 
-- 构建一个旋转矩阵的逆矩阵，
+- 构建一个旋转矩阵的逆矩阵，然后计算逆矩阵的逆便得到我们想要的矩阵。
     - 由于坐标系的三个轴是正交的，我们只需要将矩阵转置就可以得到这个旋转矩阵。
 
-- 待续....
+- 将旋转矩阵与平移矩阵乘起来，就得到想要的试图变换矩阵
 
-- <a href="#view_coordinate">view coordinate</a>
- 
+<img src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer graph/旋转矩阵计算.jpg"/>
+
+ <p style="color:pink">
+&ensp;&ensp; 上述过程描述了视图变换的过程与视图矩阵的计算。
+
+ </p>
 
 
