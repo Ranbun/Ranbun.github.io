@@ -1,6 +1,7 @@
 ---
 title: View/Camera Transformation
 date: 2022-08-19 20:39:56
+mathjax: true
 categories:
 - Computer Graph
 tags:

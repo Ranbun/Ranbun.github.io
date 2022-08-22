@@ -1,7 +1,7 @@
 ---
 title: vector dot product
 date: 2022-07-28 00:55:14
-mathjax: tru
+mathjax: true
 categories:
 - Math
 - linear algebra
