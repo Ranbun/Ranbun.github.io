@@ -86,8 +86,9 @@ class A
   }
   
   ```
+
 	<font style="color:red">结果如下：</font>
-	![polymorphism](https://raw.githubusercontent.com/CuntBoy/images/main/polymorphism.png "polymorphism")
+	![polymorphism](https://raw.githubusercontent.com/Ranbun/images/main/cpp/polymorphism.png "polymorphism")
 
 
 - 多态的实现 -- <font style="color:red">虚函数表</font>
@@ -104,10 +105,10 @@ class A
         long long member;
     };
     ```
-	<font style="color:red">输出结果:</font> ![virtual_table](https://raw.githubusercontent.com/CuntBoy/images/main/virtual_table_1.png "virtual table 1")
+	<font style="color:red">输出结果:</font> ![virtual_table](https://raw.githubusercontent.com/Ranbun/images/main/cpp/virtual_table_1.png "virtual table 1")
   	
-  	![virtual table 2](https://raw.githubusercontent.com/CuntBoy/images/main/virtual_table_2.png "virtual table 2")
-  	
+  	![virtual table 2](https://raw.githubusercontent.com/Ranbun/images/main/cpp/virtual_table_2.png "virtual table 2")
+
   	- 上面的结果可以看出存在一个成员(存在虚函数的情况)，大小为8个字节(64位软件)。
 
 ---

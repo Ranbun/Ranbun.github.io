@@ -25,7 +25,7 @@ tags:
 typedef unsigned short  uint16_t; // max == _UI16_MAX 0xffffu 
 ```
 
-![uint16_t](https://raw.githubusercontent.com/CuntBoy/images/main/uint16_t.png "uint16")
+![uint16_t](https://raw.githubusercontent.com/Ranbun/images/main/bug/uint_16/uint16_t.png "uint16")
 
 #### 问题：
 
@@ -37,9 +37,10 @@ typedef unsigned short  uint16_t; // max == _UI16_MAX 0xffffu
 
 ### 正确的结果展示：
 
-![lum_2](https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_2.png "result")
+![lum_2](https://raw.githubusercontent.com/Ranbun/images/main/bug/uint_16/lum_arrow_2.png "result")
 
 
 
-![right result](https://raw.githubusercontent.com/CuntBoy/images/main/lum_arrow_1.png "Result")
+![right result](https://raw.githubusercontent.com/Ranbun/images/main/bug/uint_16/lum_arrow_1.png "Result")
 
+https://raw.githubusercontent.com/CuntBoy/images/main/blog/GF_Workspace.JPG
