@@ -577,6 +577,45 @@ C++ 实现  </a></p>
       </tags>
   </entry>
   <entry>
+    <title>Multi KeyWord Sort</title>
+    <url>/2021/11/07/Multi-KeyWord-Sort/</url>
+    <content><![CDATA[<p>
+  多关键字排序...
+</p>
+<span id="more"></span>
+<h3 id="多关键字排序">多关键字排序</h3>
+<ul>
+<li><p>扑克牌的例子</p></li>
+<li><p>一副扑克牌是按照两种顺序排的：</p>
+<ul>
+<li>K0,花色：梅花 &lt; 方块 &lt; 红桃 &lt; 黑桃</li>
+<li>k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10
+&lt; J &lt; Q &lt; K &lt; A</li>
+</ul></li>
+<li><p>主位优先：（Most Significant Digit）</p>
+<ul>
+<li>先用四个花色建桶，然后使用面值建桶</li>
+</ul></li>
+</ul>
+<h4 id="一个更好的方法">一个更好的方法：</h4>
+<ul>
+<li><p>依旧使用次位优先：</p>
+<ul>
+<li><p>先使用面值建桶</p></li>
+<li><p>然后按照大小将结果合并，使用花色建桶。</p></li>
+<li><p>最终的输出结果便是有序的</p></li>
+</ul></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OSG-HUD</title>
     <url>/2021/07/26/OSG-HUD/</url>
     <content><![CDATA[<p>
@@ -638,45 +677,6 @@ C++ 实现  </a></p>
       <tags>
         <tag>cpp</tag>
         <tag>osg</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Multi KeyWord Sort</title>
-    <url>/2021/11/07/Multi-KeyWord-Sort/</url>
-    <content><![CDATA[<p>
-  多关键字排序...
-</p>
-<span id="more"></span>
-<h3 id="多关键字排序">多关键字排序</h3>
-<ul>
-<li><p>扑克牌的例子</p></li>
-<li><p>一副扑克牌是按照两种顺序排的：</p>
-<ul>
-<li>K0,花色：梅花 &lt; 方块 &lt; 红桃 &lt; 黑桃</li>
-<li>k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10
-&lt; J &lt; Q &lt; K &lt; A</li>
-</ul></li>
-<li><p>主位优先：（Most Significant Digit）</p>
-<ul>
-<li>先用四个花色建桶，然后使用面值建桶</li>
-</ul></li>
-</ul>
-<h4 id="一个更好的方法">一个更好的方法：</h4>
-<ul>
-<li><p>依旧使用次位优先：</p>
-<ul>
-<li><p>先使用面值建桶</p></li>
-<li><p>然后按照大小将结果合并，使用花色建桶。</p></li>
-<li><p>最终的输出结果便是有序的</p></li>
-</ul></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
       </tags>
   </entry>
   <entry>
@@ -1020,6 +1020,72 @@ OpenGL parallel projection graphics do not scale with the window
       </categories>
       <tags>
         <tag>OpenGL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Qt OpenGL Antialiasing-MSAA</title>
+    <url>/2022/08/02/Qt-OpenGL-Antialiasing-MSAA/</url>
+    <content><![CDATA[<p>
+  <code>QtOpenGL</code>MSAA算法介绍...
+</p>
+<span id="more"></span>
+<h2 id="qt-opengl-antialiasing---msaa">Qt OpenGL Antialiasing -
+MSAA</h2>
+<h3 id="锯齿是图形绘制中常见的问题">锯齿是图形绘制中常见的问题</h3>
+<ul>
+<li>这是一个采样不足然后信号丢失导致的问题</li>
+<li>经过各位前辈们的其扑后继的研究，终究是有了看起来不错的解决方案</li>
+<li>本文中我们采用一种名为<code>MSAA</code>的抗锯齿的技术</li>
+</ul>
+<h3 id="msaa"><code>MSAA</code></h3>
+<p>
+  超级采样抗锯齿（Super Sampling
+Anti-Aliasing）的原理是把当前分辨率成倍提高,然后再把画缩放到当前的显示器上。这样的做法实际上就是在显示尺寸不变的情况提高分辨率，让单个像素变得极小，这样就能够大幅减轻画面的锯齿感了。不过是由于对整个显示画面的放大，因此它消耗的显示资源也是非常大的。
+</p>
+<h3 id="qt-openggl-的-msaa"><code>Qt OpengGL</code> 的
+<code>MSAA</code></h3>
+<h4 id="走样展示">走样展示</h4>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/OpenGL/OpenGLAntialiasing.png"
+title="线的走样" alt="走样" />
+<figcaption aria-hidden="true">走样</figcaption>
+</figure>
+<h4
+id="开启qtopenglwidget的msaa">开启<code>QtOpenGLWidget</code>的<code>MSAA</code></h4>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/OpenGL/OpenGLAntialiasing-MSAA.png"
+title="MSAA" alt="MSAA" />
+<figcaption aria-hidden="true">MSAA</figcaption>
+</figure>
+<h4
+id="如何开启qtopengl的msaa">如何开启<code>QtOpenGL</code>的<code>MSAA</code></h4>
+<ul>
+<li><p><code>Qt</code>有他自己的关于<code>OpenGL</code>的封装，我们使用的<code>Qt</code>的关于<code>OpenGL</code>封装</p></li>
+<li><p>在创建<code>QOpenGLWidget</code>窗口时，在构造函数中添加如下代码：</p>
+<p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">QSurfaceFormat format;</span><br><span class="line">format.setSamples(<span class="number">4</span>);</span><br><span class="line">setFormat(format);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>setFormat</code>是窗口<code>QOpenGLWidget</code>的函数，在构造函数中使用，会给后面所有依赖的小部件设置一个默认的<code>format</code>，对于后面的小部件(窗口)，如果不做格式的修改，将会使用在构造函数中调用<code>setFormat</code>函数设置的格式作为默认格式</li>
+</ul></li>
+</ul>
+<h4 id="失败的尝试">失败的尝试</h4>
+<p>
+  我尝试，单独修改<code>QopenGLContext</code>的<code>QSurfaceFormat</code>,前面的部分是成功，我获取了当前窗口的<code>QopenGLContext</code>,修改了<code>QSurfaceFormat</code>，向其中添加了
+启用<code>MSAA</code>的代码.然后调用<code>QopenGLContext</code>的<code>create</code>函数，企图重新创建一个<code>QopenGLContext</code>，但是失败了，在初始化<code>QopenGLFunction</code>失败，
+<p style="color:red">
+暂时不知道原因,目测可能需要重新将当前窗口的绑定到重新创建后的上下文，以及调用这个上下文的<code>OpenGL</code>函数
+</p>
+</p>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>SCUU</category>
+        <category>Computer Graph</category>
+      </categories>
+      <tags>
+        <tag>OpenGL</tag>
+        <tag>Qt</tag>
       </tags>
   </entry>
   <entry>
@@ -1373,72 +1439,6 @@ OpenGL parallel projection graphics do not scale with the window
       </tags>
   </entry>
   <entry>
-    <title>Qt OpenGL Antialiasing-MSAA</title>
-    <url>/2022/08/02/Qt-OpenGL-Antialiasing-MSAA/</url>
-    <content><![CDATA[<p>
-  <code>QtOpenGL</code>MSAA算法介绍...
-</p>
-<span id="more"></span>
-<h2 id="qt-opengl-antialiasing---msaa">Qt OpenGL Antialiasing -
-MSAA</h2>
-<h3 id="锯齿是图形绘制中常见的问题">锯齿是图形绘制中常见的问题</h3>
-<ul>
-<li>这是一个采样不足然后信号丢失导致的问题</li>
-<li>经过各位前辈们的其扑后继的研究，终究是有了看起来不错的解决方案</li>
-<li>本文中我们采用一种名为<code>MSAA</code>的抗锯齿的技术</li>
-</ul>
-<h3 id="msaa"><code>MSAA</code></h3>
-<p>
-  超级采样抗锯齿（Super Sampling
-Anti-Aliasing）的原理是把当前分辨率成倍提高,然后再把画缩放到当前的显示器上。这样的做法实际上就是在显示尺寸不变的情况提高分辨率，让单个像素变得极小，这样就能够大幅减轻画面的锯齿感了。不过是由于对整个显示画面的放大，因此它消耗的显示资源也是非常大的。
-</p>
-<h3 id="qt-openggl-的-msaa"><code>Qt OpengGL</code> 的
-<code>MSAA</code></h3>
-<h4 id="走样展示">走样展示</h4>
-<figure>
-<img
-src="https://raw.githubusercontent.com/Ranbun/images/main/blog/OpenGL/OpenGLAntialiasing.png"
-title="线的走样" alt="走样" />
-<figcaption aria-hidden="true">走样</figcaption>
-</figure>
-<h4
-id="开启qtopenglwidget的msaa">开启<code>QtOpenGLWidget</code>的<code>MSAA</code></h4>
-<figure>
-<img
-src="https://raw.githubusercontent.com/Ranbun/images/main/blog/OpenGL/OpenGLAntialiasing-MSAA.png"
-title="MSAA" alt="MSAA" />
-<figcaption aria-hidden="true">MSAA</figcaption>
-</figure>
-<h4
-id="如何开启qtopengl的msaa">如何开启<code>QtOpenGL</code>的<code>MSAA</code></h4>
-<ul>
-<li><p><code>Qt</code>有他自己的关于<code>OpenGL</code>的封装，我们使用的<code>Qt</code>的关于<code>OpenGL</code>封装</p></li>
-<li><p>在创建<code>QOpenGLWidget</code>窗口时，在构造函数中添加如下代码：</p>
-<p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">QSurfaceFormat format;</span><br><span class="line">format.setSamples(<span class="number">4</span>);</span><br><span class="line">setFormat(format);</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><code>setFormat</code>是窗口<code>QOpenGLWidget</code>的函数，在构造函数中使用，会给后面所有依赖的小部件设置一个默认的<code>format</code>，对于后面的小部件(窗口)，如果不做格式的修改，将会使用在构造函数中调用<code>setFormat</code>函数设置的格式作为默认格式</li>
-</ul></li>
-</ul>
-<h4 id="失败的尝试">失败的尝试</h4>
-<p>
-  我尝试，单独修改<code>QopenGLContext</code>的<code>QSurfaceFormat</code>,前面的部分是成功，我获取了当前窗口的<code>QopenGLContext</code>,修改了<code>QSurfaceFormat</code>，向其中添加了
-启用<code>MSAA</code>的代码.然后调用<code>QopenGLContext</code>的<code>create</code>函数，企图重新创建一个<code>QopenGLContext</code>，但是失败了，在初始化<code>QopenGLFunction</code>失败，
-<p style="color:red">
-暂时不知道原因,目测可能需要重新将当前窗口的绑定到重新创建后的上下文，以及调用这个上下文的<code>OpenGL</code>函数
-</p>
-</p>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>SCUU</category>
-        <category>Computer Graph</category>
-      </categories>
-      <tags>
-        <tag>OpenGL</tag>
-        <tag>Qt</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Qt Connect</title>
     <url>/2022/07/29/Qt-Signals-And-Slots/</url>
     <content><![CDATA[<p>
@@ -1744,6 +1744,38 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
       </tags>
   </entry>
   <entry>
+    <title>Shell-Sort</title>
+    <url>/2021/10/26/Shell-Sort/</url>
+    <content><![CDATA[<p>
+  希尔排序...
+</p>
+<span id="more"></span>
+<h3 id="希尔排序">希尔排序</h3>
+<ul>
+<li>希尔排序：预先定义一系列间隔(增量序列)DK，按照间隔，进行间隔排序
+<ul>
+<li><code>DK[i-1]</code>有序后，执行<code>DK[i]</code>的排序后，<code>DK[i-1]</code>依旧是有序的</li>
+</ul></li>
+</ul>
+<h4 id="原始的希尔排序">1、原始的希尔排序</h4>
+<ul>
+<li><code>DK[i-1] = 取整(N/2),DK[i] = 取整(DK[i-1]/2)</code></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Shell_sort</span><span class="params">(ElementTypes A[], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> D;  <span class="comment">// 当前次序的间隔</span></span><br><span class="line">    <span class="keyword">int</span> P,i;</span><br><span class="line">    ElementType temp;</span><br><span class="line">    <span class="keyword">for</span>(P=N/<span class="number">2</span>;D&gt;<span class="number">0</span>;D/=<span class="number">2</span>) <span class="comment">// 间隔的变换</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 插入排序 </span></span><br><span class="line">        <span class="keyword">for</span>(P = D; P&lt;N; P++)</span><br><span class="line">        &#123;</span><br><span class="line">        	temp = A[P];  <span class="comment">// 当前要插入的元素 </span></span><br><span class="line">            <span class="keyword">for</span>(i = P; i &gt;= D &amp;&amp; A[i-D] &gt; temp;i -= D)  <span class="comment">// 和已经有序的元素进行比较</span></span><br><span class="line">            <span class="comment">// 前一个元素A[i-D]如果大于temp，temp放置的位置在i-D之前，i-D位置的元素向后移动</span></span><br><span class="line">            &#123;</span><br><span class="line">                A[i] = A[i-D];</span><br><span class="line">            &#125;</span><br><span class="line">            A[i] = temp;  <span class="comment">// temp 放到正确位置</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>复杂度分析：
+当所有大于的增量的序列的数据都是有序的时候，所有的交换操作都会在增量为1的时候执行，这回导致一个不怎么好的结果，时间复杂度会达到<code>O(N^2)</code>。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Smart pointer 简介</title>
     <url>/2022/08/01/Smartpointer/</url>
     <content><![CDATA[<p>
@@ -1825,38 +1857,6 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
       <tags>
         <tag>cpp</tag>
         <tag>pointer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Shell-Sort</title>
-    <url>/2021/10/26/Shell-Sort/</url>
-    <content><![CDATA[<p>
-  希尔排序...
-</p>
-<span id="more"></span>
-<h3 id="希尔排序">希尔排序</h3>
-<ul>
-<li>希尔排序：预先定义一系列间隔(增量序列)DK，按照间隔，进行间隔排序
-<ul>
-<li><code>DK[i-1]</code>有序后，执行<code>DK[i]</code>的排序后，<code>DK[i-1]</code>依旧是有序的</li>
-</ul></li>
-</ul>
-<h4 id="原始的希尔排序">1、原始的希尔排序</h4>
-<ul>
-<li><code>DK[i-1] = 取整(N/2),DK[i] = 取整(DK[i-1]/2)</code></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Shell_sort</span><span class="params">(ElementTypes A[], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> D;  <span class="comment">// 当前次序的间隔</span></span><br><span class="line">    <span class="keyword">int</span> P,i;</span><br><span class="line">    ElementType temp;</span><br><span class="line">    <span class="keyword">for</span>(P=N/<span class="number">2</span>;D&gt;<span class="number">0</span>;D/=<span class="number">2</span>) <span class="comment">// 间隔的变换</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 插入排序 </span></span><br><span class="line">        <span class="keyword">for</span>(P = D; P&lt;N; P++)</span><br><span class="line">        &#123;</span><br><span class="line">        	temp = A[P];  <span class="comment">// 当前要插入的元素 </span></span><br><span class="line">            <span class="keyword">for</span>(i = P; i &gt;= D &amp;&amp; A[i-D] &gt; temp;i -= D)  <span class="comment">// 和已经有序的元素进行比较</span></span><br><span class="line">            <span class="comment">// 前一个元素A[i-D]如果大于temp，temp放置的位置在i-D之前，i-D位置的元素向后移动</span></span><br><span class="line">            &#123;</span><br><span class="line">                A[i] = A[i-D];</span><br><span class="line">            &#125;</span><br><span class="line">            A[i] = temp;  <span class="comment">// temp 放到正确位置</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>复杂度分析：
-当所有大于的增量的序列的数据都是有序的时候，所有的交换操作都会在增量为1的时候执行，这回导致一个不怎么好的结果，时间复杂度会达到<code>O(N^2)</code>。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
       </tags>
   </entry>
   <entry>
@@ -2521,6 +2521,12 @@ title="菱形继承" alt="菱形继承" /></li>
 </ul>
 <h4 id="问题">问题</h4>
 <h5 id="二义性">1 二义性</h5>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/cpp/inherit_ambiguos.png"
+title="二义性问题" alt="二义性" />
+<figcaption aria-hidden="true">二义性</figcaption>
+</figure>
 <ul>
 <li><p>解决访问的二义性相对简单，可以通过添加类的限定从而访问到具体的数据</p>
 <p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Author</span> :</span><span class="keyword">public</span> Student, <span class="keyword">public</span> Teacher</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Author()</span><br><span class="line">    &#123;</span><br><span class="line">        Student::name_ = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        Teacher::name_ = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li>
@@ -2533,10 +2539,20 @@ title="菱形继承" alt="菱形继承" /></li>
 </ul></li>
 <li>数据冗余的问题在<code>CPP</code>中通过使用虚继承解决</li>
 </ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Person()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Person(<span class="built_in">std</span>::<span class="built_in">string</span> name,<span class="built_in">std</span>::<span class="built_in">string</span> ID = <span class="string">&quot;&quot;</span>)</span><br><span class="line">        :name_(name)</span><br><span class="line">        ,id_(ID)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ~Person()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> name_&#123;<span class="string">&quot;name&quot;</span>&#125;;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> birthDay_&#123;<span class="string">&quot;2000.1.1&quot;</span>&#125;;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> id_&#123;<span class="string">&quot;XXXXXXXXXXXXXXXXXX&quot;</span>&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> :</span> <span class="keyword">virtual</span> <span class="keyword">public</span> Person</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Student(<span class="built_in">std</span>::<span class="built_in">string</span> name_)</span><br><span class="line">        :Person(<span class="string">&quot;stu&quot;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ~Student() = <span class="keyword">default</span>;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> stuId_;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> :</span> <span class="keyword">virtual</span> <span class="keyword">public</span> Person</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Teacher(<span class="built_in">std</span>::<span class="built_in">string</span> name_)</span><br><span class="line">        :Person(<span class="string">&quot;teacher&quot;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ~Teacher() = <span class="keyword">default</span>;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> teacherId_;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="虚继承的实现原理">虚继承的实现原理</h2>
 <ul>
-<li>virtual base table pointer</li>
-<li>virtual table</li>
+<li><p><code>virtual base table pointer</code></p></li>
+<li><p><code>virtual table</code></p></li>
+<li><p>我们基于上面部分分析关于虚继承的实现的原理</p>
+<ul>
+<li><code>VS</code>的<code>class</code>布局查看工具 <img
+src="https://raw.githubusercontent.com/Ranbun/images/main/cpp/vs_Layout_to_class.png" /></li>
+<li>上述信息包含:
+虚函数表及布局，类的大小，类成员占用大小，成员相较于起始地址的偏移量，字节对其信息</li>
+</ul></li>
+<li><p>上述布局中我们可以看到,当虚继承发生,就会在虚基类的直接子类中产生一个<code>vbptr</code>指针,这个指针指向一个虚基类表,<code>Author</code>继承自<code>Teacher&amp;Student</code>,同样继承了虚基类指针,同时<code>Author</code>只存在一份<code>Person</code>的数据.</p></li>
+<li><p>我们通过虚基类表中记录的偏移(虚基类到当前类),就可以访问到虚基类的数据成员.</p></li>
 </ul>
 ]]></content>
       <categories>
