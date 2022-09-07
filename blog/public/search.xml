@@ -54,6 +54,121 @@
       </tags>
   </entry>
   <entry>
+    <title>Bucket Sort and Cardinality sort</title>
+    <url>/2021/11/07/Bucket-Sort/</url>
+    <content><![CDATA[<p>
+<p>  桶排序算法介绍...</p>
+<span id="more"></span>
+<h3 id="桶排序">桶排序</h3>
+<ul>
+<li><code>T(N,M) = O(M+N)</code>,M 个桶的情况
+<ul>
+<li>N &gt;&gt; M的时候是相对教优秀的算法</li>
+<li>M &gt;&gt; N ???</li>
+</ul></li>
+<li>假设我们有N = 10个整数，N ∈ [0,999],(此时 M =
+1000)；我们便不能在线性时间下完成排序。</li>
+</ul>
+<h3
+id="基数排序按照数字的进制排序10">基数排序：按照数字的进制排序（10）</h3>
+<ul>
+<li>example:</li>
+<li>input: 64 8 216 512 27 729 0 1 343 125
+<ul>
+<li>使用次位优先(Least Significant Digit)</li>
+<li>先按照个位数将元素放到对应的桶Pass1</li>
+<li>按照十位放到对应的桶中</li>
+</ul></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 2%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 10%" />
+<col style="width: 9%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Bucket</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th>6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">9</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Pass 1(个位)</td>
+<td style="text-align: center;"><font color=red>0</font></td>
+<td style="text-align: center;"><font color=red>1</font></td>
+<td style="text-align: center;">51<font color=red>2</font></td>
+<td style="text-align: center;">34<font color=red>3</font></td>
+<td style="text-align: center;">6<font color=red>4</font></td>
+<td style="text-align: center;">12<font color=red>5</font></td>
+<td>21<font color=red>6</font></td>
+<td style="text-align: center;">2<font color=red>7</font></td>
+<td style="text-align: center;"><font color=red>8</font></td>
+<td style="text-align: center;">72<font color=red>9</font></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Pass 2(十位)</td>
+<td style="text-align: center;">0<br>1<br>8</td>
+<td style="text-align: center;">512<br>216</td>
+<td style="text-align: center;">125<br>27<br>729</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">343</td>
+<td style="text-align: center;"></td>
+<td>64<br></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Pass 3 (百位)</td>
+<td style="text-align: center;">0<br/>1<br/>8<br/>27<br/>64</td>
+<td style="text-align: center;">125</td>
+<td style="text-align: center;">216</td>
+<td style="text-align: center;">343</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">512</td>
+<td></td>
+<td style="text-align: center;">729</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>最终的顺序，分别从每个桶中顺序读取即可。</li>
+</ul>
+<h4 id="时间复杂度-t-opnb">时间复杂度： <code>T= O(P(N+B))</code></h4>
+<ul>
+<li>较好情况：取决于基数-多少个桶 (B &lt;&lt;
+N时差不多是一个线性复杂度的算法)</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>起伏的2022(上)</title>
     <url>/2022/08/14/2022%E5%8D%8A%E5%B9%B4%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<center>
@@ -173,171 +288,6 @@ title="Github">Github</a></li>
       </tags>
   </entry>
   <entry>
-    <title>Bucket Sort and Cardinality sort</title>
-    <url>/2021/11/07/Bucket-Sort/</url>
-    <content><![CDATA[<p>
-<p>  桶排序算法介绍...</p>
-<span id="more"></span>
-<h3 id="桶排序">桶排序</h3>
-<ul>
-<li><code>T(N,M) = O(M+N)</code>,M 个桶的情况
-<ul>
-<li>N &gt;&gt; M的时候是相对教优秀的算法</li>
-<li>M &gt;&gt; N ???</li>
-</ul></li>
-<li>假设我们有N = 10个整数，N ∈ [0,999],(此时 M =
-1000)；我们便不能在线性时间下完成排序。</li>
-</ul>
-<h3
-id="基数排序按照数字的进制排序10">基数排序：按照数字的进制排序（10）</h3>
-<ul>
-<li>example:</li>
-<li>input: 64 8 216 512 27 729 0 1 343 125
-<ul>
-<li>使用次位优先(Least Significant Digit)</li>
-<li>先按照个位数将元素放到对应的桶Pass1</li>
-<li>按照十位放到对应的桶中</li>
-</ul></li>
-</ul>
-<table>
-<colgroup>
-<col style="width: 2%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 10%" />
-<col style="width: 9%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 10%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Bucket</th>
-<th style="text-align: center;">0</th>
-<th style="text-align: center;">1</th>
-<th style="text-align: center;">2</th>
-<th style="text-align: center;">3</th>
-<th style="text-align: center;">4</th>
-<th style="text-align: center;">5</th>
-<th>6</th>
-<th style="text-align: center;">7</th>
-<th style="text-align: center;">8</th>
-<th style="text-align: center;">9</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Pass 1(个位)</td>
-<td style="text-align: center;"><font color=red>0</font></td>
-<td style="text-align: center;"><font color=red>1</font></td>
-<td style="text-align: center;">51<font color=red>2</font></td>
-<td style="text-align: center;">34<font color=red>3</font></td>
-<td style="text-align: center;">6<font color=red>4</font></td>
-<td style="text-align: center;">12<font color=red>5</font></td>
-<td>21<font color=red>6</font></td>
-<td style="text-align: center;">2<font color=red>7</font></td>
-<td style="text-align: center;"><font color=red>8</font></td>
-<td style="text-align: center;">72<font color=red>9</font></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Pass 2(十位)</td>
-<td style="text-align: center;">0<br>1<br>8</td>
-<td style="text-align: center;">512<br>216</td>
-<td style="text-align: center;">125<br>27<br>729</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">343</td>
-<td style="text-align: center;"></td>
-<td>64<br></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Pass 3 (百位)</td>
-<td style="text-align: center;">0<br/>1<br/>8<br/>27<br/>64</td>
-<td style="text-align: center;">125</td>
-<td style="text-align: center;">216</td>
-<td style="text-align: center;">343</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">512</td>
-<td></td>
-<td style="text-align: center;">729</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>最终的顺序，分别从每个桶中顺序读取即可。</li>
-</ul>
-<h4 id="时间复杂度-t-opnb">时间复杂度： <code>T= O(P(N+B))</code></h4>
-<ul>
-<li>较好情况：取决于基数-多少个桶 (B &lt;&lt;
-N时差不多是一个线性复杂度的算法)</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Bug奇遇记-uint16_t</title>
-    <url>/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/</url>
-    <content><![CDATA[<p>
-  bug奇遇记之<code>uint16_t</code>...
-</p>
-<span id="more"></span>
-<h3 id="uint16_t">uint16_t</h3>
-<ul>
-<li>标准定义中：</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">short</span>  <span class="keyword">uint16_t</span>; <span class="comment">// max == _UI16_MAX 0xffffu </span></span><br></pre></td></tr></table></figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/Ranbun/images/main/bug/uint_16/uint16_t.png"
-title="uint16" alt="uint16_t" />
-<figcaption aria-hidden="true">uint16_t</figcaption>
-</figure>
-<h4 id="问题">问题：</h4>
-<ul>
-<li><font color=red>这是一个粗心的问题</font></li>
-</ul>
-<p>在我正在实现的功能中有一个数据遍历的部分，我使用了<code>uint16_t</code>类型作为索引的类型，但是<code>uint16_t</code>数据的最大值比较小，所以当基础数据量过大的时候，我们产生的索引会越过索引的最大范围，导致最终得到的索引不是实际需要的索引值，导致我最终绘制的图形不是正确的结果！</p>
-<hr />
-<h3 id="正确的结果展示">正确的结果展示：</h3>
-<figure>
-<img
-src="https://raw.githubusercontent.com/Ranbun/images/main/bug/uint_16/lum_arrow_2.png"
-title="result" alt="lum_2" />
-<figcaption aria-hidden="true">lum_2</figcaption>
-</figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/Ranbun/images/main/bug/uint_16/lum_arrow_1.png"
-title="Result" alt="right result" />
-<figcaption aria-hidden="true">right result</figcaption>
-</figure>
-<p>https://raw.githubusercontent.com/CuntBoy/images/main/blog/GF_Workspace.JPG</p>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>GF</category>
-        <category>data type</category>
-        <category>bugs</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>osg</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Cplusplus key words - extern</title>
     <url>/2022/08/08/Cplusplus-key-words-extern/</url>
     <content><![CDATA[<p>
@@ -385,30 +335,6 @@ extern必须应用于所有文件中的所有声明。 默认情况下， (全�
       </tags>
   </entry>
   <entry>
-    <title>Dynamic drawing of osg vertex buffer objects</title>
-    <url>/2021/11/07/Dynamic-drawing-of-osg-vertex-buffer-objects/</url>
-    <content><![CDATA[<h3
-id="dynamic-drawing-of-osg-vertex-buffer-objects"><code>Dynamic drawing of osg vertex buffer objects</code></h3>
-<ul>
-<li>使用<code>显示列表</code>绘制图形在速度上并没有<code>vertex buffer object</code>那么快，所以在更高的<code>osg</code>的版本中，推荐使用<code>vertex buffer object</code></li>
-</ul>
-<span id="more"></span>
-<ul>
-<li><p>在使用<code>vertex buffer object</code>的情况下，动态更新绘制的数据</p></li>
-<li><p>代码实现： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 首先- 创建完成 osg::Geometry</span></span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; geom = <span class="keyword">new</span> osg::Geometry;</span><br><span class="line"><span class="comment">// 关闭显示列表 并使用vbo(vertex buffer object)</span></span><br><span class="line">geom-&gt;setUseDisplayLists(<span class="literal">false</span>);</span><br><span class="line">geom-&gt;setUseVertexBufferObject(<span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 修改几何体的绘制数据的类型 </span></span><br><span class="line">geom-&gt;setDataVariance(osg::Object::DataVariance::DYNAMIC);</span><br><span class="line"><span class="comment">//================================================================</span></span><br><span class="line"><span class="comment">// 更新操作 </span></span><br><span class="line"><span class="comment">// 先获取顶点数组 </span></span><br><span class="line"><span class="keyword">auto</span> varray = <span class="keyword">dynamic_cast</span>&lt;osg::Vec3Array&gt;(geom-&gt;getVertexArray());</span><br><span class="line"><span class="comment">// 需改顶点数据</span></span><br><span class="line"><span class="comment">// ---------------------你可以想数组中插入顶点-----------------------------------</span></span><br><span class="line"><span class="comment">// 调用 dirty函数，告诉osg::Geometry你修改了顶点</span></span><br><span class="line">varray-&gt;dirty();</span><br><span class="line"><span class="comment">// 修改 PrimitiveSet(OpenGL的DrawArray(图元，开始点，绘制个数))</span></span><br><span class="line"><span class="comment">// PrimitiveSet* osg::Geometry::getPrimitiveSet  ( unsigned int  pos ) </span></span><br><span class="line"><span class="keyword">auto</span> pri_set = geom-&gt;getPrimitiveSet(<span class="number">0</span>);</span><br><span class="line"><span class="comment">// void  setNumInstances (int n) </span></span><br><span class="line">pri_set-&gt;setNumInstances(修改后的顶点个数)；</span><br><span class="line">pri_set-&gt;dirty();</span><br><span class="line"><span class="comment">// 更新几何体</span></span><br><span class="line">geom-&gt;dirty();</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>HJ</category>
-        <category>OSG</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>osg</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Games202-ShadowMap</title>
     <url>/2021/12/13/Games202-ShadowMap/</url>
     <content><![CDATA[<p>
@@ -448,6 +374,30 @@ src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/g
       <tags>
         <tag>Games202</tag>
         <tag>Shadow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Dynamic drawing of osg vertex buffer objects</title>
+    <url>/2021/11/07/Dynamic-drawing-of-osg-vertex-buffer-objects/</url>
+    <content><![CDATA[<h3
+id="dynamic-drawing-of-osg-vertex-buffer-objects"><code>Dynamic drawing of osg vertex buffer objects</code></h3>
+<ul>
+<li>使用<code>显示列表</code>绘制图形在速度上并没有<code>vertex buffer object</code>那么快，所以在更高的<code>osg</code>的版本中，推荐使用<code>vertex buffer object</code></li>
+</ul>
+<span id="more"></span>
+<ul>
+<li><p>在使用<code>vertex buffer object</code>的情况下，动态更新绘制的数据</p></li>
+<li><p>代码实现： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 首先- 创建完成 osg::Geometry</span></span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; geom = <span class="keyword">new</span> osg::Geometry;</span><br><span class="line"><span class="comment">// 关闭显示列表 并使用vbo(vertex buffer object)</span></span><br><span class="line">geom-&gt;setUseDisplayLists(<span class="literal">false</span>);</span><br><span class="line">geom-&gt;setUseVertexBufferObject(<span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 修改几何体的绘制数据的类型 </span></span><br><span class="line">geom-&gt;setDataVariance(osg::Object::DataVariance::DYNAMIC);</span><br><span class="line"><span class="comment">//================================================================</span></span><br><span class="line"><span class="comment">// 更新操作 </span></span><br><span class="line"><span class="comment">// 先获取顶点数组 </span></span><br><span class="line"><span class="keyword">auto</span> varray = <span class="keyword">dynamic_cast</span>&lt;osg::Vec3Array&gt;(geom-&gt;getVertexArray());</span><br><span class="line"><span class="comment">// 需改顶点数据</span></span><br><span class="line"><span class="comment">// ---------------------你可以想数组中插入顶点-----------------------------------</span></span><br><span class="line"><span class="comment">// 调用 dirty函数，告诉osg::Geometry你修改了顶点</span></span><br><span class="line">varray-&gt;dirty();</span><br><span class="line"><span class="comment">// 修改 PrimitiveSet(OpenGL的DrawArray(图元，开始点，绘制个数))</span></span><br><span class="line"><span class="comment">// PrimitiveSet* osg::Geometry::getPrimitiveSet  ( unsigned int  pos ) </span></span><br><span class="line"><span class="keyword">auto</span> pri_set = geom-&gt;getPrimitiveSet(<span class="number">0</span>);</span><br><span class="line"><span class="comment">// void  setNumInstances (int n) </span></span><br><span class="line">pri_set-&gt;setNumInstances(修改后的顶点个数)；</span><br><span class="line">pri_set-&gt;dirty();</span><br><span class="line"><span class="comment">// 更新几何体</span></span><br><span class="line">geom-&gt;dirty();</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>HJ</category>
+        <category>OSG</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>osg</tag>
       </tags>
   </entry>
   <entry>
@@ -506,6 +456,62 @@ alt="git commit" /></li>
       <tags>
         <tag>Git</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Bug奇遇记-uint16_t</title>
+    <url>/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/</url>
+    <content><![CDATA[<p>
+  bug奇遇记之<code>uint16_t</code>...
+</p>
+<span id="more"></span>
+<h3 id="uint16_t">uint16_t</h3>
+<ul>
+<li>标准定义中：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">short</span>  <span class="keyword">uint16_t</span>; <span class="comment">// max == _UI16_MAX 0xffffu </span></span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/bug/uint_16/uint16_t.png"
+title="uint16" alt="uint16_t" />
+<figcaption aria-hidden="true">uint16_t</figcaption>
+</figure>
+<h4 id="问题">问题：</h4>
+<ul>
+<li><font color=red>这是一个粗心的问题</font></li>
+</ul>
+<p>在我正在实现的功能中有一个数据遍历的部分，我使用了<code>uint16_t</code>类型作为索引的类型，但是<code>uint16_t</code>数据的最大值比较小，所以当基础数据量过大的时候，我们产生的索引会越过索引的最大范围，导致最终得到的索引不是实际需要的索引值，导致我最终绘制的图形不是正确的结果！</p>
+<hr />
+<h3 id="正确的结果展示">正确的结果展示：</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/bug/uint_16/lum_arrow_2.png"
+title="result" alt="lum_2" />
+<figcaption aria-hidden="true">lum_2</figcaption>
+</figure>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/bug/uint_16/lum_arrow_1.png"
+title="Result" alt="right result" />
+<figcaption aria-hidden="true">right result</figcaption>
+</figure>
+<p>https://raw.githubusercontent.com/CuntBoy/images/main/blog/GF_Workspace.JPG</p>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>GF</category>
+        <category>data type</category>
+        <category>bugs</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>osg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IBL</title>
+    <url>/2022/09/08/IBL/</url>
+    <content><![CDATA[
+]]></content>
   </entry>
   <entry>
     <title>Heap</title>
@@ -842,184 +848,6 @@ F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
       <tags>
         <tag>cpp</tag>
         <tag>osg</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OpenGL Scene ZoomIn &amp; ZoomOut</title>
-    <url>/2022/08/03/OpenGL-Scene-ZoomIn-ZoomOut/</url>
-    <content><![CDATA[<p>
-  <code>QtOpenGL</code>场景缩放...
-</p>
-<span id="more"></span>
-<!-- # `OpenGL Scene ZoomIn & ZoomOut` -->
-<center>
-<h1>
-OpenGL的缩放
-</h1>
-</center>
-<h2 id="about">About</h2>
-<h3 id="直接缩放场景">1. 直接缩放场景</h3>
-<h4 id="实现思路">1. 实现思路</h4>
-<ul>
-<li>通过模型矩阵修改场景</li>
-</ul>
-<h3 id="修改投影矩阵">2. 修改投影矩阵</h3>
-<h4 id="实现思路-1">1. 实现思路</h4>
-<ul>
-<li>获取鼠标滚轮的变化(这个改变是带方向的
-向上获取一个正值,向下获取的是一个负值)</li>
-<li>将获取的这个值映射到和投影变换参数上</li>
-<li>修改投影矩阵</li>
-<li>重新绘制,你将获得缩放后的场景</li>
-</ul>
-<p style="color:red">
-在我的实现中采用的是第二种方式
-</p>
-<h2 id="缩放的实现">缩放的实现</h2>
-<h3 id="获取滚轮旋转角度">1. 获取滚轮旋转角度</h3>
-<p>
-我是用的是<code>Qt</code>的<code>OpenGL</code>,可以直接重写窗口的一些事件，比起使用<code>glfw</code>等方式，比起它们注册回调的方式可能相对方便一些。
-</p>
-<h4 id="qt的滚轮事件">Qt的滚轮事件</h4>
-<h5 id="qwheelevent"><code>QWheelEvent</code></h5>
-<ul>
-<li>在出发滚轮事件之后，我们通过一个<code>QWheelEvent</code>对象获取我们需要的关于滚轮的信息</li>
-</ul>
-<div>
-<p>
-  Wheel events are sent to the widget under the mouse cursor, but if
-that widget does not handle the event they are sent to the focus widget.
-Wheel events are generated for both mouse wheels and trackpad scroll
-gestures. There are two ways to read the wheel event delta:
-<code>angleDelta()</code> returns the deltas in wheel degrees. These
-values are always provided. <code>pixelDelta()</code> returns the deltas
-in screen pixels.
-</p>
-<p>
-  
-上述部分来自<code>Qt</code>官方文档,我们有两种方法可以获取鼠标滚轮的增量(正负代表方向)，<code>angleDelta()</code>，<code>pixelDelta()</code>.
-</p>
-</div>
-<h6>
-<code>QPoint QWheelEvent::angleDelta() const</code>
-</h6>
-<p>
-<p>  Returns the relative amount that the wheel was rotated, in eighths
-of a degree. A positive value indicates that the wheel was rotated
-forwards away from the user; a negative value indicates that the wheel
-was rotated backwards toward the user. angleDelta().y() provides the
-angle through which the common vertical mouse wheel was rotated since
-the previous event. angleDelta().x() provides the angle through which
-the horizontal mouse wheel was rotated, if the mouse has a horizontal
-wheel; otherwise it stays at zero. Some mice allow the user to tilt the
-wheel to perform horizontal scrolling, and some touchpads support a
-horizontal scrolling gesture; that will also appear in
-angleDelta().x().</p>
-  Most mouse types work in steps of 15 degrees, in which case the delta
-value is a multiple of 120; i.e., 120 units * 1/8 = 15 degrees.
-</p>
-<ul>
-<li>正值表示滚轮向上,远离用户. 负值向下,靠近用户.</li>
-<li>此函数将返回两个方向上的滚动
-<ul>
-<li><font color=red>我们此处使用是垂直方向的滚动的角度 </font></li>
-</ul></li>
-<li>滚轮每次触发滚动的的角度是<span
-class="math inline">\(15^\circ\left(delta\right)\)</span>，但是实际的返回值是
-$delta = 120 $</li>
-<li>返回的值应以 $ 1/8 $ 为单位:
-<ul>
-<li><span class="math inline">\(angleDelta() / 8\)</span>
-得到鼠标实际滚动的度数</li>
-</ul></li>
-<li><code style="color:red">通过上面步骤便可以获取滚轮实际旋转的角度</code></li>
-</ul>
-<h3 id="将滚轮旋转角度映射到投影矩阵">2.
-将滚轮旋转角度映射到投影矩阵</h3>
-<ul>
-<li><span class="math inline">\(ratio = delta/360^\circ\)</span></li>
-<li>使用这个值去修改投影矩阵的参数</li>
-<li>我们使用的是平行投影的方式
-<ul>
-<li><code>left</code></li>
-<li><code>rght</code></li>
-<li><code>bottom</code></li>
-<li><code>top</code></li>
-</ul></li>
-</ul>
-<h3 id="更新投影矩阵">3. 更新投影矩阵</h3>
-<ul>
-<li>在此之前 请将矩阵设置为单位矩阵 然后重新计算投影矩阵</li>
-<li>更新投影矩阵</li>
-<li>调用强制重新绘制(<code>Qt</code>) - <code>repaint()</code></li>
-<li>你将得到放大后的场景</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Computer Graph</category>
-        <category>works</category>
-        <category>SCUU</category>
-      </categories>
-      <tags>
-        <tag>OpenGL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OpenGL parallel  projection graphics do not scale with the window</title>
-    <url>/2022/08/04/OpenGL-parallel-projection-graphics-do-not-scale-with-the-window/</url>
-    <content><![CDATA[<p>
-  <code>QtOpenGL</code>平行投影窗口缩放导致图形变形...
-</p>
-<span id="more"></span>
-<center>
-<h2>
-OpenGL parallel projection graphics do not scale with the window
-</h2>
-</center>
-<h3 id="实现步骤">实现步骤</h3>
-<ul>
-<li>重写窗口的<code>resize</code>事件
-<ul>
-<li>计算投影的范围</li>
-</ul></li>
-<li>更新投影矩阵</li>
-<li><code>drawcull</code></li>
-</ul>
-<h4 id="resizegl"><code>resizeGL</code></h4>
-<ul>
-<li>我们最初计算一个比例：
-<ul>
-<li>关于窗口的<code>size</code>和投影的范围的
-<ul>
-<li>使用<code>left, right</code>计算一个<code>spanx(right - left)</code>,
-<code>top, bottom</code>计算<code>spany(top - bottom)</code>,
-分别与窗口的宽高比较 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> ratioW = w / spanx;</span><br><span class="line"><span class="keyword">auto</span> ratioH = h / spany; </span><br><span class="line"><span class="comment">// 取最小的一个 </span></span><br><span class="line"><span class="keyword">auto</span> ratio = <span class="built_in">std</span>::min(ratioW,ratioH);</span><br></pre></td></tr></table></figure></li>
-</ul></li>
-<li>每次窗口缩放，我们就使用上述的范围计算新的<code>left,right,bottom,top</code>
-<ul>
-<li>只要投影的范围没有发生改变我们便不计算新的<code>ratio</code></li>
-</ul></li>
-</ul></li>
-<li>计算新的<code>left,right,bottom,top</code> <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OpenGLWidget::resizeGL</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> h)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    glViewport(<span class="number">0</span>,<span class="number">0</span>,w,h);</span><br><span class="line"></span><br><span class="line">    left = - w / ratio;</span><br><span class="line">    right = <span class="built_in">abs</span>(left);</span><br><span class="line">    bottom = -h / ratio;</span><br><span class="line">    top = <span class="built_in">abs</span>(bottom);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="更新投影矩阵">更新投影矩阵</h4>
-<ul>
-<li>update
-<ul>
-<li>关于<code>zNear &amp; zFar</code>投影当二维平面时候，并未使用这两个参数
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">projMat.ortho(left,right,bottom,top,<span class="number">0.1f</span>,<span class="number">100.0f</span>);</span><br></pre></td></tr></table></figure></li>
-</ul></li>
-</ul>
-<h4 id="更新绘制的场景">更新绘制的场景</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">shaderProgram.bind(); </span><br><span class="line">shaderProgram-&gt;setUniformValue(<span class="string">&quot;projectionMatrix&quot;</span>, projMat); </span><br><span class="line">glDrawArray()</span><br><span class="line">......</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Computer Graph</category>
-        <category>works</category>
-        <category>SCUU</category>
-      </categories>
-      <tags>
-        <tag>OpenGL</tag>
       </tags>
   </entry>
   <entry>
@@ -1373,6 +1201,184 @@ OpenGL parallel projection graphics do not scale with the window
       </tags>
   </entry>
   <entry>
+    <title>OpenGL parallel  projection graphics do not scale with the window</title>
+    <url>/2022/08/04/OpenGL-parallel-projection-graphics-do-not-scale-with-the-window/</url>
+    <content><![CDATA[<p>
+  <code>QtOpenGL</code>平行投影窗口缩放导致图形变形...
+</p>
+<span id="more"></span>
+<center>
+<h2>
+OpenGL parallel projection graphics do not scale with the window
+</h2>
+</center>
+<h3 id="实现步骤">实现步骤</h3>
+<ul>
+<li>重写窗口的<code>resize</code>事件
+<ul>
+<li>计算投影的范围</li>
+</ul></li>
+<li>更新投影矩阵</li>
+<li><code>drawcull</code></li>
+</ul>
+<h4 id="resizegl"><code>resizeGL</code></h4>
+<ul>
+<li>我们最初计算一个比例：
+<ul>
+<li>关于窗口的<code>size</code>和投影的范围的
+<ul>
+<li>使用<code>left, right</code>计算一个<code>spanx(right - left)</code>,
+<code>top, bottom</code>计算<code>spany(top - bottom)</code>,
+分别与窗口的宽高比较 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> ratioW = w / spanx;</span><br><span class="line"><span class="keyword">auto</span> ratioH = h / spany; </span><br><span class="line"><span class="comment">// 取最小的一个 </span></span><br><span class="line"><span class="keyword">auto</span> ratio = <span class="built_in">std</span>::min(ratioW,ratioH);</span><br></pre></td></tr></table></figure></li>
+</ul></li>
+<li>每次窗口缩放，我们就使用上述的范围计算新的<code>left,right,bottom,top</code>
+<ul>
+<li>只要投影的范围没有发生改变我们便不计算新的<code>ratio</code></li>
+</ul></li>
+</ul></li>
+<li>计算新的<code>left,right,bottom,top</code> <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OpenGLWidget::resizeGL</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> h)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    glViewport(<span class="number">0</span>,<span class="number">0</span>,w,h);</span><br><span class="line"></span><br><span class="line">    left = - w / ratio;</span><br><span class="line">    right = <span class="built_in">abs</span>(left);</span><br><span class="line">    bottom = -h / ratio;</span><br><span class="line">    top = <span class="built_in">abs</span>(bottom);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="更新投影矩阵">更新投影矩阵</h4>
+<ul>
+<li>update
+<ul>
+<li>关于<code>zNear &amp; zFar</code>投影当二维平面时候，并未使用这两个参数
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">projMat.ortho(left,right,bottom,top,<span class="number">0.1f</span>,<span class="number">100.0f</span>);</span><br></pre></td></tr></table></figure></li>
+</ul></li>
+</ul>
+<h4 id="更新绘制的场景">更新绘制的场景</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">shaderProgram.bind(); </span><br><span class="line">shaderProgram-&gt;setUniformValue(<span class="string">&quot;projectionMatrix&quot;</span>, projMat); </span><br><span class="line">glDrawArray()</span><br><span class="line">......</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Computer Graph</category>
+        <category>works</category>
+        <category>SCUU</category>
+      </categories>
+      <tags>
+        <tag>OpenGL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenGL Scene ZoomIn &amp; ZoomOut</title>
+    <url>/2022/08/03/OpenGL-Scene-ZoomIn-ZoomOut/</url>
+    <content><![CDATA[<p>
+  <code>QtOpenGL</code>场景缩放...
+</p>
+<span id="more"></span>
+<!-- # `OpenGL Scene ZoomIn & ZoomOut` -->
+<center>
+<h1>
+OpenGL的缩放
+</h1>
+</center>
+<h2 id="about">About</h2>
+<h3 id="直接缩放场景">1. 直接缩放场景</h3>
+<h4 id="实现思路">1. 实现思路</h4>
+<ul>
+<li>通过模型矩阵修改场景</li>
+</ul>
+<h3 id="修改投影矩阵">2. 修改投影矩阵</h3>
+<h4 id="实现思路-1">1. 实现思路</h4>
+<ul>
+<li>获取鼠标滚轮的变化(这个改变是带方向的
+向上获取一个正值,向下获取的是一个负值)</li>
+<li>将获取的这个值映射到和投影变换参数上</li>
+<li>修改投影矩阵</li>
+<li>重新绘制,你将获得缩放后的场景</li>
+</ul>
+<p style="color:red">
+在我的实现中采用的是第二种方式
+</p>
+<h2 id="缩放的实现">缩放的实现</h2>
+<h3 id="获取滚轮旋转角度">1. 获取滚轮旋转角度</h3>
+<p>
+我是用的是<code>Qt</code>的<code>OpenGL</code>,可以直接重写窗口的一些事件，比起使用<code>glfw</code>等方式，比起它们注册回调的方式可能相对方便一些。
+</p>
+<h4 id="qt的滚轮事件">Qt的滚轮事件</h4>
+<h5 id="qwheelevent"><code>QWheelEvent</code></h5>
+<ul>
+<li>在出发滚轮事件之后，我们通过一个<code>QWheelEvent</code>对象获取我们需要的关于滚轮的信息</li>
+</ul>
+<div>
+<p>
+  Wheel events are sent to the widget under the mouse cursor, but if
+that widget does not handle the event they are sent to the focus widget.
+Wheel events are generated for both mouse wheels and trackpad scroll
+gestures. There are two ways to read the wheel event delta:
+<code>angleDelta()</code> returns the deltas in wheel degrees. These
+values are always provided. <code>pixelDelta()</code> returns the deltas
+in screen pixels.
+</p>
+<p>
+  
+上述部分来自<code>Qt</code>官方文档,我们有两种方法可以获取鼠标滚轮的增量(正负代表方向)，<code>angleDelta()</code>，<code>pixelDelta()</code>.
+</p>
+</div>
+<h6>
+<code>QPoint QWheelEvent::angleDelta() const</code>
+</h6>
+<p>
+<p>  Returns the relative amount that the wheel was rotated, in eighths
+of a degree. A positive value indicates that the wheel was rotated
+forwards away from the user; a negative value indicates that the wheel
+was rotated backwards toward the user. angleDelta().y() provides the
+angle through which the common vertical mouse wheel was rotated since
+the previous event. angleDelta().x() provides the angle through which
+the horizontal mouse wheel was rotated, if the mouse has a horizontal
+wheel; otherwise it stays at zero. Some mice allow the user to tilt the
+wheel to perform horizontal scrolling, and some touchpads support a
+horizontal scrolling gesture; that will also appear in
+angleDelta().x().</p>
+  Most mouse types work in steps of 15 degrees, in which case the delta
+value is a multiple of 120; i.e., 120 units * 1/8 = 15 degrees.
+</p>
+<ul>
+<li>正值表示滚轮向上,远离用户. 负值向下,靠近用户.</li>
+<li>此函数将返回两个方向上的滚动
+<ul>
+<li><font color=red>我们此处使用是垂直方向的滚动的角度 </font></li>
+</ul></li>
+<li>滚轮每次触发滚动的的角度是<span
+class="math inline">\(15^\circ\left(delta\right)\)</span>，但是实际的返回值是
+$delta = 120 $</li>
+<li>返回的值应以 $ 1/8 $ 为单位:
+<ul>
+<li><span class="math inline">\(angleDelta() / 8\)</span>
+得到鼠标实际滚动的度数</li>
+</ul></li>
+<li><code style="color:red">通过上面步骤便可以获取滚轮实际旋转的角度</code></li>
+</ul>
+<h3 id="将滚轮旋转角度映射到投影矩阵">2.
+将滚轮旋转角度映射到投影矩阵</h3>
+<ul>
+<li><span class="math inline">\(ratio = delta/360^\circ\)</span></li>
+<li>使用这个值去修改投影矩阵的参数</li>
+<li>我们使用的是平行投影的方式
+<ul>
+<li><code>left</code></li>
+<li><code>rght</code></li>
+<li><code>bottom</code></li>
+<li><code>top</code></li>
+</ul></li>
+</ul>
+<h3 id="更新投影矩阵">3. 更新投影矩阵</h3>
+<ul>
+<li>在此之前 请将矩阵设置为单位矩阵 然后重新计算投影矩阵</li>
+<li>更新投影矩阵</li>
+<li>调用强制重新绘制(<code>Qt</code>) - <code>repaint()</code></li>
+<li>你将得到放大后的场景</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Computer Graph</category>
+        <category>works</category>
+        <category>SCUU</category>
+      </categories>
+      <tags>
+        <tag>OpenGL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Qt OpenGL Antialiasing-MSAA</title>
     <url>/2022/08/02/Qt-OpenGL-Antialiasing-MSAA/</url>
     <content><![CDATA[<p>
@@ -1436,44 +1442,6 @@ id="如何开启qtopengl的msaa">如何开启<code>QtOpenGL</code>的<code>MSAA<
       <tags>
         <tag>OpenGL</tag>
         <tag>Qt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>QuickSort</title>
-    <url>/2021/10/28/QuickSort/</url>
-    <content><![CDATA[<p>
-  快速排序...
-</p>
-<span id="more"></span>
-<h2 id="quick-sort">Quick Sort</h2>
-<h4 id="快速排序概述">1、快速排序概述</h4>
-<ul>
-<li><p>快速排序也是采用分治的思想实现的，首先你有一组无序的数据，然后通过某种方法，取一个这组数据的中间数（M），然后对这组数据进行分组，大于M放到M的右边，小于M放到M的左边。然后通过相同的方法对这两组数分别做相同的处理，直到数据有序。</p></li>
-<li><p>伪码实现</p></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(ElementType A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(N &lt; <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> ; <span class="comment">//数据有序 不需要排序</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 计算主元 -- 将数据分组</span></span><br><span class="line">    pivot = &#123;A|A中的一个元素&#125;</span><br><span class="line">    将A（S）分成两个独立的子集&#123;A[] \ pivot&#125;；</span><br><span class="line">    A1 = &#123;a∈S|a &lt; pivot&#125;;</span><br><span class="line">    A2 = &#123;a∈S|a &gt; pivot&#125;;</span><br><span class="line">    <span class="comment">// 递归调用QuickSort</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="选主元">2、选主元</h4>
-<ul>
-<li><p>选择一个合适的主元是快速排序算法实现的关键，不能草率的取一个数作为主元。</p></li>
-<li><p>下面介绍一种主元的选取方法：</p>
-<ul>
-<li><p>取头，中，尾的中位数</p></li>
-<li><p>伪码描述： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">ElementType <span class="title">Media3</span><span class="params">(ElementType A[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> center = (left + right) / <span class="number">2</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果坐标的比中间的大</span></span><br><span class="line">    <span class="keyword">if</span>(A[left] &gt; A[center])</span><br><span class="line">    &#123;</span><br><span class="line">        Swap(&amp;A[left],&amp;A[center]);  <span class="comment">// 交换 左中的值 </span></span><br><span class="line">        <span class="comment">//此后 A[center] &gt; A[left]</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 交换后的左 依旧大于右边</span></span><br><span class="line">    <span class="keyword">if</span>(A[left] &gt; A[right])</span><br><span class="line">    &#123;</span><br><span class="line">         Swap(&amp;A[left],&amp;A[right]); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(A[center] &gt; A[right])</span><br><span class="line">    &#123;</span><br><span class="line">         Swap(&amp;A[center],&amp;A[right]); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// A[right] &gt; A[center] 此时我们将center的元素放到此位置，可以只考虑 left+1 -- right-2的元素</span></span><br><span class="line">    swap(&amp;A[center],&amp;A[right - <span class="number">1</span>]);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> A[rigjt <span class="number">-1</span> ];  <span class="comment">// 返回我们得到的主元 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-</ul>
-<h4 id="子集划分">3、子集划分</h4>
-<ul>
-<li>每次完成子集划分，主元会放到一个在全局中都正确的位置，将不会在改变。</li>
-</ul>
-<h4 id="算法实现">4、算法实现</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(ElementType A[], <span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Cutoff &lt;= right - left)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 主元</span></span><br><span class="line">        poivt = Media3(A,left,right);</span><br><span class="line">        <span class="keyword">int</span> i = left;        <span class="comment">// i 当前指向第一个元素的位置 </span></span><br><span class="line">        <span class="keyword">int</span> j = right - <span class="number">1</span>;   <span class="comment">// J 指向主元的位置 </span></span><br><span class="line">        <span class="keyword">for</span>(;;)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(A[++i] &lt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">while</span>(A[--j] &gt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j)</span><br><span class="line">            &#123;</span><br><span class="line">                swap(&amp;A[i],A[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(&amp;A[i],&amp;A[right - <span class="number">1</span>]);</span><br><span class="line">        <span class="comment">// 递归 </span></span><br><span class="line">        QuickSort(A,left,i<span class="number">-1</span>);</span><br><span class="line">        QuickSort(A,i,right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Insert_selection(A+left,right - left + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
       </tags>
   </entry>
   <entry>
@@ -1734,6 +1702,44 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
 </ul></li>
 </ul></li>
 </ul>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>QuickSort</title>
+    <url>/2021/10/28/QuickSort/</url>
+    <content><![CDATA[<p>
+  快速排序...
+</p>
+<span id="more"></span>
+<h2 id="quick-sort">Quick Sort</h2>
+<h4 id="快速排序概述">1、快速排序概述</h4>
+<ul>
+<li><p>快速排序也是采用分治的思想实现的，首先你有一组无序的数据，然后通过某种方法，取一个这组数据的中间数（M），然后对这组数据进行分组，大于M放到M的右边，小于M放到M的左边。然后通过相同的方法对这两组数分别做相同的处理，直到数据有序。</p></li>
+<li><p>伪码实现</p></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(ElementType A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(N &lt; <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> ; <span class="comment">//数据有序 不需要排序</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 计算主元 -- 将数据分组</span></span><br><span class="line">    pivot = &#123;A|A中的一个元素&#125;</span><br><span class="line">    将A（S）分成两个独立的子集&#123;A[] \ pivot&#125;；</span><br><span class="line">    A1 = &#123;a∈S|a &lt; pivot&#125;;</span><br><span class="line">    A2 = &#123;a∈S|a &gt; pivot&#125;;</span><br><span class="line">    <span class="comment">// 递归调用QuickSort</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="选主元">2、选主元</h4>
+<ul>
+<li><p>选择一个合适的主元是快速排序算法实现的关键，不能草率的取一个数作为主元。</p></li>
+<li><p>下面介绍一种主元的选取方法：</p>
+<ul>
+<li><p>取头，中，尾的中位数</p></li>
+<li><p>伪码描述： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">ElementType <span class="title">Media3</span><span class="params">(ElementType A[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> center = (left + right) / <span class="number">2</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果坐标的比中间的大</span></span><br><span class="line">    <span class="keyword">if</span>(A[left] &gt; A[center])</span><br><span class="line">    &#123;</span><br><span class="line">        Swap(&amp;A[left],&amp;A[center]);  <span class="comment">// 交换 左中的值 </span></span><br><span class="line">        <span class="comment">//此后 A[center] &gt; A[left]</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 交换后的左 依旧大于右边</span></span><br><span class="line">    <span class="keyword">if</span>(A[left] &gt; A[right])</span><br><span class="line">    &#123;</span><br><span class="line">         Swap(&amp;A[left],&amp;A[right]); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(A[center] &gt; A[right])</span><br><span class="line">    &#123;</span><br><span class="line">         Swap(&amp;A[center],&amp;A[right]); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// A[right] &gt; A[center] 此时我们将center的元素放到此位置，可以只考虑 left+1 -- right-2的元素</span></span><br><span class="line">    swap(&amp;A[center],&amp;A[right - <span class="number">1</span>]);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> A[rigjt <span class="number">-1</span> ];  <span class="comment">// 返回我们得到的主元 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+</ul>
+<h4 id="子集划分">3、子集划分</h4>
+<ul>
+<li>每次完成子集划分，主元会放到一个在全局中都正确的位置，将不会在改变。</li>
+</ul>
+<h4 id="算法实现">4、算法实现</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(ElementType A[], <span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Cutoff &lt;= right - left)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 主元</span></span><br><span class="line">        poivt = Media3(A,left,right);</span><br><span class="line">        <span class="keyword">int</span> i = left;        <span class="comment">// i 当前指向第一个元素的位置 </span></span><br><span class="line">        <span class="keyword">int</span> j = right - <span class="number">1</span>;   <span class="comment">// J 指向主元的位置 </span></span><br><span class="line">        <span class="keyword">for</span>(;;)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(A[++i] &lt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">while</span>(A[--j] &gt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j)</span><br><span class="line">            &#123;</span><br><span class="line">                swap(&amp;A[i],A[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(&amp;A[i],&amp;A[right - <span class="number">1</span>]);</span><br><span class="line">        <span class="comment">// 递归 </span></span><br><span class="line">        QuickSort(A,left,i<span class="number">-1</span>);</span><br><span class="line">        QuickSort(A,i,right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Insert_selection(A+left,right - left + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Algorithm</category>
@@ -2500,9 +2506,7 @@ class="math inline">\(\vec{P_3P_4}\)</span>。如何通过点击计算他们交�
   <entry>
     <title>多重继承</title>
     <url>/2022/08/19/%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF/</url>
-    <content><![CDATA[<p>
-   <code>cpp</code>, 中关于继承的一点问题...
-</p>
+    <content><![CDATA[<p><code>cpp</code>, 中关于继承的一点问题...</p>
 <span id="more"></span>
 <h2 id="单继承">单继承</h2>
 <ul>
@@ -2514,7 +2518,22 @@ class="math inline">\(\vec{P_3P_4}\)</span>。如何通过点击计算他们交�
 </ul>
 <h3 id="菱形继承">菱形继承</h3>
 <ul>
-<li>多继承下面的特殊状态, 会产生一些问题。</li>
+<li>多继承下面的特殊状态, 会产生一些问题。
+<ul>
+<li>当一个类的父类们同时拥有相同的父类的时候，就会发生二义性 <img
+src="https://raw.githubusercontent.com/Ranbun/images/main/diamond_inheritance.PNG"
+title="菱形继承" alt="菱形继承" /></li>
+</ul></li>
+</ul>
+<h4 id="问题">问题</h4>
+<h5 id="数据冗余">1 数据冗余</h5>
+<ul>
+<li><p>从上面的图来看,菱形继承的数据发生了冗余，以及带来数据访问时候的二义性</p>
+<ul>
+<li>在<code>Author</code>中存在两份<code>Person</code>的数据</li>
+</ul></li>
+<li><p>解决访问的二义性相对简单，可以通过添加类的限定从而访问到具体的数据</p>
+<p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Author</span> :</span><span class="keyword">public</span> Student, <span class="keyword">public</span> Teacher</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Author()</span><br><span class="line">    &#123;</span><br><span class="line">        Student::name_ = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        Teacher::name_ = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li>
 </ul>
 ]]></content>
   </entry>
@@ -2545,36 +2564,6 @@ class="math inline">\(\vec{P_3P_4}\)</span>。如何通过点击计算他们交�
       <tags>
         <tag>cpp</tag>
         <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微信多开</title>
-    <url>/2022/02/28/%E5%BE%AE%E4%BF%A1%E5%A4%9A%E5%BC%80/</url>
-    <content><![CDATA[<p>
-  Windows使用小技巧...
-</p>
-<span id="more"></span>
-<h2 id="微信多开的小技巧---windows">微信多开的小技巧 - Windows</h2>
-<ul>
-<li><p>首先，需要你知道你机器上安装微信 - 请记录它的安装位置</p></li>
-<li><p>一般情况下，如果你不做任何修改的话，它会在<code>C:\Program Files (x86)\Tencent\WeChat</code>这个目录下：
-   <img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/wechat_install_path.png"
-title="微信安装位置" /></p></li>
-<li><p>然后，打开你机器上任意的一个文本编辑器，输入如下内容：</p></li>
-<li><p>需要多开多少个微信，你便将如下命令输入重复写多少次。</p>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">start D:\&quot;Program Files (x86)<span class="string">&quot;\Tencent\WeChat\WeChat.exe</span></span><br><span class="line"><span class="string">start D:\&quot;Program Files (x86)&quot;</span>\Tencent\WeChat\WeChat.exe</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请将上面的路径换成你机器上安装微信的路径</span></span><br><span class="line"><span class="comment"># 上面表示的是同时开两个微信程序</span></span><br><span class="line"><span class="comment"># 前面的路径部分中含有空格，为了让系统能识别，我们需要用双引号将其括起来，这样才能正确的识别</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li>
-<li><p>然后将文件保存，文件后缀为<code>.bat</code>,这是<code>cmd</code>识别的命令行，这个时候你打开你刚保存的文件，便会弹出你想要多开的数量。</p>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/multi_open_wechat.png"
-title="微信多开效果图" /></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Tips</category>
-      </categories>
-      <tags>
-        <tag>windows</tag>
       </tags>
   </entry>
   <entry>
@@ -2714,6 +2703,36 @@ title="微信多开效果图" /></p></li>
       </tags>
   </entry>
   <entry>
+    <title>微信多开</title>
+    <url>/2022/02/28/%E5%BE%AE%E4%BF%A1%E5%A4%9A%E5%BC%80/</url>
+    <content><![CDATA[<p>
+  Windows使用小技巧...
+</p>
+<span id="more"></span>
+<h2 id="微信多开的小技巧---windows">微信多开的小技巧 - Windows</h2>
+<ul>
+<li><p>首先，需要你知道你机器上安装微信 - 请记录它的安装位置</p></li>
+<li><p>一般情况下，如果你不做任何修改的话，它会在<code>C:\Program Files (x86)\Tencent\WeChat</code>这个目录下：
+   <img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/wechat_install_path.png"
+title="微信安装位置" /></p></li>
+<li><p>然后，打开你机器上任意的一个文本编辑器，输入如下内容：</p></li>
+<li><p>需要多开多少个微信，你便将如下命令输入重复写多少次。</p>
+<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">start D:\&quot;Program Files (x86)<span class="string">&quot;\Tencent\WeChat\WeChat.exe</span></span><br><span class="line"><span class="string">start D:\&quot;Program Files (x86)&quot;</span>\Tencent\WeChat\WeChat.exe</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请将上面的路径换成你机器上安装微信的路径</span></span><br><span class="line"><span class="comment"># 上面表示的是同时开两个微信程序</span></span><br><span class="line"><span class="comment"># 前面的路径部分中含有空格，为了让系统能识别，我们需要用双引号将其括起来，这样才能正确的识别</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li>
+<li><p>然后将文件保存，文件后缀为<code>.bat</code>,这是<code>cmd</code>识别的命令行，这个时候你打开你刚保存的文件，便会弹出你想要多开的数量。</p>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/multi_open_wechat.png"
+title="微信多开效果图" /></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tips</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Qt</title>
     <url>/2021/07/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95_Qt/</url>
     <content><![CDATA[<p><em>和老大提出辞职之后，商量了关于我的工作后续的事情，便开始寻找新工作......</em>
@@ -2771,15 +2790,11 @@ title="virtual table 2" alt="virtual table 2" />
   设计模式之单例模式...
 </p>
 <span id="more"></span>
-]]></content>
-  </entry>
-  <entry>
-    <title>设计模式-工厂模式</title>
-    <url>/2022/08/19/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<p>
-  设计模式之工厂模式...
-</p>
-<span id="more"></span>
+<h1 id="单例模式">单例模式</h1>
+<ul>
+<li>考虑某种场景，我们需要一个工具类，对于所有模块提供同样的接口与数据，但是如果每个模块使用这个类的功能的时候都创建一整个类，此种行为虽说是合法的，但并不是最好的选择，我们可以通过单例设计模式，将这个类变为一个单例，我们每一次创建这个类的实例的时候，都只是获取之前创建的，从而调用相应的功能。</li>
+</ul>
+<h2 id="简单实现">简单实现</h2>
 ]]></content>
   </entry>
   <entry>
@@ -2818,5 +2833,18 @@ title="virtual table 2" alt="virtual table 2" />
         <tag>conclusion</tag>
         <tag>university</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>设计模式-工厂模式</title>
+    <url>/2022/08/19/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<p>
+  设计模式之工厂模式...
+</p>
+<span id="more"></span>
+<h1 id="工场模式">工场模式</h1>
+<ul>
+<li>当我们需要不停的创建不同的对象的时候，我们可以通过封装接口，然后调用函数返回不同的类型的对象，这个时候我们就需要工厂模式帮我们处理此问题</li>
+</ul>
+]]></content>
   </entry>
 </search>
