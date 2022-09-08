@@ -6,7 +6,7 @@
   <link href="https://blog.ranbun.com/atom.xml" rel="self"/>
   
   <link href="https://blog.ranbun.com/"/>
-  <updated>2022-09-07T17:07:45.329Z</updated>
+  <updated>2022-09-08T09:34:52.706Z</updated>
   <id>https://blog.ranbun.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OBB与OBB求交</title>
+    <link href="https://blog.ranbun.com/2022/09/08/OBB%E4%B8%8EOBB%E6%B1%82%E4%BA%A4/"/>
+    <id>https://blog.ranbun.com/2022/09/08/OBB%E4%B8%8EOBB%E6%B1%82%E4%BA%A4/</id>
+    <published>2022-09-08T09:28:20.000Z</published>
+    <updated>2022-09-08T09:34:52.706Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>OBB</code>与<code>OBB</code>的求交,此处我们将会介绍两个<code>OBB</code>的求交计算。以及一些基本概念......</p><span id="more"></span>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;code&gt;OBB&lt;/code&gt;与&lt;code&gt;OBB&lt;/code&gt;的求交,此处我们将会介绍两个&lt;code&gt;OBB&lt;/code&gt;的求交计算。以及一些基本概念......&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Algorithm" scheme="https://blog.ranbun.com/categories/Algorithm/"/>
+    
+    <category term="Computer Graphics" scheme="https://blog.ranbun.com/categories/Algorithm/Computer-Graphics/"/>
+    
+    
+    <category term="OBB" scheme="https://blog.ranbun.com/tags/OBB/"/>
+    
+    <category term="Intersect" scheme="https://blog.ranbun.com/tags/Intersect/"/>
+    
+  </entry>
   
   <entry>
     <title>IBL</title>
@@ -478,31 +503,6 @@
     <category term="openGL" scheme="https://blog.ranbun.com/tags/openGL/"/>
     
     <category term="computer graphics" scheme="https://blog.ranbun.com/tags/computer-graphics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2021年终总结</title>
-    <link href="https://blog.ranbun.com/2022/01/16/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
-    <id>https://blog.ranbun.com/2022/01/16/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</id>
-    <published>2022-01-15T16:43:19.000Z</published>
-    <updated>2022-08-21T15:34:56.725Z</updated>
-    
-    <content type="html"><![CDATA[<p>  毕业后的第一年，我开始了自己的苟且与悲歌...</p><span id="more"></span><h3 id="我起伏的2021年">我起伏的2021年:</h3><ul><li>2021年鸡毛蒜皮</li></ul><p>....</p><h3 id="我的关于2021年的大事件">我的关于2021年的大事件：</h3><h4 id="换了工作">1、换了工作</h4><h4 id="离开了那个度过了五年的城市">2、离开了那个度过了五年的城市</h4><h4 id="换了工作的城市">3、 换了工作的城市</h4><h4 id="告别了好友">4、告别了好友</h4><h4 id="见了阔怕已久的朋友">5、见了阔怕已久的朋友</h4><h4 id="又一次决定换工作">6、又一次决定换工作</h4><ul><li>面试了一个环境可能更好的工作</li></ul><h3 id="一我换工作这件事">一、我换工作这件事</h3><p>先我说我自己吧,一个cpp开发人员,大学毕业之后在济南的一家做仿真的公司,做一些图形相关的工作,这就是我的第一份工作。</p><p>  离开我的上一个岗位的原因颇多,当然究其原因，我觉得<code>马老板</code>说的话能够很好的概括我当时的处境， 比较这年头找一份工作很容易，但是找到一份好工作还是比较困难的。  新工作也是做仿真的,只是方向有所不同,但是对于一个开发人员,又有什么太大的区别呢,毕竟，核心的算法部分会有专门的人负责，而我知识负责一些图形相关的工作，展示一下仿真的结果。</p><h3 id="二离开济南">二、离开济南</h3><p>  我在这个城市上大学，大学毕业在这里找的工作，也是在这里，度过了我和我对象为期6年的异地恋。  若是在学校还好，但是在济南生活，我大概是不适合这个城市了，离开济南不一定是因为我要换掉我之前的工作，也可能是由于我想离开这个城市，寻求更好的发展，或者是我本人有更高的追求，我在这个城市呆了很长时间，熟悉这里的大部分东西，这里的风土人情以及这里的那浓郁的不合于我的生活气息......  我算是个重庆人，也许更适合我的地方是川蜀之地，况且我还比较佛系，所以<code>成都</code>应该是个不错的选择，我开始面试，将目标公司地域选到了成都.....  然后我选择了一家成都的公司，在一个我去打完疫苗的间隙，足够我用这个时间做很多事情。  然后我来了<code>北京</code>.....,只能说，造化弄人。</p><h3 id="三告别好友">三、告别好友</h3><p>  我也算是个热爱生活的人，离别前夕，怎么也会告别这个城市最后的朋友，我们宿舍的<code>二哥</code>还有<code>杨哥</code>,还有隔壁宿舍后面相熟的朋友，大家约在烧烤摊一起畅想了我们的未来的几年。  从济南公司离职后，去德州见了好久不见的另一个舍友，在那里度过了一个周末，互相倾诉，对于我们彼此的不容易，都是略有耳闻。</p><h3 id="四见了好久不见的朋友">四、见了好久不见的朋友</h3><p>  2021年8月20日,在北京,我开启了我长达6个月的出差，我刚毕业的时候，我曾经有过想要在北京工作的想法，但是一些原因，我放弃了，同时，也觉得自己以后可能都不会在北京停留，第一次来北京是在16年的时候，我在北京度过了国庆，下了6天雨，这几天北京给我的印象只有雾霾。  有人说离别是为了更好的相遇，所以，有时候缘分很重要，大学同学毕业前在北京实习，毕业的时候北京疫情，最后的毕业照都是P上去的，28个人唯独缺了他，挺好的，大家又一次重逢。  同样是在这里，遇到了另一位朋友，亦师亦友，感谢相遇。</p><h3 id="五又一次决定换工作">五、又一次决定换工作</h3><p>  决定让自己的未来有更多的选择,于是决定做一些尝试，希望能有个好结果。  又一次选择了面试，结果还挺不错，虽然没能拿到想要的待遇，但是是我喜欢的地点，拥有我喜欢的条件，甚好！！！</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;
-  毕业后的第一年，我开始了自己的苟且与悲歌...
-&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="bun" scheme="https://blog.ranbun.com/categories/bun/"/>
-    
-    <category term="life" scheme="https://blog.ranbun.com/categories/bun/life/"/>
-    
-    
-    <category term="mylife" scheme="https://blog.ranbun.com/tags/mylife/"/>
     
   </entry>
   
