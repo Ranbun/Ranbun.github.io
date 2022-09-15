@@ -1,6 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>起伏的2022(上)</title>
+    <url>/2022/08/14/2022%E5%8D%8A%E5%B9%B4%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<center>
+<h1>
+关于我的2022(上)
+</h1>
+</center>
+<p>
+  2022年发生诸多事情，令人成长的事情居多，在这中间的末尾，却也有足够的惊喜将这一连串的不快掩盖......
+</p>
+<span id="more"></span>
+<h2 id="上一览">2022上，一览</h2>
+<ul>
+<li>辞掉了原来的工作
+<ul>
+<li>离开了北京</li>
+<li>又去见了一些人</li>
+</ul></li>
+<li>来了成都</li>
+<li>给自己翻篇</li>
+<li>遇到了她
+<ul>
+<li>准备一起写我们的故事</li>
+</ul></li>
+</ul>
+<h3 id="离开我不喜欢的北京">离开我不喜欢的北京</h3>
+<h4 id="辞职那点事">辞职那点事</h4>
+<p>
+  其实之前也算是成都的一家公司，只是有些草率，我的入职合同是通过快递签订的。除了和我一起出差的同事，我并未见过任何一个公司的同事。我以为我的入职之后会是在成都度过，但是事实总是不能遂了人意，我在一直呆在北京，算是出差中，可能是呆的时间有点太长了，我决定要离开了。于是在去年年底的最后一个月开始重新找工作了，依旧是在成都，重新觅一份新的工作，阴差阳错，来了现在的公司，年前的2月，我们结束我们的年假，决定前往北京进行工作最后的工作交接。我深知那一次的离开，我可能再也不会再来北京，离开前总是需要见一些该见的人，就当作是最后的告别。
+</p>
+<h4 id="往后不能再见的朋友">往后不能再见的朋友</h4>
+<p>
+  记得大一的第一学期的前半程是稍微有些无聊的，我去往那个和我期待中的样子差距颇大的地方，我在颓废中度过了大一第一学期的前半程，可能是接受了现实，我决定改变一下这个现状，于是迈出了我成为程序员得第一步，我找了个学生组织，参与进去。可能是缘分，我遇到好些个有意思的人，在这之中有我的好朋友，也有带我入行的学长，毕业后，学长去了北京。虽然在我本来的计划中，我大概会去北京的，但事情总是不得遂人意，阴差阳错，我没能去了。借此机会，见了这位阔别已久的老朋友，一起聊到凌晨，大家总有各自的生活，所以分别，多少没那么不舍。我相信缘分会拉着我们一次又一次的相遇。
+</p>
+<p>
+  那位没能和我们一起拍毕业照的小伙伴，也将见证我的离去，我们是大学同学，男孩子性格的她，和我们最是合得来，一起吃了个饭，记得是我此前没有尝试过的港式，没有什么不舍，惟愿。
+</p>
+<h3 id="终来成都">终来成都</h3>
+<h4 id="新工作">新工作</h4>
+<ul>
+<li>还是那个工作，只是换了环境和一波同事，对我来说,差别不大。来时是三月中旬，成都总是那么出人意料，我来时给予我最大的温暖，$
+28^o $的天气，只有感谢，未能有更多言语。</li>
+<li>来后三个月的感叹，<code>我好菜呀！！！！！！！</code></li>
+</ul>
+<h3 id="给自己翻篇">给自己翻篇</h3>
+<ul>
+<li>经历变得丰富，成长颇多，感谢！</li>
+<li>毕业两年！！！！！！！！！！！！！！！！！！！！！！！！！</li>
+</ul>
+<h3 id="遇到她">遇到她</h3>
+<ul>
+<li>如果我没有离开北京，如果我没有来这里，所以一切都是刚好的样子，感谢缘分让我们相遇。我们很合拍，无论什么。</li>
+<li>所以想写新的故事，就我和她，在这个城市的故事。
+<ul>
+<li>所以感谢会会的早餐与陪伴</li>
+</ul></li>
+</ul>
+<h3 id="over">Over</h3>
+<ul>
+<li>2022的上半年到我们在一起结束，这是我2022年最开心的时候，感谢缘分，感谢相遇！</li>
+</ul>
+]]></content>
+      <categories>
+        <category>bun</category>
+        <category>life</category>
+      </categories>
+      <tags>
+        <tag>mylife</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AABB与Ray求交</title>
+    <url>/2022/09/14/AABB%E4%B8%8ERay%E6%B1%82%E4%BA%A4/</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
     <title>2021年终总结</title>
     <url>/2022/01/16/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>
@@ -99,77 +176,6 @@ title="Github">Github</a></li>
       </categories>
       <tags>
         <tag>cpp</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>起伏的2022(上)</title>
-    <url>/2022/08/14/2022%E5%8D%8A%E5%B9%B4%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<center>
-<h1>
-关于我的2022(上)
-</h1>
-</center>
-<p>
-  2022年发生诸多事情，令人成长的事情居多，在这中间的末尾，却也有足够的惊喜将这一连串的不快掩盖......
-</p>
-<span id="more"></span>
-<h2 id="上一览">2022上，一览</h2>
-<ul>
-<li>辞掉了原来的工作
-<ul>
-<li>离开了北京</li>
-<li>又去见了一些人</li>
-</ul></li>
-<li>来了成都</li>
-<li>给自己翻篇</li>
-<li>遇到了她
-<ul>
-<li>准备一起写我们的故事</li>
-</ul></li>
-</ul>
-<h3 id="离开我不喜欢的北京">离开我不喜欢的北京</h3>
-<h4 id="辞职那点事">辞职那点事</h4>
-<p>
-  其实之前也算是成都的一家公司，只是有些草率，我的入职合同是通过快递签订的。除了和我一起出差的同事，我并未见过任何一个公司的同事。我以为我的入职之后会是在成都度过，但是事实总是不能遂了人意，我在一直呆在北京，算是出差中，可能是呆的时间有点太长了，我决定要离开了。于是在去年年底的最后一个月开始重新找工作了，依旧是在成都，重新觅一份新的工作，阴差阳错，来了现在的公司，年前的2月，我们结束我们的年假，决定前往北京进行工作最后的工作交接。我深知那一次的离开，我可能再也不会再来北京，离开前总是需要见一些该见的人，就当作是最后的告别。
-</p>
-<h4 id="往后不能再见的朋友">往后不能再见的朋友</h4>
-<p>
-  记得大一的第一学期的前半程是稍微有些无聊的，我去往那个和我期待中的样子差距颇大的地方，我在颓废中度过了大一第一学期的前半程，可能是接受了现实，我决定改变一下这个现状，于是迈出了我成为程序员得第一步，我找了个学生组织，参与进去。可能是缘分，我遇到好些个有意思的人，在这之中有我的好朋友，也有带我入行的学长，毕业后，学长去了北京。虽然在我本来的计划中，我大概会去北京的，但事情总是不得遂人意，阴差阳错，我没能去了。借此机会，见了这位阔别已久的老朋友，一起聊到凌晨，大家总有各自的生活，所以分别，多少没那么不舍。我相信缘分会拉着我们一次又一次的相遇。
-</p>
-<p>
-  那位没能和我们一起拍毕业照的小伙伴，也将见证我的离去，我们是大学同学，男孩子性格的她，和我们最是合得来，一起吃了个饭，记得是我此前没有尝试过的港式，没有什么不舍，惟愿。
-</p>
-<h3 id="终来成都">终来成都</h3>
-<h4 id="新工作">新工作</h4>
-<ul>
-<li>还是那个工作，只是换了环境和一波同事，对我来说,差别不大。来时是三月中旬，成都总是那么出人意料，我来时给予我最大的温暖，$
-28^o $的天气，只有感谢，未能有更多言语。</li>
-<li>来后三个月的感叹，<code>我好菜呀！！！！！！！</code></li>
-</ul>
-<h3 id="给自己翻篇">给自己翻篇</h3>
-<ul>
-<li>经历变得丰富，成长颇多，感谢！</li>
-<li>毕业两年！！！！！！！！！！！！！！！！！！！！！！！！！</li>
-</ul>
-<h3 id="遇到她">遇到她</h3>
-<ul>
-<li>如果我没有离开北京，如果我没有来这里，所以一切都是刚好的样子，感谢缘分让我们相遇。我们很合拍，无论什么。</li>
-<li>所以想写新的故事，就我和她，在这个城市的故事。
-<ul>
-<li>所以感谢会会的早餐与陪伴</li>
-</ul></li>
-</ul>
-<h3 id="over">Over</h3>
-<ul>
-<li>2022的上半年到我们在一起结束，这是我2022年最开心的时候，感谢缘分，感谢相遇！</li>
-</ul>
-]]></content>
-      <categories>
-        <category>bun</category>
-        <category>life</category>
-      </categories>
-      <tags>
-        <tag>mylife</tag>
       </tags>
   </entry>
   <entry>
@@ -409,6 +415,48 @@ id="dynamic-drawing-of-osg-vertex-buffer-objects"><code>Dynamic drawing of osg v
       </tags>
   </entry>
   <entry>
+    <title>Games202-ShadowMap</title>
+    <url>/2021/12/13/Games202-ShadowMap/</url>
+    <content><![CDATA[<p>
+  你该如何渲染阴影...
+</p>
+<span id="more"></span>
+<h2 id="shadow-map">Shadow Map</h2>
+<ul>
+<li>记录一下关于<code>Games202</code>的学习</li>
+</ul>
+<h4 id="shadow-map-1">shadow map</h4>
+<ul>
+<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p></li>
+<li><p>如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：</p>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" /></p></li>
+</ul>
+<p>上图来自<code>Games202</code>的课件：</p>
+<ul>
+<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p></li>
+<li><p>关于计算当前vertex point
+是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p></li>
+<li><p>在<code>Games202</code>的作业1中，我们需要使用提供的matrix的接口处理矩阵。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mat.translate() <span class="comment">// 设置矩阵的移动 </span></span><br><span class="line">mat4.scale      <span class="comment">// 设置矩阵的缩放</span></span><br><span class="line"></span><br><span class="line">mat4.lookAt(); <span class="comment">// 生成的视图矩阵</span></span><br><span class="line">mat4.ortho();  <span class="comment">// 平行投影</span></span><br><span class="line"></span><br><span class="line">mat4.multiply(); <span class="comment">// 矩阵的乘法</span></span><br></pre></td></tr></table></figure>
+<p><a
+href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p></li>
+<li><p>深度比较：</p>
+<figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure></li>
+<li><p>最终效果</p></li>
+</ul>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" /></p>
+]]></content>
+      <categories>
+        <category>Computer Graph</category>
+      </categories>
+      <tags>
+        <tag>Games202</tag>
+        <tag>Shadow</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git常用命令(上)</title>
     <url>/2022/07/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/</url>
     <content><![CDATA[<p>
@@ -463,87 +511,6 @@ alt="git commit" /></li>
       </categories>
       <tags>
         <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Games202-ShadowMap</title>
-    <url>/2021/12/13/Games202-ShadowMap/</url>
-    <content><![CDATA[<p>
-  你该如何渲染阴影...
-</p>
-<span id="more"></span>
-<h2 id="shadow-map">Shadow Map</h2>
-<ul>
-<li>记录一下关于<code>Games202</code>的学习</li>
-</ul>
-<h4 id="shadow-map-1">shadow map</h4>
-<ul>
-<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p></li>
-<li><p>如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：</p>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" /></p></li>
-</ul>
-<p>上图来自<code>Games202</code>的课件：</p>
-<ul>
-<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p></li>
-<li><p>关于计算当前vertex point
-是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p></li>
-<li><p>在<code>Games202</code>的作业1中，我们需要使用提供的matrix的接口处理矩阵。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mat.translate() <span class="comment">// 设置矩阵的移动 </span></span><br><span class="line">mat4.scale      <span class="comment">// 设置矩阵的缩放</span></span><br><span class="line"></span><br><span class="line">mat4.lookAt(); <span class="comment">// 生成的视图矩阵</span></span><br><span class="line">mat4.ortho();  <span class="comment">// 平行投影</span></span><br><span class="line"></span><br><span class="line">mat4.multiply(); <span class="comment">// 矩阵的乘法</span></span><br></pre></td></tr></table></figure>
-<p><a
-href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p></li>
-<li><p>深度比较：</p>
-<figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure></li>
-<li><p>最终效果</p></li>
-</ul>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" /></p>
-]]></content>
-      <categories>
-        <category>Computer Graph</category>
-      </categories>
-      <tags>
-        <tag>Games202</tag>
-        <tag>Shadow</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Multi KeyWord Sort</title>
-    <url>/2021/11/07/Multi-KeyWord-Sort/</url>
-    <content><![CDATA[<p>
-  多关键字排序...
-</p>
-<span id="more"></span>
-<h3 id="多关键字排序">多关键字排序</h3>
-<ul>
-<li><p>扑克牌的例子</p></li>
-<li><p>一副扑克牌是按照两种顺序排的：</p>
-<ul>
-<li>K0,花色：梅花 &lt; 方块 &lt; 红桃 &lt; 黑桃</li>
-<li>k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10
-&lt; J &lt; Q &lt; K &lt; A</li>
-</ul></li>
-<li><p>主位优先：（Most Significant Digit）</p>
-<ul>
-<li>先用四个花色建桶，然后使用面值建桶</li>
-</ul></li>
-</ul>
-<h4 id="一个更好的方法">一个更好的方法：</h4>
-<ul>
-<li><p>依旧使用次位优先：</p>
-<ul>
-<li><p>先使用面值建桶</p></li>
-<li><p>然后按照大小将结果合并，使用花色建桶。</p></li>
-<li><p>最终的输出结果便是有序的</p></li>
-</ul></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
       </tags>
   </entry>
   <entry>
@@ -616,6 +583,51 @@ C++ 实现  </a></p>
       </tags>
   </entry>
   <entry>
+    <title>IBL</title>
+    <url>/2022/09/08/IBL/</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
+    <title>Multi KeyWord Sort</title>
+    <url>/2021/11/07/Multi-KeyWord-Sort/</url>
+    <content><![CDATA[<p>
+  多关键字排序...
+</p>
+<span id="more"></span>
+<h3 id="多关键字排序">多关键字排序</h3>
+<ul>
+<li><p>扑克牌的例子</p></li>
+<li><p>一副扑克牌是按照两种顺序排的：</p>
+<ul>
+<li>K0,花色：梅花 &lt; 方块 &lt; 红桃 &lt; 黑桃</li>
+<li>k1，面值: 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10
+&lt; J &lt; Q &lt; K &lt; A</li>
+</ul></li>
+<li><p>主位优先：（Most Significant Digit）</p>
+<ul>
+<li>先用四个花色建桶，然后使用面值建桶</li>
+</ul></li>
+</ul>
+<h4 id="一个更好的方法">一个更好的方法：</h4>
+<ul>
+<li><p>依旧使用次位优先：</p>
+<ul>
+<li><p>先使用面值建桶</p></li>
+<li><p>然后按照大小将结果合并，使用花色建桶。</p></li>
+<li><p>最终的输出结果便是有序的</p></li>
+</ul></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OBB与OBB求交</title>
     <url>/2022/09/08/OBB%E4%B8%8EOBB%E6%B1%82%E4%BA%A4/</url>
     <content><![CDATA[<p><code>OBB</code>与<code>OBB</code>的求交,此处我们将会介绍两个<code>OBB</code>的求交计算。以及一些基本概念......</p>
@@ -631,10 +643,63 @@ C++ 实现  </a></p>
       </tags>
   </entry>
   <entry>
-    <title>IBL</title>
-    <url>/2022/09/08/IBL/</url>
+    <title>OBB与Ray求交</title>
+    <url>/2022/09/08/OBB%E4%B8%8ERay%E6%B1%82%E4%BA%A4/</url>
     <content><![CDATA[
 ]]></content>
+  </entry>
+  <entry>
+    <title>OBB与Triangle求交</title>
+    <url>/2022/09/08/OBB%E4%B8%8ETriangle%E6%B1%82%E4%BA%A4/</url>
+    <content><![CDATA[<p><code>OBB</code> 与三角形求交.</p>
+<h3 id="预备知识">预备知识</h3>
+<h4 id="点到面的距离方程">点到面的距离方程</h4>
+<h5 id="面的方程">面的方程</h5>
+<ul>
+<li>定义平面<code>A</code>的法向 <span
+class="math inline">\(\vec{n}\)</span> <code>&#123;a,b,c&#125;</code>,</li>
+<li>已知平面行一点<span class="math inline">\(P_0 \lbrace
+x_0,y_0,z_0\rbrace\)</span></li>
+<li>任意点 <span
+class="math inline">\(P\)</span><code>&#123;x,y,z&#125;</code></li>
+<li>面方程:
+<ul>
+<li><span class="math inline">\(\overrightarrow{P - P_0} \cdot \vec{n} =
+0\)</span></li>
+</ul></li>
+</ul>
+<h5 id="点到面的距离">点到面的距离</h5>
+<h6 id="法向量法">法向量法</h6>
+<ul>
+<li><span class="math inline">\(\vec{n}\)</span> - 平面的法向量</li>
+<li><span class="math inline">\(d\)</span> - 点到平面的距离</li>
+<li><span class="math inline">\(P\)</span> - 平面外一点</li>
+<li><span class="math inline">\(A\)</span> - 平面上一点</li>
+<li>$d = $
+<ul>
+<li>PA在法向方向上的投影既是点<span
+class="math inline">\(P\)</span>到平面的距离</li>
+</ul></li>
+</ul>
+<h5 id="射线的方程">射线的方程</h5>
+<ul>
+<li>射线方程
+<ul>
+<li><span class="math inline">\(O\)</span> 为起点， 沿着方向 <span
+class="math inline">\(\vec{d}\)</span></li>
+<li>射线方向上任意一点<span class="math inline">\(P_0\)</span></li>
+<li><span class="math inline">\(P_0 = O + \vec{d}\)</span></li>
+</ul></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>Computer Graphics</category>
+      </categories>
+      <tags>
+        <tag>OBB</tag>
+        <tag>Intersect</tag>
+      </tags>
   </entry>
   <entry>
     <title>OSG-HUD</title>
@@ -734,6 +799,50 @@ id="将操作节点添加到绘制的根节点或者是其他的叶节点">5、�
       </tags>
   </entry>
   <entry>
+    <title>OSG踩坑记-默认光源</title>
+    <url>/2021/04/04/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90/</url>
+    <content><![CDATA[<p>
+  <code>OSG</code>默认光源...
+</p>
+<span id="more"></span>
+<h3 id="osg-viewer默认光源">OSG-Viewer默认光源</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    <span class="comment">// 法线随着模型大小变化而变化。</span></span><br><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::StateAttribute::OFF | osg::StateAttribute::OVERRIDE); <span class="comment">// 关闭节点光源 并遵从父节点的光照设置</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h5
+id="不指定法向----仍然可以看到-光照效果-但是无法看到明暗变化"><code>不指定法向</code>
+-- <font color=red>仍然可以看到 光照效果 但是无法看到明暗变化
+</font></h5>
+<h3 id="viewer-默认光源的使用">Viewer 默认光源的使用</h3>
+<h4 id="设置光照的相关的信息">1、设置光照的相关的信息</h4>
+<ul>
+<li><p><code>osg::Viewer默认存在缺省光源,但是需要进行部分设置,不然可能与你当前的场景不匹配</code></p></li>
+<li><p>你需要设置的信息包括:
+ambient、diffuse、specular、光照方向（可以不设置，使用缺省的）、光照位置、光的衰减参数。</p></li>
+</ul>
+<blockquote>
+<p>设置光照 -- <font color=Green>衰减公式</font> <span
+class="math display">\[
+F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
+\]</span></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 获取缺省的光照</span></span><br><span class="line">osg::Light *light = viewer-&gt;getLight(); <span class="comment">// 从当前的查看器 获取光照设置 </span></span><br><span class="line">light-&gt;setAmbient(osg::Vec4(<span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">1.0</span>));   <span class="comment">// 环境光   OPENGL的默认值是 osg::Vec3(0.2,0.2,0.2);</span></span><br><span class="line">light-&gt;setDiffuse(osg::Vec4(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1.0</span>));   <span class="comment">// 漫反射   直接来源于光源</span></span><br><span class="line">light-&gt;setSpecular(osg::Vec4(<span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">1.0</span>));  <span class="comment">// specular   高光 此处给的很低  </span></span><br><span class="line"><span class="comment">// 由于此处我们使用的是平行光</span></span><br><span class="line"><span class="function">osg::Vec4 <span class="title">lightpos</span><span class="params">(x, y, z, <span class="number">0.0f</span>)</span></span>;   <span class="comment">// 记住: 平行光的位置的最后一个分量必须是 0 </span></span><br><span class="line">light-&gt;setPosition(lightpos);        <span class="comment">// 设置光照位置 </span></span><br><span class="line"><span class="comment">// 光照方向设置</span></span><br><span class="line"><span class="comment">// 需要用到高度角和方位角 -- 计算一个你需要方向 </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置光的衰减 -- 只设置 常量衰减的话 --   无距离衰减</span></span><br><span class="line">light-&gt;setConstantAttenuation(<span class="number">1.0f</span>);</span><br><span class="line">light-&gt;setLinearAttenuation(<span class="number">0.0f</span>);</span><br><span class="line">light-&gt;setQuadraticAttenuation(<span class="number">0.f</span>);</span><br></pre></td></tr></table></figure>
+<p><font color=red> 产生平行光，位置分量的第四分量必须是0 </font></p>
+<h4 id="对节点设置好材料属性">2、对节点设置好材料属性</h4>
+<ul>
+<li>材料的设置是针对你要显示的节点设置的、你可以创建一个材料并设置相关的颜色，这样就可以拥有一个更好的显示效果。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>GF</category>
+        <category>OSG</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>osg</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OpenGL Move Scene</title>
     <url>/2022/08/03/OpenGL-Move-Scene/</url>
     <content><![CDATA[<p>
@@ -819,50 +928,6 @@ spanY\)</span> <figure class="highlight c++"><table><tr><td class="code"><pre><s
       </categories>
       <tags>
         <tag>OpenGL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OSG踩坑记-默认光源</title>
-    <url>/2021/04/04/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90/</url>
-    <content><![CDATA[<p>
-  <code>OSG</code>默认光源...
-</p>
-<span id="more"></span>
-<h3 id="osg-viewer默认光源">OSG-Viewer默认光源</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_RESCALE_NORMAL, osg::StateAttribute::ON);    <span class="comment">// 法线随着模型大小变化而变化。</span></span><br><span class="line">osg::Node-&gt;getOrCreateStateSet()-&gt;setMode(GL_LIGHTING, osg::StateAttribute::OFF | osg::StateAttribute::OVERRIDE); <span class="comment">// 关闭节点光源 并遵从父节点的光照设置</span></span><br></pre></td></tr></table></figure>
-<hr />
-<h5
-id="不指定法向----仍然可以看到-光照效果-但是无法看到明暗变化"><code>不指定法向</code>
--- <font color=red>仍然可以看到 光照效果 但是无法看到明暗变化
-</font></h5>
-<h3 id="viewer-默认光源的使用">Viewer 默认光源的使用</h3>
-<h4 id="设置光照的相关的信息">1、设置光照的相关的信息</h4>
-<ul>
-<li><p><code>osg::Viewer默认存在缺省光源,但是需要进行部分设置,不然可能与你当前的场景不匹配</code></p></li>
-<li><p>你需要设置的信息包括:
-ambient、diffuse、specular、光照方向（可以不设置，使用缺省的）、光照位置、光的衰减参数。</p></li>
-</ul>
-<blockquote>
-<p>设置光照 -- <font color=Green>衰减公式</font> <span
-class="math display">\[
-F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
-\]</span></p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 获取缺省的光照</span></span><br><span class="line">osg::Light *light = viewer-&gt;getLight(); <span class="comment">// 从当前的查看器 获取光照设置 </span></span><br><span class="line">light-&gt;setAmbient(osg::Vec4(<span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">0.4</span>, <span class="number">1.0</span>));   <span class="comment">// 环境光   OPENGL的默认值是 osg::Vec3(0.2,0.2,0.2);</span></span><br><span class="line">light-&gt;setDiffuse(osg::Vec4(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1.0</span>));   <span class="comment">// 漫反射   直接来源于光源</span></span><br><span class="line">light-&gt;setSpecular(osg::Vec4(<span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">0.2</span>, <span class="number">1.0</span>));  <span class="comment">// specular   高光 此处给的很低  </span></span><br><span class="line"><span class="comment">// 由于此处我们使用的是平行光</span></span><br><span class="line"><span class="function">osg::Vec4 <span class="title">lightpos</span><span class="params">(x, y, z, <span class="number">0.0f</span>)</span></span>;   <span class="comment">// 记住: 平行光的位置的最后一个分量必须是 0 </span></span><br><span class="line">light-&gt;setPosition(lightpos);        <span class="comment">// 设置光照位置 </span></span><br><span class="line"><span class="comment">// 光照方向设置</span></span><br><span class="line"><span class="comment">// 需要用到高度角和方位角 -- 计算一个你需要方向 </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置光的衰减 -- 只设置 常量衰减的话 --   无距离衰减</span></span><br><span class="line">light-&gt;setConstantAttenuation(<span class="number">1.0f</span>);</span><br><span class="line">light-&gt;setLinearAttenuation(<span class="number">0.0f</span>);</span><br><span class="line">light-&gt;setQuadraticAttenuation(<span class="number">0.f</span>);</span><br></pre></td></tr></table></figure>
-<p><font color=red> 产生平行光，位置分量的第四分量必须是0 </font></p>
-<h4 id="对节点设置好材料属性">2、对节点设置好材料属性</h4>
-<ul>
-<li>材料的设置是针对你要显示的节点设置的、你可以创建一个材料并设置相关的颜色，这样就可以拥有一个更好的显示效果。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>GF</category>
-        <category>OSG</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>osg</tag>
       </tags>
   </entry>
   <entry>
@@ -1041,6 +1106,72 @@ OpenGL parallel projection graphics do not scale with the window
       </categories>
       <tags>
         <tag>OpenGL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Qt OpenGL Antialiasing-MSAA</title>
+    <url>/2022/08/02/Qt-OpenGL-Antialiasing-MSAA/</url>
+    <content><![CDATA[<p>
+  <code>QtOpenGL</code>MSAA算法介绍...
+</p>
+<span id="more"></span>
+<h2 id="qt-opengl-antialiasing---msaa">Qt OpenGL Antialiasing -
+MSAA</h2>
+<h3 id="锯齿是图形绘制中常见的问题">锯齿是图形绘制中常见的问题</h3>
+<ul>
+<li>这是一个采样不足然后信号丢失导致的问题</li>
+<li>经过各位前辈们的其扑后继的研究，终究是有了看起来不错的解决方案</li>
+<li>本文中我们采用一种名为<code>MSAA</code>的抗锯齿的技术</li>
+</ul>
+<h3 id="msaa"><code>MSAA</code></h3>
+<p>
+  超级采样抗锯齿（Super Sampling
+Anti-Aliasing）的原理是把当前分辨率成倍提高,然后再把画缩放到当前的显示器上。这样的做法实际上就是在显示尺寸不变的情况提高分辨率，让单个像素变得极小，这样就能够大幅减轻画面的锯齿感了。不过是由于对整个显示画面的放大，因此它消耗的显示资源也是非常大的。
+</p>
+<h3 id="qt-openggl-的-msaa"><code>Qt OpengGL</code> 的
+<code>MSAA</code></h3>
+<h4 id="走样展示">走样展示</h4>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/OpenGL/OpenGLAntialiasing.png"
+title="线的走样" alt="走样" />
+<figcaption aria-hidden="true">走样</figcaption>
+</figure>
+<h4
+id="开启qtopenglwidget的msaa">开启<code>QtOpenGLWidget</code>的<code>MSAA</code></h4>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/OpenGL/OpenGLAntialiasing-MSAA.png"
+title="MSAA" alt="MSAA" />
+<figcaption aria-hidden="true">MSAA</figcaption>
+</figure>
+<h4
+id="如何开启qtopengl的msaa">如何开启<code>QtOpenGL</code>的<code>MSAA</code></h4>
+<ul>
+<li><p><code>Qt</code>有他自己的关于<code>OpenGL</code>的封装，我们使用的<code>Qt</code>的关于<code>OpenGL</code>封装</p></li>
+<li><p>在创建<code>QOpenGLWidget</code>窗口时，在构造函数中添加如下代码：</p>
+<p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">QSurfaceFormat format;</span><br><span class="line">format.setSamples(<span class="number">4</span>);</span><br><span class="line">setFormat(format);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>setFormat</code>是窗口<code>QOpenGLWidget</code>的函数，在构造函数中使用，会给后面所有依赖的小部件设置一个默认的<code>format</code>，对于后面的小部件(窗口)，如果不做格式的修改，将会使用在构造函数中调用<code>setFormat</code>函数设置的格式作为默认格式</li>
+</ul></li>
+</ul>
+<h4 id="失败的尝试">失败的尝试</h4>
+<p>
+  我尝试，单独修改<code>QopenGLContext</code>的<code>QSurfaceFormat</code>,前面的部分是成功，我获取了当前窗口的<code>QopenGLContext</code>,修改了<code>QSurfaceFormat</code>，向其中添加了
+启用<code>MSAA</code>的代码.然后调用<code>QopenGLContext</code>的<code>create</code>函数，企图重新创建一个<code>QopenGLContext</code>，但是失败了，在初始化<code>QopenGLFunction</code>失败，
+<p style="color:red">
+暂时不知道原因,目测可能需要重新将当前窗口的绑定到重新创建后的上下文，以及调用这个上下文的<code>OpenGL</code>函数
+</p>
+</p>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>SCUU</category>
+        <category>Computer Graph</category>
+      </categories>
+      <tags>
+        <tag>OpenGL</tag>
+        <tag>Qt</tag>
       </tags>
   </entry>
   <entry>
@@ -1394,110 +1525,6 @@ OpenGL parallel projection graphics do not scale with the window
       </tags>
   </entry>
   <entry>
-    <title>QuickSort</title>
-    <url>/2021/10/28/QuickSort/</url>
-    <content><![CDATA[<p>
-  快速排序...
-</p>
-<span id="more"></span>
-<h2 id="quick-sort">Quick Sort</h2>
-<h4 id="快速排序概述">1、快速排序概述</h4>
-<ul>
-<li><p>快速排序也是采用分治的思想实现的，首先你有一组无序的数据，然后通过某种方法，取一个这组数据的中间数（M），然后对这组数据进行分组，大于M放到M的右边，小于M放到M的左边。然后通过相同的方法对这两组数分别做相同的处理，直到数据有序。</p></li>
-<li><p>伪码实现</p></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(ElementType A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(N &lt; <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> ; <span class="comment">//数据有序 不需要排序</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 计算主元 -- 将数据分组</span></span><br><span class="line">    pivot = &#123;A|A中的一个元素&#125;</span><br><span class="line">    将A（S）分成两个独立的子集&#123;A[] \ pivot&#125;；</span><br><span class="line">    A1 = &#123;a∈S|a &lt; pivot&#125;;</span><br><span class="line">    A2 = &#123;a∈S|a &gt; pivot&#125;;</span><br><span class="line">    <span class="comment">// 递归调用QuickSort</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="选主元">2、选主元</h4>
-<ul>
-<li><p>选择一个合适的主元是快速排序算法实现的关键，不能草率的取一个数作为主元。</p></li>
-<li><p>下面介绍一种主元的选取方法：</p>
-<ul>
-<li><p>取头，中，尾的中位数</p></li>
-<li><p>伪码描述： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">ElementType <span class="title">Media3</span><span class="params">(ElementType A[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> center = (left + right) / <span class="number">2</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果坐标的比中间的大</span></span><br><span class="line">    <span class="keyword">if</span>(A[left] &gt; A[center])</span><br><span class="line">    &#123;</span><br><span class="line">        Swap(&amp;A[left],&amp;A[center]);  <span class="comment">// 交换 左中的值 </span></span><br><span class="line">        <span class="comment">//此后 A[center] &gt; A[left]</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 交换后的左 依旧大于右边</span></span><br><span class="line">    <span class="keyword">if</span>(A[left] &gt; A[right])</span><br><span class="line">    &#123;</span><br><span class="line">         Swap(&amp;A[left],&amp;A[right]); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(A[center] &gt; A[right])</span><br><span class="line">    &#123;</span><br><span class="line">         Swap(&amp;A[center],&amp;A[right]); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// A[right] &gt; A[center] 此时我们将center的元素放到此位置，可以只考虑 left+1 -- right-2的元素</span></span><br><span class="line">    swap(&amp;A[center],&amp;A[right - <span class="number">1</span>]);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> A[rigjt <span class="number">-1</span> ];  <span class="comment">// 返回我们得到的主元 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-</ul>
-<h4 id="子集划分">3、子集划分</h4>
-<ul>
-<li>每次完成子集划分，主元会放到一个在全局中都正确的位置，将不会在改变。</li>
-</ul>
-<h4 id="算法实现">4、算法实现</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(ElementType A[], <span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Cutoff &lt;= right - left)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 主元</span></span><br><span class="line">        poivt = Media3(A,left,right);</span><br><span class="line">        <span class="keyword">int</span> i = left;        <span class="comment">// i 当前指向第一个元素的位置 </span></span><br><span class="line">        <span class="keyword">int</span> j = right - <span class="number">1</span>;   <span class="comment">// J 指向主元的位置 </span></span><br><span class="line">        <span class="keyword">for</span>(;;)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(A[++i] &lt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">while</span>(A[--j] &gt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j)</span><br><span class="line">            &#123;</span><br><span class="line">                swap(&amp;A[i],A[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(&amp;A[i],&amp;A[right - <span class="number">1</span>]);</span><br><span class="line">        <span class="comment">// 递归 </span></span><br><span class="line">        QuickSort(A,left,i<span class="number">-1</span>);</span><br><span class="line">        QuickSort(A,i,right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Insert_selection(A+left,right - left + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Qt OpenGL Antialiasing-MSAA</title>
-    <url>/2022/08/02/Qt-OpenGL-Antialiasing-MSAA/</url>
-    <content><![CDATA[<p>
-  <code>QtOpenGL</code>MSAA算法介绍...
-</p>
-<span id="more"></span>
-<h2 id="qt-opengl-antialiasing---msaa">Qt OpenGL Antialiasing -
-MSAA</h2>
-<h3 id="锯齿是图形绘制中常见的问题">锯齿是图形绘制中常见的问题</h3>
-<ul>
-<li>这是一个采样不足然后信号丢失导致的问题</li>
-<li>经过各位前辈们的其扑后继的研究，终究是有了看起来不错的解决方案</li>
-<li>本文中我们采用一种名为<code>MSAA</code>的抗锯齿的技术</li>
-</ul>
-<h3 id="msaa"><code>MSAA</code></h3>
-<p>
-  超级采样抗锯齿（Super Sampling
-Anti-Aliasing）的原理是把当前分辨率成倍提高,然后再把画缩放到当前的显示器上。这样的做法实际上就是在显示尺寸不变的情况提高分辨率，让单个像素变得极小，这样就能够大幅减轻画面的锯齿感了。不过是由于对整个显示画面的放大，因此它消耗的显示资源也是非常大的。
-</p>
-<h3 id="qt-openggl-的-msaa"><code>Qt OpengGL</code> 的
-<code>MSAA</code></h3>
-<h4 id="走样展示">走样展示</h4>
-<figure>
-<img
-src="https://raw.githubusercontent.com/Ranbun/images/main/blog/OpenGL/OpenGLAntialiasing.png"
-title="线的走样" alt="走样" />
-<figcaption aria-hidden="true">走样</figcaption>
-</figure>
-<h4
-id="开启qtopenglwidget的msaa">开启<code>QtOpenGLWidget</code>的<code>MSAA</code></h4>
-<figure>
-<img
-src="https://raw.githubusercontent.com/Ranbun/images/main/blog/OpenGL/OpenGLAntialiasing-MSAA.png"
-title="MSAA" alt="MSAA" />
-<figcaption aria-hidden="true">MSAA</figcaption>
-</figure>
-<h4
-id="如何开启qtopengl的msaa">如何开启<code>QtOpenGL</code>的<code>MSAA</code></h4>
-<ul>
-<li><p><code>Qt</code>有他自己的关于<code>OpenGL</code>的封装，我们使用的<code>Qt</code>的关于<code>OpenGL</code>封装</p></li>
-<li><p>在创建<code>QOpenGLWidget</code>窗口时，在构造函数中添加如下代码：</p>
-<p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">QSurfaceFormat format;</span><br><span class="line">format.setSamples(<span class="number">4</span>);</span><br><span class="line">setFormat(format);</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><code>setFormat</code>是窗口<code>QOpenGLWidget</code>的函数，在构造函数中使用，会给后面所有依赖的小部件设置一个默认的<code>format</code>，对于后面的小部件(窗口)，如果不做格式的修改，将会使用在构造函数中调用<code>setFormat</code>函数设置的格式作为默认格式</li>
-</ul></li>
-</ul>
-<h4 id="失败的尝试">失败的尝试</h4>
-<p>
-  我尝试，单独修改<code>QopenGLContext</code>的<code>QSurfaceFormat</code>,前面的部分是成功，我获取了当前窗口的<code>QopenGLContext</code>,修改了<code>QSurfaceFormat</code>，向其中添加了
-启用<code>MSAA</code>的代码.然后调用<code>QopenGLContext</code>的<code>create</code>函数，企图重新创建一个<code>QopenGLContext</code>，但是失败了，在初始化<code>QopenGLFunction</code>失败，
-<p style="color:red">
-暂时不知道原因,目测可能需要重新将当前窗口的绑定到重新创建后的上下文，以及调用这个上下文的<code>OpenGL</code>函数
-</p>
-</p>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>SCUU</category>
-        <category>Computer Graph</category>
-      </categories>
-      <tags>
-        <tag>OpenGL</tag>
-        <tag>Qt</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Qt Connect</title>
     <url>/2022/07/29/Qt-Signals-And-Slots/</url>
     <content><![CDATA[<p>
@@ -1732,6 +1759,44 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
       <tags>
         <tag>cpp</tag>
         <tag>Qt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>QuickSort</title>
+    <url>/2021/10/28/QuickSort/</url>
+    <content><![CDATA[<p>
+  快速排序...
+</p>
+<span id="more"></span>
+<h2 id="quick-sort">Quick Sort</h2>
+<h4 id="快速排序概述">1、快速排序概述</h4>
+<ul>
+<li><p>快速排序也是采用分治的思想实现的，首先你有一组无序的数据，然后通过某种方法，取一个这组数据的中间数（M），然后对这组数据进行分组，大于M放到M的右边，小于M放到M的左边。然后通过相同的方法对这两组数分别做相同的处理，直到数据有序。</p></li>
+<li><p>伪码实现</p></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(ElementType A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(N &lt; <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> ; <span class="comment">//数据有序 不需要排序</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 计算主元 -- 将数据分组</span></span><br><span class="line">    pivot = &#123;A|A中的一个元素&#125;</span><br><span class="line">    将A（S）分成两个独立的子集&#123;A[] \ pivot&#125;；</span><br><span class="line">    A1 = &#123;a∈S|a &lt; pivot&#125;;</span><br><span class="line">    A2 = &#123;a∈S|a &gt; pivot&#125;;</span><br><span class="line">    <span class="comment">// 递归调用QuickSort</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="选主元">2、选主元</h4>
+<ul>
+<li><p>选择一个合适的主元是快速排序算法实现的关键，不能草率的取一个数作为主元。</p></li>
+<li><p>下面介绍一种主元的选取方法：</p>
+<ul>
+<li><p>取头，中，尾的中位数</p></li>
+<li><p>伪码描述： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">ElementType <span class="title">Media3</span><span class="params">(ElementType A[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> center = (left + right) / <span class="number">2</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果坐标的比中间的大</span></span><br><span class="line">    <span class="keyword">if</span>(A[left] &gt; A[center])</span><br><span class="line">    &#123;</span><br><span class="line">        Swap(&amp;A[left],&amp;A[center]);  <span class="comment">// 交换 左中的值 </span></span><br><span class="line">        <span class="comment">//此后 A[center] &gt; A[left]</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 交换后的左 依旧大于右边</span></span><br><span class="line">    <span class="keyword">if</span>(A[left] &gt; A[right])</span><br><span class="line">    &#123;</span><br><span class="line">         Swap(&amp;A[left],&amp;A[right]); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(A[center] &gt; A[right])</span><br><span class="line">    &#123;</span><br><span class="line">         Swap(&amp;A[center],&amp;A[right]); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// A[right] &gt; A[center] 此时我们将center的元素放到此位置，可以只考虑 left+1 -- right-2的元素</span></span><br><span class="line">    swap(&amp;A[center],&amp;A[right - <span class="number">1</span>]);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> A[rigjt <span class="number">-1</span> ];  <span class="comment">// 返回我们得到的主元 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+</ul>
+<h4 id="子集划分">3、子集划分</h4>
+<ul>
+<li>每次完成子集划分，主元会放到一个在全局中都正确的位置，将不会在改变。</li>
+</ul>
+<h4 id="算法实现">4、算法实现</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(ElementType A[], <span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Cutoff &lt;= right - left)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 主元</span></span><br><span class="line">        poivt = Media3(A,left,right);</span><br><span class="line">        <span class="keyword">int</span> i = left;        <span class="comment">// i 当前指向第一个元素的位置 </span></span><br><span class="line">        <span class="keyword">int</span> j = right - <span class="number">1</span>;   <span class="comment">// J 指向主元的位置 </span></span><br><span class="line">        <span class="keyword">for</span>(;;)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(A[++i] &lt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">while</span>(A[--j] &gt; poivt)&#123;&#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j)</span><br><span class="line">            &#123;</span><br><span class="line">                swap(&amp;A[i],A[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(&amp;A[i],&amp;A[right - <span class="number">1</span>]);</span><br><span class="line">        <span class="comment">// 递归 </span></span><br><span class="line">        QuickSort(A,left,i<span class="number">-1</span>);</span><br><span class="line">        QuickSort(A,i,right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Insert_selection(A+left,right - left + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
       </tags>
   </entry>
   <entry>
@@ -2281,6 +2346,35 @@ class="math inline">\(\vec{t} \times \vec{g}\)</span></li>
       </tags>
   </entry>
   <entry>
+    <title>Boy</title>
+    <url>/2021/03/16/baozi/</url>
+    <content><![CDATA[<h4 id="about-this-blog">About this Blog</h4>
+<ul>
+<li>个人博客，分享我的日常与一些工作内容</li>
+</ul>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>bun</category>
+        <category>life</category>
+      </categories>
+      <tags>
+        <tag>intraduce</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cmake 文件操作</title>
+    <url>/2022/09/10/cmake-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="cmake-文件操作"><code>cmake</code> 文件操作</h1>
+]]></content>
+      <categories>
+        <category>CMake</category>
+      </categories>
+      <tags>
+        <tag>fileSystem</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>简单排序-冒泡&amp;插入</title>
     <url>/2021/10/19/sort-bubble-insertion/</url>
     <content><![CDATA[<p>
@@ -2596,23 +2690,6 @@ src="https://raw.githubusercontent.com/Ranbun/images/main/cpp/vs_Layout_to_class
       </tags>
   </entry>
   <entry>
-    <title>Boy</title>
-    <url>/2021/03/16/baozi/</url>
-    <content><![CDATA[<h4 id="about-this-blog">About this Blog</h4>
-<ul>
-<li>个人博客，分享我的日常与一些工作内容</li>
-</ul>
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>bun</category>
-        <category>life</category>
-      </categories>
-      <tags>
-        <tag>intraduce</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>微信多开</title>
     <url>/2022/02/28/%E5%BE%AE%E4%BF%A1%E5%A4%9A%E5%BC%80/</url>
     <content><![CDATA[<p>
@@ -2656,6 +2733,12 @@ private member declared in class</h2>
       <tags>
         <tag>cpp</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>模型变换-模型矩阵计算</title>
+    <url>/2022/09/10/%E6%A8%A1%E5%9E%8B%E5%8F%98%E6%8D%A2-%E6%A8%A1%E5%9E%8B%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[
+]]></content>
   </entry>
   <entry>
     <title>第一次换工作</title>
@@ -2847,16 +2930,47 @@ title="virtual table 2" alt="virtual table 2" />
   <entry>
     <title>设计模式-单例模式</title>
     <url>/2022/08/19/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<p>
-  设计模式之单例模式...
-</p>
-<span id="more"></span>
-<h1 id="单例模式">单例模式</h1>
+    <content><![CDATA[<p>考虑某种场景，我们需要一个工具类，对于所有模块提供同样的接口与数据，但是如果每个模块使用这个类的功能的时候都创建一整个类，此种行为虽说是合法的，但并不是最好的选择，我们可以通过单例设计模式，将这个类变为一个单例，我们每一次创建这个类的实例的时候，都只是获取之前创建的，从而调用相应的功能。
+<span id="more"></span></p>
+<h2 id="单例模式">单例模式</h2>
 <ul>
-<li>考虑某种场景，我们需要一个工具类，对于所有模块提供同样的接口与数据，但是如果每个模块使用这个类的功能的时候都创建一整个类，此种行为虽说是合法的，但并不是最好的选择，我们可以通过单例设计模式，将这个类变为一个单例，我们每一次创建这个类的实例的时候，都只是获取之前创建的，从而调用相应的功能。</li>
+<li>单线程版本</li>
+<li>多线程版本</li>
+<li>双检查锁</li>
+<li><code>C++11</code>之后的版本</li>
+<li><code>std::call_once</code></li>
 </ul>
-<h2 id="简单实现">简单实现</h2>
+<h3 id="实现">实现</h3>
+<ul>
+<li>单线程版本
+<ul>
+<li>此版本只是单线程安全</li>
+</ul></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">static</span> Singleton * <span class="title">getInstance</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!m_singleton)</span><br><span class="line">        &#123;</span><br><span class="line">            m_singleton = <span class="keyword">new</span> Singleton;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> m_singleton;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">sprivate:</span><br><span class="line">    Singleton() = <span class="keyword">default</span>;</span><br><span class="line">    Singleton* m_singleton&#123;<span class="literal">nullptr</span>&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>多线程版本</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mutex&gt;</span></span></span><br><span class="line"><span class="built_in">std</span>::mutex m_mutex;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">static</span> Singleton* <span class="title">getInstance</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">std</span>::unique_lock&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">lock</span><span class="params">(m_mutex)</span></span>;</span><br><span class="line">        <span class="keyword">if</span> (!m_singleton)</span><br><span class="line">        &#123;</span><br><span class="line">            m_singleton = <span class="keyword">new</span> Singleton;</span><br><span class="line">        &#125;</span><br><span class="line">        lock.unlock();</span><br><span class="line">        lock.release();</span><br><span class="line">        <span class="keyword">return</span> m_singleton;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Singleton() = <span class="keyword">default</span>;</span><br><span class="line">    Singleton* m_singleton&#123; <span class="literal">nullptr</span> &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>多线程版本优化版 - 双检查锁</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mutex&gt;</span></span></span><br><span class="line"><span class="built_in">std</span>::mutex m_mutex;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">static</span> Singleton* <span class="title">getInstance</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!m_singleton)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="function"><span class="built_in">std</span>::unique_lock&lt;<span class="built_in">std</span>::mutex&gt; <span class="title">lock</span><span class="params">(m_mutex)</span></span>;</span><br><span class="line">            <span class="keyword">if</span> (!m_singleton)</span><br><span class="line">            &#123;</span><br><span class="line">                m_singleton = <span class="keyword">new</span> Singleton;</span><br><span class="line">            &#125;</span><br><span class="line">            lock.unlock();</span><br><span class="line">            lock.release();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> m_singleton;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Singleton() = <span class="keyword">default</span>;</span><br><span class="line">    Singleton* m_singleton&#123; <span class="literal">nullptr</span> &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>C++11</code>版本</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">static</span> Singleton&amp; <span class="title">getInstance</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">static</span> Singleton m_instance;</span><br><span class="line">        <span class="keyword">return</span> m_instance;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Singleton() = <span class="keyword">default</span>;</span><br><span class="line">    Singleton(<span class="keyword">const</span> Singleton&amp; another) = <span class="keyword">delete</span>;</span><br><span class="line">    Singleton(<span class="keyword">const</span> Singleton&amp;&amp; another) = <span class="keyword">delete</span>;</span><br><span class="line">    Singleton&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Singleton&amp; another) = <span class="keyword">delete</span>;</span><br><span class="line">    Singleton&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Singleton&amp;&amp; another) = <span class="keyword">delete</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>std::call_once</code></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mutex&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="built_in">std</span>::once_flag flag;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">static</span> Singleton&amp; <span class="title">getInstance</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">std</span>::call_once(flag, []() &#123;m_instance.reset(<span class="keyword">new</span> Singleton()); &#125;);</span><br><span class="line">        <span class="keyword">return</span> *m_instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Singleton() = <span class="keyword">default</span>;</span><br><span class="line">    Singleton(<span class="keyword">const</span> Singleton&amp; another) = <span class="keyword">delete</span>;</span><br><span class="line">    Singleton(<span class="keyword">const</span> Singleton&amp;&amp; another) = <span class="keyword">delete</span>;</span><br><span class="line">    Singleton&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Singleton&amp; another) = <span class="keyword">delete</span>;</span><br><span class="line">    Singleton&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Singleton&amp;&amp; another) = <span class="keyword">delete</span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;Singleton&gt; m_instance;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;Singleton&gt; Singleton::m_instance;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>Design Patterns</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+      </tags>
   </entry>
   <entry>
     <title>设计模式-工厂模式</title>
@@ -2907,5 +3021,11 @@ title="virtual table 2" alt="virtual table 2" />
         <tag>conclusion</tag>
         <tag>university</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>透视矩阵计算</title>
+    <url>/2022/09/08/%E9%80%8F%E8%A7%86%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[
+]]></content>
   </entry>
 </search>
