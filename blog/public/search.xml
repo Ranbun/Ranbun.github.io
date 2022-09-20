@@ -294,53 +294,6 @@ N时差不多是一个线性复杂度的算法)</li>
       </tags>
   </entry>
   <entry>
-    <title>Cplusplus key words - extern</title>
-    <url>/2022/08/08/Cplusplus-key-words-extern/</url>
-    <content><![CDATA[<p>
-  <code>cpp</code>关键词之<code>extern</code>...
-</p>
-<span id="more"></span>
-<center>
-<h2>
-<code>extern</code>关键字
-</h2>
-</center>
-<h2 id="extern-初解"><code>Extern</code> 初解</h2>
-<ul>
-<li>关于<code>extern</code>关键字可以应用于全局变量、函数或模板声明。它指定符号具有外部链接性质。
-<ul>
-<li>在非const 全局变量声明中， extern
-指定变量或函数在另一个转换单元中定义。
-extern必须在定义变量的所有文件中应用该变量。</li>
-<li>const在变量声明中，它指定变量具有 external 链接。
-extern必须应用于所有文件中的所有声明。 默认情况下， (全局 const
-变量具有内部链接。)</li>
-<li>extern "C" 指定函数在别处定义并使用 C 语言调用约定。 extern
-"C"修饰符也可能应用于块中的多个函数声明。</li>
-<li>在模板声明中， extern 指定模板已在其他位置实例化。 extern
-告知编译器它可以重复使用另一个实例化，而不是在当前位置创建新实例。
-有关此用法 extern的详细信息，请参阅 显式实例化。</li>
-</ul></li>
-</ul>
-<h2 id="extern的使用"><code>Extern</code>的使用</h2>
-<ul>
-<li>小案例</li>
-<li><code>extern var</code></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">头文件</span><br><span class="line">---</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> EXTERN_TEST_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> EXTERN_TEST_H</span></span><br><span class="line"><span class="comment">/// extern 变量与函数</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> extern_text_var;</span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// EXTERN_TEST_H</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">cpp 文件</span><br><span class="line">--- </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;KeyWordsExtern.h&quot;</span></span></span><br><span class="line"><span class="keyword">int</span> extern_text_var = <span class="number">100</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">使用导出变量</span><br><span class="line">---</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;KeyWordsExtern.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> extern_text_var;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printExternVar</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;current: &quot;</span> &lt;&lt; extern_text_var &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    extern_text_var = <span class="number">200</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;do update: &quot;</span> &lt;&lt;extern_text_var &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">main.cpp</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;TestExtern.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;KeyWordsExtern.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    printExternVar();</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;add result: &quot;</span>&lt;&lt;add(<span class="number">10</span>, <span class="number">30</span>)&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">输出</span><br><span class="line">---</span><br><span class="line">current: <span class="number">100</span></span><br><span class="line"><span class="keyword">do</span> update: <span class="number">200</span></span><br><span class="line">add result: <span class="number">40</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>cpp</category>
-      </categories>
-      <tags>
-        <tag>key words</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Bug奇遇记-uint16_t</title>
     <url>/2021/03/19/Bug%E5%A5%87%E9%81%87%E8%AE%B0-uint16-t/</url>
     <content><![CDATA[<p>
@@ -388,6 +341,53 @@ title="Result" alt="right result" />
       <tags>
         <tag>cpp</tag>
         <tag>osg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cplusplus key words - extern</title>
+    <url>/2022/08/08/Cplusplus-key-words-extern/</url>
+    <content><![CDATA[<p>
+  <code>cpp</code>关键词之<code>extern</code>...
+</p>
+<span id="more"></span>
+<center>
+<h2>
+<code>extern</code>关键字
+</h2>
+</center>
+<h2 id="extern-初解"><code>Extern</code> 初解</h2>
+<ul>
+<li>关于<code>extern</code>关键字可以应用于全局变量、函数或模板声明。它指定符号具有外部链接性质。
+<ul>
+<li>在非const 全局变量声明中， extern
+指定变量或函数在另一个转换单元中定义。
+extern必须在定义变量的所有文件中应用该变量。</li>
+<li>const在变量声明中，它指定变量具有 external 链接。
+extern必须应用于所有文件中的所有声明。 默认情况下， (全局 const
+变量具有内部链接。)</li>
+<li>extern "C" 指定函数在别处定义并使用 C 语言调用约定。 extern
+"C"修饰符也可能应用于块中的多个函数声明。</li>
+<li>在模板声明中， extern 指定模板已在其他位置实例化。 extern
+告知编译器它可以重复使用另一个实例化，而不是在当前位置创建新实例。
+有关此用法 extern的详细信息，请参阅 显式实例化。</li>
+</ul></li>
+</ul>
+<h2 id="extern的使用"><code>Extern</code>的使用</h2>
+<ul>
+<li>小案例</li>
+<li><code>extern var</code></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">头文件</span><br><span class="line">---</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> EXTERN_TEST_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> EXTERN_TEST_H</span></span><br><span class="line"><span class="comment">/// extern 变量与函数</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> extern_text_var;</span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// EXTERN_TEST_H</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">cpp 文件</span><br><span class="line">--- </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;KeyWordsExtern.h&quot;</span></span></span><br><span class="line"><span class="keyword">int</span> extern_text_var = <span class="number">100</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">使用导出变量</span><br><span class="line">---</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;KeyWordsExtern.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> extern_text_var;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printExternVar</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;current: &quot;</span> &lt;&lt; extern_text_var &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    extern_text_var = <span class="number">200</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;do update: &quot;</span> &lt;&lt;extern_text_var &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">main.cpp</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;TestExtern.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;KeyWordsExtern.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    printExternVar();</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;add result: &quot;</span>&lt;&lt;add(<span class="number">10</span>, <span class="number">30</span>)&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">输出</span><br><span class="line">---</span><br><span class="line">current: <span class="number">100</span></span><br><span class="line"><span class="keyword">do</span> update: <span class="number">200</span></span><br><span class="line">add result: <span class="number">40</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>cpp</category>
+      </categories>
+      <tags>
+        <tag>key words</tag>
       </tags>
   </entry>
   <entry>
@@ -631,6 +631,21 @@ C++ 实现  </a></p>
       </tags>
   </entry>
   <entry>
+    <title>OBB与OBB求交</title>
+    <url>/2022/09/08/OBB%E4%B8%8EOBB%E6%B1%82%E4%BA%A4/</url>
+    <content><![CDATA[<p><code>OBB</code>与<code>OBB</code>的求交,此处我们将会介绍两个<code>OBB</code>的求交计算。以及一些基本概念......</p>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>Computer Graphics</category>
+      </categories>
+      <tags>
+        <tag>OBB</tag>
+        <tag>Intersect</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OBB与Ray求交</title>
     <url>/2022/09/08/OBB%E4%B8%8ERay%E6%B1%82%E4%BA%A4/</url>
     <content><![CDATA[
@@ -679,21 +694,6 @@ class="math inline">\(\vec{d}\)</span></li>
 <li><span class="math inline">\(P_0 = O + \vec{d}\)</span></li>
 </ul></li>
 </ul>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-        <category>Computer Graphics</category>
-      </categories>
-      <tags>
-        <tag>OBB</tag>
-        <tag>Intersect</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OBB与OBB求交</title>
-    <url>/2022/09/08/OBB%E4%B8%8EOBB%E6%B1%82%E4%BA%A4/</url>
-    <content><![CDATA[<p><code>OBB</code>与<code>OBB</code>的求交,此处我们将会介绍两个<code>OBB</code>的求交计算。以及一些基本概念......</p>
-<span id="more"></span>
 ]]></content>
       <categories>
         <category>Algorithm</category>
@@ -1803,36 +1803,6 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
       </tags>
   </entry>
   <entry>
-    <title>Selection_sort</title>
-    <url>/2021/10/25/Selection-sort/</url>
-    <content><![CDATA[<p>
-  选择排序...
-</p>
-<span id="more"></span>
-<h2 id="选择排序">选择排序</h2>
-<ul>
-<li><p>选择排序，每次从无序的数据中选择一个<code>最大的</code>或者是<code>最小的</code>,放到合适的位置。</p></li>
-<li><p>代码实现：</p>
-<p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这里为了使用最大堆-我们倒着排序 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Selection_Sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i = N<span class="number">-1</span>;i &gt;= <span class="number">0</span>；i--)</span><br><span class="line">    &#123;</span><br><span class="line">    	  max_postion = scanForMax(A,<span class="number">0</span>,i); <span class="comment">//获取最大元素的下标 </span></span><br><span class="line">          swap(&amp;A[i],&amp;A[max_position]);    <span class="comment">// 交换元素    </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p><code>scanForMax</code></p>
-<ul>
-<li>查找当前无序元素中最大的元素，并返回元素的下标
-<ul>
-<li>常规下，直接对数组元素进行扫描，时间复杂度<code>O(N)</code>,整个算法的时间复杂度<code>T=O(N^2)</code></li>
-<li>优化方案：如何快速找到最大值 -- 最大堆or最小堆。</li>
-</ul></li>
-</ul></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Shell-Sort</title>
     <url>/2021/10/26/Shell-Sort/</url>
     <content><![CDATA[<p>
@@ -1854,6 +1824,36 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
 <ul>
 <li>复杂度分析：
 当所有大于的增量的序列的数据都是有序的时候，所有的交换操作都会在增量为1的时候执行，这回导致一个不怎么好的结果，时间复杂度会达到<code>O(N^2)</code>。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Selection_sort</title>
+    <url>/2021/10/25/Selection-sort/</url>
+    <content><![CDATA[<p>
+  选择排序...
+</p>
+<span id="more"></span>
+<h2 id="选择排序">选择排序</h2>
+<ul>
+<li><p>选择排序，每次从无序的数据中选择一个<code>最大的</code>或者是<code>最小的</code>,放到合适的位置。</p></li>
+<li><p>代码实现：</p>
+<p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这里为了使用最大堆-我们倒着排序 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Selection_Sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i = N<span class="number">-1</span>;i &gt;= <span class="number">0</span>；i--)</span><br><span class="line">    &#123;</span><br><span class="line">    	  max_postion = scanForMax(A,<span class="number">0</span>,i); <span class="comment">//获取最大元素的下标 </span></span><br><span class="line">          swap(&amp;A[i],&amp;A[max_position]);    <span class="comment">// 交换元素    </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>scanForMax</code></p>
+<ul>
+<li>查找当前无序元素中最大的元素，并返回元素的下标
+<ul>
+<li>常规下，直接对数组元素进行扫描，时间复杂度<code>O(N)</code>,整个算法的时间复杂度<code>T=O(N^2)</code></li>
+<li>优化方案：如何快速找到最大值 -- 最大堆or最小堆。</li>
+</ul></li>
+</ul></li>
 </ul>
 ]]></content>
       <categories>
@@ -1946,107 +1946,6 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
       <tags>
         <tag>cpp</tag>
         <tag>pointer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>View/Camera Transformation</title>
-    <url>/2022/08/19/View-Camera-Transformation/</url>
-    <content><![CDATA[<p>
-  计算机图形学的视图变换过程的解析...
-</p>
-<span id="more"></span>
-<h1 id="视图变换">视图变换</h1>
-<ul>
-<li>视图变换是将所有世界空间中的点，变换到视图空间下的操作
-<ul>
-<li>这种变换，我们通过矩阵可以轻易的完成，但是我们首先需要计算一个描述这种变换的矩阵</li>
-</ul></li>
-<li>在一般的实现中，我们将视图变换的过程抽象出了一个相机的概念
-<ul>
-<li>本身而言在图形学中是没有相机这个概念的</li>
-</ul></li>
-</ul>
-<h2 id="视图变换-变换过程">视图变换-变换过程</h2>
-<ul>
-<li>从顶点构建到最终渲染成一张二维的图片，在行业中大家将之类比为拍照的行为
-<ul>
-<li>模型变换 - 取景的过程</li>
-<li><font color=red>视图变换 - 摆放相机的过程</font></li>
-<li>......</li>
-<li>此处我们只是讨论视图变换的过程</li>
-</ul></li>
-</ul>
-<h3 id="定义一个相机">定义一个相机</h3>
-<figure>
-<img
-src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer%20graph/define_cameracamera.png"
-title="define camera" alt="camera" />
-<figcaption aria-hidden="true">camera</figcaption>
-</figure>
-<ul>
-<li>对于上述的那个拍照的行为，我们要拍摄这个摆放好的景物，关于相机我们只需要关心三个方面。
-<ul>
-<li>我们基于<font color=red>右手系</font>考虑下面的这些信息</li>
-<li>相机的位置 <span class="math inline">\(e\)</span> -&gt; <span
-class="math inline">\(eye\)</span> = $x,y,z,1$</li>
-<li>相机的看的方向，既相机的拍摄方向 <span
-class="math inline">\(\vec{dir}\)</span> - <code>lookAt direction</code>
-$x,y,z,0 $</li>
-<li>相机的上方向 <span class="math inline">\(\vec{up}\)</span> = <span
-class="math inline">\(\lbrace x,y,z,1\rbrace\)</span>
-<ul>
-<li>大概是手机横屏与竖屏的区别</li>
-</ul></li>
-</ul></li>
-<li>我们获得一个观察方向,一个向上的方向
-<ul>
-<li>观察方向与向上方向垂直</li>
-<li>通过叉积我们可以得到一个向右的方向<span
-class="math inline">\(\vec{right}\)</span></li>
-</ul></li>
-</ul>
-<p style="color:red">
-  
-从拍照的行为来看，相机的观察方向是指向模型摆放的位置，我们保持两个物体的相对位置关系(相机与场景)，相机做了某种变换，模型也跟着做同样的变换。基于这种相对位置的变化，我们约定，将相机永远变换到原点，相机的观察方向永远是
-<code> -z </code>方向,以此我们构建一个坐标系
-</p>
-<p><img id="view_coordinate" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer graph/camera构建坐标系.png"/></p>
-<h2 id="计算视图变换矩阵">计算视图变换矩阵</h2>
-<p><img id="旋转矩阵构建" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer%20graph/旋转矩阵的构建.png"/></p>
-<ul>
-<li>我们将以相机定义的坐标框架通过旋转与平移将之与世界空间的坐标重合
-<ul>
-<li><span class="math inline">\(\vec{g}\)</span> -&gt; $ $</li>
-<li><span class="math inline">\(\vec{t}\)</span> -&gt; $ $</li>
-<li><span class="math inline">\(\vec{t} \times \vec{g}\)</span> -&gt;
-<span class="math inline">\({\vec{X}}\)</span></li>
-<li><font color=red>但是我们要做到上面的事情比较困难，换一种思路，我们做相反的事情</font></li>
-</ul></li>
-<li>我们将世界空间的坐标通过旋转&amp;平移将之与相机定义的坐标系重合
-<ul>
-<li><span class="math inline">\(\vec{Y}\)</span> -&gt; <span
-class="math inline">\(\vec{t}\)</span></li>
-<li><span class="math inline">\(\vec{-Z}\)</span> -&gt; <span
-class="math inline">\(\vec{g}\)</span></li>
-<li><span class="math inline">\({\vec{X}}\)</span> -&gt; <span
-class="math inline">\(\vec{t} \times \vec{g}\)</span></li>
-</ul></li>
-<li>构建一个旋转矩阵的逆矩阵，然后计算逆矩阵的逆便得到我们想要的矩阵。
-<ul>
-<li>由于坐标系的三个轴是正交的，我们只需要将矩阵转置就可以得到这个旋转矩阵。</li>
-</ul></li>
-<li>将旋转矩阵与平移矩阵乘起来，就得到想要的试图变换矩阵</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer graph/旋转矩阵计算.jpg"/></p>
-<p style="color:pink">
-<p>   上述过程描述了视图变换的过程与视图矩阵的计算。</p>
-</p>
-]]></content>
-      <categories>
-        <category>Computer Graph</category>
-      </categories>
-      <tags>
-        <tag>Base</tag>
       </tags>
   </entry>
   <entry>
@@ -2346,6 +2245,107 @@ class="math inline">\(\vec{t} \times \vec{g}\)</span></li>
       <tags>
         <tag>cpp</tag>
         <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>View/Camera Transformation</title>
+    <url>/2022/08/19/View-Camera-Transformation/</url>
+    <content><![CDATA[<p>
+  计算机图形学的视图变换过程的解析...
+</p>
+<span id="more"></span>
+<h1 id="视图变换">视图变换</h1>
+<ul>
+<li>视图变换是将所有世界空间中的点，变换到视图空间下的操作
+<ul>
+<li>这种变换，我们通过矩阵可以轻易的完成，但是我们首先需要计算一个描述这种变换的矩阵</li>
+</ul></li>
+<li>在一般的实现中，我们将视图变换的过程抽象出了一个相机的概念
+<ul>
+<li>本身而言在图形学中是没有相机这个概念的</li>
+</ul></li>
+</ul>
+<h2 id="视图变换-变换过程">视图变换-变换过程</h2>
+<ul>
+<li>从顶点构建到最终渲染成一张二维的图片，在行业中大家将之类比为拍照的行为
+<ul>
+<li>模型变换 - 取景的过程</li>
+<li><font color=red>视图变换 - 摆放相机的过程</font></li>
+<li>......</li>
+<li>此处我们只是讨论视图变换的过程</li>
+</ul></li>
+</ul>
+<h3 id="定义一个相机">定义一个相机</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer%20graph/define_cameracamera.png"
+title="define camera" alt="camera" />
+<figcaption aria-hidden="true">camera</figcaption>
+</figure>
+<ul>
+<li>对于上述的那个拍照的行为，我们要拍摄这个摆放好的景物，关于相机我们只需要关心三个方面。
+<ul>
+<li>我们基于<font color=red>右手系</font>考虑下面的这些信息</li>
+<li>相机的位置 <span class="math inline">\(e\)</span> -&gt; <span
+class="math inline">\(eye\)</span> = $x,y,z,1$</li>
+<li>相机的看的方向，既相机的拍摄方向 <span
+class="math inline">\(\vec{dir}\)</span> - <code>lookAt direction</code>
+$x,y,z,0 $</li>
+<li>相机的上方向 <span class="math inline">\(\vec{up}\)</span> = <span
+class="math inline">\(\lbrace x,y,z,1\rbrace\)</span>
+<ul>
+<li>大概是手机横屏与竖屏的区别</li>
+</ul></li>
+</ul></li>
+<li>我们获得一个观察方向,一个向上的方向
+<ul>
+<li>观察方向与向上方向垂直</li>
+<li>通过叉积我们可以得到一个向右的方向<span
+class="math inline">\(\vec{right}\)</span></li>
+</ul></li>
+</ul>
+<p style="color:red">
+  
+从拍照的行为来看，相机的观察方向是指向模型摆放的位置，我们保持两个物体的相对位置关系(相机与场景)，相机做了某种变换，模型也跟着做同样的变换。基于这种相对位置的变化，我们约定，将相机永远变换到原点，相机的观察方向永远是
+<code> -z </code>方向,以此我们构建一个坐标系
+</p>
+<p><img id="view_coordinate" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer graph/camera构建坐标系.png"/></p>
+<h2 id="计算视图变换矩阵">计算视图变换矩阵</h2>
+<p><img id="旋转矩阵构建" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer%20graph/旋转矩阵的构建.png"/></p>
+<ul>
+<li>我们将以相机定义的坐标框架通过旋转与平移将之与世界空间的坐标重合
+<ul>
+<li><span class="math inline">\(\vec{g}\)</span> -&gt; $ $</li>
+<li><span class="math inline">\(\vec{t}\)</span> -&gt; $ $</li>
+<li><span class="math inline">\(\vec{t} \times \vec{g}\)</span> -&gt;
+<span class="math inline">\({\vec{X}}\)</span></li>
+<li><font color=red>但是我们要做到上面的事情比较困难，换一种思路，我们做相反的事情</font></li>
+</ul></li>
+<li>我们将世界空间的坐标通过旋转&amp;平移将之与相机定义的坐标系重合
+<ul>
+<li><span class="math inline">\(\vec{Y}\)</span> -&gt; <span
+class="math inline">\(\vec{t}\)</span></li>
+<li><span class="math inline">\(\vec{-Z}\)</span> -&gt; <span
+class="math inline">\(\vec{g}\)</span></li>
+<li><span class="math inline">\({\vec{X}}\)</span> -&gt; <span
+class="math inline">\(\vec{t} \times \vec{g}\)</span></li>
+</ul></li>
+<li>构建一个旋转矩阵的逆矩阵，然后计算逆矩阵的逆便得到我们想要的矩阵。
+<ul>
+<li>由于坐标系的三个轴是正交的，我们只需要将矩阵转置就可以得到这个旋转矩阵。</li>
+</ul></li>
+<li>将旋转矩阵与平移矩阵乘起来，就得到想要的试图变换矩阵</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer graph/旋转矩阵计算.jpg"/></p>
+<p style="color:pink">
+<p>   上述过程描述了视图变换的过程与视图矩阵的计算。</p>
+</p>
+]]></content>
+      <categories>
+        <category>Computer Graph</category>
+      </categories>
+      <tags>
+        <tag>Base</tag>
       </tags>
   </entry>
   <entry>
@@ -2744,6 +2744,47 @@ private member declared in class</h2>
 ]]></content>
   </entry>
   <entry>
+    <title>第一次换工作</title>
+    <url>/2021/10/17/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%80%BB%E7%BB%93_%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%8D%A2%E5%B7%A5%E4%BD%9C/</url>
+    <content><![CDATA[<p>
+  而二分工作的小总结，北京...
+</p>
+<span id="more"></span>
+<h3 id="section"></h3>
+<p><code>前记：</code></p>
+<p><img src="https://raw.githubusercontent.com/Ranbun/images/main/works/GF/GF_Workspace.JPG"/></p>
+<p>    从辞职到新公司，过去了快两个月时间，经过这大段的时间，度过了试用期，开始接手往后日子里要进行的工作。</p>
+<p> 
+   新工作是关于<code>C++　&amp;　OSG</code>的，做一个仿真软件，主要负责一些关于<code>osg</code>的渲染工作，和其中部分界面的编写，项目用到的还算是熟悉的东西：</p>
+<ul>
+<li><code>Qt</code>编写整个软件的界面</li>
+<li><code>osg</code>负责整个3D图形的展示</li>
+</ul>
+<p>  关于这个项目遇到的一些问题：</p>
+<ul>
+<li><code>osg</code>编译劝退</li>
+</ul>
+<p>    讲真，<code>osg</code>的库的编译相当劝退，各种库的依赖关系，以及<code>VS</code>的工具链的选择，以及部分库的调试模式的选择。</p>
+<p>这里推荐<a ref=https://freesouth.blog.csdn.net/>杨石兴的博客</a>详细介绍了OSG的编译的一些问题，同时它提供了编译使用的所有的依赖包，各种工具集的版本。</p>
+<ul>
+<li><code>osg</code>与<code>Qt</code>的集成</li>
+</ul>
+<p>    要求你先编译<code>osg</code>然后才能编译，<code>osgQt</code>在<code>osg3.4</code>之后的版本中便被从原来的库中剔除，需要自己单独编译，</p>
+<p>同时<code>Qt4.0</code>的版本与<code>5.0</code>的版本编译使用的<code>Qt</code>的类也存在一些区别。</p>
+<p>当前阶段，上面提到的这些问题，我们已经解决了，新一番的问题产生了：</p>
+<ul>
+<li>在于不同的团队合作的时候，如何扯皮！</li>
+</ul>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>HJ</category>
+      </categories>
+      <tags>
+        <tag>conclusion</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>渲染(CAD)</title>
     <url>/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95_CAD%E6%B8%B2%E6%9F%93/</url>
     <content><![CDATA[<p>
@@ -2836,47 +2877,6 @@ private member declared in class</h2>
         <tag>cpp</tag>
         <tag>openGL</tag>
         <tag>computer graphics</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第一次换工作</title>
-    <url>/2021/10/17/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%80%BB%E7%BB%93_%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%8D%A2%E5%B7%A5%E4%BD%9C/</url>
-    <content><![CDATA[<p>
-  而二分工作的小总结，北京...
-</p>
-<span id="more"></span>
-<h3 id="section"></h3>
-<p><code>前记：</code></p>
-<p><img src="https://raw.githubusercontent.com/Ranbun/images/main/works/GF/GF_Workspace.JPG"/></p>
-<p>    从辞职到新公司，过去了快两个月时间，经过这大段的时间，度过了试用期，开始接手往后日子里要进行的工作。</p>
-<p> 
-   新工作是关于<code>C++　&amp;　OSG</code>的，做一个仿真软件，主要负责一些关于<code>osg</code>的渲染工作，和其中部分界面的编写，项目用到的还算是熟悉的东西：</p>
-<ul>
-<li><code>Qt</code>编写整个软件的界面</li>
-<li><code>osg</code>负责整个3D图形的展示</li>
-</ul>
-<p>  关于这个项目遇到的一些问题：</p>
-<ul>
-<li><code>osg</code>编译劝退</li>
-</ul>
-<p>    讲真，<code>osg</code>的库的编译相当劝退，各种库的依赖关系，以及<code>VS</code>的工具链的选择，以及部分库的调试模式的选择。</p>
-<p>这里推荐<a ref=https://freesouth.blog.csdn.net/>杨石兴的博客</a>详细介绍了OSG的编译的一些问题，同时它提供了编译使用的所有的依赖包，各种工具集的版本。</p>
-<ul>
-<li><code>osg</code>与<code>Qt</code>的集成</li>
-</ul>
-<p>    要求你先编译<code>osg</code>然后才能编译，<code>osgQt</code>在<code>osg3.4</code>之后的版本中便被从原来的库中剔除，需要自己单独编译，</p>
-<p>同时<code>Qt4.0</code>的版本与<code>5.0</code>的版本编译使用的<code>Qt</code>的类也存在一些区别。</p>
-<p>当前阶段，上面提到的这些问题，我们已经解决了，新一番的问题产生了：</p>
-<ul>
-<li>在于不同的团队合作的时候，如何扯皮！</li>
-</ul>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>HJ</category>
-      </categories>
-      <tags>
-        <tag>conclusion</tag>
       </tags>
   </entry>
   <entry>
@@ -3101,7 +3101,29 @@ title="virtual table 2" alt="virtual table 2" />
 <li>平行投影</li>
 <li>透视投影</li>
 </ul>
-<h3 id="平行投影">平行投影</h3>
+<center>
+<img id="projection" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer graph/projection.png"/>
+</center>
+<ul>
+<li><p>当我们完成视图变换</p>
+<ul>
+<li>相机被移动到世界坐标系的原点，同时场景做了同样的相对位移。</li>
+<li>相机看向<code>-z</code>方向，我们指定了一个<code>up</code>,通过<code>cross</code>我们分别计算出三个轴向，相当远将世界坐标系做一个旋转操作，变换到<span
+class="math inline">\(\vec{right},\vec{up},\vec{look}\)</span> -
+相机右方向，上方向，观察方向，<font color=red>场景也要做相同的旋转操作</font></li>
+<li>下一步的操作便是投影</li>
+</ul></li>
+<li><p>此时，我们的场景变换到了相机描述的坐标系下。 ###
+平行投影</p></li>
+<li><p>如上图<a href="#projection">平行投影与透视投影</a>所示：
+平行投影没有近大远小的视觉效果，我们可以简单的丢掉所有顶点的<code>Z</code>值，将他们挤压到一个平面上，就可以得到一个平面的图。这将会丢掉维度信息，且不可逆，将场景变为二维，同是，对于关于<code>XOY</code>平面对称的点相当不友好[<code>-z,z</code>]，所以并不是一个合适的方法。</p></li>
+<li><p>更好的做法是将场景移动到原点，然后做一次缩放，将场景的所有的顶点的坐标变换到<span
+class="math inline">\((x,y,z) \in [-1,1]^3\)</span></p>
+<ul>
+<li>此时将会生成 <code>z-buffer</code>，三维场景的信息变为<span
+class="math inline">\([x,y]^2\)</span>的信息。</li>
+</ul></li>
+</ul>
 ]]></content>
       <categories>
         <category>Computer Graphics</category>
