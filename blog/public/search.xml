@@ -592,6 +592,21 @@ C++ 实现  </a></p>
       </categories>
   </entry>
   <entry>
+    <title>OBB与OBB求交</title>
+    <url>/2022/09/08/OBB%E4%B8%8EOBB%E6%B1%82%E4%BA%A4/</url>
+    <content><![CDATA[<p><code>OBB</code>与<code>OBB</code>的求交,此处我们将会介绍两个<code>OBB</code>的求交计算。以及一些基本概念......</p>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>Computer Graphics</category>
+      </categories>
+      <tags>
+        <tag>OBB</tag>
+        <tag>Intersect</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Multi KeyWord Sort</title>
     <url>/2021/11/07/Multi-KeyWord-Sort/</url>
     <content><![CDATA[<p>
@@ -628,21 +643,6 @@ C++ 实现  </a></p>
       <tags>
         <tag>cpp</tag>
         <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OBB与OBB求交</title>
-    <url>/2022/09/08/OBB%E4%B8%8EOBB%E6%B1%82%E4%BA%A4/</url>
-    <content><![CDATA[<p><code>OBB</code>与<code>OBB</code>的求交,此处我们将会介绍两个<code>OBB</code>的求交计算。以及一些基本概念......</p>
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-        <category>Computer Graphics</category>
-      </categories>
-      <tags>
-        <tag>OBB</tag>
-        <tag>Intersect</tag>
       </tags>
   </entry>
   <entry>
@@ -1803,6 +1803,36 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
       </tags>
   </entry>
   <entry>
+    <title>Selection_sort</title>
+    <url>/2021/10/25/Selection-sort/</url>
+    <content><![CDATA[<p>
+  选择排序...
+</p>
+<span id="more"></span>
+<h2 id="选择排序">选择排序</h2>
+<ul>
+<li><p>选择排序，每次从无序的数据中选择一个<code>最大的</code>或者是<code>最小的</code>,放到合适的位置。</p></li>
+<li><p>代码实现：</p>
+<p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这里为了使用最大堆-我们倒着排序 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Selection_Sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i = N<span class="number">-1</span>;i &gt;= <span class="number">0</span>；i--)</span><br><span class="line">    &#123;</span><br><span class="line">    	  max_postion = scanForMax(A,<span class="number">0</span>,i); <span class="comment">//获取最大元素的下标 </span></span><br><span class="line">          swap(&amp;A[i],&amp;A[max_position]);    <span class="comment">// 交换元素    </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>scanForMax</code></p>
+<ul>
+<li>查找当前无序元素中最大的元素，并返回元素的下标
+<ul>
+<li>常规下，直接对数组元素进行扫描，时间复杂度<code>O(N)</code>,整个算法的时间复杂度<code>T=O(N^2)</code></li>
+<li>优化方案：如何快速找到最大值 -- 最大堆or最小堆。</li>
+</ul></li>
+</ul></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Shell-Sort</title>
     <url>/2021/10/26/Shell-Sort/</url>
     <content><![CDATA[<p>
@@ -1824,36 +1854,6 @@ QObject::connect() 将失败。 这个标志是在 Qt 4.6 中引入的。
 <ul>
 <li>复杂度分析：
 当所有大于的增量的序列的数据都是有序的时候，所有的交换操作都会在增量为1的时候执行，这回导致一个不怎么好的结果，时间复杂度会达到<code>O(N^2)</code>。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-        <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Selection_sort</title>
-    <url>/2021/10/25/Selection-sort/</url>
-    <content><![CDATA[<p>
-  选择排序...
-</p>
-<span id="more"></span>
-<h2 id="选择排序">选择排序</h2>
-<ul>
-<li><p>选择排序，每次从无序的数据中选择一个<code>最大的</code>或者是<code>最小的</code>,放到合适的位置。</p></li>
-<li><p>代码实现：</p>
-<p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这里为了使用最大堆-我们倒着排序 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Selection_Sort</span><span class="params">(ElementType A[], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i = N<span class="number">-1</span>;i &gt;= <span class="number">0</span>；i--)</span><br><span class="line">    &#123;</span><br><span class="line">    	  max_postion = scanForMax(A,<span class="number">0</span>,i); <span class="comment">//获取最大元素的下标 </span></span><br><span class="line">          swap(&amp;A[i],&amp;A[max_position]);    <span class="comment">// 交换元素    </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p><code>scanForMax</code></p>
-<ul>
-<li>查找当前无序元素中最大的元素，并返回元素的下标
-<ul>
-<li>常规下，直接对数组元素进行扫描，时间复杂度<code>O(N)</code>,整个算法的时间复杂度<code>T=O(N^2)</code></li>
-<li>优化方案：如何快速找到最大值 -- 最大堆or最小堆。</li>
-</ul></li>
-</ul></li>
 </ul>
 ]]></content>
       <categories>
@@ -3115,13 +3115,81 @@ class="math inline">\(\vec{right},\vec{up},\vec{look}\)</span> -
 </ul></li>
 <li><p>此时，我们的场景变换到了相机描述的坐标系下。 ###
 平行投影</p></li>
+<li><p>我们最先要做的是定义一个视锥体。</p>
+<ul>
+<li><span class="math inline">\([left,right]\)</span></li>
+<li><span class="math inline">\([bottom,top]\)</span></li>
+<li><span class="math inline">\([zNear,ZFar]\)</span></li>
+<li><span
+class="math inline">\(ortho(left,right,bottom,top,zNear,zFar)\)</span></li>
+<li><font color=red>
+由于相机朝向<code>-z</code>,实际上说<code>zNear</code>
+大于<code>zFar</code></font>,按照常识来看，应该是<code>zNear &lt;
+zFar</code>，所以一般的输入<code>zNear &lt; zFar</code>但是在实际的计算中我们取反。</li>
+</ul></li>
 <li><p>如上图<a href="#projection">平行投影与透视投影</a>所示：
 平行投影没有近大远小的视觉效果，我们可以简单的丢掉所有顶点的<code>Z</code>值，将他们挤压到一个平面上，就可以得到一个平面的图。这将会丢掉维度信息，且不可逆，将场景变为二维，同是，对于关于<code>XOY</code>平面对称的点相当不友好[<code>-z,z</code>]，所以并不是一个合适的方法。</p></li>
 <li><p>更好的做法是将场景移动到原点，然后做一次缩放，将场景的所有的顶点的坐标变换到<span
 class="math inline">\((x,y,z) \in [-1,1]^3\)</span></p>
 <ul>
 <li>此时将会生成 <code>z-buffer</code>，三维场景的信息变为<span
-class="math inline">\([x,y]^2\)</span>的信息。</li>
+class="math inline">\([x,y]^2\)</span>的信息</li>
+</ul></li>
+</ul>
+<center>
+<img id="ortho_1" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer graph/Ortho.png
+"/>
+</center>
+<center>
+<img id="ortho_1" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer graph/ortho_moveandscale.png
+"/>
+</center>
+<ul>
+<li>对应矩阵
+<ul>
+<li><p><code>T matrix</code> <span class="math display">\[
+  T =
+  \begin{bmatrix}
+  1 &amp; 0 &amp; 0 &amp; -\frac{left+right}{2}\quad \\
+  0 &amp; 1 &amp; 0&amp; -\frac{top+bottom}{2}\quad  \\
+  0 &amp; 0 &amp; 1 &amp; -\frac{zNear+zFar}{2}\quad  \\
+  0 &amp; 0 &amp; 0 &amp; 1
+  \end{bmatrix}
+\]</span></p></li>
+<li><p><code>S matrix</code> <span class="math display">\[
+  S =
+  \begin{bmatrix}
+  \frac{2}{right - left}\quad &amp; 0 &amp; 0 &amp; 0  \\
+  0 &amp; \frac{2}{top - bottom}\quad &amp; 0 &amp; 0  \\
+  0 &amp; 0 &amp; \frac{2}{zFar - zNear}\quad &amp; 0  \\
+  0 &amp; 0 &amp; 0 &amp; 1
+  \end{bmatrix}
+\]</span></p></li>
+<li><p><code>Ortho Matrix</code> <span class="math display">\[
+  Ortho =  S \times T =       
+  \begin{bmatrix}
+      \frac{2}{right - left}\quad &amp; 0 &amp; 0 &amp; 0  \\
+      0 &amp; \frac{2}{top - bottom}\quad &amp; 0 &amp; 0  \\
+      0 &amp; 0 &amp; \frac{2}{zFar - zNear}\quad &amp; 0  \\
+      0 &amp; 0 &amp; 0 &amp; 1
+  \end{bmatrix}
+  \times
+  \begin{bmatrix}
+      1 &amp; 0 &amp; 0 &amp; -\frac{left+right}{2}\quad \\
+      0 &amp; 1 &amp; 0&amp; -\frac{top+bottom}{2}\quad  \\
+      0 &amp; 0 &amp; 1 &amp; -\frac{zNear+zFar}{2}\quad  \\
+      0 &amp; 0 &amp; 0 &amp; 1
+  \end{bmatrix} \\   
+  =   \begin{bmatrix}
+              \frac{2}{right - left}\quad &amp; 0 &amp; 0 &amp;
+-\frac{left+right}{2}\quad  \\
+              0 &amp; \frac{2}{top - bottom}\quad &amp; 0 &amp;
+-\frac{top+bottom}{2}\quad  \\
+              0 &amp; 0 &amp; \frac{2}{zFar - zNear}\quad &amp;
+-\frac{zNear+zFar}{2}\quad  \\
+              0 &amp; 0 &amp; 0 &amp; 1
+          \end{bmatrix}
+  \]</span></p></li>
 </ul></li>
 </ul>
 ]]></content>
