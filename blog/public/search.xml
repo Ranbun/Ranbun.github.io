@@ -592,21 +592,6 @@ C++ 实现  </a></p>
       </categories>
   </entry>
   <entry>
-    <title>OBB与OBB求交</title>
-    <url>/2022/09/08/OBB%E4%B8%8EOBB%E6%B1%82%E4%BA%A4/</url>
-    <content><![CDATA[<p><code>OBB</code>与<code>OBB</code>的求交,此处我们将会介绍两个<code>OBB</code>的求交计算。以及一些基本概念......</p>
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-        <category>Computer Graphics</category>
-      </categories>
-      <tags>
-        <tag>OBB</tag>
-        <tag>Intersect</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Multi KeyWord Sort</title>
     <url>/2021/11/07/Multi-KeyWord-Sort/</url>
     <content><![CDATA[<p>
@@ -643,6 +628,21 @@ C++ 实现  </a></p>
       <tags>
         <tag>cpp</tag>
         <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OBB与OBB求交</title>
+    <url>/2022/09/08/OBB%E4%B8%8EOBB%E6%B1%82%E4%BA%A4/</url>
+    <content><![CDATA[<p><code>OBB</code>与<code>OBB</code>的求交,此处我们将会介绍两个<code>OBB</code>的求交计算。以及一些基本概念......</p>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>Computer Graphics</category>
+      </categories>
+      <tags>
+        <tag>OBB</tag>
+        <tag>Intersect</tag>
       </tags>
   </entry>
   <entry>
@@ -3105,7 +3105,7 @@ title="virtual table 2" alt="virtual table 2" />
 <img id="projection" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer graph/projection.png"/>
 </center>
 <ul>
-<li><p>当我们完成视图变换</p>
+<li>当我们完成视图变换
 <ul>
 <li>相机被移动到世界坐标系的原点，同时场景做了同样的相对位移。</li>
 <li>相机看向<code>-z</code>方向，我们指定了一个<code>up</code>,通过<code>cross</code>我们分别计算出三个轴向，相当远将世界坐标系做一个旋转操作，变换到<span
@@ -3113,8 +3113,10 @@ class="math inline">\(\vec{right},\vec{up},\vec{look}\)</span> -
 相机右方向，上方向，观察方向，<font color=red>场景也要做相同的旋转操作</font></li>
 <li>下一步的操作便是投影</li>
 </ul></li>
-<li><p>此时，我们的场景变换到了相机描述的坐标系下。 ###
-平行投影</p></li>
+<li>此时，我们的场景变换到了相机描述的坐标系下。</li>
+</ul>
+<h3 id="平行投影">平行投影</h3>
+<ul>
 <li><p>我们最先要做的是定义一个视锥体。</p>
 <ul>
 <li><span class="math inline">\([left,right]\)</span></li>
@@ -3124,8 +3126,7 @@ class="math inline">\(\vec{right},\vec{up},\vec{look}\)</span> -
 class="math inline">\(ortho(left,right,bottom,top,zNear,zFar)\)</span></li>
 <li><font color=red>
 由于相机朝向<code>-z</code>,实际上说<code>zNear</code>
-大于<code>zFar</code></font>,按照常识来看，应该是<code>zNear &lt;
-zFar</code>，所以一般的输入<code>zNear &lt; zFar</code>但是在实际的计算中我们取反。</li>
+大于<code>zFar</code></font>.</li>
 </ul></li>
 <li><p>如上图<a href="#projection">平行投影与透视投影</a>所示：
 平行投影没有近大远小的视觉效果，我们可以简单的丢掉所有顶点的<code>Z</code>值，将他们挤压到一个平面上，就可以得到一个平面的图。这将会丢掉维度信息，且不可逆，将场景变为二维，同是，对于关于<code>XOY</code>平面对称的点相当不友好[<code>-z,z</code>]，所以并不是一个合适的方法。</p></li>
@@ -3179,16 +3180,16 @@ class="math inline">\([x,y]^2\)</span>的信息</li>
       0 &amp; 1 &amp; 0&amp; -\frac{top+bottom}{2}\quad  \\
       0 &amp; 0 &amp; 1 &amp; -\frac{zNear+zFar}{2}\quad  \\
       0 &amp; 0 &amp; 0 &amp; 1
-  \end{bmatrix} \\   
-  =   \begin{bmatrix}
-              \frac{2}{right - left}\quad &amp; 0 &amp; 0 &amp;
+  \end{bmatrix} \\
+  = \begin{bmatrix}
+          \frac{2}{right - left}\quad &amp; 0 &amp; 0 &amp;
 -\frac{left+right}{2}\quad  \\
-              0 &amp; \frac{2}{top - bottom}\quad &amp; 0 &amp;
+          0 &amp; \frac{2}{top - bottom}\quad &amp; 0 &amp;
 -\frac{top+bottom}{2}\quad  \\
-              0 &amp; 0 &amp; \frac{2}{zFar - zNear}\quad &amp;
+          0 &amp; 0 &amp; \frac{2}{zFar - zNear}\quad &amp;
 -\frac{zNear+zFar}{2}\quad  \\
-              0 &amp; 0 &amp; 0 &amp; 1
-          \end{bmatrix}
+          0 &amp; 0 &amp; 0 &amp; 1
+  \end{bmatrix}
   \]</span></p></li>
 </ul></li>
 </ul>
@@ -3198,6 +3199,7 @@ class="math inline">\([x,y]^2\)</span>的信息</li>
       </categories>
       <tags>
         <tag>cpp</tag>
+        <tag>projection</tag>
       </tags>
   </entry>
 </search>
