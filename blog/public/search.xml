@@ -3240,8 +3240,8 @@ class="math inline">\([X_{near},Y_{near}]\)</span></h5>
 \]</span></p>
 <ul>
 <li>由三角形相似可以得到: <span
-class="math inline">\(\frac{y_s}{y}\quad\)</span>=$ $ =&gt; <span
-class="math inline">\(y_s = \frac{n}{f}\quad * y\)</span></li>
+class="math inline">\(\frac{y_s}{y}\quad=\frac{n}{f}\quad\)</span> =&gt;
+<span class="math inline">\(y_s = \frac{n}{f}\quad * y\)</span></li>
 <li>同理: <span class="math inline">\(\frac{x_s}{x}\quad\)</span>=$ $
 =&gt; <span class="math inline">\(x_s = \frac{n}{f}\quad *
 x\)</span></li>
