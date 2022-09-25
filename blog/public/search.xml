@@ -2429,7 +2429,7 @@ class="math inline">\(\dots\)</span>)</p>
 <h4 id="example">example</h4>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 拷贝一个目录(&#123;CMAKE_SOURCE_DIR&#125;/resources/Fonts)到&quot;&#123;CMAKE_SOURCE_DIR&#125;/bin/resources/&quot;路径下</span></span><br><span class="line"><span class="keyword">FILE</span>(COPY <span class="variable">$&#123;CMAKE_SOURCE_DIR&#125;</span>/resources/Fonts DESTINATION <span class="variable">$&#123;CMAKE_SOURCE_DIR&#125;</span>/bin/resources/)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>load<span class="math inline">\(\dots\)</span> <span
+<li>load <span class="math inline">\(\dots\)</span> <span
 class="math inline">\(\dots\)</span></li>
 </ul>
 ]]></content>

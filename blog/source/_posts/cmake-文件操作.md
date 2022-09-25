@@ -49,4 +49,4 @@ FILE(<COPY|INSTALL> <files>... DESTINATION <dir>
 FILE(COPY ${CMAKE_SOURCE_DIR}/resources/Fonts DESTINATION ${CMAKE_SOURCE_DIR}/bin/resources/)
 ```
 
-- load$\dots$ $\dots$
+- load $\dots$ $\dots$
