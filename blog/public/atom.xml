@@ -42,19 +42,23 @@
     <link href="https://blog.ranbun.com/2022/09/10/%E6%A8%A1%E5%9E%8B%E5%8F%98%E6%8D%A2-%E6%A8%A1%E5%9E%8B%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97/"/>
     <id>https://blog.ranbun.com/2022/09/10/%E6%A8%A1%E5%9E%8B%E5%8F%98%E6%8D%A2-%E6%A8%A1%E5%9E%8B%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97/</id>
     <published>2022-09-10T02:56:47.000Z</published>
-    <updated>2022-09-16T13:02:02.313Z</updated>
+    <updated>2022-09-26T12:58:33.635Z</updated>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<p>常规的仿射变换(旋转，缩放，平移),以及一些常用的基本矩阵和这些矩阵的原理<spanclass="math inline">\(\dots\)</span></p><span id="more"></span><h2 id="模型变换">模型变换</h2><ul><li>仿射变换<ul><li>矩阵的计算</li></ul></li><li>齐次坐标<ul><li>W分量的意义</li></ul></li><li>坐标系的变换</li></ul>]]></content>
     
     
-      
-      
-    <summary type="html">
-</summary>
-      
+    <summary type="html">&lt;p&gt;常规的仿射变换(旋转，缩放，平移),
+以及一些常用的基本矩阵和这些矩阵的原理&lt;span
+class=&quot;math inline&quot;&gt;\(\dots\)&lt;/span&gt;&lt;/p&gt;</summary>
     
     
     
+    <category term="Computer Graphics" scheme="https://blog.ranbun.com/categories/Computer-Graphics/"/>
+    
+    
+    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
+    
+    <category term="translate" scheme="https://blog.ranbun.com/tags/translate/"/>
     
   </entry>
   

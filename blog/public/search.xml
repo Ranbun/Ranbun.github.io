@@ -2803,8 +2803,30 @@ private member declared in class</h2>
   <entry>
     <title>模型变换-模型矩阵计算</title>
     <url>/2022/09/10/%E6%A8%A1%E5%9E%8B%E5%8F%98%E6%8D%A2-%E6%A8%A1%E5%9E%8B%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97/</url>
-    <content><![CDATA[
+    <content><![CDATA[<p>常规的仿射变换(旋转，缩放，平移),
+以及一些常用的基本矩阵和这些矩阵的原理<span
+class="math inline">\(\dots\)</span></p>
+<span id="more"></span>
+<h2 id="模型变换">模型变换</h2>
+<ul>
+<li>仿射变换
+<ul>
+<li>矩阵的计算</li>
+</ul></li>
+<li>齐次坐标
+<ul>
+<li>W分量的意义</li>
+</ul></li>
+<li>坐标系的变换</li>
+</ul>
 ]]></content>
+      <categories>
+        <category>Computer Graphics</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>translate</tag>
+      </tags>
   </entry>
   <entry>
     <title>第一次换工作</title>
