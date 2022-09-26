@@ -1,6 +1,7 @@
 ---
 title: cmake 文件操作
 date: 2022-09-10 01:36:07
+mathjax: true
 categories:
 - CMake
 tags:
