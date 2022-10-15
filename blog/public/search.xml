@@ -127,8 +127,18 @@
   <entry>
     <title>AABB与Ray求交</title>
     <url>/2022/09/14/AABB%E4%B8%8ERay%E6%B1%82%E4%BA%A4/</url>
-    <content><![CDATA[
+    <content><![CDATA[<p>光先追踪的加速方法就是引入层次结构数据结构，计算光线与层次结构的相交，从而加速光线与场景的求交。
+<span id="more"></span></p>
+<h2 id="aabb与ray求交">AABB与Ray求交</h2>
 ]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>Computer Graphics</category>
+      </categories>
+      <tags>
+        <tag>AABB</tag>
+        <tag>Intersect</tag>
+      </tags>
   </entry>
   <entry>
     <title>AABB与Triangle求交</title>
@@ -753,8 +763,89 @@ C++ 实现  </a></p>
   <entry>
     <title>OBB与Ray求交</title>
     <url>/2022/09/08/OBB%E4%B8%8ERay%E6%B1%82%E4%BA%A4/</url>
-    <content><![CDATA[
+    <content><![CDATA[<p>光先追踪的加速方法就是引入层次结构数据结构，计算光线与层次结构的相交，从而加速光线与场景的求交。
+<span id="more"></span></p>
+<h2 id="obb与ray求交">OBB与Ray求交</h2>
+<ul>
+<li>我们在更之前的地方定义了一个<code>OBB</code>,往前翻一番也许就能找到
+<ul>
+<li><span class="math inline">\(center\)</span> - 盒子的中心点</li>
+<li><span class="math inline">\(\vec{u}\)</span> - 盒子的某个法线 <span
+class="math inline">\(u\)</span></li>
+<li><span class="math inline">\(\vec{v}\)</span> - 盒子的某个法线 <span
+class="math inline">\(v\)</span></li>
+<li><span class="math inline">\(\vec{w}\)</span> - 盒子的某个法线 <span
+class="math inline">\(w\)</span></li>
+<li>盒子的尺寸 - <span class="math inline">\(size\left(h_u,h_v,h_w
+\right )\)</span></li>
+</ul></li>
+<li>同样的 我们曾经定义过一条射线
+<ul>
+<li><span class="math inline">\(Ray \left( P\right ) = O + t \cdot
+\vec{u}\)</span></li>
+<li><code>Ray(P)</code> 射线上某一点</li>
+<li><code>O</code> 射线的起点</li>
+<li><code>t</code> 沿着方向<span
+class="math inline">\(\vec{u}\)</span>前进的长度</li>
+<li><span class="math inline">\(\vec{u}\)</span> 射线的方向向量</li>
+</ul></li>
+</ul>
+<h2 id="slab-method">slab method</h2>
+<ul>
+<li>在OBB与光线的求交计算中，我们常用的方法是<code>slab method</code>
+<ul>
+<li>将我们测量的这个盒子分成三组平行的板</li>
+<li>分别将光线与对应的板做相交计算，在射线的方向上，有一个进入这一组板的时间<span
+class="math inline">\(t^{min}\)</span>，以及一个出板的时间<span
+class="math inline">\(t^{max}\)</span></li>
+<li>分别计算对于三个面板的<span
+class="math inline">\(t^{min}_{i},t^{max}_{i},i \in
+\left(u,v,w\right)\)</span></li>
+<li>如果射线与盒子相交，那么简单的说这条射线一定有一段时间是处于这三个<span
+class="math inline">\(t^{min},t^{max}\)</span>之中的。</li>
+</ul></li>
+</ul>
+<h3 id="计算原理">计算原理</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/intersection/Ray_and_Obb_intersect.png"
+title="Ray&amp;OBB" alt="intersection" />
+<figcaption aria-hidden="true">intersection</figcaption>
+</figure>
+<ul>
+<li><p><span class="math inline">\(P_{min} = P + t_{min} \cdot
+\vec{u}\)</span> - <span class="math inline">\(1.0\)</span></p></li>
+<li><p><span class="math inline">\(P_{max} = P + t_{max} \cdot
+\vec{u}\)</span> - <span class="math inline">\(1.1\)</span></p></li>
+<li><p><span class="math inline">\(P_{i} = P + t \cdot \vec{u}\)</span>
+- <span class="math inline">\(1.2\)</span></p></li>
+<li><p>$(P_{min} - C ) = min $ - <span
+class="math inline">\(1.3\)</span></p></li>
+<li><p>$(P_{max} - C ) = max $ - <span
+class="math inline">\(1.4\)</span></p></li>
+<li><p><span class="math inline">\(1.0\)</span>式 &amp; <span
+class="math inline">\(1.1\)</span>式 带入 <span
+class="math inline">\(1.3\)</span>式 &amp; <span
+class="math inline">\(1.4\)</span>式得到： <span class="math display">\[
+\left [ \left (P + t_i \cdot \vec{u} \right ) - C \right ] \cdot
+\vec{O_n} = O_{Size.j} / 2.0, i \in (min,max),j \in (x,y,z), n \in
+(u,v,w)
+\]</span> =&gt; 化简得: <span class="math display">\[
+t_i = (O_{Size.i} / 2.0 - (C - P) \cdot \vec{O_n}) / (\vec{u} \cdot
+\vec{O_n}), i \in (min,max),j \in (x,y,z), n \in (u,v,w)
+\]</span></p></li>
+</ul>
+<h3 id="求交实现">求交实现</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Intersect::IntersectObbWithRay</span><span class="params">(<span class="keyword">const</span> OBB&amp; obb, Ray &amp; ray)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> delta = obb.m_center - ray.m_begin; <span class="comment">// C- P</span></span><br><span class="line">    <span class="keyword">float</span> t1, t2;    <span class="comment">// 当前面交点在射线上的位置</span></span><br><span class="line">    <span class="keyword">double</span> minT = DBL_MIN, maxT = DBL_MAX;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">float</span> e = glm::dot(delta, obb.m_u);</span><br><span class="line">        <span class="keyword">float</span> f = glm::dot(ray.m_dir, obb.m_u);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">std</span>::<span class="built_in">abs</span>(f) &gt; <span class="number">1e-20</span>) <span class="comment">// 判断当前面是否和射线平行 - 与法线垂直则会平行</span></span><br><span class="line">        &#123;</span><br><span class="line">            t1 = (e + obb.m_size.x / <span class="number">2.0</span>) / f;</span><br><span class="line">            t2 = (e - obb.m_size.x / <span class="number">2.0</span>) / f;</span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; t2)  <span class="comment">// 交换 我们不知道当前的射线与目前检测的板的法相的方向是什么样的关系</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> temp = t1;</span><br><span class="line">                t1 = t2;</span><br><span class="line">                t2 = temp;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; minT)</span><br><span class="line">            &#123;</span><br><span class="line">                minT = t1;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (t2 &lt; maxT)</span><br><span class="line">            &#123;</span><br><span class="line">                maxT = t2;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (minT &gt; maxT)   <span class="comment">// 未发生相交</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (maxT &lt; <span class="number">0</span>)  <span class="comment">// 小于0表示不再正方向上，盒子在射线的后面</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (-e - obb.m_size.x / <span class="number">2.0</span> &gt; <span class="number">0</span> || -e + obb.m_size.x / <span class="number">2.0</span> &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">float</span> e = glm::dot(delta, obb.m_v);</span><br><span class="line">        <span class="keyword">float</span> f = glm::dot(ray.m_dir, obb.m_v);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">std</span>::<span class="built_in">abs</span>(f) &gt; <span class="number">1e-20</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            t1 = (e + obb.m_size.y / <span class="number">2.0</span>) / f;</span><br><span class="line">            t2 = (e - obb.m_size.y / <span class="number">2.0</span>) / f;</span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; t2)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> temp = t1;</span><br><span class="line">                t1 = t2;</span><br><span class="line">                t2 = temp;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; minT)</span><br><span class="line">            &#123;</span><br><span class="line">                minT = t1;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (t2 &lt; maxT)</span><br><span class="line">            &#123;</span><br><span class="line">                maxT = t2;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (minT &gt; maxT)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (maxT &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (-e - obb.m_size.y / <span class="number">2.0</span> &gt; <span class="number">0</span> || -e + obb.m_size.y / <span class="number">2.0</span> &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">float</span> e = glm::dot(delta, obb.m_w);</span><br><span class="line">        <span class="keyword">float</span> f = glm::dot(ray.m_dir, obb.m_w);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">std</span>::<span class="built_in">abs</span>(f) &gt; <span class="number">1e-20</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            t1 = (e + obb.m_size.z / <span class="number">2.0</span>) / f;</span><br><span class="line">            t2 = (e - obb.m_size.z / <span class="number">2.0</span>) / f;</span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; t2)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> temp = t1;</span><br><span class="line">                t1 = t2;</span><br><span class="line">                t2 = temp;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; minT)</span><br><span class="line">            &#123;</span><br><span class="line">                minT = t1;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (t2 &lt; maxT)</span><br><span class="line">            &#123;</span><br><span class="line">                maxT = t2;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (minT &gt; maxT)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (maxT &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (-e - obb.m_size.z / <span class="number">2.0</span> &gt; <span class="number">0</span> || -e + obb.m_size.z / <span class="number">2.0</span> &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>Computer Graphics</category>
+      </categories>
+      <tags>
+        <tag>Intersect</tag>
+        <tag>OBB</tag>
+      </tags>
   </entry>
   <entry>
     <title>OBB与OBB求交</title>
