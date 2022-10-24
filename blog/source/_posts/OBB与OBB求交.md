@@ -6,7 +6,7 @@ categories:
 - Algorithm
 - Computer Graphics
 tags:
-- OBB 
+- OBB
 - Intersect
 ---
 

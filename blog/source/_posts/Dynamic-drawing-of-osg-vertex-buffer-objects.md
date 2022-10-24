@@ -1,11 +1,11 @@
 ---
 title: Dynamic drawing of osg vertex buffer objects
 date: 2021-11-07 00:36:24
-categories: 
+categories:
 - works
 - HJ
 - OSG
-tags: 
+tags:
 - cpp
 - osg
 ---

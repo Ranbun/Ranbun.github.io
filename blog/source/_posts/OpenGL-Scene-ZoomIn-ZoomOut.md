@@ -4,7 +4,7 @@ date: 2022-08-03 21:01:52
 categories:
 - Computer Graph
 - works
-- SCUU
+- SCU
 tags:
 - OpenGL
 ---

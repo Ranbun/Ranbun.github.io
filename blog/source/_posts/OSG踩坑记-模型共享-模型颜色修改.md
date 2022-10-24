@@ -1,11 +1,11 @@
 ---
 title: OSG踩坑记-模型共享&模型颜色修改
 date: 2021-03-20 20:54:22
-categories: 
+categories:
 - works
 - GF
 - OSG
-tags: 
+tags:
 - cpp
 - osg
 ---

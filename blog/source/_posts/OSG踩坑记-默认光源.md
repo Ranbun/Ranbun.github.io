@@ -1,7 +1,7 @@
 ---
 title: OSG踩坑记-默认光源
 date: 2021-04-04 00:10:50
-categories: 
+categories:
 - works
 - GF
 - OSG

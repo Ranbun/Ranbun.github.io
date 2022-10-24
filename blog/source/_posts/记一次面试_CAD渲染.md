@@ -5,7 +5,7 @@ categories:
   - works
   - interview
 tags:
-  - openGL	
+  - openGL
   - cpp
   - computer graphics
 ---
