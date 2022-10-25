@@ -6,7 +6,7 @@
   <link href="https://blog.ranbun.com/atom.xml" rel="self"/>
   
   <link href="https://blog.ranbun.com/"/>
-  <updated>2022-10-23T14:41:58.934Z</updated>
+  <updated>2022-10-25T15:19:53.754Z</updated>
   <id>https://blog.ranbun.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>射线与平面相交</title>
+    <link href="https://blog.ranbun.com/2022/10/25/%E5%B0%84%E7%BA%BF%E4%B8%8E%E5%B9%B3%E9%9D%A2%E7%9B%B8%E4%BA%A4%E8%AE%A1%E7%AE%97/"/>
+    <id>https://blog.ranbun.com/2022/10/25/%E5%B0%84%E7%BA%BF%E4%B8%8E%E5%B9%B3%E9%9D%A2%E7%9B%B8%E4%BA%A4%E8%AE%A1%E7%AE%97/</id>
+    <published>2022-10-25T15:19:53.000Z</published>
+    <updated>2022-10-25T15:19:53.754Z</updated>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+      
+      
+    <summary type="html">
+</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>AABB与Ray求交</title>
@@ -475,33 +496,6 @@ AABB(Axis-Aligned Bound Box) 对比：AABB 的边与轴平行，而 OBB
     <category term="OpenGL" scheme="https://blog.ranbun.com/tags/OpenGL/"/>
     
     <category term="Qt" scheme="https://blog.ranbun.com/tags/Qt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Smart pointer 简介</title>
-    <link href="https://blog.ranbun.com/2022/08/01/Smartpointer/"/>
-    <id>https://blog.ranbun.com/2022/08/01/Smartpointer/</id>
-    <published>2022-08-01T11:53:40.000Z</published>
-    <updated>2022-08-21T15:34:56.779Z</updated>
-    
-    <content type="html"><![CDATA[<p>  智能指针...</p><span id="more"></span><h1 id="smart-pointer">Smart Pointer</h1><p style="color:red">  智能指针是行为类似于指针的类对象，但这种对象还有其他功能。</p><ul><li>下面我将将会分别介绍几种不同的智能指针</li></ul><h3 id="auto_ptr"><code>auto_ptr</code></h3><ul><li>包含在 <code>&lt;memory&gt;</code> 头文件中</li><li>在<code>C++98</code>时被引入</li><li>已经在<code>C++11</code>是被弃用</li><li>在<code>C++17</code>被移除</li></ul><h4 id="特点">特点</h4><ul><li><code>auto_ptr</code>没有使用引用计数，在复制构造函数和赋值构造函数中将对象所有权转移</li><li><code>auto_ptr</code>不能指向数组，因为<code>auto_ptr</code>在析构的时候只是调用<code>delete</code>,而数组应该要调用<code>delete[]</code></li><li><code>auto_ptr</code> 不能和标准容器（vector,list,map…)一起使用<ul><li>由于<code>auto_ptr</code>在复制和赋值构造中将转移所有权</li></ul></li></ul><h3 id="unique_ptr"><code>unique_ptr</code></h3><ul><li>包含在 <code>&lt;memory&gt;</code> 头文件中</li><li>在<code>C++11</code>时被引入</li><li>用于解决<code>auto_ptr</code>的拷贝问题</li></ul><h4 id="特点-1">特点</h4><ul><li>不支持拷贝操作，只能进行所有权的转移</li><li><code>std::unique_ptr</code> 通常用于管理对象的生命周期，包括：通过保证正常退出和异常退出时的删除，为处理具有动态生命周期的对象的类和函数提供异常安全性</li><li>对于自定义的类对象，支持提供自定义的删除器</li><li>常用于单线程</li><li>可以为空</li></ul><h3 id="shared_ptr"><code>shared_ptr</code></h3><ul><li>包含在 <code>&lt;memory&gt;</code>头文件中</li><li>在<code>C++11</code>时被引入</li><li>支持拷贝和复制</li></ul><h4 id="特点-2">特点</h4><ul><li>支持拷贝和复制</li><li>对于自定义的类对象，支持提供自定义的删除器</li><li>常用于多线程</li><li>多个对象可以共享所有权</li><li>可以为空</li></ul><h3 id="weak_ptr"><code>weak_ptr</code></h3><ul><li>包含在 <code>&lt;memory&gt;</code> 头文件中</li><li>在<code>C++11</code>时被引入</li><li>它是对 <code>std::shared_ptr</code>管理的对象的非拥有引用,必须将其转换为 <code>std::shared_ptr</code>才能访问引用的对象</li></ul><h4 id="特点-3">特点</h4><ul><li>解决<code>shared_ptr</code>引起的循环引用问题</li><li>获取某个<code>shared_ptr</code>指向对象的临时所有权，在<code>shared_ptr</code>对象被销毁是可以延长此对象的生命周期</li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;
-  智能指针...
-&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="study" scheme="https://blog.ranbun.com/categories/study/"/>
-    
-    <category term="coding" scheme="https://blog.ranbun.com/categories/study/coding/"/>
-    
-    
-    <category term="cpp" scheme="https://blog.ranbun.com/tags/cpp/"/>
-    
-    <category term="pointer" scheme="https://blog.ranbun.com/tags/pointer/"/>
     
   </entry>
   
