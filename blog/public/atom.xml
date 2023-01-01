@@ -6,7 +6,7 @@
   <link href="https://blog.ranbun.com/atom.xml" rel="self"/>
   
   <link href="https://blog.ranbun.com/"/>
-  <updated>2022-10-25T15:19:53.754Z</updated>
+  <updated>2022-11-03T15:35:17.851Z</updated>
   <id>https://blog.ranbun.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>射线与平面相交</title>
-    <link href="https://blog.ranbun.com/2022/10/25/%E5%B0%84%E7%BA%BF%E4%B8%8E%E5%B9%B3%E9%9D%A2%E7%9B%B8%E4%BA%A4%E8%AE%A1%E7%AE%97/"/>
-    <id>https://blog.ranbun.com/2022/10/25/%E5%B0%84%E7%BA%BF%E4%B8%8E%E5%B9%B3%E9%9D%A2%E7%9B%B8%E4%BA%A4%E8%AE%A1%E7%AE%97/</id>
-    <published>2022-10-25T15:19:53.000Z</published>
-    <updated>2022-10-25T15:19:53.754Z</updated>
+    <title>OpenGL的手动初始化</title>
+    <link href="https://blog.ranbun.com/2022/11/03/OpenGL%E7%9A%84%E6%89%8B%E5%8A%A8%E5%88%9D%E5%A7%8B%E5%8C%96/"/>
+    <id>https://blog.ranbun.com/2022/11/03/OpenGL%E7%9A%84%E6%89%8B%E5%8A%A8%E5%88%9D%E5%A7%8B%E5%8C%96/</id>
+    <published>2022-11-03T15:35:17.000Z</published>
+    <updated>2022-11-03T15:35:17.851Z</updated>
     
     <content type="html"><![CDATA[]]></content>
     
@@ -34,6 +34,39 @@
     
     
     
+    
+  </entry>
+  
+  <entry>
+    <title>射线与平面相交</title>
+    <link href="https://blog.ranbun.com/2022/10/25/%E5%B0%84%E7%BA%BF%E4%B8%8E%E5%B9%B3%E9%9D%A2%E7%9B%B8%E4%BA%A4%E8%AE%A1%E7%AE%97/"/>
+    <id>https://blog.ranbun.com/2022/10/25/%E5%B0%84%E7%BA%BF%E4%B8%8E%E5%B9%B3%E9%9D%A2%E7%9B%B8%E4%BA%A4%E8%AE%A1%E7%AE%97/</id>
+    <published>2022-10-25T15:19:53.000Z</published>
+    <updated>2023-01-01T15:08:28.266Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="计算射线与平面的相交">计算射线与平面的相交</h2><ul><li>定义平面</li><li>定义射线</li><li>解方程</li></ul><h3 id="平面方程">1. 平面方程</h3><h4 id="平面方程-1">1.1 平面方程</h4><ul><li><p><span class="math inline">\(p\)</span>为平面上一点，且<spanclass="math inline">\(p = (x,y,z)\)</span></p></li><li><p>标量表示： $ ax + by + cz = d $</p></li><li><p>矢量表示： $ p = d$</p><ul><li><span class="math inline">\(\vec{n} = [a,b,c]\)</span></li><li>已知任意平面上一点<span class="math inline">\(p\)</span>即可以求得 $d $</li></ul></li><li><p>法线 <span class="math inline">\(\vec{n}\)</span>决定平面的方向</p></li><li><p><span class="math inline">\(d\)</span>定义平面的位置,从原点到平面的有符号的距离</p><ul><li>此距离表示沿着法线方向滑动，法线方向上的测量</li><li><span class="math inline">\(d &gt;0\)</span>,原点位于平面背面，反之位于正面</li></ul></li></ul><h4 id="三个点确定一个平面">1.2 三个点确定一个平面</h4><ul><li>按照不同的坐标表示给出不同顺序的点</li><li>点不能共线</li><li>三个点在这个确定的平面上</li></ul><h3 id="射线与平面求交">2. 射线与平面求交</h3><ul><li><p>前处理</p><ul><li>射线与平面是否平行(重合)</li></ul></li><li><p>平面的表示</p></li><li><p>解方程</p></li></ul><h4 id="射线定义">2.1 射线定义</h4><h4 id="平面定义">2.2 平面定义</h4>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;计算射线与平面的相交&quot;&gt;计算射线与平面的相交&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;定义平面&lt;/li&gt;
+&lt;li&gt;定义射线&lt;/li&gt;
+&lt;li&gt;解方程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;平面方程&quot;&gt;1. 平面方程&lt;/h3&gt;
+&lt;h4 id=&quot;平面方程-1&quot;&gt;1.</summary>
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://blog.ranbun.com/categories/Algorithm/"/>
+    
+    <category term="Computer Graphics" scheme="https://blog.ranbun.com/categories/Algorithm/Computer-Graphics/"/>
+    
+    
+    <category term="Intersect" scheme="https://blog.ranbun.com/tags/Intersect/"/>
     
   </entry>
   
@@ -467,35 +500,6 @@ AABB(Axis-Aligned Bound Box) 对比：AABB 的边与轴平行，而 OBB
     
     
     <category term="OpenGL" scheme="https://blog.ranbun.com/tags/OpenGL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Qt OpenGL Antialiasing-MSAA</title>
-    <link href="https://blog.ranbun.com/2022/08/02/Qt-OpenGL-Antialiasing-MSAA/"/>
-    <id>https://blog.ranbun.com/2022/08/02/Qt-OpenGL-Antialiasing-MSAA/</id>
-    <published>2022-08-02T09:16:16.000Z</published>
-    <updated>2022-08-21T15:34:56.768Z</updated>
-    
-    <content type="html"><![CDATA[<p>  <code>QtOpenGL</code>MSAA算法介绍...</p><span id="more"></span><h2 id="qt-opengl-antialiasing---msaa">Qt OpenGL Antialiasing -MSAA</h2><h3 id="锯齿是图形绘制中常见的问题">锯齿是图形绘制中常见的问题</h3><ul><li>这是一个采样不足然后信号丢失导致的问题</li><li>经过各位前辈们的其扑后继的研究，终究是有了看起来不错的解决方案</li><li>本文中我们采用一种名为<code>MSAA</code>的抗锯齿的技术</li></ul><h3 id="msaa"><code>MSAA</code></h3><p>  超级采样抗锯齿（Super SamplingAnti-Aliasing）的原理是把当前分辨率成倍提高,然后再把画缩放到当前的显示器上。这样的做法实际上就是在显示尺寸不变的情况提高分辨率，让单个像素变得极小，这样就能够大幅减轻画面的锯齿感了。不过是由于对整个显示画面的放大，因此它消耗的显示资源也是非常大的。</p><h3 id="qt-openggl-的-msaa"><code>Qt OpengGL</code> 的<code>MSAA</code></h3><h4 id="走样展示">走样展示</h4><figure><imgsrc="https://raw.githubusercontent.com/Ranbun/images/main/blog/OpenGL/OpenGLAntialiasing.png"title="线的走样" alt="走样" /><figcaption aria-hidden="true">走样</figcaption></figure><h4id="开启qtopenglwidget的msaa">开启<code>QtOpenGLWidget</code>的<code>MSAA</code></h4><figure><imgsrc="https://raw.githubusercontent.com/Ranbun/images/main/blog/OpenGL/OpenGLAntialiasing-MSAA.png"title="MSAA" alt="MSAA" /><figcaption aria-hidden="true">MSAA</figcaption></figure><h4id="如何开启qtopengl的msaa">如何开启<code>QtOpenGL</code>的<code>MSAA</code></h4><ul><li><p><code>Qt</code>有他自己的关于<code>OpenGL</code>的封装，我们使用的<code>Qt</code>的关于<code>OpenGL</code>封装</p></li><li><p>在创建<code>QOpenGLWidget</code>窗口时，在构造函数中添加如下代码：</p><p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QSurfaceFormat format;</span><br><span class="line">format.setSamples(<span class="number">4</span>);</span><br><span class="line">setFormat(format);</span><br></pre></td></tr></table></figure></p><ul><li><code>setFormat</code>是窗口<code>QOpenGLWidget</code>的函数，在构造函数中使用，会给后面所有依赖的小部件设置一个默认的<code>format</code>，对于后面的小部件(窗口)，如果不做格式的修改，将会使用在构造函数中调用<code>setFormat</code>函数设置的格式作为默认格式</li></ul></li></ul><h4 id="失败的尝试">失败的尝试</h4><p>  我尝试，单独修改<code>QopenGLContext</code>的<code>QSurfaceFormat</code>,前面的部分是成功，我获取了当前窗口的<code>QopenGLContext</code>,修改了<code>QSurfaceFormat</code>，向其中添加了启用<code>MSAA</code>的代码.然后调用<code>QopenGLContext</code>的<code>create</code>函数，企图重新创建一个<code>QopenGLContext</code>，但是失败了，在初始化<code>QopenGLFunction</code>失败，<p style="color:red">暂时不知道原因,目测可能需要重新将当前窗口的绑定到重新创建后的上下文，以及调用这个上下文的<code>OpenGL</code>函数</p></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;
-  &lt;code&gt;QtOpenGL&lt;/code&gt;MSAA算法介绍...
-&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="works" scheme="https://blog.ranbun.com/categories/works/"/>
-    
-    <category term="SCUU" scheme="https://blog.ranbun.com/categories/works/SCUU/"/>
-    
-    <category term="Computer Graph" scheme="https://blog.ranbun.com/categories/works/SCUU/Computer-Graph/"/>
-    
-    
-    <category term="OpenGL" scheme="https://blog.ranbun.com/tags/OpenGL/"/>
-    
-    <category term="Qt" scheme="https://blog.ranbun.com/tags/Qt/"/>
     
   </entry>
   
