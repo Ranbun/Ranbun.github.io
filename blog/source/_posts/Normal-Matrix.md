@@ -12,14 +12,32 @@ tags:
 
 ## 法线矩阵
 - 在渲染管线的处理过程中，顶点处理阶段会通过模型变换将局部坐标变换到世界坐标,在模型变换的过程中，顶点会经过旋转、缩放、平移的过程.
+
 - 法线是和方向相关的向量，所以平移对法向这个方向向量是没有意义的，所以我们考虑的是顶点的旋转与缩放对法线的影响，由于法线属于协变矢量(我们将在后面介绍这个概念)的一种，它不能和顶点使用相同的变换矩阵进行变换.
+
 - 为了正确的变换法线，我们必须使用一个和顶点变换矩阵不同的矩阵.
   - 如果矩阵不包含缩放,无疑，它是合适的，可以安全的变换矩阵
+  
+    !["不包含缩放的变换矩阵"](https://raw.githubusercontent.com/Ranbun/images/main/blog/computer%20graph/Normal_Matrix_1.png "不包含缩放的变换矩阵")
+  
   - 如果矩阵包含均匀的缩放，它仍旧是安全的，依旧可以用来变换法线，唯一需要做的就是，就是变换完成后重新对法线进行归一化.
+  
+    !["均匀缩放矩阵"](https://raw.githubusercontent.com/Ranbun/images/main/blog/computer%20graph/Normal_Matrix_2.png "均匀缩放矩阵")
+  
   - 如果矩阵包含非均匀的缩放,我们需要一个新的矩阵处理变换后顶点的法相.
+  
+    !["非均匀缩放矩阵"](https://raw.githubusercontent.com/Ranbun/images/main/blog/computer%20graph/Normal_Matrix_3.png "非均匀缩放矩阵")
 
 
-### 非均匀缩放的法线变换
+
+
+
+
+
+
+
+
+### 1. 非均匀缩放的法线变换
 
 
 
