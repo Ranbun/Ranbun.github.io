@@ -1332,7 +1332,7 @@ $delta = 120 $</li>
       <categories>
         <category>Computer Graph</category>
         <category>works</category>
-        <category>SCUU</category>
+        <category>SCU</category>
       </categories>
       <tags>
         <tag>OpenGL</tag>
@@ -1752,7 +1752,7 @@ id="如何开启qtopengl的msaa">如何开启<code>QtOpenGL</code>的<code>MSAA<
 ]]></content>
       <categories>
         <category>works</category>
-        <category>SCUU</category>
+        <category>SCU</category>
         <category>Computer Graph</category>
       </categories>
       <tags>
@@ -3793,5 +3793,11 @@ bottom}{bottom - top}\quad &amp; 0 \\
       <tags>
         <tag>cpp</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Normal Matrix</title>
+    <url>/2023/01/02/Normal-Matrix/</url>
+    <content><![CDATA[<h2 id="法线矩阵">法线矩阵</h2>
+]]></content>
   </entry>
 </search>
