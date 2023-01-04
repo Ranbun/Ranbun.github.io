@@ -27,4 +27,4 @@ tags:
 
 #### 1.3 设置像素格式
 
-loading 待续
+<font color=red>loading 待续</font>
