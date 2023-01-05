@@ -568,48 +568,6 @@ id="dynamic-drawing-of-osg-vertex-buffer-objects"><code>Dynamic drawing of osg v
       </tags>
   </entry>
   <entry>
-    <title>Games202-ShadowMap</title>
-    <url>/2021/12/13/Games202-ShadowMap/</url>
-    <content><![CDATA[<p>
-  你该如何渲染阴影...
-</p>
-<span id="more"></span>
-<h2 id="shadow-map">Shadow Map</h2>
-<ul>
-<li>记录一下关于<code>Games202</code>的学习</li>
-</ul>
-<h4 id="shadow-map-1">shadow map</h4>
-<ul>
-<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p></li>
-<li><p>如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：</p>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" /></p></li>
-</ul>
-<p>上图来自<code>Games202</code>的课件：</p>
-<ul>
-<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p></li>
-<li><p>关于计算当前vertex point
-是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p></li>
-<li><p>在<code>Games202</code>的作业1中，我们需要使用提供的matrix的接口处理矩阵。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mat.translate() <span class="comment">// 设置矩阵的移动 </span></span><br><span class="line">mat4.scale      <span class="comment">// 设置矩阵的缩放</span></span><br><span class="line"></span><br><span class="line">mat4.lookAt(); <span class="comment">// 生成的视图矩阵</span></span><br><span class="line">mat4.ortho();  <span class="comment">// 平行投影</span></span><br><span class="line"></span><br><span class="line">mat4.multiply(); <span class="comment">// 矩阵的乘法</span></span><br></pre></td></tr></table></figure>
-<p><a
-href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p></li>
-<li><p>深度比较：</p>
-<figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure></li>
-<li><p>最终效果</p></li>
-</ul>
-<p><img
-src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" /></p>
-]]></content>
-      <categories>
-        <category>Computer Graph</category>
-      </categories>
-      <tags>
-        <tag>Games202</tag>
-        <tag>Shadow</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git常用命令(上)</title>
     <url>/2022/07/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/</url>
     <content><![CDATA[<p>
@@ -664,6 +622,48 @@ alt="git commit" /></li>
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Games202-ShadowMap</title>
+    <url>/2021/12/13/Games202-ShadowMap/</url>
+    <content><![CDATA[<p>
+  你该如何渲染阴影...
+</p>
+<span id="more"></span>
+<h2 id="shadow-map">Shadow Map</h2>
+<ul>
+<li>记录一下关于<code>Games202</code>的学习</li>
+</ul>
+<h4 id="shadow-map-1">shadow map</h4>
+<ul>
+<li><p>实现：通过比较当前的<code>point</code>,在光源空间的的深度与深度图中记录的深度的大小，决定当前的<code>point</code>是否在阴影中</p></li>
+<li><p>如何获取阴影图：假设相机位置在光源的位置，以此渲染一张纹理，最终得到的这个纹理，每个像素只存储了深度信息，如下：</p>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/games202depth_map.png" /></p></li>
+</ul>
+<p>上图来自<code>Games202</code>的课件：</p>
+<ul>
+<li><p>阴影图<code>shadow map</code>记录了相机在光照位置下的最近最近深度。</p></li>
+<li><p>关于计算当前vertex point
+是否在阴影中的问题，还需要将顶点变换到光照空间也需要一个PVM矩阵(相机位置在光源位置-<code>lightPVM</code>)，用于将顶点转换到光空间。</p></li>
+<li><p>在<code>Games202</code>的作业1中，我们需要使用提供的matrix的接口处理矩阵。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mat.translate() <span class="comment">// 设置矩阵的移动 </span></span><br><span class="line">mat4.scale      <span class="comment">// 设置矩阵的缩放</span></span><br><span class="line"></span><br><span class="line">mat4.lookAt(); <span class="comment">// 生成的视图矩阵</span></span><br><span class="line">mat4.ortho();  <span class="comment">// 平行投影</span></span><br><span class="line"></span><br><span class="line">mat4.multiply(); <span class="comment">// 矩阵的乘法</span></span><br></pre></td></tr></table></figure>
+<p><a
+href="https://www.icode9.com/content-4-956693.html">gl-matrix文档</a></p></li>
+<li><p>深度比较：</p>
+<figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line"><span class="type">sampler2D</span> shadowMap;   <span class="comment">// 你的深度图</span></span><br><span class="line"><span class="type">mat4</span> lightPVM;         <span class="comment">// 光空间的变换矩阵</span></span><br><span class="line"><span class="type">vec4</span> vertexPosition;   <span class="comment">// 渲染的顶点坐标</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1： 将顶点变换到光空间 </span></span><br><span class="line"><span class="type">vec4</span> vertex_light = lightPVM * vertexPosition;</span><br><span class="line"><span class="comment">// 2: 透视除法将顶点变换到NDC坐标</span></span><br><span class="line"><span class="type">vec3</span> ndc_pos = vertex_light.xyz / vertex_light.w;</span><br><span class="line"><span class="comment">// 3: 将深度变到 0-1</span></span><br><span class="line">ndc_pos = ndc_pos * <span class="number">0.5</span> + <span class="number">0.5</span>；</span><br><span class="line"><span class="comment">// 4：获取深度图中记录的深度</span></span><br><span class="line"><span class="comment">// 5: 获取当前点在光空间下的实际深度</span></span><br><span class="line"><span class="comment">// 6: 比较两个深度的大小    </span></span><br><span class="line"><span class="comment">// 7：返回当前点是否在阴影中    </span></span><br></pre></td></tr></table></figure></li>
+<li><p>最终效果</p></li>
+</ul>
+<p><img
+src="https://raw.githubusercontent.com/CuntBoy/images/main/blog/computer_graph/games202/shadow_map_result.png" /></p>
+]]></content>
+      <categories>
+        <category>Computer Graph</category>
+      </categories>
+      <tags>
+        <tag>Games202</tag>
+        <tag>Shadow</tag>
       </tags>
   </entry>
   <entry>
@@ -1455,35 +1455,6 @@ OpenGL parallel projection graphics do not scale with the window
       </tags>
   </entry>
   <entry>
-    <title>OpenGL的手动初始化</title>
-    <url>/2022/11/03/OpenGL%E7%9A%84%E6%89%8B%E5%8A%A8%E5%88%9D%E5%A7%8B%E5%8C%96/</url>
-    <content><![CDATA[<h2 id="opengl初始化">OpenGL初始化</h2>
-<ul>
-<li>在使用OpenGL前我们通常需要配置好OpenGL的环境 -
-创建一个提交命令的客户端，我们需要完成的事情包括如下部分(此处我们介绍关于Windows的操作)：
-<ul>
-<li>创建一个窗口(for windows)</li>
-<li>获取窗口的<code>Device Context</code></li>
-<li>使用<code>Device Context(HDC)</code>创建
-<code>OpenGL Render Contesxt(HRLRC)</code></li>
-<li>绑定<code>HDC &amp; HGLRC</code>到当前线程</li>
-</ul></li>
-<li>完成上述的设置之后，便可以调用<code>OpenGL</code>进行渲染</li>
-</ul>
-<h3 id="创建opengl可用的窗口---win">1、
-创建<code>OpenGL</code>可用的窗口 - <code>Win</code></h3>
-<h4 id="注册窗口类">1.1 注册窗口类</h4>
-<ul>
-<li><code>HINSTANCE</code>对象实例化</li>
-<li>填充<code>WNDCLASS</code>结构体</li>
-<li>注册窗口类</li>
-</ul>
-<h4 id="创建窗口">1.2 创建窗口</h4>
-<h4 id="设置像素格式">1.3 设置像素格式</h4>
-<p><font color=red>loading 待续</font></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Physical Sort</title>
     <url>/2021/11/07/Physical-Sort/</url>
     <content><![CDATA[<p>
@@ -1832,6 +1803,35 @@ OpenGL parallel projection graphics do not scale with the window
         <tag>cpp</tag>
         <tag>sort</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>OpenGL的手动初始化</title>
+    <url>/2022/11/03/OpenGL%E7%9A%84%E6%89%8B%E5%8A%A8%E5%88%9D%E5%A7%8B%E5%8C%96/</url>
+    <content><![CDATA[<h2 id="opengl初始化">OpenGL初始化</h2>
+<ul>
+<li>在使用OpenGL前我们通常需要配置好OpenGL的环境 -
+创建一个提交命令的客户端，我们需要完成的事情包括如下部分(此处我们介绍关于Windows的操作)：
+<ul>
+<li>创建一个窗口(for windows)</li>
+<li>获取窗口的<code>Device Context</code></li>
+<li>使用<code>Device Context(HDC)</code>创建
+<code>OpenGL Render Contesxt(HRLRC)</code></li>
+<li>绑定<code>HDC &amp; HGLRC</code>到当前线程</li>
+</ul></li>
+<li>完成上述的设置之后，便可以调用<code>OpenGL</code>进行渲染</li>
+</ul>
+<h3 id="创建opengl可用的窗口---win">1、
+创建<code>OpenGL</code>可用的窗口 - <code>Win</code></h3>
+<h4 id="注册窗口类">1.1 注册窗口类</h4>
+<ul>
+<li><code>HINSTANCE</code>对象实例化</li>
+<li>填充<code>WNDCLASS</code>结构体</li>
+<li>注册窗口类</li>
+</ul>
+<h4 id="创建窗口">1.2 创建窗口</h4>
+<h4 id="设置像素格式">1.3 设置像素格式</h4>
+<p><font color=red>loading 待续</font></p>
+]]></content>
   </entry>
   <entry>
     <title>Qt OpenGL Antialiasing-MSAA</title>
@@ -3316,47 +3316,6 @@ y,w \times z,w^2)\)</span></li>
       </tags>
   </entry>
   <entry>
-    <title>第一次换工作</title>
-    <url>/2021/10/17/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%80%BB%E7%BB%93_%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%8D%A2%E5%B7%A5%E4%BD%9C/</url>
-    <content><![CDATA[<p>
-  而二分工作的小总结，北京...
-</p>
-<span id="more"></span>
-<h3 id="section"></h3>
-<p><code>前记：</code></p>
-<p><img src="https://raw.githubusercontent.com/Ranbun/images/main/works/GF/GF_Workspace.JPG"/></p>
-<p>    从辞职到新公司，过去了快两个月时间，经过这大段的时间，度过了试用期，开始接手往后日子里要进行的工作。</p>
-<p> 
-   新工作是关于<code>C++　&amp;　OSG</code>的，做一个仿真软件，主要负责一些关于<code>osg</code>的渲染工作，和其中部分界面的编写，项目用到的还算是熟悉的东西：</p>
-<ul>
-<li><code>Qt</code>编写整个软件的界面</li>
-<li><code>osg</code>负责整个3D图形的展示</li>
-</ul>
-<p>  关于这个项目遇到的一些问题：</p>
-<ul>
-<li><code>osg</code>编译劝退</li>
-</ul>
-<p>    讲真，<code>osg</code>的库的编译相当劝退，各种库的依赖关系，以及<code>VS</code>的工具链的选择，以及部分库的调试模式的选择。</p>
-<p>这里推荐<a ref=https://freesouth.blog.csdn.net/>杨石兴的博客</a>详细介绍了OSG的编译的一些问题，同时它提供了编译使用的所有的依赖包，各种工具集的版本。</p>
-<ul>
-<li><code>osg</code>与<code>Qt</code>的集成</li>
-</ul>
-<p>    要求你先编译<code>osg</code>然后才能编译，<code>osgQt</code>在<code>osg3.4</code>之后的版本中便被从原来的库中剔除，需要自己单独编译，</p>
-<p>同时<code>Qt4.0</code>的版本与<code>5.0</code>的版本编译使用的<code>Qt</code>的类也存在一些区别。</p>
-<p>当前阶段，上面提到的这些问题，我们已经解决了，新一番的问题产生了：</p>
-<ul>
-<li>在于不同的团队合作的时候，如何扯皮！</li>
-</ul>
-]]></content>
-      <categories>
-        <category>works</category>
-        <category>HJ</category>
-      </categories>
-      <tags>
-        <tag>conclusion</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>渲染(CAD)</title>
     <url>/2022/01/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95_CAD%E6%B8%B2%E6%9F%93/</url>
     <content><![CDATA[<p>
@@ -3449,6 +3408,47 @@ y,w \times z,w^2)\)</span></li>
         <tag>cpp</tag>
         <tag>openGL</tag>
         <tag>computer graphics</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第一次换工作</title>
+    <url>/2021/10/17/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%80%BB%E7%BB%93_%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%8D%A2%E5%B7%A5%E4%BD%9C/</url>
+    <content><![CDATA[<p>
+  而二分工作的小总结，北京...
+</p>
+<span id="more"></span>
+<h3 id="section"></h3>
+<p><code>前记：</code></p>
+<p><img src="https://raw.githubusercontent.com/Ranbun/images/main/works/GF/GF_Workspace.JPG"/></p>
+<p>    从辞职到新公司，过去了快两个月时间，经过这大段的时间，度过了试用期，开始接手往后日子里要进行的工作。</p>
+<p> 
+   新工作是关于<code>C++　&amp;　OSG</code>的，做一个仿真软件，主要负责一些关于<code>osg</code>的渲染工作，和其中部分界面的编写，项目用到的还算是熟悉的东西：</p>
+<ul>
+<li><code>Qt</code>编写整个软件的界面</li>
+<li><code>osg</code>负责整个3D图形的展示</li>
+</ul>
+<p>  关于这个项目遇到的一些问题：</p>
+<ul>
+<li><code>osg</code>编译劝退</li>
+</ul>
+<p>    讲真，<code>osg</code>的库的编译相当劝退，各种库的依赖关系，以及<code>VS</code>的工具链的选择，以及部分库的调试模式的选择。</p>
+<p>这里推荐<a ref=https://freesouth.blog.csdn.net/>杨石兴的博客</a>详细介绍了OSG的编译的一些问题，同时它提供了编译使用的所有的依赖包，各种工具集的版本。</p>
+<ul>
+<li><code>osg</code>与<code>Qt</code>的集成</li>
+</ul>
+<p>    要求你先编译<code>osg</code>然后才能编译，<code>osgQt</code>在<code>osg3.4</code>之后的版本中便被从原来的库中剔除，需要自己单独编译，</p>
+<p>同时<code>Qt4.0</code>的版本与<code>5.0</code>的版本编译使用的<code>Qt</code>的类也存在一些区别。</p>
+<p>当前阶段，上面提到的这些问题，我们已经解决了，新一番的问题产生了：</p>
+<ul>
+<li>在于不同的团队合作的时候，如何扯皮！</li>
+</ul>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>HJ</category>
+      </categories>
+      <tags>
+        <tag>conclusion</tag>
       </tags>
   </entry>
   <entry>
