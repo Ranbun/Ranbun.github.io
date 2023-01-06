@@ -3933,4 +3933,85 @@ bottom}{bottom - top}\quad &amp; 0 \\
         <tag>projection</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Git常用命令(下)</title>
+    <url>/2023/01/05/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8B/</url>
+    <content><![CDATA[<h2 id="git-常用命令下">Git 常用命令(下)</h2>
+<ul>
+<li><p>本节主要介绍rebase相关的操作</p></li>
+<li><p>我们将以具体的功能来处理你相关的事情</p></li>
+</ul>
+<h3 id="rebase简介">1. <code>Rebase</code>简介</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/git/branch_basic.png"
+title="branch Basic" alt="branch Basic" />
+<figcaption aria-hidden="true">branch Basic</figcaption>
+</figure>
+<ul>
+<li>相信你对于两个分支的<code>merge</code>操作并不陌生,
+整合分支最容易的方法是<code>merge</code>命令。
+它会把两个分支的最新快照<code>(C3 和 C4)</code>以及二者最近的共同祖先<code>(C2)</code>进行三方合并，合并的结果是生成一个新的快照（并提交）。</li>
+</ul>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/git/merge_branch_1.png"
+title="Merge branch" alt="Merge Branch" />
+<figcaption aria-hidden="true">Merge Branch</figcaption>
+</figure>
+<ul>
+<li><p>你可以提取在 <code>C4</code> 中引入的补丁和修改，然后在
+<code>C3</code> 的基础上应用一次。 在 <code>Git</code>
+中，这种操作就叫做 <strong>变基<code>（rebase）</code></strong>。
+你可以使用 <code>rebase</code>
+命令将提交到某一分支上的所有修改都移至另一分支上，就好像"重新播放"一样。</p>
+<ul>
+<li>在上述的场景中我们做如下操作便可以成功将<code>experiment</code>分支上的修改<code>C4</code>，应用到<code>master</code>分支上</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout experiment</span><br><span class="line">git rebase master</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>它的原理是首先找到这两个分支（即当前分支
+<code>experiment</code>、变基操作的目标基底分支 <code>master</code>）
+的最近共同祖先
+<code>C2</code>，然后对比当前分支相对于该祖先的历次提交，<font color=red>提取相应的修改并存为临时文件</font>，
+然后将当前分支指向目标基底 <code>C3</code>,
+最后以此将之前另存为临时文件的修改依序应用。</p></li>
+<li><p>它的过程就像下面描述的那样：</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/git/basic-rebase-3.png"
+title="basic rebase 3" alt="Rebase Case" />
+<figcaption aria-hidden="true">Rebase Case</figcaption>
+</figure></li>
+</ul></li>
+</ul>
+<h3 id="使用rebase合并代码---简单情况">2.
+使用<code>rebase</code>合并代码 - 简单情况</h3>
+<ul>
+<li><p>切换到你要提取的分支</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git switch &quot;branchName&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>使用<code>git rebase</code>将当前分支在与目标分支公共父节点之后的提交提取并应用到目标分支</p>
+<ul>
+<li>当前分支 - <code>experiment</code></li>
+<li>目标分支 - <code>master</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git rebase master</span><br></pre></td></tr></table></figure></li>
+<li><p>如上图所示，会进行如图上的操作</p>
+<ul>
+<li>操作完成后<code>experiment</code>指向 - <code>C4'</code>节点</li>
+</ul></li>
+<li><p>合并<code>experiment</code>的代码到<code>master</code>分支</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git switch master</span><br><span class="line">git merge experiment</span><br></pre></td></tr></table></figure></li>
+<li><p>本此合并完成，同时你可以使用<code>rebase</code>合并之前的提交</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>SCU</category>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
 </search>
