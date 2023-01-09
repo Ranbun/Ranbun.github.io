@@ -110,7 +110,7 @@ tags:
     == 如下操作
     git branch   feature        //创建分支main
     git checkout feature        //切换到分支feature
-    git checkout origin/main    //拉取远程分支并切换
+    git checkout branchName origin/main    //拉取远程分支并切换,此时branchName分支对应得远程分支是main
     // 版本比较新一定的分支管理命令 
     git switch -c feature       //创建分支feature并切换
     git switch main             //直接切换到分支main
