@@ -4014,4 +4014,24 @@ t*\vec{u})) \cdot \vec{n} = 0\]</span></p>
         <tag>Intersect</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Git常用命令-拉取操作</title>
+    <url>/2023/01/09/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E6%8B%89%E5%8F%96%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h2 id="git拉取操作"><code>Git</code>拉取操作</h2>
+<ul>
+<li><p><code>git pull</code></p></li>
+<li><p><code>git fetch</code></p></li>
+<li><p><code>git checkout ...</code></p></li>
+<li><p>......</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>SCU</category>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
 </search>
