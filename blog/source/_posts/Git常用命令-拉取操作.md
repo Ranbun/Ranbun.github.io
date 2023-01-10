@@ -117,7 +117,5 @@ git fetch origin origin_test
 - `git pull`并不是一个操作,一般是先执行`git fetch`然后执行一次`merge or rebase`操作
 
 
-
-
 [Git]: https://git-scm.com/docs/git-fetch	"Git fetch"
 
