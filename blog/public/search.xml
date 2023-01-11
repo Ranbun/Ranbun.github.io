@@ -751,6 +751,107 @@ t_i = (O_{Size.i} / 2.0 - (C - P) \cdot \vec{O_n}) / (\vec{u} \cdot
       </tags>
   </entry>
   <entry>
+    <title>View/Camera Transformation</title>
+    <url>/2022/08/19/Computer%20Graphics/View-Camera-Transformation/</url>
+    <content><![CDATA[<p>
+  计算机图形学的视图变换过程的解析...
+</p>
+<span id="more"></span>
+<h1 id="视图变换">视图变换</h1>
+<ul>
+<li>视图变换是将所有世界空间中的点，变换到视图空间下的操作
+<ul>
+<li>这种变换，我们通过矩阵可以轻易的完成，但是我们首先需要计算一个描述这种变换的矩阵</li>
+</ul></li>
+<li>在一般的实现中，我们将视图变换的过程抽象出了一个相机的概念
+<ul>
+<li>本身而言在图形学中是没有相机这个概念的</li>
+</ul></li>
+</ul>
+<h2 id="视图变换-变换过程">视图变换-变换过程</h2>
+<ul>
+<li>从顶点构建到最终渲染成一张二维的图片，在行业中大家将之类比为拍照的行为
+<ul>
+<li>模型变换 - 取景的过程</li>
+<li><font color=red>视图变换 - 摆放相机的过程</font></li>
+<li>......</li>
+<li>此处我们只是讨论视图变换的过程</li>
+</ul></li>
+</ul>
+<h3 id="定义一个相机">定义一个相机</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer%20graph/define_cameracamera.png"
+title="define camera" alt="camera" />
+<figcaption aria-hidden="true">camera</figcaption>
+</figure>
+<ul>
+<li>对于上述的那个拍照的行为，我们要拍摄这个摆放好的景物，关于相机我们只需要关心三个方面。
+<ul>
+<li>我们基于<font color=red>右手系</font>考虑下面的这些信息</li>
+<li>相机的位置 <span class="math inline">\(e\)</span> -&gt; <span
+class="math inline">\(eye\)</span> = $x,y,z,1$</li>
+<li>相机的看的方向，既相机的拍摄方向 <span
+class="math inline">\(\vec{dir}\)</span> - <code>lookAt direction</code>
+$x,y,z,0 $</li>
+<li>相机的上方向 <span class="math inline">\(\vec{up}\)</span> = <span
+class="math inline">\(\lbrace x,y,z,1\rbrace\)</span>
+<ul>
+<li>大概是手机横屏与竖屏的区别</li>
+</ul></li>
+</ul></li>
+<li>我们获得一个观察方向,一个向上的方向
+<ul>
+<li>观察方向与向上方向垂直</li>
+<li>通过叉积我们可以得到一个向右的方向<span
+class="math inline">\(\vec{right}\)</span></li>
+</ul></li>
+</ul>
+<p style="color:red">
+  
+从拍照的行为来看，相机的观察方向是指向模型摆放的位置，我们保持两个物体的相对位置关系(相机与场景)，相机做了某种变换，模型也跟着做同样的变换。基于这种相对位置的变化，我们约定，将相机永远变换到原点，相机的观察方向永远是
+<code> -z </code>方向,以此我们构建一个坐标系
+</p>
+<p><img id="view_coordinate" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer graph/camera构建坐标系.png"/></p>
+<h2 id="计算视图变换矩阵">计算视图变换矩阵</h2>
+<p><img id="旋转矩阵构建" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer%20graph/旋转矩阵的构建.png"/></p>
+<ul>
+<li>我们将以相机定义的坐标框架通过旋转与平移将之与世界空间的坐标重合
+<ul>
+<li><span class="math inline">\(\vec{g}\)</span> -&gt; $ $</li>
+<li><span class="math inline">\(\vec{t}\)</span> -&gt; $ $</li>
+<li><span class="math inline">\(\vec{t} \times \vec{g}\)</span> -&gt;
+<span class="math inline">\({\vec{X}}\)</span></li>
+<li><font color=red>但是我们要做到上面的事情比较困难，换一种思路，我们做相反的事情</font></li>
+</ul></li>
+<li>我们将世界空间的坐标通过旋转&amp;平移将之与相机定义的坐标系重合
+<ul>
+<li><span class="math inline">\(\vec{Y}\)</span> -&gt; <span
+class="math inline">\(\vec{t}\)</span></li>
+<li><span class="math inline">\(\vec{-Z}\)</span> -&gt; <span
+class="math inline">\(\vec{g}\)</span></li>
+<li><span class="math inline">\({\vec{X}}\)</span> -&gt; <span
+class="math inline">\(\vec{t} \times \vec{g}\)</span></li>
+</ul></li>
+<li>构建一个旋转矩阵的逆矩阵，然后计算逆矩阵的逆便得到我们想要的矩阵。
+<ul>
+<li>由于坐标系的三个轴是正交的，我们只需要将矩阵转置就可以得到这个旋转矩阵。</li>
+</ul></li>
+<li>将旋转矩阵与平移矩阵乘起来，就得到想要的试图变换矩阵</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer graph/旋转矩阵计算.jpg"/></p>
+<p style="color:pink">
+<p>   上述过程描述了视图变换的过程与视图矩阵的计算。</p>
+</p>
+]]></content>
+      <categories>
+        <category>Computer Graph</category>
+      </categories>
+      <tags>
+        <tag>Base</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>射线与平面相交</title>
     <url>/2022/10/25/Computer%20Graphics/%E5%B0%84%E7%BA%BF%E4%B8%8E%E5%B9%B3%E9%9D%A2%E7%9B%B8%E4%BA%A4%E8%AE%A1%E7%AE%97/</url>
     <content><![CDATA[<h2 id="计算射线与平面的相交">计算射线与平面的相交</h2>
@@ -1822,107 +1923,6 @@ C++ 实现  </a></p>
       </tags>
   </entry>
   <entry>
-    <title>View/Camera Transformation</title>
-    <url>/2022/08/19/Computer%20Graphics/View-Camera-Transformation/</url>
-    <content><![CDATA[<p>
-  计算机图形学的视图变换过程的解析...
-</p>
-<span id="more"></span>
-<h1 id="视图变换">视图变换</h1>
-<ul>
-<li>视图变换是将所有世界空间中的点，变换到视图空间下的操作
-<ul>
-<li>这种变换，我们通过矩阵可以轻易的完成，但是我们首先需要计算一个描述这种变换的矩阵</li>
-</ul></li>
-<li>在一般的实现中，我们将视图变换的过程抽象出了一个相机的概念
-<ul>
-<li>本身而言在图形学中是没有相机这个概念的</li>
-</ul></li>
-</ul>
-<h2 id="视图变换-变换过程">视图变换-变换过程</h2>
-<ul>
-<li>从顶点构建到最终渲染成一张二维的图片，在行业中大家将之类比为拍照的行为
-<ul>
-<li>模型变换 - 取景的过程</li>
-<li><font color=red>视图变换 - 摆放相机的过程</font></li>
-<li>......</li>
-<li>此处我们只是讨论视图变换的过程</li>
-</ul></li>
-</ul>
-<h3 id="定义一个相机">定义一个相机</h3>
-<figure>
-<img
-src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer%20graph/define_cameracamera.png"
-title="define camera" alt="camera" />
-<figcaption aria-hidden="true">camera</figcaption>
-</figure>
-<ul>
-<li>对于上述的那个拍照的行为，我们要拍摄这个摆放好的景物，关于相机我们只需要关心三个方面。
-<ul>
-<li>我们基于<font color=red>右手系</font>考虑下面的这些信息</li>
-<li>相机的位置 <span class="math inline">\(e\)</span> -&gt; <span
-class="math inline">\(eye\)</span> = $x,y,z,1$</li>
-<li>相机的看的方向，既相机的拍摄方向 <span
-class="math inline">\(\vec{dir}\)</span> - <code>lookAt direction</code>
-$x,y,z,0 $</li>
-<li>相机的上方向 <span class="math inline">\(\vec{up}\)</span> = <span
-class="math inline">\(\lbrace x,y,z,1\rbrace\)</span>
-<ul>
-<li>大概是手机横屏与竖屏的区别</li>
-</ul></li>
-</ul></li>
-<li>我们获得一个观察方向,一个向上的方向
-<ul>
-<li>观察方向与向上方向垂直</li>
-<li>通过叉积我们可以得到一个向右的方向<span
-class="math inline">\(\vec{right}\)</span></li>
-</ul></li>
-</ul>
-<p style="color:red">
-  
-从拍照的行为来看，相机的观察方向是指向模型摆放的位置，我们保持两个物体的相对位置关系(相机与场景)，相机做了某种变换，模型也跟着做同样的变换。基于这种相对位置的变化，我们约定，将相机永远变换到原点，相机的观察方向永远是
-<code> -z </code>方向,以此我们构建一个坐标系
-</p>
-<p><img id="view_coordinate" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer graph/camera构建坐标系.png"/></p>
-<h2 id="计算视图变换矩阵">计算视图变换矩阵</h2>
-<p><img id="旋转矩阵构建" src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer%20graph/旋转矩阵的构建.png"/></p>
-<ul>
-<li>我们将以相机定义的坐标框架通过旋转与平移将之与世界空间的坐标重合
-<ul>
-<li><span class="math inline">\(\vec{g}\)</span> -&gt; $ $</li>
-<li><span class="math inline">\(\vec{t}\)</span> -&gt; $ $</li>
-<li><span class="math inline">\(\vec{t} \times \vec{g}\)</span> -&gt;
-<span class="math inline">\({\vec{X}}\)</span></li>
-<li><font color=red>但是我们要做到上面的事情比较困难，换一种思路，我们做相反的事情</font></li>
-</ul></li>
-<li>我们将世界空间的坐标通过旋转&amp;平移将之与相机定义的坐标系重合
-<ul>
-<li><span class="math inline">\(\vec{Y}\)</span> -&gt; <span
-class="math inline">\(\vec{t}\)</span></li>
-<li><span class="math inline">\(\vec{-Z}\)</span> -&gt; <span
-class="math inline">\(\vec{g}\)</span></li>
-<li><span class="math inline">\({\vec{X}}\)</span> -&gt; <span
-class="math inline">\(\vec{t} \times \vec{g}\)</span></li>
-</ul></li>
-<li>构建一个旋转矩阵的逆矩阵，然后计算逆矩阵的逆便得到我们想要的矩阵。
-<ul>
-<li>由于坐标系的三个轴是正交的，我们只需要将矩阵转置就可以得到这个旋转矩阵。</li>
-</ul></li>
-<li>将旋转矩阵与平移矩阵乘起来，就得到想要的试图变换矩阵</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/Ranbun/images/main/blog/computer graph/旋转矩阵计算.jpg"/></p>
-<p style="color:pink">
-<p>   上述过程描述了视图变换的过程与视图矩阵的计算。</p>
-</p>
-]]></content>
-      <categories>
-        <category>Computer Graph</category>
-      </categories>
-      <tags>
-        <tag>Base</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Selection_sort</title>
     <url>/2021/10/25/Data%20structure/Selection-sort/</url>
     <content><![CDATA[<p>
@@ -2408,61 +2408,6 @@ A[j]，则称<code>(i,j)</code>是一对逆序对<font color=red>逆序对(inver
       </tags>
   </entry>
   <entry>
-    <title>Git常用命令(上)</title>
-    <url>/2022/07/24/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/</url>
-    <content><![CDATA[<p>
-  Git常用命令...
-</p>
-<span id="more"></span>
-<h1 id="git常用命令">Git常用命令</h1>
-<h3 id="install-git"><code>install Git</code></h3>
-<ul>
-<li>Git -- <a href="https://git-scm.com/">官方网站</a></li>
-</ul>
-<h3 id="常用命令">常用命令</h3>
-<ul>
-<li><p>安装完成Git之后的操作 - 指定UserName &amp; Email</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name  &quot;Your Git UserName&quot;</span><br><span class="line">git config --global user.email &quot;Your Email Address&quot;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>一般时候在你安装完成之后需要做一下这个的配置。</li>
-</ul></li>
-<li><p>生成密钥</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen.exe -t rsa</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><p>命令提示 <img
-src="https://raw.githubusercontent.com/Ranbun/images/main/blog/git/ssh-genkey.png"
-alt="Image" /></p></li>
-<li><p>然后将你的公钥添加为你所使用的远程管理平台对应SSH Key</p></li>
-</ul></li>
-<li><p>创建本地版本库</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir repositoryDir  &#x2F;&#x2F; 创建本地文件夹</span><br><span class="line">cd    repositoryDir  &#x2F;&#x2F; 进入到文件夹</span><br><span class="line">git   init           &#x2F;&#x2F; 初始化为本地仓库 创建.git目录</span><br></pre></td></tr></table></figure></p></li>
-<li><p>添加文件到本地暂存区&amp;提交文件到本地</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add &quot;fileName&quot;       &#x2F;&#x2F; 提交具体的文件 </span><br><span class="line">git add .                &#x2F;&#x2F; 提交所有修改文件</span><br><span class="line">git commit -m  &quot;备注信息&quot; &#x2F;&#x2F; 提交暂存区文件到本地</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><code>git commit</code> 命令详解 <img
-src="https://raw.githubusercontent.com/Ranbun/images/main/blog/git/git-commit.png"
-alt="git commit" /></li>
-</ul></li>
-<li><p>版本控制</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git log                      &#x2F;&#x2F;查看提交历史记录，从最近到最远，可以看到3次</span><br><span class="line">git log --pretty&#x3D;oneline     &#x2F;&#x2F;加参数，简洁查看</span><br><span class="line">git reflog                   &#x2F;&#x2F;查看每一次修改历史</span><br><span class="line">cat &quot;fileName&quot;                &#x2F;&#x2F;查看文件内容 -- linux 命令</span><br><span class="line">git status                   &#x2F;&#x2F;查看工作区中文件当前状态</span><br><span class="line">git reset --hard HEAD^(HEAD~100)(commit_id)  &#x2F;&#x2F;回退版本</span><br><span class="line">git checkout -- &quot;fileName&quot;         &#x2F;&#x2F;丢弃工作区的修改，即撤销修改</span><br><span class="line">git reset HEAD &quot;fileName&quot;          &#x2F;&#x2F;丢弃暂存区的修改（若已提交，则回退）</span><br></pre></td></tr></table></figure></p></li>
-<li><p>删除文件</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm &quot;filename&quot;   &#x2F;&#x2F; 删除单个文件 </span><br><span class="line">rm -rf *.*      &#x2F;&#x2F; 强制递归删除所有文件</span><br><span class="line">git rm &quot;filename&quot;  &#x2F;&#x2F; 直接删除</span><br><span class="line">&#x2F;&#x2F; 恢复删除的文件</span><br><span class="line">git checkout -- &quot;filename&quot;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>推送到远程的相关命令</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;前面设置的Email&quot;     &#x2F;&#x2F;创建SSH Key 也可以不指定-C与邮件地址</span><br><span class="line">git remote add origin &quot;git的远程仓库地址&quot;  &#x2F;&#x2F;关联远程仓库-源</span><br><span class="line">git push -u origin main                  &#x2F;&#x2F;将本地内容推送到远程-第一次强制推送</span><br><span class="line">git push origin main                     &#x2F;&#x2F;将本地内容推送到远程</span><br><span class="line">git remote -v                            &#x2F;&#x2F;查看远程源信息</span><br><span class="line">git remote rm origin                     &#x2F;&#x2F;删除远程源</span><br><span class="line">git clone &quot;远程仓库地址可以是https的也可以是SSH(此时需要配置密钥)&quot;  &#x2F;&#x2F;克隆远程仓库</span><br><span class="line">git remote                               &#x2F;&#x2F;查看远程库的信息</span><br><span class="line">git remote -v                            &#x2F;&#x2F;查看远程库的详细信</span><br></pre></td></tr></table></figure></p></li>
-<li><p>分支管理</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 老版本的 git命令 </span><br><span class="line">git checkout -b main        &#x2F;&#x2F;创建并切换到分支dev</span><br><span class="line">&#x3D;&#x3D; 如下操作</span><br><span class="line">git branch   feature        &#x2F;&#x2F;创建分支main</span><br><span class="line">git checkout feature        &#x2F;&#x2F;切换到分支feature</span><br><span class="line">git checkout branchName origin&#x2F;main    &#x2F;&#x2F;拉取远程分支并切换,此时branchName分支对应得远程分支是main</span><br><span class="line">&#x2F;&#x2F; 版本比较新一定的分支管理命令 </span><br><span class="line">git switch -c feature       &#x2F;&#x2F;创建分支feature并切换</span><br><span class="line">git switch main             &#x2F;&#x2F;直接切换到分支main</span><br><span class="line">&#x2F;&#x2F; -----------------------------------------------------------------------</span><br><span class="line">git branch                  &#x2F;&#x2F;查看当前分支</span><br><span class="line">git merge  feature          &#x2F;&#x2F; 合并分支feature到当前分支(记得合并前拉取一下)</span><br><span class="line">git branch -d dev           &#x2F;&#x2F; 删除dev分支 -d 强制删除</span><br></pre></td></tr></table></figure></p></li>
-<li><p>推送到远程</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin main                               &#x2F;&#x2F;推送分支到远程</span><br><span class="line">git checkout -b feature origin&#x2F;feature                     &#x2F;&#x2F;创建远程origin的dev分支到本地</span><br><span class="line">git pull                                           &#x2F;&#x2F;拉取远程分支内容</span><br><span class="line">git branch --set-upstream-to&#x3D;origin&#x2F;main main        &#x2F;&#x2F;指定本地与远程dev的链接</span><br><span class="line">&#x2F;&#x2F; 另一种合并操作，相比merge不会产生一次额外的提交</span><br><span class="line">git rebase                                         &#x2F;&#x2F;把本地未push的分叉提交历史整理成直线</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git常用命令(下)</title>
     <url>/2023/01/05/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8B/</url>
     <content><![CDATA[<h2 id="git-常用命令下">Git 常用命令(下)</h2>
@@ -2532,6 +2477,61 @@ title="basic rebase 3" alt="Rebase Case" />
 <li><p>合并<code>experiment</code>的代码到<code>master</code>分支</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git switch master</span><br><span class="line">git merge experiment</span><br></pre></td></tr></table></figure></li>
 <li><p>本此合并完成，同时你可以使用<code>rebase</code>合并之前的提交</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git常用命令(上)</title>
+    <url>/2022/07/24/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/</url>
+    <content><![CDATA[<p>
+  Git常用命令...
+</p>
+<span id="more"></span>
+<h1 id="git常用命令">Git常用命令</h1>
+<h3 id="install-git"><code>install Git</code></h3>
+<ul>
+<li>Git -- <a href="https://git-scm.com/">官方网站</a></li>
+</ul>
+<h3 id="常用命令">常用命令</h3>
+<ul>
+<li><p>安装完成Git之后的操作 - 指定UserName &amp; Email</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name  &quot;Your Git UserName&quot;</span><br><span class="line">git config --global user.email &quot;Your Email Address&quot;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>一般时候在你安装完成之后需要做一下这个的配置。</li>
+</ul></li>
+<li><p>生成密钥</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen.exe -t rsa</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>命令提示 <img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/git/ssh-genkey.png"
+alt="Image" /></p></li>
+<li><p>然后将你的公钥添加为你所使用的远程管理平台对应SSH Key</p></li>
+</ul></li>
+<li><p>创建本地版本库</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir repositoryDir  &#x2F;&#x2F; 创建本地文件夹</span><br><span class="line">cd    repositoryDir  &#x2F;&#x2F; 进入到文件夹</span><br><span class="line">git   init           &#x2F;&#x2F; 初始化为本地仓库 创建.git目录</span><br></pre></td></tr></table></figure></p></li>
+<li><p>添加文件到本地暂存区&amp;提交文件到本地</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add &quot;fileName&quot;       &#x2F;&#x2F; 提交具体的文件 </span><br><span class="line">git add .                &#x2F;&#x2F; 提交所有修改文件</span><br><span class="line">git commit -m  &quot;备注信息&quot; &#x2F;&#x2F; 提交暂存区文件到本地</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>git commit</code> 命令详解 <img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/git/git-commit.png"
+alt="git commit" /></li>
+</ul></li>
+<li><p>版本控制</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git log                      &#x2F;&#x2F;查看提交历史记录，从最近到最远，可以看到3次</span><br><span class="line">git log --pretty&#x3D;oneline     &#x2F;&#x2F;加参数，简洁查看</span><br><span class="line">git reflog                   &#x2F;&#x2F;查看每一次修改历史</span><br><span class="line">cat &quot;fileName&quot;                &#x2F;&#x2F;查看文件内容 -- linux 命令</span><br><span class="line">git status                   &#x2F;&#x2F;查看工作区中文件当前状态</span><br><span class="line">git reset --hard HEAD^(HEAD~100)(commit_id)  &#x2F;&#x2F;回退版本</span><br><span class="line">git checkout -- &quot;fileName&quot;         &#x2F;&#x2F;丢弃工作区的修改，即撤销修改</span><br><span class="line">git reset HEAD &quot;fileName&quot;          &#x2F;&#x2F;丢弃暂存区的修改（若已提交，则回退）</span><br></pre></td></tr></table></figure></p></li>
+<li><p>删除文件</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm &quot;filename&quot;   &#x2F;&#x2F; 删除单个文件 </span><br><span class="line">rm -rf *.*      &#x2F;&#x2F; 强制递归删除所有文件</span><br><span class="line">git rm &quot;filename&quot;  &#x2F;&#x2F; 直接删除</span><br><span class="line">&#x2F;&#x2F; 恢复删除的文件</span><br><span class="line">git checkout -- &quot;filename&quot;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>推送到远程的相关命令</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;前面设置的Email&quot;     &#x2F;&#x2F;创建SSH Key 也可以不指定-C与邮件地址</span><br><span class="line">git remote add origin &quot;git的远程仓库地址&quot;  &#x2F;&#x2F;关联远程仓库-源</span><br><span class="line">git push -u origin main                  &#x2F;&#x2F;将本地内容推送到远程-第一次强制推送</span><br><span class="line">git push origin main                     &#x2F;&#x2F;将本地内容推送到远程</span><br><span class="line">git remote -v                            &#x2F;&#x2F;查看远程源信息</span><br><span class="line">git remote rm origin                     &#x2F;&#x2F;删除远程源</span><br><span class="line">git clone &quot;远程仓库地址可以是https的也可以是SSH(此时需要配置密钥)&quot;  &#x2F;&#x2F;克隆远程仓库</span><br><span class="line">git remote                               &#x2F;&#x2F;查看远程库的信息</span><br><span class="line">git remote -v                            &#x2F;&#x2F;查看远程库的详细信</span><br></pre></td></tr></table></figure></p></li>
+<li><p>分支管理</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 老版本的 git命令 </span><br><span class="line">git checkout -b main        &#x2F;&#x2F;创建并切换到分支dev</span><br><span class="line">&#x3D;&#x3D; 如下操作</span><br><span class="line">git branch   feature        &#x2F;&#x2F;创建分支main</span><br><span class="line">git checkout feature        &#x2F;&#x2F;切换到分支feature</span><br><span class="line">git checkout branchName origin&#x2F;main    &#x2F;&#x2F;拉取远程分支并切换,此时branchName分支对应得远程分支是main</span><br><span class="line">&#x2F;&#x2F; 版本比较新一定的分支管理命令 </span><br><span class="line">git switch -c feature       &#x2F;&#x2F;创建分支feature并切换</span><br><span class="line">git switch main             &#x2F;&#x2F;直接切换到分支main</span><br><span class="line">&#x2F;&#x2F; -----------------------------------------------------------------------</span><br><span class="line">git branch                  &#x2F;&#x2F;查看当前分支</span><br><span class="line">git merge  feature          &#x2F;&#x2F; 合并分支feature到当前分支(记得合并前拉取一下)</span><br><span class="line">git branch -d dev           &#x2F;&#x2F; 删除dev分支 -d 强制删除</span><br></pre></td></tr></table></figure></p></li>
+<li><p>推送到远程</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin main                               &#x2F;&#x2F;推送分支到远程</span><br><span class="line">git checkout -b feature origin&#x2F;feature                     &#x2F;&#x2F;创建远程origin的dev分支到本地</span><br><span class="line">git pull                                           &#x2F;&#x2F;拉取远程分支内容</span><br><span class="line">git branch --set-upstream-to&#x3D;origin&#x2F;main main        &#x2F;&#x2F;指定本地与远程dev的链接</span><br><span class="line">&#x2F;&#x2F; 另一种合并操作，相比merge不会产生一次额外的提交</span><br><span class="line">git rebase                                         &#x2F;&#x2F;把本地未push的分叉提交历史整理成直线</span><br></pre></td></tr></table></figure></p></li>
 </ul>
 ]]></content>
       <categories>
@@ -2841,6 +2841,39 @@ id="dynamic-drawing-of-osg-vertex-buffer-objects"><code>Dynamic drawing of osg v
       </tags>
   </entry>
   <entry>
+    <title>OSG踩坑记-模型共享&amp;模型颜色修改</title>
+    <url>/2021/03/20/OSG/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E6%A8%A1%E5%9E%8B%E5%85%B1%E4%BA%AB-%E6%A8%A1%E5%9E%8B%E9%A2%9C%E8%89%B2%E4%BF%AE%E6%94%B9/</url>
+    <content><![CDATA[<p>
+  <code>OSG</code>模型共享...
+</p>
+<span id="more"></span>
+<h3 id="简单概述">简单概述</h3>
+<p>在很多场景中，我们需要将同一个模型绘制到不同的区域并且还需要对模型进行一系列的旋转缩放等操作，同时需要使用不同的颜色，这个时候我们只需要使用一些简单的设置便可以实现这个功能功能。</p>
+<h3 id="伪代码">伪代码：</h3>
+<h4 id="读入模型">1、读入模型</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 无论你是从外部读入模型 还是你自己构建的一个模型都是可以的。</span></span><br><span class="line"><span class="comment">// 使用osg自带读取模型的函数读取模型</span></span><br><span class="line"><span class="comment">// 推荐使用 osg 的智能指针</span></span><br><span class="line"><span class="comment">// 此处使用一个 内嵌的几何体 代替模型 </span></span><br><span class="line"></span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; geom = <span class="keyword">new</span> osg::Geometry; </span><br><span class="line"><span class="comment">// osg 的智能指针采用引用计数的方式决定当前对象是否释放</span></span><br></pre></td></tr></table></figure>
+<h4
+id="计算对模型的旋转缩放平移的操作矩阵">2、计算对模型的旋转、缩放、平移的操作矩阵</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// osg 有专门用户模型操作的类  osg::MatrixTransform </span></span><br><span class="line"><span class="comment">// 创建一个对象 模型操作类中抽象了矩阵的接口 可以当做矩阵操作 本质上是一个节点 </span></span><br><span class="line">osg::ref_ptr&lt;osg::MatrixTransform&gt; trans = <span class="keyword">new</span> osg::MatrixTransform;</span><br><span class="line"><span class="comment">// 对于模型的操作，有PVM矩阵的意思 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建旋转矩阵 </span></span><br><span class="line">osg::Matrix matrix_rotate;</span><br><span class="line"><span class="comment">// 构建旋转，从osg坐标系的沿着Z轴方向转到X轴（都是正方向）  </span></span><br><span class="line">matrix_rotate.makeRotate(osg::vec3(<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>),osg::vec3(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>));  <span class="comment">// 参数分别是两个方向向量 第一个参数是当前模型的方向 第二个参数是你需要旋转的方向</span></span><br><span class="line"><span class="comment">// 你也可以直接选择使用</span></span><br><span class="line">osg::Matrix::rotate(osg::Vec3(),osg::Vec3()); <span class="comment">// 输入的参数也可以是四元数  返回值是一个表示旋转的矩阵</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ==============================================================================================</span></span><br><span class="line"><span class="comment">// 也可以直接 设置最终的变换矩阵 </span></span><br><span class="line">trans-&gt;setMatrix(matrix_rotate * osg::Martix::scale(<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>) * osg::translate(osg::Vec3()));</span><br><span class="line"><span class="comment">// trans 已经存储了 我们对于模型的操作 </span></span><br></pre></td></tr></table></figure>
+<h4 id="对trans节点设置材料等属性">3、对trans节点设置材料等属性</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建材质对象</span></span><br><span class="line">osg::Material* mat = <span class="keyword">new</span> osg::Material();</span><br><span class="line">mat-&gt;setColorMode(osg::Material::ColorMode::DIFFUSE);   <span class="comment">// 设置绘制颜色的模式 </span></span><br><span class="line">mat-&gt;setDiffuse(osg::Material::FRONT, osg::Vec4());      <span class="comment">// 设置此种模式下的颜色 </span></span><br><span class="line"></span><br><span class="line">trans-&gt;getOrCreateStateSet()-&gt;setAttribute(mat);        <span class="comment">// 将材质设置给 节点 </span></span><br></pre></td></tr></table></figure>
+<h4 id="将对象作为节点添加">4、将对象作为节点添加</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">trans.addchild(geom.get());</span><br></pre></td></tr></table></figure>
+<h4
+id="将操作节点添加到绘制的根节点或者是其他的叶节点">5、将操作节点添加到绘制的根节点或者是其他的叶节点</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ......</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>works</category>
+        <category>GF</category>
+        <category>OSG</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+        <tag>osg</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OSG踩坑记-默认光源</title>
     <url>/2021/04/04/OSG/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E9%BB%98%E8%AE%A4%E5%85%89%E6%BA%90/</url>
     <content><![CDATA[<p>
@@ -2885,36 +2918,91 @@ F = \frac{1}{(k_c + k_l*d + k_q*d^2)}
       </tags>
   </entry>
   <entry>
-    <title>OSG踩坑记-模型共享&amp;模型颜色修改</title>
-    <url>/2021/03/20/OSG/OSG%E8%B8%A9%E5%9D%91%E8%AE%B0-%E6%A8%A1%E5%9E%8B%E5%85%B1%E4%BA%AB-%E6%A8%A1%E5%9E%8B%E9%A2%9C%E8%89%B2%E4%BF%AE%E6%94%B9/</url>
+    <title>OpenGL Move Scene</title>
+    <url>/2022/08/03/OpenGL/OpenGL-Move-Scene/</url>
     <content><![CDATA[<p>
-  <code>OSG</code>模型共享...
+  <code>OpenGL</code>场景移动...
 </p>
 <span id="more"></span>
-<h3 id="简单概述">简单概述</h3>
-<p>在很多场景中，我们需要将同一个模型绘制到不同的区域并且还需要对模型进行一系列的旋转缩放等操作，同时需要使用不同的颜色，这个时候我们只需要使用一些简单的设置便可以实现这个功能功能。</p>
-<h3 id="伪代码">伪代码：</h3>
-<h4 id="读入模型">1、读入模型</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 无论你是从外部读入模型 还是你自己构建的一个模型都是可以的。</span></span><br><span class="line"><span class="comment">// 使用osg自带读取模型的函数读取模型</span></span><br><span class="line"><span class="comment">// 推荐使用 osg 的智能指针</span></span><br><span class="line"><span class="comment">// 此处使用一个 内嵌的几何体 代替模型 </span></span><br><span class="line"></span><br><span class="line">osg::ref_ptr&lt;osg::Geometry&gt; geom = <span class="keyword">new</span> osg::Geometry; </span><br><span class="line"><span class="comment">// osg 的智能指针采用引用计数的方式决定当前对象是否释放</span></span><br></pre></td></tr></table></figure>
-<h4
-id="计算对模型的旋转缩放平移的操作矩阵">2、计算对模型的旋转、缩放、平移的操作矩阵</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// osg 有专门用户模型操作的类  osg::MatrixTransform </span></span><br><span class="line"><span class="comment">// 创建一个对象 模型操作类中抽象了矩阵的接口 可以当做矩阵操作 本质上是一个节点 </span></span><br><span class="line">osg::ref_ptr&lt;osg::MatrixTransform&gt; trans = <span class="keyword">new</span> osg::MatrixTransform;</span><br><span class="line"><span class="comment">// 对于模型的操作，有PVM矩阵的意思 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建旋转矩阵 </span></span><br><span class="line">osg::Matrix matrix_rotate;</span><br><span class="line"><span class="comment">// 构建旋转，从osg坐标系的沿着Z轴方向转到X轴（都是正方向）  </span></span><br><span class="line">matrix_rotate.makeRotate(osg::vec3(<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>),osg::vec3(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>));  <span class="comment">// 参数分别是两个方向向量 第一个参数是当前模型的方向 第二个参数是你需要旋转的方向</span></span><br><span class="line"><span class="comment">// 你也可以直接选择使用</span></span><br><span class="line">osg::Matrix::rotate(osg::Vec3(),osg::Vec3()); <span class="comment">// 输入的参数也可以是四元数  返回值是一个表示旋转的矩阵</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ==============================================================================================</span></span><br><span class="line"><span class="comment">// 也可以直接 设置最终的变换矩阵 </span></span><br><span class="line">trans-&gt;setMatrix(matrix_rotate * osg::Martix::scale(<span class="number">1.0</span>,<span class="number">1.0</span>,<span class="number">1.0</span>) * osg::translate(osg::Vec3()));</span><br><span class="line"><span class="comment">// trans 已经存储了 我们对于模型的操作 </span></span><br></pre></td></tr></table></figure>
-<h4 id="对trans节点设置材料等属性">3、对trans节点设置材料等属性</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建材质对象</span></span><br><span class="line">osg::Material* mat = <span class="keyword">new</span> osg::Material();</span><br><span class="line">mat-&gt;setColorMode(osg::Material::ColorMode::DIFFUSE);   <span class="comment">// 设置绘制颜色的模式 </span></span><br><span class="line">mat-&gt;setDiffuse(osg::Material::FRONT, osg::Vec4());      <span class="comment">// 设置此种模式下的颜色 </span></span><br><span class="line"></span><br><span class="line">trans-&gt;getOrCreateStateSet()-&gt;setAttribute(mat);        <span class="comment">// 将材质设置给 节点 </span></span><br></pre></td></tr></table></figure>
-<h4 id="将对象作为节点添加">4、将对象作为节点添加</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">trans.addchild(geom.get());</span><br></pre></td></tr></table></figure>
-<h4
-id="将操作节点添加到绘制的根节点或者是其他的叶节点">5、将操作节点添加到绘制的根节点或者是其他的叶节点</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ......</span></span><br></pre></td></tr></table></figure>
+<center>
+<h1>
+OpenGL Move Scene - 平面上移动
+</h1>
+</center>
+<ul>
+<li>我们考虑一个简单的平面的移动
+<ul>
+<li>某个维度为 <code>0</code>,我们只需要在某个平面上移动</li>
+</ul></li>
+</ul>
+<h2 id="计算移动的方向">1. 计算移动的方向</h2>
+<ul>
+<li>在此之前对于相机的概念，希望您是熟悉的</li>
+<li>虽然在<code>OpenGL</code>中本身并没有相机的概念
+<ul>
+<li><code>eye</code> - <code>point</code></li>
+<li><code>center</code> - <code>point</code></li>
+<li><code>up</code> - <code>vector</code></li>
+</ul></li>
+</ul>
+<h3 id="计算相机的朝向">计算相机的朝向</h3>
+<ul>
+<li>右方向：<span class="math inline">\(\vec{front} = center -
+eye\)</span></li>
+</ul>
+<h3 id="计算相机的右方向">计算相机的右方向</h3>
+<ul>
+<li><span class="math inline">\(\vec{right} = \vec{front} \times
+\vec{up}\)</span></li>
+<li>记得将向量<span
+class="math inline">\(\vec{right}\)</span>归一化处理</li>
+</ul>
+<h2 id="鼠标的移动">2. 鼠标的移动</h2>
+<ul>
+<li>规定使用鼠标右键平移场景</li>
+<li>我们使用<code>Qt</code>的鼠标事件
+<ul>
+<li>在<code>x</code>方向上，两次记录的位置相减携带了移动的方向</li>
+<li>在<code>y</code>方向上，<code>Qt</code>窗口的原点与<code>OpenGL</code>的窗口存在差别，需要做额外的处理
+- 反向</li>
+</ul></li>
+</ul>
+<h3 id="当右键按下我们记录当前的鼠标的坐标">1.
+当右键按下我们记录当前的鼠标的坐标</h3>
+<h3 id="触发移动事件">2. 触发移动事件</h3>
+<ul>
+<li>此处每一次出发移动我们将计算一次场景的移动
+<ul>
+<li><code>X</code>方向 - <code>offsetX</code></li>
+<li><code>Y</code>方向 - <code>offsetY</code></li>
+</ul></li>
+<li>更新我们记录的上一次的鼠标的位置</li>
+</ul>
+<h2 id="移动场景">移动场景</h2>
+<ul>
+<li>将这个移动映射成为数据的比例，作为移动方向的系数，作用到<code>eye</code>&amp;<code>center</code>,
+重新计算视图矩阵，更新场景 ### 计算新的 <code>eye</code> &amp;
+<code>center</code></li>
+<li>计算沿着<span class="math inline">\(\vec{right}\)</span> &amp; <span
+class="math inline">\(\vec{up}\)</span>方向的移动的距离</li>
+<li>获取窗口的宽高为 <code>w&amp;h</code></li>
+<li>在投影矩阵中 <span class="math inline">\(right - left =
+spanX\)</span> &amp; <span class="math inline">\(top - bottom =
+spanY\)</span> <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">offsetX / w * spanX = disX;</span><br><span class="line">offsetY / h * spanY = disY;</span><br><span class="line"></span><br><span class="line">eye += right * disX + up *  disY;</span><br><span class="line">center += right * disX + up *  disY;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="更新视图矩阵repaint">更新视图矩阵&amp;<code>repaint</code></h2>
+<ul>
+<li><code>ViewMat.lookAt(eye,center,up)</code></li>
+<li><code>repaint()</code></li>
+</ul>
 ]]></content>
       <categories>
+        <category>Computer Graph</category>
         <category>works</category>
-        <category>GF</category>
-        <category>OSG</category>
+        <category>SCUU</category>
       </categories>
       <tags>
-        <tag>cpp</tag>
-        <tag>osg</tag>
+        <tag>OpenGL</tag>
       </tags>
   </entry>
   <entry>
@@ -3032,94 +3120,6 @@ $delta = 120 $</li>
         <category>Computer Graph</category>
         <category>works</category>
         <category>SCU</category>
-      </categories>
-      <tags>
-        <tag>OpenGL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OpenGL Move Scene</title>
-    <url>/2022/08/03/OpenGL/OpenGL-Move-Scene/</url>
-    <content><![CDATA[<p>
-  <code>OpenGL</code>场景移动...
-</p>
-<span id="more"></span>
-<center>
-<h1>
-OpenGL Move Scene - 平面上移动
-</h1>
-</center>
-<ul>
-<li>我们考虑一个简单的平面的移动
-<ul>
-<li>某个维度为 <code>0</code>,我们只需要在某个平面上移动</li>
-</ul></li>
-</ul>
-<h2 id="计算移动的方向">1. 计算移动的方向</h2>
-<ul>
-<li>在此之前对于相机的概念，希望您是熟悉的</li>
-<li>虽然在<code>OpenGL</code>中本身并没有相机的概念
-<ul>
-<li><code>eye</code> - <code>point</code></li>
-<li><code>center</code> - <code>point</code></li>
-<li><code>up</code> - <code>vector</code></li>
-</ul></li>
-</ul>
-<h3 id="计算相机的朝向">计算相机的朝向</h3>
-<ul>
-<li>右方向：<span class="math inline">\(\vec{front} = center -
-eye\)</span></li>
-</ul>
-<h3 id="计算相机的右方向">计算相机的右方向</h3>
-<ul>
-<li><span class="math inline">\(\vec{right} = \vec{front} \times
-\vec{up}\)</span></li>
-<li>记得将向量<span
-class="math inline">\(\vec{right}\)</span>归一化处理</li>
-</ul>
-<h2 id="鼠标的移动">2. 鼠标的移动</h2>
-<ul>
-<li>规定使用鼠标右键平移场景</li>
-<li>我们使用<code>Qt</code>的鼠标事件
-<ul>
-<li>在<code>x</code>方向上，两次记录的位置相减携带了移动的方向</li>
-<li>在<code>y</code>方向上，<code>Qt</code>窗口的原点与<code>OpenGL</code>的窗口存在差别，需要做额外的处理
-- 反向</li>
-</ul></li>
-</ul>
-<h3 id="当右键按下我们记录当前的鼠标的坐标">1.
-当右键按下我们记录当前的鼠标的坐标</h3>
-<h3 id="触发移动事件">2. 触发移动事件</h3>
-<ul>
-<li>此处每一次出发移动我们将计算一次场景的移动
-<ul>
-<li><code>X</code>方向 - <code>offsetX</code></li>
-<li><code>Y</code>方向 - <code>offsetY</code></li>
-</ul></li>
-<li>更新我们记录的上一次的鼠标的位置</li>
-</ul>
-<h2 id="移动场景">移动场景</h2>
-<ul>
-<li>将这个移动映射成为数据的比例，作为移动方向的系数，作用到<code>eye</code>&amp;<code>center</code>,
-重新计算视图矩阵，更新场景 ### 计算新的 <code>eye</code> &amp;
-<code>center</code></li>
-<li>计算沿着<span class="math inline">\(\vec{right}\)</span> &amp; <span
-class="math inline">\(\vec{up}\)</span>方向的移动的距离</li>
-<li>获取窗口的宽高为 <code>w&amp;h</code></li>
-<li>在投影矩阵中 <span class="math inline">\(right - left =
-spanX\)</span> &amp; <span class="math inline">\(top - bottom =
-spanY\)</span> <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">offsetX / w * spanX = disX;</span><br><span class="line">offsetY / h * spanY = disY;</span><br><span class="line"></span><br><span class="line">eye += right * disX + up *  disY;</span><br><span class="line">center += right * disX + up *  disY;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="更新视图矩阵repaint">更新视图矩阵&amp;<code>repaint</code></h2>
-<ul>
-<li><code>ViewMat.lookAt(eye,center,up)</code></li>
-<li><code>repaint()</code></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Computer Graph</category>
-        <category>works</category>
-        <category>SCUU</category>
       </categories>
       <tags>
         <tag>OpenGL</tag>
@@ -3682,43 +3682,6 @@ class="math inline">\(\dots\)</span></li>
       </tags>
   </entry>
   <entry>
-    <title>迟到的毕业总结</title>
-    <url>/2021/03/18/Life/2020/%E8%BF%9F%E5%88%B0%E7%9A%84%E6%AF%95%E4%B8%9A%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>
-  毕业!,一个不欢而散，再也不见的话题...
-</p>
-<span id="more"></span>
-<h3 id="简单的毕业">简单的毕业</h3>
-<p>
-<p>  <font color=red>2020年</font>在三个月前结束了，这一年大家都收获了满满的经历。当然，我也是。我毕业了，从一个三流学校的渣子变成了社会末流的青年。开始了独属于我的关于这个时代的苟且！</br>
-  离开前，大家都像是急于归乡的游子，对身后的这个城市未有半点留恋。</br>
-  对于大学，我仿佛有千言万语，却是欲语还休
-。不谈这个这个有些无聊的学校，关于大学，关于这四年，关于我自己，我希望它是美好的，会让我主动怀恋的！</p>
-待续。。。
-</p>
-<hr />
-<h3 id="section"><code>2021-7-26</code></h3>
-<p>
-<p>​  下个月就要离开这个城市了，目前心情很是平淡，谈不上悲，亦没有欢喜，我仿佛早有预料一般。却如其实，我的确早有离开的想法，我大学的四年在这个城市度过，对于这里的大部分事物，我也算是熟悉，离开这里对我来说麻烦的地方便是新的城市，新的交际。。。
-当然一切都会是新的，我也是。</p>
-  祝愿我将迎接新的美好，朋友我来了！
-</p>
-<h3 id="这是什么样子的四年呢"><code>这是什么样子的四年呢？</code></h3>
-<h4 id="section-1"><code>2022-8-14</code></h4>
-<p>
-<p>  转眼之间，我毕业两年，放眼望去，我得到了什么呢？</p>
-</p>
-]]></content>
-      <categories>
-        <category>bun</category>
-        <category>university</category>
-      </categories>
-      <tags>
-        <tag>university</tag>
-        <tag>conclusion</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2021年终总结</title>
     <url>/2022/01/16/Life/2021/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>
@@ -3769,6 +3732,43 @@ class="math inline">\(\dots\)</span></li>
       </categories>
       <tags>
         <tag>mylife</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>迟到的毕业总结</title>
+    <url>/2021/03/18/Life/2020/%E8%BF%9F%E5%88%B0%E7%9A%84%E6%AF%95%E4%B8%9A%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>
+  毕业!,一个不欢而散，再也不见的话题...
+</p>
+<span id="more"></span>
+<h3 id="简单的毕业">简单的毕业</h3>
+<p>
+<p>  <font color=red>2020年</font>在三个月前结束了，这一年大家都收获了满满的经历。当然，我也是。我毕业了，从一个三流学校的渣子变成了社会末流的青年。开始了独属于我的关于这个时代的苟且！</br>
+  离开前，大家都像是急于归乡的游子，对身后的这个城市未有半点留恋。</br>
+  对于大学，我仿佛有千言万语，却是欲语还休
+。不谈这个这个有些无聊的学校，关于大学，关于这四年，关于我自己，我希望它是美好的，会让我主动怀恋的！</p>
+待续。。。
+</p>
+<hr />
+<h3 id="section"><code>2021-7-26</code></h3>
+<p>
+<p>​  下个月就要离开这个城市了，目前心情很是平淡，谈不上悲，亦没有欢喜，我仿佛早有预料一般。却如其实，我的确早有离开的想法，我大学的四年在这个城市度过，对于这里的大部分事物，我也算是熟悉，离开这里对我来说麻烦的地方便是新的城市，新的交际。。。
+当然一切都会是新的，我也是。</p>
+  祝愿我将迎接新的美好，朋友我来了！
+</p>
+<h3 id="这是什么样子的四年呢"><code>这是什么样子的四年呢？</code></h3>
+<h4 id="section-1"><code>2022-8-14</code></h4>
+<p>
+<p>  转眼之间，我毕业两年，放眼望去，我得到了什么呢？</p>
+</p>
+]]></content>
+      <categories>
+        <category>bun</category>
+        <category>university</category>
+      </categories>
+      <tags>
+        <tag>university</tag>
+        <tag>conclusion</tag>
       </tags>
   </entry>
   <entry>
@@ -3832,6 +3832,21 @@ class="math inline">\(\dots\)</span></li>
 <h3 id="over">Over</h3>
 <ul>
 <li>2022的上半年到我们在一起结束，这是我2022年最开心的时候，感谢缘分，感谢相遇！</li>
+</ul>
+]]></content>
+      <categories>
+        <category>bun</category>
+        <category>life</category>
+      </categories>
+      <tags>
+        <tag>mylife</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的2022</title>
+    <url>/2023/01/11/Life/2022/%E6%88%91%E7%9A%842022/</url>
+    <content><![CDATA[<ul>
+<li>2022发生了很多事情，关于我的和关于我周围的朋友的，大多都是欢喜的，值得怀念。</li>
 </ul>
 ]]></content>
       <categories>
@@ -4093,21 +4108,6 @@ id="如何开启qtopengl的msaa">如何开启<code>QtOpenGL</code>的<code>MSAA<
       <tags>
         <tag>OpenGL</tag>
         <tag>Qt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的2022</title>
-    <url>/2023/01/11/Life/2022/%E6%88%91%E7%9A%842022/</url>
-    <content><![CDATA[<ul>
-<li>2022发生了很多事情，关于我的和关于我周围的朋友的，大多都是欢喜的，值得怀念。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>bun</category>
-        <category>life</category>
-      </categories>
-      <tags>
-        <tag>mylife</tag>
       </tags>
   </entry>
 </search>

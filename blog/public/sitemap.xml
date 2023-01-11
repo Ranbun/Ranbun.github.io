@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ranbun.com/index.html</loc>
+    
+    <lastmod>2023-01-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.ranbun.com/2023/01/11/Life/2022/%E6%88%91%E7%9A%842022/</loc>
     
     <lastmod>2023-01-11</lastmod>
@@ -48,15 +57,6 @@
   
   <url>
     <loc>https://blog.ranbun.com/tags/index.html</loc>
-    
-    <lastmod>2023-01-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ranbun.com/home/index.html</loc>
     
     <lastmod>2023-01-09</lastmod>
     
@@ -617,6 +617,13 @@
   </url>
   
   <url>
+    <loc>https://blog.ranbun.com/tags/Base/</loc>
+    <lastmod>2023-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.ranbun.com/tags/translate/</loc>
     <lastmod>2023-01-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -632,13 +639,6 @@
   
   <url>
     <loc>https://blog.ranbun.com/tags/sort/</loc>
-    <lastmod>2023-01-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ranbun.com/tags/Base/</loc>
     <lastmod>2023-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -687,6 +687,13 @@
   </url>
   
   <url>
+    <loc>https://blog.ranbun.com/tags/mylife/</loc>
+    <lastmod>2023-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.ranbun.com/tags/university/</loc>
     <lastmod>2023-01-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -695,13 +702,6 @@
   
   <url>
     <loc>https://blog.ranbun.com/tags/conclusion/</loc>
-    <lastmod>2023-01-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ranbun.com/tags/mylife/</loc>
     <lastmod>2023-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -885,14 +885,14 @@
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/categories/Computer-Graph/works/SCU/</loc>
+    <loc>https://blog.ranbun.com/categories/Computer-Graph/works/SCUU/</loc>
     <lastmod>2023-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.ranbun.com/categories/Computer-Graph/works/SCUU/</loc>
+    <loc>https://blog.ranbun.com/categories/Computer-Graph/works/SCU/</loc>
     <lastmod>2023-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -103,7 +103,7 @@ menu:
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
-  home: /|| fa fa-home
+  home: / || fa fa-home
   tags: /tags/ || fas fa-tags
   categories: /categories/|| fa fa-th
   sitemap: /sitemap.xml|| fa fa-sitemap
