@@ -2408,6 +2408,61 @@ A[j]，则称<code>(i,j)</code>是一对逆序对<font color=red>逆序对(inver
       </tags>
   </entry>
   <entry>
+    <title>Git常用命令(上)</title>
+    <url>/2022/07/24/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/</url>
+    <content><![CDATA[<p>
+  Git常用命令...
+</p>
+<span id="more"></span>
+<h1 id="git常用命令">Git常用命令</h1>
+<h3 id="install-git"><code>install Git</code></h3>
+<ul>
+<li>Git -- <a href="https://git-scm.com/">官方网站</a></li>
+</ul>
+<h3 id="常用命令">常用命令</h3>
+<ul>
+<li><p>安装完成Git之后的操作 - 指定UserName &amp; Email</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name  &quot;Your Git UserName&quot;</span><br><span class="line">git config --global user.email &quot;Your Email Address&quot;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>一般时候在你安装完成之后需要做一下这个的配置。</li>
+</ul></li>
+<li><p>生成密钥</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen.exe -t rsa</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>命令提示 <img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/git/ssh-genkey.png"
+alt="Image" /></p></li>
+<li><p>然后将你的公钥添加为你所使用的远程管理平台对应SSH Key</p></li>
+</ul></li>
+<li><p>创建本地版本库</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir repositoryDir  &#x2F;&#x2F; 创建本地文件夹</span><br><span class="line">cd    repositoryDir  &#x2F;&#x2F; 进入到文件夹</span><br><span class="line">git   init           &#x2F;&#x2F; 初始化为本地仓库 创建.git目录</span><br></pre></td></tr></table></figure></p></li>
+<li><p>添加文件到本地暂存区&amp;提交文件到本地</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add &quot;fileName&quot;       &#x2F;&#x2F; 提交具体的文件 </span><br><span class="line">git add .                &#x2F;&#x2F; 提交所有修改文件</span><br><span class="line">git commit -m  &quot;备注信息&quot; &#x2F;&#x2F; 提交暂存区文件到本地</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>git commit</code> 命令详解 <img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/git/git-commit.png"
+alt="git commit" /></li>
+</ul></li>
+<li><p>版本控制</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git log                      &#x2F;&#x2F;查看提交历史记录，从最近到最远，可以看到3次</span><br><span class="line">git log --pretty&#x3D;oneline     &#x2F;&#x2F;加参数，简洁查看</span><br><span class="line">git reflog                   &#x2F;&#x2F;查看每一次修改历史</span><br><span class="line">cat &quot;fileName&quot;                &#x2F;&#x2F;查看文件内容 -- linux 命令</span><br><span class="line">git status                   &#x2F;&#x2F;查看工作区中文件当前状态</span><br><span class="line">git reset --hard HEAD^(HEAD~100)(commit_id)  &#x2F;&#x2F;回退版本</span><br><span class="line">git checkout -- &quot;fileName&quot;         &#x2F;&#x2F;丢弃工作区的修改，即撤销修改</span><br><span class="line">git reset HEAD &quot;fileName&quot;          &#x2F;&#x2F;丢弃暂存区的修改（若已提交，则回退）</span><br></pre></td></tr></table></figure></p></li>
+<li><p>删除文件</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm &quot;filename&quot;   &#x2F;&#x2F; 删除单个文件 </span><br><span class="line">rm -rf *.*      &#x2F;&#x2F; 强制递归删除所有文件</span><br><span class="line">git rm &quot;filename&quot;  &#x2F;&#x2F; 直接删除</span><br><span class="line">&#x2F;&#x2F; 恢复删除的文件</span><br><span class="line">git checkout -- &quot;filename&quot;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>推送到远程的相关命令</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;前面设置的Email&quot;     &#x2F;&#x2F;创建SSH Key 也可以不指定-C与邮件地址</span><br><span class="line">git remote add origin &quot;git的远程仓库地址&quot;  &#x2F;&#x2F;关联远程仓库-源</span><br><span class="line">git push -u origin main                  &#x2F;&#x2F;将本地内容推送到远程-第一次强制推送</span><br><span class="line">git push origin main                     &#x2F;&#x2F;将本地内容推送到远程</span><br><span class="line">git remote -v                            &#x2F;&#x2F;查看远程源信息</span><br><span class="line">git remote rm origin                     &#x2F;&#x2F;删除远程源</span><br><span class="line">git clone &quot;远程仓库地址可以是https的也可以是SSH(此时需要配置密钥)&quot;  &#x2F;&#x2F;克隆远程仓库</span><br><span class="line">git remote                               &#x2F;&#x2F;查看远程库的信息</span><br><span class="line">git remote -v                            &#x2F;&#x2F;查看远程库的详细信</span><br></pre></td></tr></table></figure></p></li>
+<li><p>分支管理</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 老版本的 git命令 </span><br><span class="line">git checkout -b main        &#x2F;&#x2F;创建并切换到分支dev</span><br><span class="line">&#x3D;&#x3D; 如下操作</span><br><span class="line">git branch   feature        &#x2F;&#x2F;创建分支main</span><br><span class="line">git checkout feature        &#x2F;&#x2F;切换到分支feature</span><br><span class="line">git checkout branchName origin&#x2F;main    &#x2F;&#x2F;拉取远程分支并切换,此时branchName分支对应得远程分支是main</span><br><span class="line">&#x2F;&#x2F; 版本比较新一定的分支管理命令 </span><br><span class="line">git switch -c feature       &#x2F;&#x2F;创建分支feature并切换</span><br><span class="line">git switch main             &#x2F;&#x2F;直接切换到分支main</span><br><span class="line">&#x2F;&#x2F; -----------------------------------------------------------------------</span><br><span class="line">git branch                  &#x2F;&#x2F;查看当前分支</span><br><span class="line">git merge  feature          &#x2F;&#x2F; 合并分支feature到当前分支(记得合并前拉取一下)</span><br><span class="line">git branch -d dev           &#x2F;&#x2F; 删除dev分支 -d 强制删除</span><br></pre></td></tr></table></figure></p></li>
+<li><p>推送到远程</p>
+<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin main                               &#x2F;&#x2F;推送分支到远程</span><br><span class="line">git checkout -b feature origin&#x2F;feature                     &#x2F;&#x2F;创建远程origin的dev分支到本地</span><br><span class="line">git pull                                           &#x2F;&#x2F;拉取远程分支内容</span><br><span class="line">git branch --set-upstream-to&#x3D;origin&#x2F;main main        &#x2F;&#x2F;指定本地与远程dev的链接</span><br><span class="line">&#x2F;&#x2F; 另一种合并操作，相比merge不会产生一次额外的提交</span><br><span class="line">git rebase                                         &#x2F;&#x2F;把本地未push的分叉提交历史整理成直线</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git常用命令(下)</title>
     <url>/2023/01/05/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8B/</url>
     <content><![CDATA[<h2 id="git-常用命令下">Git 常用命令(下)</h2>
@@ -2477,61 +2532,6 @@ title="basic rebase 3" alt="Rebase Case" />
 <li><p>合并<code>experiment</code>的代码到<code>master</code>分支</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git switch master</span><br><span class="line">git merge experiment</span><br></pre></td></tr></table></figure></li>
 <li><p>本此合并完成，同时你可以使用<code>rebase</code>合并之前的提交</p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git常用命令(上)</title>
-    <url>/2022/07/24/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E4%B8%8A/</url>
-    <content><![CDATA[<p>
-  Git常用命令...
-</p>
-<span id="more"></span>
-<h1 id="git常用命令">Git常用命令</h1>
-<h3 id="install-git"><code>install Git</code></h3>
-<ul>
-<li>Git -- <a href="https://git-scm.com/">官方网站</a></li>
-</ul>
-<h3 id="常用命令">常用命令</h3>
-<ul>
-<li><p>安装完成Git之后的操作 - 指定UserName &amp; Email</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name  &quot;Your Git UserName&quot;</span><br><span class="line">git config --global user.email &quot;Your Email Address&quot;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>一般时候在你安装完成之后需要做一下这个的配置。</li>
-</ul></li>
-<li><p>生成密钥</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen.exe -t rsa</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><p>命令提示 <img
-src="https://raw.githubusercontent.com/Ranbun/images/main/blog/git/ssh-genkey.png"
-alt="Image" /></p></li>
-<li><p>然后将你的公钥添加为你所使用的远程管理平台对应SSH Key</p></li>
-</ul></li>
-<li><p>创建本地版本库</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir repositoryDir  &#x2F;&#x2F; 创建本地文件夹</span><br><span class="line">cd    repositoryDir  &#x2F;&#x2F; 进入到文件夹</span><br><span class="line">git   init           &#x2F;&#x2F; 初始化为本地仓库 创建.git目录</span><br></pre></td></tr></table></figure></p></li>
-<li><p>添加文件到本地暂存区&amp;提交文件到本地</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add &quot;fileName&quot;       &#x2F;&#x2F; 提交具体的文件 </span><br><span class="line">git add .                &#x2F;&#x2F; 提交所有修改文件</span><br><span class="line">git commit -m  &quot;备注信息&quot; &#x2F;&#x2F; 提交暂存区文件到本地</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><code>git commit</code> 命令详解 <img
-src="https://raw.githubusercontent.com/Ranbun/images/main/blog/git/git-commit.png"
-alt="git commit" /></li>
-</ul></li>
-<li><p>版本控制</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git log                      &#x2F;&#x2F;查看提交历史记录，从最近到最远，可以看到3次</span><br><span class="line">git log --pretty&#x3D;oneline     &#x2F;&#x2F;加参数，简洁查看</span><br><span class="line">git reflog                   &#x2F;&#x2F;查看每一次修改历史</span><br><span class="line">cat &quot;fileName&quot;                &#x2F;&#x2F;查看文件内容 -- linux 命令</span><br><span class="line">git status                   &#x2F;&#x2F;查看工作区中文件当前状态</span><br><span class="line">git reset --hard HEAD^(HEAD~100)(commit_id)  &#x2F;&#x2F;回退版本</span><br><span class="line">git checkout -- &quot;fileName&quot;         &#x2F;&#x2F;丢弃工作区的修改，即撤销修改</span><br><span class="line">git reset HEAD &quot;fileName&quot;          &#x2F;&#x2F;丢弃暂存区的修改（若已提交，则回退）</span><br></pre></td></tr></table></figure></p></li>
-<li><p>删除文件</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm &quot;filename&quot;   &#x2F;&#x2F; 删除单个文件 </span><br><span class="line">rm -rf *.*      &#x2F;&#x2F; 强制递归删除所有文件</span><br><span class="line">git rm &quot;filename&quot;  &#x2F;&#x2F; 直接删除</span><br><span class="line">&#x2F;&#x2F; 恢复删除的文件</span><br><span class="line">git checkout -- &quot;filename&quot;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>推送到远程的相关命令</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;前面设置的Email&quot;     &#x2F;&#x2F;创建SSH Key 也可以不指定-C与邮件地址</span><br><span class="line">git remote add origin &quot;git的远程仓库地址&quot;  &#x2F;&#x2F;关联远程仓库-源</span><br><span class="line">git push -u origin main                  &#x2F;&#x2F;将本地内容推送到远程-第一次强制推送</span><br><span class="line">git push origin main                     &#x2F;&#x2F;将本地内容推送到远程</span><br><span class="line">git remote -v                            &#x2F;&#x2F;查看远程源信息</span><br><span class="line">git remote rm origin                     &#x2F;&#x2F;删除远程源</span><br><span class="line">git clone &quot;远程仓库地址可以是https的也可以是SSH(此时需要配置密钥)&quot;  &#x2F;&#x2F;克隆远程仓库</span><br><span class="line">git remote                               &#x2F;&#x2F;查看远程库的信息</span><br><span class="line">git remote -v                            &#x2F;&#x2F;查看远程库的详细信</span><br></pre></td></tr></table></figure></p></li>
-<li><p>分支管理</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 老版本的 git命令 </span><br><span class="line">git checkout -b main        &#x2F;&#x2F;创建并切换到分支dev</span><br><span class="line">&#x3D;&#x3D; 如下操作</span><br><span class="line">git branch   feature        &#x2F;&#x2F;创建分支main</span><br><span class="line">git checkout feature        &#x2F;&#x2F;切换到分支feature</span><br><span class="line">git checkout branchName origin&#x2F;main    &#x2F;&#x2F;拉取远程分支并切换,此时branchName分支对应得远程分支是main</span><br><span class="line">&#x2F;&#x2F; 版本比较新一定的分支管理命令 </span><br><span class="line">git switch -c feature       &#x2F;&#x2F;创建分支feature并切换</span><br><span class="line">git switch main             &#x2F;&#x2F;直接切换到分支main</span><br><span class="line">&#x2F;&#x2F; -----------------------------------------------------------------------</span><br><span class="line">git branch                  &#x2F;&#x2F;查看当前分支</span><br><span class="line">git merge  feature          &#x2F;&#x2F; 合并分支feature到当前分支(记得合并前拉取一下)</span><br><span class="line">git branch -d dev           &#x2F;&#x2F; 删除dev分支 -d 强制删除</span><br></pre></td></tr></table></figure></p></li>
-<li><p>推送到远程</p>
-<p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin main                               &#x2F;&#x2F;推送分支到远程</span><br><span class="line">git checkout -b feature origin&#x2F;feature                     &#x2F;&#x2F;创建远程origin的dev分支到本地</span><br><span class="line">git pull                                           &#x2F;&#x2F;拉取远程分支内容</span><br><span class="line">git branch --set-upstream-to&#x3D;origin&#x2F;main main        &#x2F;&#x2F;指定本地与远程dev的链接</span><br><span class="line">&#x2F;&#x2F; 另一种合并操作，相比merge不会产生一次额外的提交</span><br><span class="line">git rebase                                         &#x2F;&#x2F;把本地未push的分叉提交历史整理成直线</span><br></pre></td></tr></table></figure></p></li>
 </ul>
 ]]></content>
       <categories>
@@ -3682,6 +3682,43 @@ class="math inline">\(\dots\)</span></li>
       </tags>
   </entry>
   <entry>
+    <title>迟到的毕业总结</title>
+    <url>/2021/03/18/Life/2020/%E8%BF%9F%E5%88%B0%E7%9A%84%E6%AF%95%E4%B8%9A%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>
+  毕业!,一个不欢而散，再也不见的话题...
+</p>
+<span id="more"></span>
+<h3 id="简单的毕业">简单的毕业</h3>
+<p>
+<p>  <font color=red>2020年</font>在三个月前结束了，这一年大家都收获了满满的经历。当然，我也是。我毕业了，从一个三流学校的渣子变成了社会末流的青年。开始了独属于我的关于这个时代的苟且！</br>
+  离开前，大家都像是急于归乡的游子，对身后的这个城市未有半点留恋。</br>
+  对于大学，我仿佛有千言万语，却是欲语还休
+。不谈这个这个有些无聊的学校，关于大学，关于这四年，关于我自己，我希望它是美好的，会让我主动怀恋的！</p>
+待续。。。
+</p>
+<hr />
+<h3 id="section"><code>2021-7-26</code></h3>
+<p>
+<p>​  下个月就要离开这个城市了，目前心情很是平淡，谈不上悲，亦没有欢喜，我仿佛早有预料一般。却如其实，我的确早有离开的想法，我大学的四年在这个城市度过，对于这里的大部分事物，我也算是熟悉，离开这里对我来说麻烦的地方便是新的城市，新的交际。。。
+当然一切都会是新的，我也是。</p>
+  祝愿我将迎接新的美好，朋友我来了！
+</p>
+<h3 id="这是什么样子的四年呢"><code>这是什么样子的四年呢？</code></h3>
+<h4 id="section-1"><code>2022-8-14</code></h4>
+<p>
+<p>  转眼之间，我毕业两年，放眼望去，我得到了什么呢？</p>
+</p>
+]]></content>
+      <categories>
+        <category>bun</category>
+        <category>university</category>
+      </categories>
+      <tags>
+        <tag>university</tag>
+        <tag>conclusion</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2021年终总结</title>
     <url>/2022/01/16/Life/2021/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>
@@ -3732,43 +3769,6 @@ class="math inline">\(\dots\)</span></li>
       </categories>
       <tags>
         <tag>mylife</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>迟到的毕业总结</title>
-    <url>/2021/03/18/Life/2020/%E8%BF%9F%E5%88%B0%E7%9A%84%E6%AF%95%E4%B8%9A%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>
-  毕业!,一个不欢而散，再也不见的话题...
-</p>
-<span id="more"></span>
-<h3 id="简单的毕业">简单的毕业</h3>
-<p>
-<p>  <font color=red>2020年</font>在三个月前结束了，这一年大家都收获了满满的经历。当然，我也是。我毕业了，从一个三流学校的渣子变成了社会末流的青年。开始了独属于我的关于这个时代的苟且！</br>
-  离开前，大家都像是急于归乡的游子，对身后的这个城市未有半点留恋。</br>
-  对于大学，我仿佛有千言万语，却是欲语还休
-。不谈这个这个有些无聊的学校，关于大学，关于这四年，关于我自己，我希望它是美好的，会让我主动怀恋的！</p>
-待续。。。
-</p>
-<hr />
-<h3 id="section"><code>2021-7-26</code></h3>
-<p>
-<p>​  下个月就要离开这个城市了，目前心情很是平淡，谈不上悲，亦没有欢喜，我仿佛早有预料一般。却如其实，我的确早有离开的想法，我大学的四年在这个城市度过，对于这里的大部分事物，我也算是熟悉，离开这里对我来说麻烦的地方便是新的城市，新的交际。。。
-当然一切都会是新的，我也是。</p>
-  祝愿我将迎接新的美好，朋友我来了！
-</p>
-<h3 id="这是什么样子的四年呢"><code>这是什么样子的四年呢？</code></h3>
-<h4 id="section-1"><code>2022-8-14</code></h4>
-<p>
-<p>  转眼之间，我毕业两年，放眼望去，我得到了什么呢？</p>
-</p>
-]]></content>
-      <categories>
-        <category>bun</category>
-        <category>university</category>
-      </categories>
-      <tags>
-        <tag>university</tag>
-        <tag>conclusion</tag>
       </tags>
   </entry>
   <entry>
