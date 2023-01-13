@@ -1,3 +1,4 @@
+root = true
 # markdown file
 
 [*.md]
