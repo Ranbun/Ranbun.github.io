@@ -197,21 +197,6 @@ extern必须应用于所有文件中的所有声明。 默认情况下， (全�
       </tags>
   </entry>
   <entry>
-    <title>构造函数私有化</title>
-    <url>/2022/08/29/C++/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%A7%81%E6%9C%89%E5%8C%96/</url>
-    <content><![CDATA[<p>在我使用<code>std::make_unique&lt;Typename T&gt;()</code>构建一个我自定义的类的时候，不小心将构造函数写成了私有的，出现了这个问题-<code>cannot access private member declared in class</code>，这完全是由于不仔细造成的...</p>
-<span id="more"></span>
-<h2 id="cannot-access-private-member-declared-in-class">cannot access
-private member declared in class</h2>
-<h3 id="可能的错误原因">可能的错误原因:</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestA</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    TestA()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    ~TestA()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestA</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span> / <span class="keyword">protected</span>: </span><br><span class="line">    TestA()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    ~TestA()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>cpp</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>多重继承下的菱形继承</title>
     <url>/2022/08/19/C++/%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF/</url>
     <content><![CDATA[<p><code>cpp</code>, 中关于继承的一点问题...</p>
@@ -274,6 +259,21 @@ src="https://raw.githubusercontent.com/Ranbun/images/main/cpp/vs_Layout_to_class
       </categories>
       <tags>
         <tag>inherit</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>构造函数私有化</title>
+    <url>/2022/08/29/C++/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%A7%81%E6%9C%89%E5%8C%96/</url>
+    <content><![CDATA[<p>在我使用<code>std::make_unique&lt;Typename T&gt;()</code>构建一个我自定义的类的时候，不小心将构造函数写成了私有的，出现了这个问题-<code>cannot access private member declared in class</code>，这完全是由于不仔细造成的...</p>
+<span id="more"></span>
+<h2 id="cannot-access-private-member-declared-in-class">cannot access
+private member declared in class</h2>
+<h3 id="可能的错误原因">可能的错误原因:</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestA</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    TestA()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    ~TestA()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestA</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span> / <span class="keyword">protected</span>: </span><br><span class="line">    TestA()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    ~TestA()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>cpp</tag>
       </tags>
   </entry>
   <entry>
@@ -664,6 +664,93 @@ class="math inline">\({\vec{x},\vec{y},\vec{z}}\)</span>轴上的投影是否相
       </tags>
   </entry>
   <entry>
+    <title>OBB与Ray求交</title>
+    <url>/2022/09/08/Computer%20Graphics/OBB%E4%B8%8ERay%E6%B1%82%E4%BA%A4/</url>
+    <content><![CDATA[<p>光先追踪的加速方法就是引入层次结构数据结构，计算光线与层次结构的相交，从而加速光线与场景的求交。
+<span id="more"></span></p>
+<h2 id="obb与ray求交">OBB与Ray求交</h2>
+<ul>
+<li>我们在更之前的地方定义了一个<code>OBB</code>,往前翻一番也许就能找到
+<ul>
+<li><span class="math inline">\(center\)</span> - 盒子的中心点</li>
+<li><span class="math inline">\(\vec{u}\)</span> - 盒子的某个法线 <span
+class="math inline">\(u\)</span></li>
+<li><span class="math inline">\(\vec{v}\)</span> - 盒子的某个法线 <span
+class="math inline">\(v\)</span></li>
+<li><span class="math inline">\(\vec{w}\)</span> - 盒子的某个法线 <span
+class="math inline">\(w\)</span></li>
+<li>盒子的尺寸 - <span class="math inline">\(size\left(h_u,h_v,h_w
+\right )\)</span></li>
+</ul></li>
+<li>同样的 我们曾经定义过一条射线
+<ul>
+<li><span class="math inline">\(Ray \left( P\right ) = O + t \cdot
+\vec{u}\)</span></li>
+<li><code>Ray(P)</code> 射线上某一点</li>
+<li><code>O</code> 射线的起点</li>
+<li><code>t</code> 沿着方向<span
+class="math inline">\(\vec{u}\)</span>前进的长度</li>
+<li><span class="math inline">\(\vec{u}\)</span> 射线的方向向量</li>
+</ul></li>
+</ul>
+<h2 id="slab-method">slab method</h2>
+<ul>
+<li>在OBB与光线的求交计算中，我们常用的方法是<code>slab method</code>
+<ul>
+<li>将我们测量的这个盒子分成三组平行的板</li>
+<li>分别将光线与对应的板做相交计算，在射线的方向上，有一个进入这一组板的时间<span
+class="math inline">\(t^{min}\)</span>，以及一个出板的时间<span
+class="math inline">\(t^{max}\)</span></li>
+<li>分别计算对于三个面板的<span
+class="math inline">\(t^{min}_{i},t^{max}_{i},i \in
+\left(u,v,w\right)\)</span></li>
+<li>如果射线与盒子相交，那么简单的说这条射线一定有一段时间是处于这三个<span
+class="math inline">\(t^{min},t^{max}\)</span>之中的。</li>
+</ul></li>
+</ul>
+<h3 id="计算原理">计算原理</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/blog/intersection/Ray_and_Obb_intersect.png"
+title="Ray&amp;OBB" alt="intersection" />
+<figcaption aria-hidden="true">intersection</figcaption>
+</figure>
+<ul>
+<li><p><span class="math inline">\(P_{min} = P + t_{min} \cdot
+\vec{u}\)</span> - <span class="math inline">\(1.0\)</span></p></li>
+<li><p><span class="math inline">\(P_{max} = P + t_{max} \cdot
+\vec{u}\)</span> - <span class="math inline">\(1.1\)</span></p></li>
+<li><p><span class="math inline">\(P_{i} = P + t \cdot \vec{u}\)</span>
+- <span class="math inline">\(1.2\)</span></p></li>
+<li><p>$(P_{min} - C ) = min $ - <span
+class="math inline">\(1.3\)</span></p></li>
+<li><p>$(P_{max} - C ) = max $ - <span
+class="math inline">\(1.4\)</span></p></li>
+<li><p><span class="math inline">\(1.0\)</span>式 &amp; <span
+class="math inline">\(1.1\)</span>式 带入 <span
+class="math inline">\(1.3\)</span>式 &amp; <span
+class="math inline">\(1.4\)</span>式得到： <span class="math display">\[
+\left [ \left (P + t_i \cdot \vec{u} \right ) - C \right ] \cdot
+\vec{O_n} = O_{Size.j} / 2.0, i \in (min,max),j \in (x,y,z), n \in
+(u,v,w)
+\]</span> =&gt; 化简得: <span class="math display">\[
+t_i = (O_{Size.i} / 2.0 - (C - P) \cdot \vec{O_n}) / (\vec{u} \cdot
+\vec{O_n}), i \in (min,max),j \in (x,y,z), n \in (u,v,w)
+\]</span></p></li>
+</ul>
+<h3 id="求交实现">求交实现</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Intersect::IntersectObbWithRay</span><span class="params">(<span class="keyword">const</span> OBB&amp; obb, Ray &amp; ray)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> delta = obb.m_center - ray.m_begin; <span class="comment">// C- P</span></span><br><span class="line">    <span class="keyword">float</span> t1, t2;    <span class="comment">// 当前面交点在射线上的位置</span></span><br><span class="line">    <span class="keyword">double</span> minT = DBL_MIN, maxT = DBL_MAX;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">float</span> e = glm::dot(delta, obb.m_u);</span><br><span class="line">        <span class="keyword">float</span> f = glm::dot(ray.m_dir, obb.m_u);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">std</span>::<span class="built_in">abs</span>(f) &gt; <span class="number">1e-20</span>) <span class="comment">// 判断当前面是否和射线平行 - 与法线垂直则会平行</span></span><br><span class="line">        &#123;</span><br><span class="line">            t1 = (e + obb.m_size.x / <span class="number">2.0</span>) / f;</span><br><span class="line">            t2 = (e - obb.m_size.x / <span class="number">2.0</span>) / f;</span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; t2)  <span class="comment">// 交换 我们不知道当前的射线与目前检测的板的法相的方向是什么样的关系</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> temp = t1;</span><br><span class="line">                t1 = t2;</span><br><span class="line">                t2 = temp;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; minT)</span><br><span class="line">            &#123;</span><br><span class="line">                minT = t1;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (t2 &lt; maxT)</span><br><span class="line">            &#123;</span><br><span class="line">                maxT = t2;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (minT &gt; maxT)   <span class="comment">// 未发生相交</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (maxT &lt; <span class="number">0</span>)  <span class="comment">// 小于0表示不再正方向上，盒子在射线的后面</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 此时盒子与光线平行，我们需要看看盒子和光线的关系，如果光线在盒子内部则相交</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (-e - obb.m_size.x / <span class="number">2.0</span> &gt; <span class="number">0</span> || -e + obb.m_size.x / <span class="number">2.0</span> &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">float</span> e = glm::dot(delta, obb.m_v);</span><br><span class="line">        <span class="keyword">float</span> f = glm::dot(ray.m_dir, obb.m_v);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">std</span>::<span class="built_in">abs</span>(f) &gt; <span class="number">1e-20</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            t1 = (e + obb.m_size.y / <span class="number">2.0</span>) / f;</span><br><span class="line">            t2 = (e - obb.m_size.y / <span class="number">2.0</span>) / f;</span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; t2)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> temp = t1;</span><br><span class="line">                t1 = t2;</span><br><span class="line">                t2 = temp;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; minT)</span><br><span class="line">            &#123;</span><br><span class="line">                minT = t1;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (t2 &lt; maxT)</span><br><span class="line">            &#123;</span><br><span class="line">                maxT = t2;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (minT &gt; maxT)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (maxT &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (-e - obb.m_size.y / <span class="number">2.0</span> &gt; <span class="number">0</span> || -e + obb.m_size.y / <span class="number">2.0</span> &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">float</span> e = glm::dot(delta, obb.m_w);</span><br><span class="line">        <span class="keyword">float</span> f = glm::dot(ray.m_dir, obb.m_w);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">std</span>::<span class="built_in">abs</span>(f) &gt; <span class="number">1e-20</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            t1 = (e + obb.m_size.z / <span class="number">2.0</span>) / f;</span><br><span class="line">            t2 = (e - obb.m_size.z / <span class="number">2.0</span>) / f;</span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; t2)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> temp = t1;</span><br><span class="line">                t1 = t2;</span><br><span class="line">                t2 = temp;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; minT)</span><br><span class="line">            &#123;</span><br><span class="line">                minT = t1;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (t2 &lt; maxT)</span><br><span class="line">            &#123;</span><br><span class="line">                maxT = t2;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (minT &gt; maxT)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (maxT &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (-e - obb.m_size.z / <span class="number">2.0</span> &gt; <span class="number">0</span> || -e + obb.m_size.z / <span class="number">2.0</span> &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>Computer Graphics</category>
+      </categories>
+      <tags>
+        <tag>Intersect</tag>
+        <tag>OBB</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>View/Camera Transformation</title>
     <url>/2022/08/19/Computer%20Graphics/View-Camera-Transformation/</url>
     <content><![CDATA[<p>
@@ -762,93 +849,6 @@ class="math inline">\(\vec{t} \times \vec{g}\)</span></li>
       </categories>
       <tags>
         <tag>Base</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OBB与Ray求交</title>
-    <url>/2022/09/08/Computer%20Graphics/OBB%E4%B8%8ERay%E6%B1%82%E4%BA%A4/</url>
-    <content><![CDATA[<p>光先追踪的加速方法就是引入层次结构数据结构，计算光线与层次结构的相交，从而加速光线与场景的求交。
-<span id="more"></span></p>
-<h2 id="obb与ray求交">OBB与Ray求交</h2>
-<ul>
-<li>我们在更之前的地方定义了一个<code>OBB</code>,往前翻一番也许就能找到
-<ul>
-<li><span class="math inline">\(center\)</span> - 盒子的中心点</li>
-<li><span class="math inline">\(\vec{u}\)</span> - 盒子的某个法线 <span
-class="math inline">\(u\)</span></li>
-<li><span class="math inline">\(\vec{v}\)</span> - 盒子的某个法线 <span
-class="math inline">\(v\)</span></li>
-<li><span class="math inline">\(\vec{w}\)</span> - 盒子的某个法线 <span
-class="math inline">\(w\)</span></li>
-<li>盒子的尺寸 - <span class="math inline">\(size\left(h_u,h_v,h_w
-\right )\)</span></li>
-</ul></li>
-<li>同样的 我们曾经定义过一条射线
-<ul>
-<li><span class="math inline">\(Ray \left( P\right ) = O + t \cdot
-\vec{u}\)</span></li>
-<li><code>Ray(P)</code> 射线上某一点</li>
-<li><code>O</code> 射线的起点</li>
-<li><code>t</code> 沿着方向<span
-class="math inline">\(\vec{u}\)</span>前进的长度</li>
-<li><span class="math inline">\(\vec{u}\)</span> 射线的方向向量</li>
-</ul></li>
-</ul>
-<h2 id="slab-method">slab method</h2>
-<ul>
-<li>在OBB与光线的求交计算中，我们常用的方法是<code>slab method</code>
-<ul>
-<li>将我们测量的这个盒子分成三组平行的板</li>
-<li>分别将光线与对应的板做相交计算，在射线的方向上，有一个进入这一组板的时间<span
-class="math inline">\(t^{min}\)</span>，以及一个出板的时间<span
-class="math inline">\(t^{max}\)</span></li>
-<li>分别计算对于三个面板的<span
-class="math inline">\(t^{min}_{i},t^{max}_{i},i \in
-\left(u,v,w\right)\)</span></li>
-<li>如果射线与盒子相交，那么简单的说这条射线一定有一段时间是处于这三个<span
-class="math inline">\(t^{min},t^{max}\)</span>之中的。</li>
-</ul></li>
-</ul>
-<h3 id="计算原理">计算原理</h3>
-<figure>
-<img
-src="https://raw.githubusercontent.com/Ranbun/images/main/blog/intersection/Ray_and_Obb_intersect.png"
-title="Ray&amp;OBB" alt="intersection" />
-<figcaption aria-hidden="true">intersection</figcaption>
-</figure>
-<ul>
-<li><p><span class="math inline">\(P_{min} = P + t_{min} \cdot
-\vec{u}\)</span> - <span class="math inline">\(1.0\)</span></p></li>
-<li><p><span class="math inline">\(P_{max} = P + t_{max} \cdot
-\vec{u}\)</span> - <span class="math inline">\(1.1\)</span></p></li>
-<li><p><span class="math inline">\(P_{i} = P + t \cdot \vec{u}\)</span>
-- <span class="math inline">\(1.2\)</span></p></li>
-<li><p>$(P_{min} - C ) = min $ - <span
-class="math inline">\(1.3\)</span></p></li>
-<li><p>$(P_{max} - C ) = max $ - <span
-class="math inline">\(1.4\)</span></p></li>
-<li><p><span class="math inline">\(1.0\)</span>式 &amp; <span
-class="math inline">\(1.1\)</span>式 带入 <span
-class="math inline">\(1.3\)</span>式 &amp; <span
-class="math inline">\(1.4\)</span>式得到： <span class="math display">\[
-\left [ \left (P + t_i \cdot \vec{u} \right ) - C \right ] \cdot
-\vec{O_n} = O_{Size.j} / 2.0, i \in (min,max),j \in (x,y,z), n \in
-(u,v,w)
-\]</span> =&gt; 化简得: <span class="math display">\[
-t_i = (O_{Size.i} / 2.0 - (C - P) \cdot \vec{O_n}) / (\vec{u} \cdot
-\vec{O_n}), i \in (min,max),j \in (x,y,z), n \in (u,v,w)
-\]</span></p></li>
-</ul>
-<h3 id="求交实现">求交实现</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Intersect::IntersectObbWithRay</span><span class="params">(<span class="keyword">const</span> OBB&amp; obb, Ray &amp; ray)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> delta = obb.m_center - ray.m_begin; <span class="comment">// C- P</span></span><br><span class="line">    <span class="keyword">float</span> t1, t2;    <span class="comment">// 当前面交点在射线上的位置</span></span><br><span class="line">    <span class="keyword">double</span> minT = DBL_MIN, maxT = DBL_MAX;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">float</span> e = glm::dot(delta, obb.m_u);</span><br><span class="line">        <span class="keyword">float</span> f = glm::dot(ray.m_dir, obb.m_u);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">std</span>::<span class="built_in">abs</span>(f) &gt; <span class="number">1e-20</span>) <span class="comment">// 判断当前面是否和射线平行 - 与法线垂直则会平行</span></span><br><span class="line">        &#123;</span><br><span class="line">            t1 = (e + obb.m_size.x / <span class="number">2.0</span>) / f;</span><br><span class="line">            t2 = (e - obb.m_size.x / <span class="number">2.0</span>) / f;</span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; t2)  <span class="comment">// 交换 我们不知道当前的射线与目前检测的板的法相的方向是什么样的关系</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> temp = t1;</span><br><span class="line">                t1 = t2;</span><br><span class="line">                t2 = temp;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; minT)</span><br><span class="line">            &#123;</span><br><span class="line">                minT = t1;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (t2 &lt; maxT)</span><br><span class="line">            &#123;</span><br><span class="line">                maxT = t2;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (minT &gt; maxT)   <span class="comment">// 未发生相交</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (maxT &lt; <span class="number">0</span>)  <span class="comment">// 小于0表示不再正方向上，盒子在射线的后面</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 此时盒子与光线平行，我们需要看看盒子和光线的关系，如果光线在盒子内部则相交</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (-e - obb.m_size.x / <span class="number">2.0</span> &gt; <span class="number">0</span> || -e + obb.m_size.x / <span class="number">2.0</span> &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">float</span> e = glm::dot(delta, obb.m_v);</span><br><span class="line">        <span class="keyword">float</span> f = glm::dot(ray.m_dir, obb.m_v);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">std</span>::<span class="built_in">abs</span>(f) &gt; <span class="number">1e-20</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            t1 = (e + obb.m_size.y / <span class="number">2.0</span>) / f;</span><br><span class="line">            t2 = (e - obb.m_size.y / <span class="number">2.0</span>) / f;</span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; t2)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> temp = t1;</span><br><span class="line">                t1 = t2;</span><br><span class="line">                t2 = temp;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; minT)</span><br><span class="line">            &#123;</span><br><span class="line">                minT = t1;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (t2 &lt; maxT)</span><br><span class="line">            &#123;</span><br><span class="line">                maxT = t2;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (minT &gt; maxT)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (maxT &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (-e - obb.m_size.y / <span class="number">2.0</span> &gt; <span class="number">0</span> || -e + obb.m_size.y / <span class="number">2.0</span> &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">float</span> e = glm::dot(delta, obb.m_w);</span><br><span class="line">        <span class="keyword">float</span> f = glm::dot(ray.m_dir, obb.m_w);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">std</span>::<span class="built_in">abs</span>(f) &gt; <span class="number">1e-20</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            t1 = (e + obb.m_size.z / <span class="number">2.0</span>) / f;</span><br><span class="line">            t2 = (e - obb.m_size.z / <span class="number">2.0</span>) / f;</span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; t2)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> temp = t1;</span><br><span class="line">                t1 = t2;</span><br><span class="line">                t2 = temp;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (t1 &gt; minT)</span><br><span class="line">            &#123;</span><br><span class="line">                minT = t1;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (t2 &lt; maxT)</span><br><span class="line">            &#123;</span><br><span class="line">                maxT = t2;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (minT &gt; maxT)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (maxT &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (-e - obb.m_size.z / <span class="number">2.0</span> &gt; <span class="number">0</span> || -e + obb.m_size.z / <span class="number">2.0</span> &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-        <category>Computer Graphics</category>
-      </categories>
-      <tags>
-        <tag>Intersect</tag>
-        <tag>OBB</tag>
       </tags>
   </entry>
   <entry>
@@ -3912,57 +3912,6 @@ class="math inline">\(\dots\)</span></li>
       </tags>
   </entry>
   <entry>
-    <title>Qt</title>
-    <url>/2021/07/27/Life/History%20of%20Work/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95_Qt/</url>
-    <content><![CDATA[<p><em>和老大提出辞职之后，商量了关于我的工作后续的事情，便开始寻找新工作......</em>
-目的地是在重庆的一家公司，具体什么名字，暂时不透露了，面的<code>C++ &amp; Qt</code>，按照面试官的说法，这是一个纯<code>Qt</code>的岗位，所以接下来的问题大概全部是和<code>Qt</code>相关的，当然也会有部分C++的问题在其中。</p>
-<span id="more"></span>
-<p><font style="color:pink">废话不多说，我们进入正题：</font></p>
-<h2 id="c部分的问题">C++部分的问题：</h2>
-<ul>
-<li><p>第一部分是关于C++这门语言的，面向对象是什么？</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// OOP</span></span><br><span class="line"><span class="comment">// 封装,继承,多态</span></span><br></pre></td></tr></table></figure></li>
-<li><p>对于多态的理解?</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 首先是如何实现多态？</span></span><br><span class="line"><span class="number">1.</span> 多态发生在继承关系中。</span><br><span class="line"><span class="number">2.</span> 需要重写虚函数。</span><br><span class="line"><span class="number">3.</span> 父类的指针指向子类的对象。</span><br><span class="line"><span class="number">4.</span> 通过父类指针对重写的虚函数发起调用，最终调用你要想调用的函数。</span><br></pre></td></tr></table></figure>
-<p>example： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">  &#123;</span></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">      <span class="keyword">int</span> menber;</span><br><span class="line">  </span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      B():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">D</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      D():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      A * a = <span class="keyword">new</span> A;</span><br><span class="line">      B * b = <span class="keyword">new</span> B;</span><br><span class="line">      D * d = <span class="keyword">new</span> D;</span><br><span class="line">  </span><br><span class="line">      A * ptr = b;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = a;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = d;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  	</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure></p>
-<p><font style="color:red">结果如下：</font> <img
-src="https://raw.githubusercontent.com/Ranbun/images/main/cpp/polymorphism.png"
-title="polymorphism" alt="polymorphism" /></p></li>
-<li><p>多态的实现 -- <font style="color:red">虚函数表</font></p>
-<ul>
-<li><p>验证虚函数表：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一个简单的C 不带有虚函数 </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    C()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;C&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> member;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><font style="color:red">输出结果:</font> <img
-src="https://raw.githubusercontent.com/Ranbun/images/main/cpp/virtual_table_1.png"
-title="virtual table 1" alt="virtual_table" /></p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/Ranbun/images/main/cpp/virtual_table_2.png"
-title="virtual table 2" alt="virtual table 2" />
-<figcaption aria-hidden="true">virtual table 2</figcaption>
-</figure>
-<ul>
-<li>上面的结果可以看出存在一个成员(存在虚函数的情况)，大小为8个字节(64位软件)。</li>
-</ul></li>
-</ul></li>
-</ul>
-<hr />
-<h2 id="qt部分">Qt部分</h2>
-<ul>
-<li>元对象系统</li>
-<li>窗口刷新机制</li>
-<li>内存托管(删除机制)</li>
-<li>Qquick</li>
-<li>Qt的布局</li>
-</ul>
-<h2 id="opengl部分">OPENGL部分</h2>
-<ul>
-<li><p>缓冲(双缓冲)</p></li>
-<li><p>着色器程序(语言)</p></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>渲染(CAD)</title>
     <url>/2022/01/16/Life/History%20of%20Work/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95_CAD%E6%B8%B2%E6%9F%93/</url>
     <content><![CDATA[<p>
@@ -4056,6 +4005,57 @@ title="virtual table 2" alt="virtual table 2" />
         <tag>openGL</tag>
         <tag>computer graphics</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Qt</title>
+    <url>/2021/07/27/Life/History%20of%20Work/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95_Qt/</url>
+    <content><![CDATA[<p><em>和老大提出辞职之后，商量了关于我的工作后续的事情，便开始寻找新工作......</em>
+目的地是在重庆的一家公司，具体什么名字，暂时不透露了，面的<code>C++ &amp; Qt</code>，按照面试官的说法，这是一个纯<code>Qt</code>的岗位，所以接下来的问题大概全部是和<code>Qt</code>相关的，当然也会有部分C++的问题在其中。</p>
+<span id="more"></span>
+<p><font style="color:pink">废话不多说，我们进入正题：</font></p>
+<h2 id="c部分的问题">C++部分的问题：</h2>
+<ul>
+<li><p>第一部分是关于C++这门语言的，面向对象是什么？</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// OOP</span></span><br><span class="line"><span class="comment">// 封装,继承,多态</span></span><br></pre></td></tr></table></figure></li>
+<li><p>对于多态的理解?</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 首先是如何实现多态？</span></span><br><span class="line"><span class="number">1.</span> 多态发生在继承关系中。</span><br><span class="line"><span class="number">2.</span> 需要重写虚函数。</span><br><span class="line"><span class="number">3.</span> 父类的指针指向子类的对象。</span><br><span class="line"><span class="number">4.</span> 通过父类指针对重写的虚函数发起调用，最终调用你要想调用的函数。</span><br></pre></td></tr></table></figure>
+<p>example： <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">  &#123;</span></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_A&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">      <span class="keyword">int</span> menber;</span><br><span class="line">  </span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      B():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_B&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">D</span>:</span> <span class="keyword">public</span> A</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">      D():A()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">function_virtual</span><span class="params">()</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;function_D&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      A * a = <span class="keyword">new</span> A;</span><br><span class="line">      B * b = <span class="keyword">new</span> B;</span><br><span class="line">      D * d = <span class="keyword">new</span> D;</span><br><span class="line">  </span><br><span class="line">      A * ptr = b;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = a;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  </span><br><span class="line">      ptr = d;</span><br><span class="line">      ptr-&gt;function_virtual();</span><br><span class="line">  	</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure></p>
+<p><font style="color:red">结果如下：</font> <img
+src="https://raw.githubusercontent.com/Ranbun/images/main/cpp/polymorphism.png"
+title="polymorphism" alt="polymorphism" /></p></li>
+<li><p>多态的实现 -- <font style="color:red">虚函数表</font></p>
+<ul>
+<li><p>验证虚函数表：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一个简单的C 不带有虚函数 </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    C()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;C&quot;</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> member;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><font style="color:red">输出结果:</font> <img
+src="https://raw.githubusercontent.com/Ranbun/images/main/cpp/virtual_table_1.png"
+title="virtual table 1" alt="virtual_table" /></p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Ranbun/images/main/cpp/virtual_table_2.png"
+title="virtual table 2" alt="virtual table 2" />
+<figcaption aria-hidden="true">virtual table 2</figcaption>
+</figure>
+<ul>
+<li>上面的结果可以看出存在一个成员(存在虚函数的情况)，大小为8个字节(64位软件)。</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="qt部分">Qt部分</h2>
+<ul>
+<li>元对象系统</li>
+<li>窗口刷新机制</li>
+<li>内存托管(删除机制)</li>
+<li>Qquick</li>
+<li>Qt的布局</li>
+</ul>
+<h2 id="opengl部分">OPENGL部分</h2>
+<ul>
+<li><p>缓冲(双缓冲)</p></li>
+<li><p>着色器程序(语言)</p></li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>Qt OpenGL Antialiasing-MSAA</title>
