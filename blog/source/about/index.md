@@ -10,8 +10,8 @@ type: "about"
 
 #### Work
 
-- 图形开发（图形展示`2D` & `3D`），桌面软件开发。
+- 图形开发(渲染)，桌面软件开发。
 
 #### Work Tags
 
-- `Cpp`、`OSG`、`OpenGL`、`Qt`、`VS`、`Git`、`Math`。
+- `Cpp`、`OSG`、`OpenGL`、`Qt`、`VS`、`Git`、`Math`.
