@@ -1,3 +1,9 @@
 [submodule "blog/themes/next"]
 	path = blog/themes/next
 	url = https://github.com/Ranbun/hexo-theme-next.git
+[submodule "blog/themes/icarus"]
+	path = blog/themes/icarus
+	url = https://github.com/Ranbun/hexo-theme-icarus.git
+[submodule "blog/themes/cupertino"]
+	path = blog/themes/cupertino
+	url = https://github.com/Ranbun/hexo-theme-cupertino.git
