@@ -14,4 +14,4 @@ type: "about"
 
 #### Work Tags
 
-- `Cpp`、`OSG`、`OpenGL`、`Qt`、`VS`、`Git`、`Math`.
+- `Cpp`、`OSG`、`OpenGL`、`Qt`、`VS`、`Git`、`Math`、`CMake`.
