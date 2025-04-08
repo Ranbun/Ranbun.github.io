@@ -128,7 +128,8 @@ theme: next
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: git@github.com:Ranbun/Ranbun.github.io.git
+  # repo: git@github.com:Ranbun/Ranbun.github.io.git
+  repo: https://github.com/Ranbun/Ranbun.github.io.git
   branch: main
   
 search:
@@ -138,7 +139,7 @@ search:
   limit: 10000
 
 math:
-  engine: 'mathjax' 
+  engine: 'mathjax'
   mathjax:
     tags: none # or 'ams' or 'all'
     single_dollars: true # enable single dollar signs as in-line math delimiters
