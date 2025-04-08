@@ -1,7 +1,8 @@
 /README.md.orig
 
 # Clion
-.idea
 .idea/
 
+# vscode
+.vscode/
 
