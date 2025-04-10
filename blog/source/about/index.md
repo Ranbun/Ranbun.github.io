@@ -10,8 +10,22 @@ type: "about"
 
 #### Work
 
-- 图形开发(渲染)，桌面软件开发。
+- 野生渲染工程师
 
 #### Work Tags
 
-- `Cpp`、`OSG`、`OpenGL`、`Qt`、`VS`、`Git`、`Math`、`CMake`.
+- `Cpp`
+- `OSG`
+- `VTK`
+- `OpenGL`
+- `Vulkan`
+- `Qt`
+- `VS`
+- `Clion`
+- `Git`
+- `SVN`
+- `Math`
+- `CMake`
+- `Makefile`
+- `Linux`
+- `Sockets`
