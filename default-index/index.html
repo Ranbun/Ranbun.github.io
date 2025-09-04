@@ -112,7 +112,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fas fa-tags fa-fw"></i>标签<span class="badge">31</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">32</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">58</span></a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fas fa-tags fa-fw"></i>标签<span class="badge">33</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">32</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">59</span></a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -177,7 +177,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -188,7 +188,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -222,6 +222,109 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2025/09/03/Vulkan/Vulkan-Descriptor/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="RanBun">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RanBun's Blog">
+      <meta itemprop="description" content="人大概要先见自己,然后才能见众生">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | RanBun's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/09/03/Vulkan/Vulkan-Descriptor/" class="post-title-link" itemprop="url">Vulkan-Descriptor</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-09-03 23:56:53" itemprop="dateCreated datePublished" datetime="2025-09-03T23:56:53+08:00">2025-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-09-04 23:06:52" itemprop="dateModified" datetime="2025-09-04T23:06:52+08:00">2025-09-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="vulkan---desciptor">Vulkan - Desciptor</h2>
+<h3 id="sources-in-opengl">1. sources in OpenGL</h3>
+<ul>
+<li>与OpenGL不同，Vulkan的所有使用的资源都需要显示的定义，最后把资源放到合适的位置，调用渲染，最后显示出正确的图形。
+在OpenGL中，有如下Shader代码：</li>
+</ul>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#version 450 core</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">in</span> <span class="type">vec2</span> TexCoord;</span><br><span class="line"><span class="keyword">uniform</span> sample2D uTexture;</span><br><span class="line"></span><br><span class="line"><span class="keyword">out</span> <span class="type">vec4</span> FragColor;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">vec4</span> tex = <span class="built_in">texture</span>(uTexture, TexCoord);</span><br><span class="line">    FragColor = tex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在CPU端我们需要手动建立一个绑定关系，让CPU的纹理资源绑定到具体的点位，以及让Shader知道应该去哪个点位招对应的数据。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">glUseProgram</span>(program);  <span class="comment">/// 绑定shader</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">glUniform1i</span>(<span class="built_in">glGetUniformLocation</span>(program, <span class="string">&quot;uTexture&quot;</span>), <span class="number">0</span>); <span class="comment">// 采样器 uTexture → 单元0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">glActiveTexture</span>(GL_TEXTURE0);</span><br><span class="line"><span class="built_in">glBindTexture</span>(GL_TEXTURE_2D, uTexture);    <span class="comment">/// uTexture是我在CPU端创建好的纹理对象</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="source-in-vulkan">source in Vulkan</h3>
+<p>从Vulkan的Shader看起 <figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 相机数据</span></span><br><span class="line"><span class="keyword">layout</span>(set = <span class="number">0</span>, <span class="keyword">binding</span>=<span class="number">0</span>) <span class="keyword">uniform</span> CameraUBO&#123;</span><br><span class="line">    <span class="type">mat4</span> viewProject;</span><br><span class="line">&#125; cam;</span><br><span class="line"></span><br><span class="line"><span class="comment">// set = 1: 模型数据</span></span><br><span class="line"><span class="keyword">layout</span>(set = <span class="number">1</span>, <span class="keyword">binding</span> = <span class="number">0</span>) <span class="keyword">uniform</span> ModelUBO &#123;</span><br><span class="line">    <span class="type">mat4</span> model;</span><br><span class="line">&#125; model;</span><br><span class="line"></span><br><span class="line"><span class="comment">// set = 1: 模型的纹理</span></span><br><span class="line"><span class="keyword">layout</span>(set = <span class="number">1</span>, <span class="keyword">binding</span> = <span class="number">1</span>) <span class="keyword">uniform</span> <span class="type">sampler2D</span> tex;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>首先这个里面有两组编号体系</p>
+<ul>
+<li>set</li>
+<li>binding</li>
+</ul>
+<p>接下来我们就会介绍这两个是两个什么样子的概念.</p>
+<p>从我们的着色器程序片段可以看到，我们定义了三个资源，当这个<code>shader</code>程序在运行的时候，需要知道这三个资源分别在什么地方，或者说，<code>shader</code>需要知道我们去找到这三个资源。</p>
+<p>要完成上述的功能，需要使用<code>Vulkan</code>的描述符集的体系。
+描述符集有三个比较核心的概念：</p>
+<ul>
+<li><code>VkDescriptorSetLayoutBinding</code>, 定义每一条资源，
+对应<code>binding</code>的声明</li>
+<li><code>VkDescriptorSetLayout</code>,
+是由多个<code>VkDescriptorSetLayoutBinding</code>组成，描述一个<code>DescriptorSet</code>,对应<code>shader</code>中的<code>set=x</code>的定义.</li>
+<li><code>VkDescriptorSet</code>,
+是一个实例，根据<code>VkDescriptorSetLayout</code>这个描述符描述的信息实例化得来，实际要传递给GPU的资源都包含在这个里面。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1244,105 +1347,6 @@ class="math inline">\(\vec{N}^TG_{3\times3}^TM_{3\times3}\vec{T} =
 M_{3\times3}^{-1}\)</span></p>
 <p><span class="math inline">\(G_{3\times3} == I * (M_{3\times3}^{-1})^T
 = (M_{3\times3}^{-1})^T\)</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.ranbun.com/2022/11/03/OpenGL/OpenGL%E7%9A%84%E6%89%8B%E5%8A%A8%E5%88%9D%E5%A7%8B%E5%8C%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="RanBun">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="RanBun's Blog">
-      <meta itemprop="description" content="人大概要先见自己,然后才能见众生">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | RanBun's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/11/03/OpenGL/OpenGL%E7%9A%84%E6%89%8B%E5%8A%A8%E5%88%9D%E5%A7%8B%E5%8C%96/" class="post-title-link" itemprop="url">OpenGL的手动初始化</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-11-03 23:35:17" itemprop="dateCreated datePublished" datetime="2022-11-03T23:35:17+08:00">2022-11-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-04-10 15:34:28" itemprop="dateModified" datetime="2025-04-10T15:34:28+08:00">2025-04-10</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="opengl初始化">OpenGL初始化</h2>
-<ul>
-<li>在使用OpenGL前我们通常需要配置好OpenGL的环境 -
-创建一个提交命令的客户端，我们需要完成的事情包括如下部分(此处我们介绍关于Windows的操作)：
-<ul>
-<li>创建一个窗口(for windows)</li>
-<li>获取窗口的<code>Device Context</code></li>
-<li>使用<code>Device Context(HDC)</code>创建
-<code>OpenGL Render Contesxt(HRLRC)</code></li>
-<li>绑定<code>HDC &amp; HGLRC</code>到当前线程</li>
-</ul></li>
-<li>完成上述的设置之后，便可以调用<code>OpenGL</code>进行渲染</li>
-</ul>
-<h3 id="创建opengl可用的窗口---win">1、
-创建<code>OpenGL</code>可用的窗口 - <code>Win</code></h3>
-<h4 id="注册窗口类">1.1 注册窗口类</h4>
-<ul>
-<li><code>HINSTANCE</code>对象实例化</li>
-<li>填充<code>WNDCLASS</code>结构体</li>
-<li>注册窗口类</li>
-</ul>
-<h4 id="创建窗口">1.2 创建窗口</h4>
-<h4 id="设置像素格式">1.3 设置像素格式</h4>
-<p><font color=red>loading 待续</font></p>
 
       
     </div>
